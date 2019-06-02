@@ -77,3 +77,139 @@ $(document).ready(function() {
     typeWebName();
 
 });
+function setPreloadIMG(input, img) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            console.log(e.target.result);
+
+            $(img).attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function addMoreImage(elem) {
+    var moreInputElement =
+        '<span class="bg-dark d-flex align-items-center justify-content-center opacity-50-100 position-relative square-150x150 m-2"' +
+        'id="image-element-add">' +
+        '<img src="images/add_button.PNG" class="square-150x150 position-absolute" id="preload-img-add">' +
+        '<input type="file" name="imageList" class="square-150x150 position-absolute opacity-0" id="preload-inp-add"' +
+        'onchange="addMoreImage(this)">' +
+        '<span class="position-absolute text-danger invisible cursor-pointer font-weight-bold" style="top:0;right:5%" onclick="deleteImage(this)">X</span>'+
+        '</span>';
+    var spanElement;
+    if (elem != undefined) {
+        spanElement = $(elem).parent();
+        if ($(spanElement).hasClass("previewer")) {
+            setPreloadIMG(elem, $(spanElement).children("img"));
+        }
+        else {
+            setPreloadIMG(elem, $(spanElement).children("img"));
+            $('#image-element-add').after(moreInputElement);
+            $(spanElement).attr("id", "image-element-loaded")
+            $(spanElement).removeClass("opacity-50-100");
+            $(spanElement).addClass("previewer");
+            $(spanElement).children("span").removeClass("invisible");
+        }
+    }
+}
+
+function deleteImage(elem){
+    if(elem != undefined){
+        $(elem).parent().remove();
+    }
+}
+var star = [1, 1, 1, 1, 1];
+
+$('#oneStar').hover(() => {
+    setStarValue(1, 0, 0, 0, 0);
+}, () => {
+    setStarValue(star[0], star[1], star[2], star[3], star[4]);
+})
+$('#twoStar').hover(() => {
+    setStarValue(1, 1, 0, 0, 0);
+}, () => {
+    setStarValue(star[0], star[1], star[2], star[3], star[4]);
+})
+$('#threeStar').hover(() => {
+    setStarValue(1, 1, 1, 0, 0);
+}, () => {
+    setStarValue(star[0], star[1], star[2], star[3], star[4]);
+})
+$('#fourStar').hover(() => {
+    setStarValue(1, 1, 1, 1, 0);
+}, () => {
+    setStarValue(star[0], star[1], star[2], star[3], star[4]);
+})
+$('#fiveStar').hover(() => {
+    setStarValue(1, 1, 1, 1, 1);
+}, () => {
+    setStarValue(star[0], star[1], star[2], star[3], star[4]);
+})
+//ON CLICK set Value
+$('#oneStar').click(() => {
+    star[0] = 1;
+    star[1] = 0;
+    star[2] = 0;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 0, 0, 0, 0);
+    $('#star').val(1);
+})
+$('#twoStar').click(() => {
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 0;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 1, 0, 0, 0);
+    $('#star').val(2);
+})
+$('#threeStar').click(() => {
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 1, 1, 0, 0);
+    $('#star').val(3);
+})
+$('#fourStar').click(() => {
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 1;
+    star[4] = 0;
+    setStarValue(1, 1, 1, 1, 0);
+    $('#star').val(4);
+})
+$('#fiveStar').click(() => {
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 1;
+    star[4] = 1;
+    setStarValue(1, 1, 1, 1, 1);
+    $('#star').val(5);
+})
+function setStarValue(one, two, three, four, five) {
+    $('#oneStar').removeClass("text-warning");
+    $('#twoStar').removeClass("text-warning");
+    $('#threeStar').removeClass("text-warning");
+    $('#fourStar').removeClass("text-warning");
+    $('#fiveStar').removeClass("text-warning");
+
+    if (one == 1)
+        $('#oneStar').addClass("text-warning");
+    if (two == 1)
+        $('#twoStar').addClass("text-warning");
+    if (three == 1)
+        $('#threeStar').addClass("text-warning");
+    if (four == 1)
+        $('#fourStar').addClass("text-warning");
+    if (five == 1)
+        $('#fiveStar').addClass("text-warning");
+}

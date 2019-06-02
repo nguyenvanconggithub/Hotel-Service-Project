@@ -155,7 +155,15 @@
     .cursor-pointer {
         cursor: pointer;
     }
-    
+    .square-150x150 {
+        width: 150px !important;
+        height: 150px !important;
+        position: absolute;
+    }
+
+    .opacity-0 {
+        opacity: 0;
+    }
     footer {
         background-color: #f2f2f2;
         padding: 25px;
