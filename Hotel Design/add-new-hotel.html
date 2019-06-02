@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="CSS\style.css">
+</head>
+
+<body>
+    <!-- Start navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
+            <ul class='navbar-nav'>
+                <!-- 
+                    >>>>>Use this comment if system is not signed in<<<
+
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Chủ KS
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
+                        <a class="dropdown-item" href="manage-hotel-infomation.html">Quản lý thông tin khách sạn</a>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron container my-3 shadow">
+        <h1 class="display-4">Xin Chào, Chủ KS</h1>
+        <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
+            đã giúp website nâng cao dịch vụ và bạn sẽ sớm được sử dụng những dịch vụ tốt nhất !</p>
+        <hr class="my-4">
+        <p>Bạn không biết cách gửi? Hãy click nút bên dưới và điền vào mục góp ý. Chân thành cảm ơn !</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#lien-he-gop-y">Tôi muốn góp ý</a>
+        </p>
+    </div>
+    <div class="container">
+        <div class="font-weight-bold lead my-5 text-shadow-blur">Nhập thông tin cho khách sạn mới: </div>
+        <form method="GET">
+            <div class="row">
+                <div class="col"></div>
+            </div>
+            <input type="file" id="images" name="file-upload" accept="image/*" multiple="multiple">
+            <button class="btn btn-primary" id="send">Show-UP</button>
+            <div>use below</div>
+            <input type="file" id="myfiles" name="file-up" multiple="multiple" />
+            <div id="output"></div>
+        </form>
+
+        <img src="" width="100px" height="100px" id="imageShow">
+    </div>
+</body>
+<script>
+var pullfiles=function(){ 
+    // love the query selector
+    var fileInput = document.querySelector("#myfiles");
+    var files = fileInput.files;
+    // cache files.length 
+    var fl = files.length;
+    var i = 0;
+
+    while ( i < fl) {
+        // localize file var in the loop
+        var file = files[i];
+        i++;
+    }
+    
+}
+
+// set the input element onchange to call pullfiles
+document.querySelector("#myfiles").onchange=pullfiles;
+
+
+
+    var file = new Array();
+        $("#file2").change(function () {
+            var result = $(this)[0].files;
+            for (var x = 0; x < result.length; x++) {
+                file.push(result[x]);
+                
+                // here are the files
+                $("#output").append("<p>" + file.name + " (TYPE: " + file.type + ", SIZE: " + file.size + ")</p>");
+            }
+
+        });
+
+    $('#send').click(function () {
+
+        var files = $('#images')[0].files;
+        for (var i = 0; i < files.length; i++) {
+            console.log(files[i].name + '----' + files[i].size + '----' + files[i].mozFullPath);
+        }
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                console.log(e.target.result);
+
+                $('#imageShow').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#send").click(function () {
+        readURL($('#images')[0]);
+    });
+</script>
+
+</html>
