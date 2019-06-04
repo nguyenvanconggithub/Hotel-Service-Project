@@ -100,215 +100,154 @@
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A")))
 	    (object Association "$UNNAMED$15"
-		quid       	"5CE35C5C0042"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$16"
-			quid       	"5CE35C5D00F5"
-			supplier   	"Use Case View::Main UseCase::Provide Hotel Infomation"
-			quidu      	"5CE350C40203"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$17"
-			quid       	"5CE35C5D00F8"
-			supplier   	"Use Case View::Main UseCase::Hotel Manager"
-			quidu      	"5CE350B800FF")))
-	    (object Association "$UNNAMED$18"
-		quid       	"5CE35C61029F"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$19"
-			quid       	"5CE35C62033A"
-			supplier   	"Use Case View::Main UseCase::Update Hotel Infomation"
-			quidu      	"5CE357830137"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$20"
-			quid       	"5CE35C62033D"
-			supplier   	"Use Case View::Main UseCase::Hotel Manager"
-			quidu      	"5CE350B800FF")))
-	    (object Association "$UNNAMED$21"
-		quid       	"5CE35CCB0248"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$22"
-			quid       	"5CE35CCC01DB"
-			supplier   	"Use Case View::Main UseCase::Manage Rating"
-			quidu      	"5CE357B300F4"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$23"
-			quid       	"5CE35CCC01DE"
-			supplier   	"Use Case View::Main UseCase::Administrator"
-			quidu      	"5CE3590A0377")))
-	    (object Association "$UNNAMED$24"
-		quid       	"5CE35CCF00BB"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$25"
-			quid       	"5CE35CD000BD"
-			supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation"
-			quidu      	"5CE357170384"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$26"
-			quid       	"5CE35CD000C0"
-			supplier   	"Use Case View::Main UseCase::Moderator"
-			quidu      	"5CE3570500D4")))
-	    (object Association "$UNNAMED$27"
 		quid       	"5CE35CFA0072"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$28"
+		    (object Role "$UNNAMED$16"
 			quid       	"5CE35CFB0021"
 			supplier   	"Use Case View::Main UseCase::Manage Account"
 			quidu      	"5CE359250043"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$29"
+		    (object Role "$UNNAMED$17"
 			quid       	"5CE35CFB0023"
 			supplier   	"Use Case View::Main UseCase::Administrator"
 			quidu      	"5CE3590A0377")))
-	    (object Association "$UNNAMED$30"
+	    (object Association "$UNNAMED$18"
 		quid       	"5CE365CC00FC"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$31"
+		    (object Role "$UNNAMED$19"
 			quid       	"5CE365CD0024"
 			supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation"
 			quidu      	"5CE357170384"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$32"
+		    (object Role "$UNNAMED$20"
 			quid       	"5CE365CD0029"
 			supplier   	"Use Case View::Main UseCase::Hotel Manager"
 			quidu      	"5CE350B800FF")))
-	    (object Association "$UNNAMED$33"
+	    (object Association "$UNNAMED$21"
 		quid       	"5CE6531602CB"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$34"
+		    (object Role "$UNNAMED$22"
 			quid       	"5CE6531701D4"
 			supplier   	"Use Case View::Main UseCase::Analys Order"
 			quidu      	"5CE653000145"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$35"
+		    (object Role "$UNNAMED$23"
 			quid       	"5CE6531701D8"
 			supplier   	"Use Case View::Main UseCase::Administrator"
 			quidu      	"5CE3590A0377")))
-	    (object Association "$UNNAMED$36"
+	    (object Association "$UNNAMED$24"
 		quid       	"5CE6531A03DD"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$37"
+		    (object Role "$UNNAMED$25"
 			quid       	"5CE6531B0274"
 			supplier   	"Use Case View::Main UseCase::Analys Order"
 			quidu      	"5CE653000145"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$38"
+		    (object Role "$UNNAMED$26"
 			quid       	"5CE6531B0279"
 			supplier   	"Use Case View::Main UseCase::Administrator"
 			quidu      	"5CE3590A0377"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$39"
-		quid       	"5CE6532201AC"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$40"
-			quid       	"5CE6532300C4"
-			supplier   	"Use Case View::Main UseCase::Manage Rating"
-			quidu      	"5CE357B300F4"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$41"
-			quid       	"5CE6532300C9"
-			supplier   	"Use Case View::Main UseCase::Administrator"
-			quidu      	"5CE3590A0377"
-			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$42"
+	    (object Association "$UNNAMED$27"
 		quid       	"5CE65325039E"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$43"
+		    (object Role "$UNNAMED$28"
 			quid       	"5CE65326021D"
 			supplier   	"Use Case View::Main UseCase::Manage Account"
 			quidu      	"5CE359250043"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$44"
+		    (object Role "$UNNAMED$29"
 			quid       	"5CE653260222"
 			supplier   	"Use Case View::Main UseCase::Administrator"
 			quidu      	"5CE3590A0377"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$45"
+	    (object Association "$UNNAMED$30"
 		quid       	"5CE6532B03E7"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$46"
+		    (object Role "$UNNAMED$31"
 			quid       	"5CE6532C0394"
 			supplier   	"Use Case View::Main UseCase::Search Hotel"
 			quidu      	"5CE34D4500C3"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$47"
+		    (object Role "$UNNAMED$32"
 			quid       	"5CE6532C0399"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$48"
+	    (object Association "$UNNAMED$33"
 		quid       	"5CE653300195"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$49"
+		    (object Role "$UNNAMED$34"
 			quid       	"5CE65331011E"
 			supplier   	"Use Case View::Main UseCase::Manage Order"
 			quidu      	"5CE34D7002DD"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$50"
+		    (object Role "$UNNAMED$35"
 			quid       	"5CE653310123"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$51"
+	    (object Association "$UNNAMED$36"
 		quid       	"5CE6533E03B9"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$52"
+		    (object Role "$UNNAMED$37"
 			quid       	"5CE6533F03D5"
 			supplier   	"Use Case View::Main UseCase::Rate Hotel"
 			quidu      	"5CE34F5602C3"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$53"
+		    (object Role "$UNNAMED$38"
 			quid       	"5CE6533F03DB"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$54"
+	    (object Association "$UNNAMED$39"
 		quid       	"5CE653430224"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$55"
+		    (object Role "$UNNAMED$40"
 			quid       	"5CE6534402D6"
 			supplier   	"Use Case View::Main UseCase::Register"
 			quidu      	"5CE351CE03BF"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$56"
+		    (object Role "$UNNAMED$41"
 			quid       	"5CE6534402DB"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$57"
+	    (object Association "$UNNAMED$42"
 		quid       	"5CE6534903CA"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$58"
+		    (object Role "$UNNAMED$43"
 			quid       	"5CE6534A036C"
 			supplier   	"Use Case View::Main UseCase::Login"
 			quidu      	"5CE351D8008C"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$59"
+		    (object Role "$UNNAMED$44"
 			quid       	"5CE6534A0370"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$60"
+	    (object Association "$UNNAMED$45"
 		quid       	"5CE6534F00F6"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$61"
+		    (object Role "$UNNAMED$46"
 			quid       	"5CE65350017C"
 			supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation"
 			quidu      	"5CE357170384"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$62"
+		    (object Role "$UNNAMED$47"
 			quid       	"5CE653500184"
 			supplier   	"Use Case View::Main UseCase::Hotel Manager"
 			quidu      	"5CE350B800FF"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$63"
+	    (object Association "$UNNAMED$48"
 		quid       	"5CF5A3A701B0"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$64"
+		    (object Role "$UNNAMED$49"
 			quid       	"5CF5A3A90085"
 			supplier   	"Use Case View::Main UseCase::Order Hotel"
 			quidu      	"5CF5A3810293"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$65"
+		    (object Role "$UNNAMED$50"
 			quid       	"5CF5A3A90088"
 			supplier   	"Use Case View::Main UseCase::User"
 			quidu      	"5CE34D3C001A"
@@ -328,22 +267,9 @@
 				quid       	"5CE35C48003F"
 				supplier   	"Use Case View::Main UseCase::User"
 				quidu      	"5CE34D3C001A")))
-		    (object Class "Moderator"
-			quid       	"5CE3570500D4"
-			stereotype 	"Actor"
-			superclasses 	(list inheritance_relationship_list
-			    (object Inheritance_Relationship
-				quid       	"5CE35CDA0201"
-				supplier   	"Use Case View::Main UseCase::Hotel Manager"
-				quidu      	"5CE350B800FF")))
 		    (object Class "Administrator"
 			quid       	"5CE3590A0377"
-			stereotype 	"Actor"
-			superclasses 	(list inheritance_relationship_list
-			    (object Inheritance_Relationship
-				quid       	"5CE35CEB026C"
-				supplier   	"Use Case View::Main UseCase::Moderator"
-				quidu      	"5CE3570500D4")))
+			stereotype 	"Actor")
 		    (object UseCase "Search Hotel"
 			quid       	"5CE34D4500C3")
 		    (object UseCase "Manage Order"
@@ -354,20 +280,712 @@
 			quid       	"5CE351CE03BF")
 		    (object UseCase "Login"
 			quid       	"5CE351D8008C")
-		    (object UseCase "Provide Hotel Infomation"
-			quid       	"5CE350C40203")
-		    (object UseCase "Update Hotel Infomation"
-			quid       	"5CE357830137")
 		    (object UseCase "Manage Hotel Infomation"
 			quid       	"5CE357170384")
-		    (object UseCase "Manage Rating"
-			quid       	"5CE357B300F4")
 		    (object UseCase "Manage Account"
 			quid       	"5CE359250043")
 		    (object UseCase "Analys Order"
 			quid       	"5CE653000145")
 		    (object UseCase "Order Hotel"
-			quid       	"5CF5A3810293"))
+			quid       	"5CF5A3810293")
+		    (object Class_Category "Manage Order"
+			quid       	"5CF5D31E0017"
+			exportControl 	"Public"
+			logical_models 	(list unit_reference_list
+			    (object UseCase "Manage Order - User"
+				quid       	"5CF5D65D02AA")
+			    (object UseCase "Manage Order - Hotel Manager"
+				quid       	"5CF5DB130260")
+			    (object Association "$UNNAMED$51"
+				quid       	"5CF5DB92001D"
+				roles      	(list role_list
+				    (object Role "$UNNAMED$52"
+					quid       	"5CF5DB93001B"
+					supplier   	"Use Case View::Main UseCase::Manage Order::Manage Order - User"
+					quidu      	"5CF5D65D02AA"
+					is_navigable 	TRUE)
+				    (object Role "$UNNAMED$53"
+					quid       	"5CF5DB93001D"
+					supplier   	"Use Case View::Main UseCase::User"
+					quidu      	"5CE34D3C001A"
+					is_navigable 	TRUE)))
+			    (object Association "$UNNAMED$54"
+				quid       	"5CF5DB960306"
+				roles      	(list role_list
+				    (object Role "$UNNAMED$55"
+					quid       	"5CF5DB97027E"
+					supplier   	"Use Case View::Main UseCase::Manage Order::Manage Order - Hotel Manager"
+					quidu      	"5CF5DB130260"
+					is_navigable 	TRUE)
+				    (object Role "$UNNAMED$56"
+					quid       	"5CF5DB970280"
+					supplier   	"Use Case View::Main UseCase::Hotel Manager"
+					quidu      	"5CE350B800FF"
+					is_navigable 	TRUE))))
+			logical_presentations 	(list unit_reference_list
+			    (object UseCaseDiagram "Use Case Diagram"
+				quid       	"5CF5D34F02E5"
+				title      	"Use Case Diagram"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list
+				    (object ClassView "Class" "Use Case View::Main UseCase::User" @1
+					ShowCompartmentStereotypes 	TRUE
+					IncludeAttribute 	TRUE
+					IncludeOperation 	TRUE
+					location   	(789, 640)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@1
+					    location   	(789, 800)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	325
+					    justify    	0
+					    label      	"User")
+					icon       	"Actor"
+					icon_style 	"Icon"
+					line_color 	3342489
+					quidu      	"5CE34D3C001A"
+					annotation 	8
+					autoResize 	TRUE)
+				    (object UseCaseView "Use Case View::Main UseCase::Manage Order::Manage Order - User" @2
+					location   	(1412, 431)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@2
+					    location   	(1412, 569)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	630
+					    justify    	0
+					    label      	"Manage Order - User")
+					icon_style 	"Icon"
+					line_color 	3342489
+					fill_color 	13434879
+					quidu      	"5CF5D65D02AA")
+				    (object AssociationViewNew "$UNNAMED$51" @3
+					location   	(1074, 541)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"5CF5DB92001D"
+					roleview_list 	(list RoleViews
+					    (object RoleView "$UNNAMED$52" @4
+						Parent_View 	@3
+						location   	(285, -99)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5DB93001B"
+						client     	@3
+						supplier   	@2
+						vertices   	(list Points
+						    (1074, 541)
+						    (1302, 466))
+						line_style 	0)
+					    (object RoleView "$UNNAMED$53" @5
+						Parent_View 	@3
+						location   	(285, -99)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5DB93001D"
+						client     	@3
+						supplier   	@1
+						vertices   	(list Points
+						    (1074, 541)
+						    (846, 617))
+						line_style 	0)))
+				    (object ClassView "Class" "Use Case View::Main UseCase::Hotel Manager" @6
+					ShowCompartmentStereotypes 	TRUE
+					IncludeAttribute 	TRUE
+					IncludeOperation 	TRUE
+					location   	(795, 1134)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@6
+					    location   	(795, 1294)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	328
+					    justify    	0
+					    label      	"Hotel Manager")
+					icon       	"Actor"
+					icon_style 	"Icon"
+					line_color 	3342489
+					quidu      	"5CE350B800FF"
+					annotation 	8
+					autoResize 	TRUE)
+				    (object UseCaseView "Use Case View::Main UseCase::Manage Order::Manage Order - Hotel Manager" @7
+					location   	(1415, 1409)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@7
+					    location   	(1415, 1547)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	630
+					    justify    	0
+					    label      	"Manage Order - Hotel Manager")
+					icon_style 	"Icon"
+					line_color 	3342489
+					fill_color 	13434879
+					quidu      	"5CF5DB130260")
+				    (object AssociationViewNew "$UNNAMED$54" @8
+					location   	(1078, 1258)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"5CF5DB960306"
+					roleview_list 	(list RoleViews
+					    (object RoleView "$UNNAMED$55" @9
+						Parent_View 	@8
+						location   	(-1233, 427)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5DB97027E"
+						client     	@8
+						supplier   	@7
+						vertices   	(list Points
+						    (1078, 1258)
+						    (1305, 1360))
+						line_style 	0)
+					    (object RoleView "$UNNAMED$56" @10
+						Parent_View 	@8
+						location   	(-1233, 427)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5DB970280"
+						client     	@8
+						supplier   	@6
+						vertices   	(list Points
+						    (1078, 1258)
+						    (852, 1157))
+						line_style 	0)))))))
+		    (object Class_Category "Manage Hotel Infomation"
+			quid       	"5CF5D38801EA"
+			exportControl 	"Public"
+			logical_models 	(list unit_reference_list
+			    (object UseCase "Them Khach San"
+				quid       	"5CF5DCE903B0")
+			    (object UseCase "Xoa Khach San"
+				quid       	"5CF5E25C026A")
+			    (object UseCase "Quan Ly Phong"
+				quid       	"5CF5E26D0255")
+			    (object Association "$UNNAMED$57"
+				quid       	"5CF5E2B1038B"
+				roles      	(list role_list
+				    (object Role "$UNNAMED$58"
+					quid       	"5CF5E2B2027A"
+					supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Them Khach San"
+					quidu      	"5CF5DCE903B0"
+					is_navigable 	TRUE)
+				    (object Role "$UNNAMED$59"
+					quid       	"5CF5E2B2027C"
+					supplier   	"Use Case View::Main UseCase::Hotel Manager"
+					quidu      	"5CE350B800FF"
+					is_navigable 	TRUE)))
+			    (object Association "$UNNAMED$60"
+				quid       	"5CF5E2B5016B"
+				roles      	(list role_list
+				    (object Role "$UNNAMED$61"
+					quid       	"5CF5E2B503B7"
+					supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Xoa Khach San"
+					quidu      	"5CF5E25C026A"
+					is_navigable 	TRUE)
+				    (object Role "$UNNAMED$62"
+					quid       	"5CF5E2B503B9"
+					supplier   	"Use Case View::Main UseCase::Hotel Manager"
+					quidu      	"5CE350B800FF"
+					is_navigable 	TRUE)))
+			    (object Association "$UNNAMED$63"
+				quid       	"5CF5E2B8010D"
+				roles      	(list role_list
+				    (object Role "$UNNAMED$64"
+					quid       	"5CF5E2B90173"
+					supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong"
+					quidu      	"5CF5E26D0255"
+					is_navigable 	TRUE)
+				    (object Role "$UNNAMED$65"
+					quid       	"5CF5E2B90175"
+					supplier   	"Use Case View::Main UseCase::Hotel Manager"
+					quidu      	"5CE350B800FF"
+					is_navigable 	TRUE)))
+			    (object Class_Category "Quan Ly Phong"
+				quid       	"5CF5E2DE0280"
+				exportControl 	"Public"
+				logical_models 	(list unit_reference_list
+				    (object UseCase "Them Phong"
+					quid       	"5CF5E2E80128")
+				    (object UseCase "Xoa Phong"
+					quid       	"5CF5E2F20234")
+				    (object UseCase "Sua Phong"
+					quid       	"5CF5E2FE01E5")
+				    (object Association "$UNNAMED$66"
+					quid       	"5CF5E3B40324"
+					roles      	(list role_list
+					    (object Role "$UNNAMED$67"
+						quid       	"5CF5E3B5013F"
+						supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Them Phong"
+						quidu      	"5CF5E2E80128"
+						is_navigable 	TRUE)
+					    (object Role "$UNNAMED$68"
+						quid       	"5CF5E3B50141"
+						supplier   	"Use Case View::Main UseCase::Hotel Manager"
+						quidu      	"5CE350B800FF"
+						is_navigable 	TRUE)))
+				    (object Association "$UNNAMED$69"
+					quid       	"5CF5E3B70353"
+					roles      	(list role_list
+					    (object Role "$UNNAMED$70"
+						quid       	"5CF5E3B80196"
+						supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Sua Phong"
+						quidu      	"5CF5E2FE01E5"
+						is_navigable 	TRUE)
+					    (object Role "$UNNAMED$71"
+						quid       	"5CF5E3B80198"
+						supplier   	"Use Case View::Main UseCase::Hotel Manager"
+						quidu      	"5CE350B800FF"
+						is_navigable 	TRUE)))
+				    (object Association "$UNNAMED$72"
+					quid       	"5CF5E3BB0027"
+					roles      	(list role_list
+					    (object Role "$UNNAMED$73"
+						quid       	"5CF5E3BB0350"
+						supplier   	"Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Xoa Phong"
+						quidu      	"5CF5E2F20234"
+						is_navigable 	TRUE)
+					    (object Role "$UNNAMED$74"
+						quid       	"5CF5E3BB0352"
+						supplier   	"Use Case View::Main UseCase::Hotel Manager"
+						quidu      	"5CE350B800FF"
+						is_navigable 	TRUE))))
+				logical_presentations 	(list unit_reference_list
+				    (object UseCaseDiagram "Use Case Diagram"
+					quid       	"5CF5E32A00AD"
+					title      	"Use Case Diagram"
+					zoom       	100
+					max_height 	28350
+					max_width  	21600
+					origin_x   	0
+					origin_y   	138
+					items      	(list diagram_item_list
+					    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Them Phong" @11
+						location   	(1103, 606)
+						font       	(object Font
+						    size       	10
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@11
+						    location   	(1103, 744)
+						    anchor_loc 	1
+						    nlines     	2
+						    max_width  	630
+						    justify    	0
+						    label      	"Them Phong")
+						icon_style 	"Icon"
+						line_color 	3342489
+						fill_color 	13434879
+						quidu      	"5CF5E2E80128")
+					    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Sua Phong" @12
+						location   	(1106, 1038)
+						font       	(object Font
+						    size       	10
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@12
+						    location   	(1106, 1176)
+						    anchor_loc 	1
+						    nlines     	2
+						    max_width  	630
+						    justify    	0
+						    label      	"Sua Phong")
+						icon_style 	"Icon"
+						line_color 	3342489
+						fill_color 	13434879
+						quidu      	"5CF5E2FE01E5")
+					    (object ClassView "Class" "Use Case View::Main UseCase::Hotel Manager" @13
+						ShowCompartmentStereotypes 	TRUE
+						IncludeAttribute 	TRUE
+						IncludeOperation 	TRUE
+						location   	(536, 1034)
+						font       	(object Font
+						    size       	10
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@13
+						    location   	(536, 1194)
+						    anchor_loc 	1
+						    nlines     	2
+						    max_width  	343
+						    justify    	0
+						    label      	"Hotel Manager")
+						icon       	"Actor"
+						icon_style 	"Icon"
+						line_color 	3342489
+						quidu      	"5CE350B800FF"
+						annotation 	8
+						autoResize 	TRUE)
+					    (object AssociationViewNew "$UNNAMED$66" @14
+						location   	(789, 838)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E3B40324"
+						roleview_list 	(list RoleViews
+						    (object RoleView "$UNNAMED$67" @15
+							Parent_View 	@14
+							location   	(83, 0)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3B5013F"
+							client     	@14
+							supplier   	@11
+							vertices   	(list Points
+							    (789, 838)
+							    (986, 691))
+							line_style 	0)
+						    (object RoleView "$UNNAMED$68" @16
+							Parent_View 	@14
+							location   	(83, 0)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3B50141"
+							client     	@14
+							supplier   	@13
+							vertices   	(list Points
+							    (789, 838)
+							    (593, 986))
+							line_style 	0)))
+					    (object AssociationViewNew "$UNNAMED$69" @17
+						location   	(794, 1034)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E3B70353"
+						roleview_list 	(list RoleViews
+						    (object RoleView "$UNNAMED$70" @18
+							Parent_View 	@17
+							location   	(88, 196)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3B80196"
+							client     	@17
+							supplier   	@12
+							vertices   	(list Points
+							    (794, 1034)
+							    (996, 1034))
+							line_style 	0)
+						    (object RoleView "$UNNAMED$71" @19
+							Parent_View 	@17
+							location   	(88, 196)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3B80198"
+							client     	@17
+							supplier   	@13
+							vertices   	(list Points
+							    (794, 1034)
+							    (593, 1034))
+							line_style 	0)))
+					    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong::Xoa Phong" @20
+						location   	(1088, 1438)
+						font       	(object Font
+						    size       	10
+						    face       	"Arial"
+						    bold       	FALSE
+						    italics    	FALSE
+						    underline  	FALSE
+						    strike     	FALSE
+						    color      	0
+						    default_color 	TRUE)
+						label      	(object ItemLabel
+						    Parent_View 	@20
+						    location   	(1088, 1576)
+						    anchor_loc 	1
+						    nlines     	2
+						    max_width  	630
+						    justify    	0
+						    label      	"Xoa Phong")
+						icon_style 	"Icon"
+						line_color 	3342489
+						fill_color 	13434879
+						quidu      	"5CF5E2F20234")
+					    (object AssociationViewNew "$UNNAMED$72" @21
+						location   	(837, 1254)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E3BB0027"
+						roleview_list 	(list RoleViews
+						    (object RoleView "$UNNAMED$73" @22
+							Parent_View 	@21
+							location   	(131, 416)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3BB0350"
+							client     	@21
+							supplier   	@20
+							vertices   	(list Points
+							    (837, 1254)
+							    (1007, 1380))
+							line_style 	0)
+						    (object RoleView "$UNNAMED$74" @23
+							Parent_View 	@21
+							location   	(131, 416)
+							stereotype 	TRUE
+							line_color 	3342489
+							quidu      	"5CF5E3BB0352"
+							client     	@21
+							supplier   	@13
+							vertices   	(list Points
+							    (837, 1254)
+							    (667, 1129))
+							line_style 	0))))))))
+			logical_presentations 	(list unit_reference_list
+			    (object UseCaseDiagram "Use Case Diagram"
+				quid       	"5CF5D3F103DA"
+				title      	"Use Case Diagram"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list
+				    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Them Khach San" @24
+					location   	(1213, 622)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@24
+					    location   	(1213, 760)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	630
+					    justify    	0
+					    label      	"Them Khach San")
+					icon_style 	"Icon"
+					line_color 	3342489
+					fill_color 	13434879
+					quidu      	"5CF5DCE903B0")
+				    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Xoa Khach San" @25
+					location   	(1231, 1078)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@25
+					    location   	(1231, 1216)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	630
+					    justify    	0
+					    label      	"Xoa Khach San")
+					icon_style 	"Icon"
+					line_color 	3342489
+					fill_color 	13434879
+					quidu      	"5CF5E25C026A")
+				    (object ClassView "Class" "Use Case View::Main UseCase::Hotel Manager" @26
+					ShowCompartmentStereotypes 	TRUE
+					IncludeAttribute 	TRUE
+					IncludeOperation 	TRUE
+					location   	(586, 909)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@26
+					    location   	(586, 1069)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	335
+					    justify    	0
+					    label      	"Hotel Manager")
+					icon       	"Actor"
+					icon_style 	"Icon"
+					line_color 	3342489
+					quidu      	"5CE350B800FF"
+					annotation 	8
+					autoResize 	TRUE)
+				    (object AssociationViewNew "$UNNAMED$57" @27
+					location   	(849, 786)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"5CF5E2B1038B"
+					roleview_list 	(list RoleViews
+					    (object RoleView "$UNNAMED$58" @28
+						Parent_View 	@27
+						location   	(263, -123)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B2027A"
+						client     	@27
+						supplier   	@24
+						vertices   	(list Points
+						    (849, 786)
+						    (1056, 692))
+						line_style 	0)
+					    (object RoleView "$UNNAMED$59" @29
+						Parent_View 	@27
+						location   	(263, -123)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B2027C"
+						client     	@27
+						supplier   	@26
+						vertices   	(list Points
+						    (849, 786)
+						    (643, 880))
+						line_style 	0)))
+				    (object AssociationViewNew "$UNNAMED$60" @30
+					location   	(881, 984)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"5CF5E2B5016B"
+					roleview_list 	(list RoleViews
+					    (object RoleView "$UNNAMED$61" @31
+						Parent_View 	@30
+						location   	(295, 75)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B503B7"
+						client     	@30
+						supplier   	@25
+						vertices   	(list Points
+						    (881, 984)
+						    (1120, 1047))
+						line_style 	0)
+					    (object RoleView "$UNNAMED$62" @32
+						Parent_View 	@30
+						location   	(295, 75)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B503B9"
+						client     	@30
+						supplier   	@26
+						vertices   	(list Points
+						    (881, 984)
+						    (643, 922))
+						line_style 	0)))
+				    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation::Quan Ly Phong" @33
+					location   	(1237, 1484)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object ItemLabel
+					    Parent_View 	@33
+					    location   	(1237, 1622)
+					    anchor_loc 	1
+					    nlines     	2
+					    max_width  	630
+					    justify    	0
+					    label      	"Quan Ly Phong")
+					icon_style 	"Icon"
+					line_color 	3342489
+					fill_color 	13434879
+					quidu      	"5CF5E26D0255")
+				    (object AssociationViewNew "$UNNAMED$63" @34
+					location   	(944, 1224)
+					stereotype 	TRUE
+					line_color 	3342489
+					quidu      	"5CF5E2B8010D"
+					roleview_list 	(list RoleViews
+					    (object RoleView "$UNNAMED$64" @35
+						Parent_View 	@34
+						location   	(358, 315)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B90173"
+						client     	@34
+						supplier   	@33
+						vertices   	(list Points
+						    (944, 1224)
+						    (1171, 1426))
+						line_style 	0)
+					    (object RoleView "$UNNAMED$65" @36
+						Parent_View 	@34
+						location   	(358, 315)
+						stereotype 	TRUE
+						line_color 	3342489
+						quidu      	"5CF5E2B90175"
+						client     	@34
+						supplier   	@26
+						vertices   	(list Points
+						    (944, 1224)
+						    (717, 1023))
+						line_style 	0))))))))
 		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
@@ -376,10 +994,10 @@
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
-		origin_x   	631
-		origin_y   	563
+		origin_x   	0
+		origin_y   	88
 		items      	(list diagram_item_list
-		    (object UseCaseView "Use Case View::Main UseCase::Analys Order" @1
+		    (object UseCaseView "Use Case View::Main UseCase::Analys Order" @37
 			location   	(1372, 1121)
 			font       	(object Font
 			    size       	10
@@ -391,7 +1009,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@1
+			    Parent_View 	@37
 			    location   	(1372, 1259)
 			    anchor_loc 	1
 			    nlines     	2
@@ -402,7 +1020,7 @@
 			line_color 	3342489
 			fill_color 	13434879
 			quidu      	"5CE653000145")
-		    (object UseCaseView "Use Case View::Main UseCase::Manage Account" @2
+		    (object UseCaseView "Use Case View::Main UseCase::Manage Account" @38
 			location   	(1322, 384)
 			font       	(object Font
 			    size       	10
@@ -414,7 +1032,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@2
+			    Parent_View 	@38
 			    location   	(1322, 522)
 			    anchor_loc 	1
 			    nlines     	2
@@ -426,7 +1044,7 @@
 			fill_color 	13434879
 			quidu      	"5CE359250043"
 			height     	118)
-		    (object ClassView "Class" "Use Case View::Main UseCase::Administrator" @3
+		    (object ClassView "Class" "Use Case View::Main UseCase::Administrator" @39
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -441,7 +1059,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@3
+			    Parent_View 	@39
 			    location   	(718, 400)
 			    anchor_loc 	1
 			    nlines     	2
@@ -454,182 +1072,67 @@
 			quidu      	"5CE3590A0377"
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$36" @4
-			location   	(1098, 754)
+		    (object AssociationViewNew "$UNNAMED$24" @40
+			location   	(1065, 709)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE6531A03DD"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$37" @5
-				Parent_View 	@4
-				location   	(477, 476)
+			    (object RoleView "$UNNAMED$25" @41
+				Parent_View 	@40
+				location   	(444, 431)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6531B0274"
-				client     	@4
-				supplier   	@1
+				client     	@40
+				supplier   	@37
 				vertices   	(list Points
-				    (1098, 754)
+				    (1065, 709)
 				    (1327, 1062))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$38" @6
-				Parent_View 	@4
-				location   	(477, 476)
+			    (object RoleView "$UNNAMED$26" @42
+				Parent_View 	@40
+				location   	(444, 431)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6531B0279"
-				client     	@4
-				supplier   	@3
+				client     	@40
+				supplier   	@39
 				vertices   	(list Points
-				    (1098, 754)
-				    (870, 446))
+				    (1065, 709)
+				    (804, 356))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$42" @7
+		    (object AssociationViewNew "$UNNAMED$27" @43
 			location   	(993, 302)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE65325039E"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$43" @8
-				Parent_View 	@7
+			    (object RoleView "$UNNAMED$28" @44
+				Parent_View 	@43
 				location   	(372, 24)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE65326021D"
-				client     	@7
-				supplier   	@2
+				client     	@43
+				supplier   	@38
 				vertices   	(list Points
 				    (993, 302)
 				    (1212, 354))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$44" @9
-				Parent_View 	@7
+			    (object RoleView "$UNNAMED$29" @45
+				Parent_View 	@43
 				location   	(372, 24)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE653260222"
-				client     	@7
-				supplier   	@3
+				client     	@43
+				supplier   	@39
 				vertices   	(list Points
 				    (993, 302)
 				    (775, 251))
 				line_style 	0)))
-		    (object UseCaseView "Use Case View::Main UseCase::Search Hotel" @10
-			location   	(1680, 131)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@10
-			    location   	(1680, 269)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Search Hotel")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CE34D4500C3")
-		    (object UseCaseView "Use Case View::Main UseCase::Manage Order" @11
-			location   	(1666, 428)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@11
-			    location   	(1666, 566)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Manage Order")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CE34D7002DD")
-		    (object UseCaseView "Use Case View::Main UseCase::Rate Hotel" @12
-			location   	(1830, 868)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@12
-			    location   	(1830, 1006)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Rate Hotel")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CE34F5602C3")
-		    (object UseCaseView "Use Case View::Main UseCase::Register" @13
-			location   	(2116, 1003)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@13
-			    location   	(2116, 1141)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Register")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CE351CE03BF")
-		    (object UseCaseView "Use Case View::Main UseCase::Login" @14
-			location   	(2408, 1065)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@14
-			    location   	(2408, 1203)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Login")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CE351D8008C")
-		    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation" @15
+		    (object UseCaseView "Use Case View::Main UseCase::Manage Hotel Infomation" @46
 			location   	(1847, 1253)
 			font       	(object Font
 			    size       	10
@@ -641,7 +1144,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@15
+			    Parent_View 	@46
 			    location   	(1847, 1391)
 			    anchor_loc 	1
 			    nlines     	2
@@ -652,7 +1155,7 @@
 			line_color 	3342489
 			fill_color 	13434879
 			quidu      	"5CE357170384")
-		    (object ClassView "Class" "Use Case View::Main UseCase::Hotel Manager" @16
+		    (object ClassView "Class" "Use Case View::Main UseCase::Hotel Manager" @47
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -667,7 +1170,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@16
+			    Parent_View 	@47
 			    location   	(2672, 1491)
 			    anchor_loc 	1
 			    nlines     	2
@@ -680,37 +1183,175 @@
 			quidu      	"5CE350B800FF"
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$60" @17
+		    (object AssociationViewNew "$UNNAMED$45" @48
 			location   	(2283, 1292)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE6534F00F6"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$61" @18
-				Parent_View 	@17
+			    (object RoleView "$UNNAMED$46" @49
+				Parent_View 	@48
 				location   	(-389, -39)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE65350017C"
-				client     	@17
-				supplier   	@15
+				client     	@48
+				supplier   	@46
 				vertices   	(list Points
 				    (2283, 1292)
 				    (1955, 1262))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$62" @19
-				Parent_View 	@17
+			    (object RoleView "$UNNAMED$47" @50
+				Parent_View 	@48
 				location   	(-389, -39)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE653500184"
-				client     	@17
-				supplier   	@16
+				client     	@48
+				supplier   	@47
 				vertices   	(list Points
 				    (2283, 1292)
 				    (2611, 1323))
 				line_style 	0)))
-		    (object ClassView "Class" "Use Case View::Main UseCase::User" @20
+		    (object UseCaseView "Use Case View::Main UseCase::Search Hotel" @51
+			location   	(1680, 131)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@51
+			    location   	(1680, 269)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Search Hotel")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CE34D4500C3")
+		    (object UseCaseView "Use Case View::Main UseCase::Manage Order" @52
+			location   	(1666, 428)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@52
+			    location   	(1666, 566)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Manage Order")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CE34D7002DD")
+		    (object UseCaseView "Use Case View::Main UseCase::Rate Hotel" @53
+			location   	(1830, 868)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@53
+			    location   	(1830, 1006)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Rate Hotel")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CE34F5602C3")
+		    (object UseCaseView "Use Case View::Main UseCase::Register" @54
+			location   	(2116, 1003)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@54
+			    location   	(2116, 1141)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Register")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CE351CE03BF")
+		    (object UseCaseView "Use Case View::Main UseCase::Login" @55
+			location   	(2408, 1065)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@55
+			    location   	(2408, 1203)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Login")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CE351D8008C")
+		    (object UseCaseView "Use Case View::Main UseCase::Order Hotel" @56
+			location   	(1547, 781)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@56
+			    location   	(1547, 919)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	630
+			    justify    	0
+			    label      	"Order Hotel")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5CF5A3810293")
+		    (object ClassView "Class" "Use Case View::Main UseCase::User" @57
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -725,7 +1366,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@20
+			    Parent_View 	@57
 			    location   	(2658, 322)
 			    anchor_loc 	1
 			    nlines     	2
@@ -738,215 +1379,192 @@
 			quidu      	"5CE34D3C001A"
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$45" @21
+		    (object AssociationViewNew "$UNNAMED$30" @58
 			location   	(2193, 144)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE6532B03E7"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$46" @22
-				Parent_View 	@21
+			    (object RoleView "$UNNAMED$31" @59
+				Parent_View 	@58
 				location   	(-465, -18)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6532C0394"
-				client     	@21
-				supplier   	@10
+				client     	@58
+				supplier   	@51
 				vertices   	(list Points
 				    (2193, 144)
 				    (1788, 132))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$47" @23
-				Parent_View 	@21
+			    (object RoleView "$UNNAMED$32" @60
+				Parent_View 	@58
 				location   	(-465, -18)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6532C0399"
-				client     	@21
-				supplier   	@20
+				client     	@58
+				supplier   	@57
 				vertices   	(list Points
 				    (2193, 144)
 				    (2599, 157))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$48" @24
+		    (object AssociationViewNew "$UNNAMED$33" @61
 			location   	(2186, 285)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE653300195"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$49" @25
-				Parent_View 	@24
+			    (object RoleView "$UNNAMED$34" @62
+				Parent_View 	@61
 				location   	(-472, 123)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE65331011E"
-				client     	@24
-				supplier   	@11
+				client     	@61
+				supplier   	@52
 				vertices   	(list Points
 				    (2186, 285)
 				    (1774, 396))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$50" @26
-				Parent_View 	@24
+			    (object RoleView "$UNNAMED$35" @63
+				Parent_View 	@61
 				location   	(-472, 123)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE653310123"
-				client     	@24
-				supplier   	@20
+				client     	@61
+				supplier   	@57
 				vertices   	(list Points
 				    (2186, 285)
 				    (2599, 175))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$51" @27
+		    (object AssociationViewNew "$UNNAMED$36" @64
 			location   	(2245, 509)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE6533E03B9"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$52" @28
-				Parent_View 	@27
+			    (object RoleView "$UNNAMED$37" @65
+				Parent_View 	@64
 				location   	(-413, 347)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6533F03D5"
-				client     	@27
-				supplier   	@12
+				client     	@64
+				supplier   	@53
 				vertices   	(list Points
 				    (2245, 509)
 				    (1893, 810))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$53" @29
-				Parent_View 	@27
+			    (object RoleView "$UNNAMED$38" @66
+				Parent_View 	@64
 				location   	(-413, 347)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6533F03DB"
-				client     	@27
-				supplier   	@20
+				client     	@64
+				supplier   	@57
 				vertices   	(list Points
 				    (2245, 509)
 				    (2597, 209))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$54" @30
+		    (object AssociationViewNew "$UNNAMED$39" @67
 			location   	(2359, 622)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE653430224"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$55" @31
-				Parent_View 	@30
+			    (object RoleView "$UNNAMED$40" @68
+				Parent_View 	@67
 				location   	(-299, 460)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6534402D6"
-				client     	@30
-				supplier   	@13
+				client     	@67
+				supplier   	@54
 				vertices   	(list Points
 				    (2359, 622)
 				    (2148, 945))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$56" @32
-				Parent_View 	@30
+			    (object RoleView "$UNNAMED$41" @69
+				Parent_View 	@67
 				location   	(-299, 460)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6534402DB"
-				client     	@30
-				supplier   	@20
+				client     	@67
+				supplier   	@57
 				vertices   	(list Points
 				    (2359, 622)
 				    (2571, 299))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$57" @33
+		    (object AssociationViewNew "$UNNAMED$42" @70
 			location   	(2512, 677)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE6534903CA"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$58" @34
-				Parent_View 	@33
+			    (object RoleView "$UNNAMED$43" @71
+				Parent_View 	@70
 				location   	(-146, 515)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6534A036C"
-				client     	@33
-				supplier   	@14
+				client     	@70
+				supplier   	@55
 				vertices   	(list Points
 				    (2512, 677)
 				    (2420, 1007))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$59" @35
-				Parent_View 	@33
+			    (object RoleView "$UNNAMED$44" @72
+				Parent_View 	@70
 				location   	(-146, 515)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CE6534A0370"
-				client     	@33
-				supplier   	@20
+				client     	@70
+				supplier   	@57
 				vertices   	(list Points
 				    (2512, 677)
 				    (2604, 347))
 				line_style 	0)))
-		    (object InheritView "" @36
+		    (object InheritView "" @73
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CE35C48003F"
-			client     	@16
-			supplier   	@20
+			client     	@47
+			supplier   	@57
 			vertices   	(list Points
 			    (2668, 1250)
 			    (2658, 347))
 			line_style 	0)
-		    (object UseCaseView "Use Case View::Main UseCase::Order Hotel" @37
-			location   	(1547, 781)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@37
-			    location   	(1547, 919)
-			    anchor_loc 	1
-			    nlines     	2
-			    max_width  	630
-			    justify    	0
-			    label      	"Order Hotel")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5CF5A3810293")
-		    (object AssociationViewNew "$UNNAMED$63" @38
+		    (object AssociationViewNew "$UNNAMED$48" @74
 			location   	(2121, 456)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CF5A3A701B0"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$64" @39
-				Parent_View 	@38
+			    (object RoleView "$UNNAMED$49" @75
+				Parent_View 	@74
 				location   	(-537, 294)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF5A3A90085"
-				client     	@38
-				supplier   	@37
+				client     	@74
+				supplier   	@56
 				vertices   	(list Points
 				    (2121, 456)
 				    (1644, 722))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$65" @40
-				Parent_View 	@38
+			    (object RoleView "$UNNAMED$50" @76
+				Parent_View 	@74
 				location   	(-537, 294)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF5A3A90088"
-				client     	@38
-				supplier   	@20
+				client     	@74
+				supplier   	@57
 				vertices   	(list Points
 				    (2121, 456)
 				    (2599, 190))
@@ -957,7 +1575,219 @@
 	global     	TRUE
 	subsystem  	"Component View"
 	quidu      	"5CE342FC0031"
-	logical_models 	(list unit_reference_list)
+	logical_models 	(list unit_reference_list
+	    (object Class_Category "MoHinhPhanTich"
+		quid       	"5CF5BE9403B8"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "AnalysOrderUI"
+			quid       	"5CF5C04402AD"
+			stereotype 	"boundary")
+		    (object Class "AnalysOrderController"
+			quid       	"5CF5C1A101A9"
+			stereotype 	"control")
+		    (object Class "LoginUI"
+			quid       	"5CF5C2A20293"
+			stereotype 	"boundary")
+		    (object Class "ManageAccountUI"
+			quid       	"5CF5C33E01E5"
+			stereotype 	"boundary")
+		    (object Class "ManageHotelInfomationUI"
+			quid       	"5CF5C350027C"
+			stereotype 	"boundary")
+		    (object Class "ManageOrderUI"
+			quid       	"5CF5C49C036A"
+			stereotype 	"boundary")
+		    (object Class "OrderHotelUI"
+			quid       	"5CF5C4A70192"
+			stereotype 	"boundary")
+		    (object Class "RateHotelUI"
+			quid       	"5CF5C55100D2"
+			stereotype 	"boundary")
+		    (object Class "RegisterUI"
+			quid       	"5CF5C57B02E3"
+			stereotype 	"boundary")
+		    (object Class "SearchHotelUI"
+			quid       	"5CF5C5D901C3"
+			stereotype 	"boundary")
+		    (object Class "LoginController"
+			quid       	"5CF5C66903BF"
+			stereotype 	"control")
+		    (object Class "ManageAccountController"
+			quid       	"5CF5C7130087"
+			stereotype 	"control")
+		    (object Class "ManageHotelInfomationController"
+			quid       	"5CF5C7600398"
+			stereotype 	"control")
+		    (object Class "ManageOrderController"
+			quid       	"5CF5C7CA003E"
+			stereotype 	"control")
+		    (object Class "OrderHotelController"
+			quid       	"5CF5C7F50198"
+			stereotype 	"control")
+		    (object Class "RateHotelController"
+			quid       	"5CF5C8400371"
+			stereotype 	"control")
+		    (object Class "RegisterController"
+			quid       	"5CF5C84F02D6"
+			stereotype 	"control")
+		    (object Class "SearchController"
+			quid       	"5CF5C8EB038E"
+			stereotype 	"control")
+		    (object UseCase "AnalysOrder"
+			quid       	"5CF5CE1A010B"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @77
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@77
+				quid       	"5CF5CE4E002A"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "Login"
+			quid       	"5CF5CE8F0209"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @78
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@78
+				quid       	"5CF5CED6001F"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "ManageAccount"
+			quid       	"5CF5CF130125"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @79
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@79
+				quid       	"5CF5CF380255"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "ManageHotelInfomation"
+			quid       	"5CF5CF4B02F0"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @80
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@80
+				quid       	"5CF5CF63005A"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "ManageOrder"
+			quid       	"5CF5CF750295"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @81
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@81
+				quid       	"5CF5D1BD0057"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "OrderHotel"
+			quid       	"5CF5D1E103C6"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @82
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@82
+				quid       	"5CF5D1F6025C"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "RateHotel"
+			quid       	"5CF5D1FF0358"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @83
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@83
+				quid       	"5CF5D2080257"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "Register"
+			quid       	"5CF5D22A024F"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @84
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@84
+				quid       	"5CF5D25A002F"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list))))
+		    (object UseCase "SearchHotel"
+			quid       	"5CF5D26000DB"
+			stereotype 	"use-case realization"
+			logical_models 	(list unit_reference_list
+			    (object Mechanism @85
+				logical_models 	(list unit_reference_list)))
+			logical_presentations 	(list unit_reference_list
+			    (object InteractionDiagram "Basic Flow"
+				mechanism_ref 	@85
+				quid       	"5CF5D26A02AE"
+				title      	"Basic Flow"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list)))))
+		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
 		quid       	"5CE342FC018A"
