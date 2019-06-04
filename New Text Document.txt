@@ -14,3 +14,5 @@
 
 GitHub DESKTOP
 https://drive.google.com/drive/folders/1QPNP_aJnqSTxjuSpVfwTGBcyc1Cdpkyu?usp=sharing
+
+column row table padding margin font color nav-bar icon(html icon) pagination buttons
