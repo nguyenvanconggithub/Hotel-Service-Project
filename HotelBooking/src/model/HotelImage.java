@@ -1,12 +1,14 @@
 package model;
 
+import java.util.List;
+
 public class HotelImage {
 	private int idHotelImage;
-	private String linkImage;
+	private List linkImage;
 	private Hotel hotel;
 	public HotelImage() {
 	}
-	public HotelImage(int idHotelImage, String linkImage, Hotel hotel) {
+	public HotelImage(int idHotelImage, List linkImage, Hotel hotel) {
 		this.idHotelImage = idHotelImage;
 		this.linkImage = linkImage;
 		this.hotel = hotel;
@@ -17,10 +19,10 @@ public class HotelImage {
 	public void setIdHotelImage(int idHotelImage) {
 		this.idHotelImage = idHotelImage;
 	}
-	public String getLinkImage() {
+	public List getLinkImage() {
 		return linkImage;
 	}
-	public void setLinkImage(String linkImage) {
+	public void setLinkImage(List linkImage) {
 		this.linkImage = linkImage;
 	}
 	public Hotel getHotel() {
