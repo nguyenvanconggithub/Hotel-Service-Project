@@ -3353,6 +3353,51 @@
 							sequence   	"3"
 							ordinal    	2
 							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "get hotel infomation ()"
+							quid       	"5CF92B1F03AC"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"20"
+							ordinal    	19
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "return hotel infomation ()"
+							quid       	"5CF92B6C0333"
+							frequency  	"Aperiodic"
+							synchronization 	"Return"
+							dir        	"ToClientFromSupplier"
+							sequence   	"21"
+							ordinal    	20
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "retrun detailBookingRoom()"
+							quid       	"5CF92C340319"
+							frequency  	"Aperiodic"
+							synchronization 	"Return"
+							dir        	"ToClientFromSupplier"
+							sequence   	"22"
+							ordinal    	21
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "send roomID cancel()"
+							quid       	"5CF92D1B0086"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"26"
+							ordinal    	25
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "return detaiBookingRoom()"
+							quid       	"5CF92DB703CC"
+							frequency  	"Aperiodic"
+							synchronization 	"Return"
+							dir        	"ToClientFromSupplier"
+							sequence   	"30"
+							ordinal    	29
+							quidu      	"000000000000"
 							creation   	FALSE)))
 					    (object Link
 						quid       	"5CF815DC0277"
@@ -3375,6 +3420,33 @@
 							dir        	"FromClientToSupplier"
 							sequence   	"18"
 							ordinal    	17
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "check status()"
+							quid       	"5CF92BDD00E7"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"23"
+							ordinal    	22
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "dislay order ditail screen"
+							quid       	"5CF92BF6024F"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"24"
+							ordinal    	23
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "dislay manager order screen()"
+							quid       	"5CF92DEC01A5"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"31"
+							ordinal    	30
 							quidu      	"000000000000"
 							creation   	FALSE)))
 					    (object Link
@@ -3439,6 +3511,20 @@
 							sequence   	"9"
 							ordinal    	8
 							quidu      	"000000000000"
+							creation   	FALSE)))
+					    (object Link
+						quid       	"5CF92DD70387"
+						supplier   	"$UNNAMED$92"
+						quidu      	"5CF6B5310337"
+						messages   	(list Messages
+						    (object Message "check status()"
+							quid       	"5CF92DD70388"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"29"
+							ordinal    	28
+							quidu      	"000000000000"
 							creation   	FALSE))))
 					class      	"Logical View::MoHinhPhanTich::ManageOrderController"
 					quidu      	"5CF5C7CA003E"
@@ -3460,6 +3546,24 @@
 							dir        	"FromClientToSupplier"
 							sequence   	"1"
 							ordinal    	0
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "click id hotel"
+							quid       	"5CF92AD803C5"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"19"
+							ordinal    	18
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "click cancel room"
+							quid       	"5CF92C7C0070"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"FromClientToSupplier"
+							sequence   	"25"
+							ordinal    	24
 							quidu      	"000000000000"
 							creation   	FALSE))))
 					class      	"Use Case View::Main UseCase::Hotel Manager"
@@ -3564,6 +3668,24 @@
 							sequence   	"12"
 							ordinal    	11
 							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "set status()"
+							quid       	"5CF92D41000E"
+							frequency  	"Aperiodic"
+							synchronization 	"Simple"
+							dir        	"ToClientFromSupplier"
+							sequence   	"27"
+							ordinal    	26
+							quidu      	"000000000000"
+							creation   	FALSE)
+						    (object Message "retrun status()"
+							quid       	"5CF92D660005"
+							frequency  	"Aperiodic"
+							synchronization 	"Return"
+							dir        	"FromClientToSupplier"
+							sequence   	"28"
+							ordinal    	27
+							quidu      	"000000000000"
 							creation   	FALSE))))
 					class      	"Logical View::MoHinhPhanTich::DetailBookingRoom"
 					quidu      	"5CF672250113"
@@ -3653,7 +3775,7 @@
 					fill_color 	13434879
 					quidu      	"5CF7E8550342"
 					width      	120
-					height     	3017
+					height     	5150
 					icon_height 	162
 					icon_width 	120
 					icon_y_offset 	0
@@ -3664,8 +3786,22 @@
 					    InterObjView 	@146
 					    height     	90
 					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @148
+					    location   	(225, 3202)
+					    line_color 	3342489
+					    InterObjView 	@146
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @149
+					    location   	(225, 4212)
+					    line_color 	3342489
+					    InterObjView 	@146
+					    height     	90
+					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$91" @148
+				    (object InterObjView "$UNNAMED$91" @150
 					location   	(755, 225)
 					font       	(object Font
 					    size       	10
@@ -3677,7 +3813,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@148
+					    Parent_View 	@150
 					    location   	(755, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -3690,68 +3826,159 @@
 					fill_color 	13434879
 					quidu      	"5CF6B52F01EE"
 					width      	229
-					height     	3023
+					height     	5156
 					icon_height 	153
 					icon_width 	229
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @149
+					Focus_Of_Control 	(object Focus_Of_Control "" @151
 					    location   	(755, 370)
 					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @150
+					Focus_Of_Control 	(object Focus_Of_Control "" @152
 					    location   	(755, 531)
 					    line_color 	3342489
-					    InterObjView 	@148
-					    height     	90
-					    y_coord    	0
-					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @151
-					    location   	(755, 556)
-					    line_color 	3342489
-					    InterObjView 	@148
-					    height     	90
-					    y_coord    	0
-					    Nested     	TRUE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @152
-					    location   	(755, 694)
-					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
 					Focus_Of_Control 	(object Focus_Of_Control "" @153
-					    location   	(755, 2683)
+					    location   	(755, 556)
 					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
-					    Nested     	FALSE)
+					    Nested     	TRUE)
 					Focus_Of_Control 	(object Focus_Of_Control "" @154
-					    location   	(755, 2857)
+					    location   	(755, 694)
 					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
 					Focus_Of_Control 	(object Focus_Of_Control "" @155
-					    location   	(755, 3043)
+					    location   	(755, 2683)
 					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
 					Focus_Of_Control 	(object Focus_Of_Control "" @156
+					    location   	(755, 2857)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @157
+					    location   	(755, 3043)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @158
 					    location   	(755, 3068)
 					    line_color 	3342489
-					    InterObjView 	@148
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	TRUE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @159
+					    location   	(755, 3202)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @160
+					    location   	(755, 3339)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @161
+					    location   	(755, 3507)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @162
+					    location   	(755, 3686)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @163
+					    location   	(755, 3909)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @164
+					    location   	(755, 3934)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	TRUE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @165
+					    location   	(755, 4054)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @166
+					    location   	(755, 4079)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	TRUE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @167
+					    location   	(755, 4212)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @168
+					    location   	(755, 4350)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @169
+					    location   	(755, 5013)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @170
+					    location   	(755, 5176)
+					    line_color 	3342489
+					    InterObjView 	@150
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @171
+					    location   	(755, 5201)
+					    line_color 	3342489
+					    InterObjView 	@150
 					    height     	90
 					    y_coord    	0
 					    Nested     	TRUE))
-				    (object InterObjView "$UNNAMED$92" @157
+				    (object InterObjView "$UNNAMED$92" @172
 					location   	(1359, 229)
 					font       	(object Font
 					    size       	10
@@ -3763,7 +3990,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@157
+					    Parent_View 	@172
 					    location   	(1359, 254)
 					    anchor_loc 	1
 					    nlines     	2
@@ -3776,82 +4003,145 @@
 					fill_color 	13434879
 					quidu      	"5CF6B5310337"
 					width      	157
-					height     	3019
+					height     	5152
 					icon_height 	164
 					icon_width 	157
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @158
+					Focus_Of_Control 	(object Focus_Of_Control "" @173
 					    location   	(1359, 694)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @159
+					Focus_Of_Control 	(object Focus_Of_Control "" @174
 					    location   	(1359, 828)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @160
+					Focus_Of_Control 	(object Focus_Of_Control "" @175
 					    location   	(1359, 1400)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @161
+					Focus_Of_Control 	(object Focus_Of_Control "" @176
 					    location   	(1359, 1553)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @162
+					Focus_Of_Control 	(object Focus_Of_Control "" @177
 					    location   	(1359, 1761)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @163
+					Focus_Of_Control 	(object Focus_Of_Control "" @178
 					    location   	(1359, 1893)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @164
+					Focus_Of_Control 	(object Focus_Of_Control "" @179
 					    location   	(1359, 2024)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @165
+					Focus_Of_Control 	(object Focus_Of_Control "" @180
 					    location   	(1359, 2186)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @166
+					Focus_Of_Control 	(object Focus_Of_Control "" @181
 					    location   	(1359, 2323)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @167
+					Focus_Of_Control 	(object Focus_Of_Control "" @182
 					    location   	(1359, 2484)
 					    line_color 	3342489
-					    InterObjView 	@157
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @183
+					    location   	(1359, 3339)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @184
+					    location   	(1359, 3507)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @185
+					    location   	(1359, 3686)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @186
+					    location   	(1359, 4350)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @187
+					    location   	(1359, 4497)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @188
+					    location   	(1359, 4657)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @189
+					    location   	(1359, 4845)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @190
+					    location   	(1359, 4870)
+					    line_color 	3342489
+					    InterObjView 	@172
+					    height     	90
+					    y_coord    	0
+					    Nested     	TRUE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @191
+					    location   	(1359, 5013)
+					    line_color 	3342489
+					    InterObjView 	@172
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$94" @168
+				    (object InterObjView "$UNNAMED$94" @192
 					location   	(1825, 225)
 					font       	(object Font
 					    size       	10
@@ -3863,11 +4153,11 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@168
+					    Parent_View 	@192
 					    location   	(1825, 251)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	426
+					    max_width  	462
 					    justify    	0
 					    label      	"")
 					icon       	"entity"
@@ -3875,41 +4165,41 @@
 					line_color 	3342489
 					fill_color 	13434879
 					quidu      	"5CF8165E0093"
-					width      	300
-					height     	3023
-					icon_height 	141
-					icon_width 	142
+					width      	154
+					height     	5156
+					icon_height 	153
+					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @169
+					Focus_Of_Control 	(object Focus_Of_Control "" @193
 					    location   	(1825, 828)
 					    line_color 	3342489
-					    InterObjView 	@168
+					    InterObjView 	@192
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @170
+					Focus_Of_Control 	(object Focus_Of_Control "" @194
 					    location   	(1825, 969)
 					    line_color 	3342489
-					    InterObjView 	@168
+					    InterObjView 	@192
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @171
+					Focus_Of_Control 	(object Focus_Of_Control "" @195
 					    location   	(1825, 1400)
 					    line_color 	3342489
-					    InterObjView 	@168
+					    InterObjView 	@192
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @172
+					Focus_Of_Control 	(object Focus_Of_Control "" @196
 					    location   	(1825, 1553)
 					    line_color 	3342489
-					    InterObjView 	@168
+					    InterObjView 	@192
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$96" @173
+				    (object InterObjView "$UNNAMED$96" @197
 					location   	(2213, 225)
 					font       	(object Font
 					    size       	10
@@ -3921,11 +4211,11 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@173
+					    Parent_View 	@197
 					    location   	(2213, 251)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	426
+					    max_width  	462
 					    justify    	0
 					    label      	"")
 					icon       	"entity"
@@ -3933,34 +4223,34 @@
 					line_color 	3342489
 					fill_color 	13434879
 					quidu      	"5CF816ED004B"
-					width      	300
-					height     	3023
-					icon_height 	141
-					icon_width 	142
+					width      	154
+					height     	5156
+					icon_height 	153
+					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @174
+					Focus_Of_Control 	(object Focus_Of_Control "" @198
 					    location   	(2213, 969)
 					    line_color 	3342489
-					    InterObjView 	@173
+					    InterObjView 	@197
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @175
+					Focus_Of_Control 	(object Focus_Of_Control "" @199
 					    location   	(2213, 1119)
 					    line_color 	3342489
-					    InterObjView 	@173
+					    InterObjView 	@197
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @176
+					Focus_Of_Control 	(object Focus_Of_Control "" @200
 					    location   	(2213, 1761)
 					    line_color 	3342489
-					    InterObjView 	@173
+					    InterObjView 	@197
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$97" @177
+				    (object InterObjView "$UNNAMED$97" @201
 					location   	(2573, 225)
 					font       	(object Font
 					    size       	10
@@ -3972,11 +4262,11 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@177
+					    Parent_View 	@201
 					    location   	(2573, 251)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	426
+					    max_width  	462
 					    justify    	0
 					    label      	"")
 					icon       	"entity"
@@ -3984,41 +4274,55 @@
 					line_color 	3342489
 					fill_color 	13434879
 					quidu      	"5CF817170395"
-					width      	300
-					height     	3023
-					icon_height 	141
-					icon_width 	142
+					width      	154
+					height     	5156
+					icon_height 	153
+					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @178
+					Focus_Of_Control 	(object Focus_Of_Control "" @202
 					    location   	(2573, 1119)
 					    line_color 	3342489
-					    InterObjView 	@177
+					    InterObjView 	@201
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @179
+					Focus_Of_Control 	(object Focus_Of_Control "" @203
 					    location   	(2573, 1256)
 					    line_color 	3342489
-					    InterObjView 	@177
+					    InterObjView 	@201
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @180
+					Focus_Of_Control 	(object Focus_Of_Control "" @204
 					    location   	(2573, 1893)
 					    line_color 	3342489
-					    InterObjView 	@177
+					    InterObjView 	@201
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @181
+					Focus_Of_Control 	(object Focus_Of_Control "" @205
 					    location   	(2573, 2024)
 					    line_color 	3342489
-					    InterObjView 	@177
+					    InterObjView 	@201
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @206
+					    location   	(2573, 4497)
+					    line_color 	3342489
+					    InterObjView 	@201
+					    height     	90
+					    y_coord    	0
+					    Nested     	FALSE)
+					Focus_Of_Control 	(object Focus_Of_Control "" @207
+					    location   	(2573, 4657)
+					    line_color 	3342489
+					    InterObjView 	@201
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$98" @182
+				    (object InterObjView "$UNNAMED$98" @208
 					location   	(2933, 225)
 					font       	(object Font
 					    size       	10
@@ -4030,11 +4334,11 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@182
+					    Parent_View 	@208
 					    location   	(2933, 251)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	426
+					    max_width  	462
 					    justify    	0
 					    label      	"")
 					icon       	"entity"
@@ -4042,41 +4346,41 @@
 					line_color 	3342489
 					fill_color 	13434879
 					quidu      	"5CF8171E0113"
-					width      	300
-					height     	3023
-					icon_height 	141
-					icon_width 	142
+					width      	154
+					height     	5156
+					icon_height 	153
+					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @183
+					Focus_Of_Control 	(object Focus_Of_Control "" @209
 					    location   	(2933, 1256)
 					    line_color 	3342489
-					    InterObjView 	@182
+					    InterObjView 	@208
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @184
+					Focus_Of_Control 	(object Focus_Of_Control "" @210
 					    location   	(2933, 2186)
 					    line_color 	3342489
-					    InterObjView 	@182
+					    InterObjView 	@208
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @185
+					Focus_Of_Control 	(object Focus_Of_Control "" @211
 					    location   	(2933, 2323)
 					    line_color 	3342489
-					    InterObjView 	@182
+					    InterObjView 	@208
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @186
+					Focus_Of_Control 	(object Focus_Of_Control "" @212
 					    location   	(2933, 2484)
 					    line_color 	3342489
-					    InterObjView 	@182
+					    InterObjView 	@208
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$93" @187
+				    (object InterObjView "$UNNAMED$93" @213
 					location   	(3314, 225)
 					font       	(object Font
 					    size       	10
@@ -4088,11 +4392,11 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@187
+					    Parent_View 	@213
 					    location   	(3314, 251)
 					    anchor_loc 	1
 					    nlines     	2
-					    max_width  	426
+					    max_width  	462
 					    justify    	0
 					    label      	"")
 					icon       	"entity"
@@ -4100,27 +4404,27 @@
 					line_color 	3342489
 					fill_color 	13434879
 					quidu      	"5CF817230365"
-					width      	300
-					height     	3023
-					icon_height 	141
-					icon_width 	142
+					width      	154
+					height     	5156
+					icon_height 	153
+					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @188
+					Focus_Of_Control 	(object Focus_Of_Control "" @214
 					    location   	(3314, 2683)
 					    line_color 	3342489
-					    InterObjView 	@187
+					    InterObjView 	@213
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @189
+					Focus_Of_Control 	(object Focus_Of_Control "" @215
 					    location   	(3314, 2857)
 					    line_color 	3342489
-					    InterObjView 	@187
+					    InterObjView 	@213
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterMessView "click manager order" @190
+				    (object InterMessView "click manager order" @216
 					location   	(0, 370)
 					font       	(object Font
 					    size       	10
@@ -4131,8 +4435,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @191
-					    Parent_View 	@190
+					label      	(object SegLabel @217
+					    Parent_View 	@216
 					    location   	(489, 326)
 					    font       	(object Font
 						size       	10
@@ -4146,7 +4450,7 @@
 					    quidu      	"5CF7E85D0030"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	398
+					    max_width  	400
 					    justify    	0
 					    label      	"click manager order"
 					    pctDist    	0.500000
@@ -4154,13 +4458,13 @@
 					    orientation 	0)
 					line_color 	3342489
 					client     	@146
-					supplier   	@148
+					supplier   	@150
 					Focus_Src  	@147
-					Focus_Entry 	@149
+					Focus_Entry 	@151
 					origin     	(240, 370)
 					terminus   	(739, 370)
 					ordinal    	0)
-				    (object SelfMessView "dislay manager order screen()" @192
+				    (object SelfMessView "dislay manager order screen()" @218
 					location   	(0, 531)
 					font       	(object Font
 					    size       	10
@@ -4171,8 +4475,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @193
-					    Parent_View 	@192
+					label      	(object SegLabel @219
+					    Parent_View 	@218
 					    location   	(846, 487)
 					    font       	(object Font
 						size       	10
@@ -4186,21 +4490,21 @@
 					    quidu      	"5CF815DC0278"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	580
+					    max_width  	574
 					    justify    	0
 					    label      	"dislay manager order screen()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@148
-					supplier   	@148
-					Focus_Src  	@150
-					Focus_Entry 	@151
+					client     	@150
+					supplier   	@150
+					Focus_Src  	@152
+					Focus_Entry 	@153
 					origin     	(771, 531)
 					terminus   	(921, 531)
 					ordinal    	1)
-				    (object InterMessView "send username" @194
+				    (object InterMessView "send username" @220
 					location   	(0, 694)
 					font       	(object Font
 					    size       	10
@@ -4211,8 +4515,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @195
-					    Parent_View 	@194
+					label      	(object SegLabel @221
+					    Parent_View 	@220
 					    location   	(1056, 650)
 					    font       	(object Font
 						size       	10
@@ -4226,21 +4530,21 @@
 					    quidu      	"5CF8161302FD"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	331
+					    max_width  	324
 					    justify    	0
 					    label      	"send username"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@148
-					supplier   	@157
-					Focus_Src  	@152
-					Focus_Entry 	@158
+					client     	@150
+					supplier   	@172
+					Focus_Src  	@154
+					Focus_Entry 	@173
 					origin     	(770, 694)
 					terminus   	(1343, 694)
 					ordinal    	2)
-				    (object InterMessView "get hotel()" @196
+				    (object InterMessView "get hotel()" @222
 					location   	(0, 828)
 					font       	(object Font
 					    size       	10
@@ -4251,8 +4555,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @197
-					    Parent_View 	@196
+					label      	(object SegLabel @223
+					    Parent_View 	@222
 					    location   	(1591, 784)
 					    font       	(object Font
 						size       	10
@@ -4266,21 +4570,21 @@
 					    quidu      	"5CF8166302B5"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	219
+					    max_width  	230
 					    justify    	0
 					    label      	"get hotel()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@157
-					supplier   	@168
-					Focus_Src  	@159
-					Focus_Entry 	@169
+					client     	@172
+					supplier   	@192
+					Focus_Src  	@174
+					Focus_Entry 	@193
 					origin     	(1374, 828)
 					terminus   	(1809, 828)
 					ordinal    	3)
-				    (object InterMessView "get room()" @198
+				    (object InterMessView "get room()" @224
 					location   	(0, 969)
 					font       	(object Font
 					    size       	10
@@ -4291,8 +4595,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @199
-					    Parent_View 	@198
+					label      	(object SegLabel @225
+					    Parent_View 	@224
 					    location   	(2018, 925)
 					    font       	(object Font
 						size       	10
@@ -4306,21 +4610,21 @@
 					    quidu      	"5CF816F1012F"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	222
+					    max_width  	234
 					    justify    	0
 					    label      	"get room()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@168
-					supplier   	@173
-					Focus_Src  	@170
-					Focus_Entry 	@174
+					client     	@192
+					supplier   	@197
+					Focus_Src  	@194
+					Focus_Entry 	@198
 					origin     	(1840, 969)
 					terminus   	(2197, 969)
 					ordinal    	4)
-				    (object InterMessView "get detailbooking ()" @200
+				    (object InterMessView "get detailbooking ()" @226
 					location   	(0, 1119)
 					font       	(object Font
 					    size       	10
@@ -4331,8 +4635,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @201
-					    Parent_View 	@200
+					label      	(object SegLabel @227
+					    Parent_View 	@226
 					    location   	(2392, 1075)
 					    font       	(object Font
 						size       	10
@@ -4346,21 +4650,21 @@
 					    quidu      	"5CF8172A0131"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	385
+					    max_width  	386
 					    justify    	0
 					    label      	"get detailbooking ()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@173
-					supplier   	@177
-					Focus_Src  	@175
-					Focus_Entry 	@178
+					client     	@197
+					supplier   	@201
+					Focus_Src  	@199
+					Focus_Entry 	@202
 					origin     	(2228, 1119)
 					terminus   	(2557, 1119)
 					ordinal    	5)
-				    (object InterMessView "get booking room()" @202
+				    (object InterMessView "get booking room()" @228
 					location   	(0, 1256)
 					font       	(object Font
 					    size       	10
@@ -4371,8 +4675,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @203
-					    Parent_View 	@202
+					label      	(object SegLabel @229
+					    Parent_View 	@228
 					    location   	(2752, 1212)
 					    font       	(object Font
 						size       	10
@@ -4386,21 +4690,21 @@
 					    quidu      	"5CF8173F006F"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	369
+					    max_width  	380
 					    justify    	0
 					    label      	"get booking room()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@177
-					supplier   	@182
-					Focus_Src  	@179
-					Focus_Entry 	@183
+					client     	@201
+					supplier   	@208
+					Focus_Src  	@203
+					Focus_Entry 	@209
 					origin     	(2588, 1256)
 					terminus   	(2917, 1256)
 					ordinal    	6)
-				    (object InterMessView "return hotelID ()" @204
+				    (object InterMessView "return hotelID ()" @230
 					location   	(0, 1400)
 					font       	(object Font
 					    size       	10
@@ -4411,8 +4715,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @205
-					    Parent_View 	@204
+					label      	(object SegLabel @231
+					    Parent_View 	@230
 					    location   	(1592, 1356)
 					    font       	(object Font
 						size       	10
@@ -4426,21 +4730,21 @@
 					    quidu      	"5CF817660235"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	323
+					    max_width  	324
 					    justify    	0
 					    label      	"return hotelID ()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@168
-					supplier   	@157
-					Focus_Src  	@171
-					Focus_Entry 	@160
+					client     	@192
+					supplier   	@172
+					Focus_Src  	@195
+					Focus_Entry 	@175
 					origin     	(1809, 1400)
 					terminus   	(1375, 1400)
 					ordinal    	7)
-				    (object InterMessView "return hotelName ()" @206
+				    (object InterMessView "return hotelName ()" @232
 					location   	(0, 1553)
 					font       	(object Font
 					    size       	10
@@ -4451,8 +4755,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @207
-					    Parent_View 	@206
+					label      	(object SegLabel @233
+					    Parent_View 	@232
 					    location   	(1592, 1509)
 					    font       	(object Font
 						size       	10
@@ -4466,21 +4770,21 @@
 					    quidu      	"5CF8178C01B3"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	381
+					    max_width  	392
 					    justify    	0
 					    label      	"return hotelName ()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@168
-					supplier   	@157
-					Focus_Src  	@172
-					Focus_Entry 	@161
+					client     	@192
+					supplier   	@172
+					Focus_Src  	@196
+					Focus_Entry 	@176
 					origin     	(1809, 1553)
 					terminus   	(1375, 1553)
 					ordinal    	8)
-				    (object InterMessView "return status()" @208
+				    (object InterMessView "return status()" @234
 					location   	(0, 1893)
 					font       	(object Font
 					    size       	10
@@ -4491,8 +4795,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @209
-					    Parent_View 	@208
+					label      	(object SegLabel @235
+					    Parent_View 	@234
 					    location   	(1965, 1851)
 					    font       	(object Font
 						size       	10
@@ -4506,21 +4810,21 @@
 					    quidu      	"5CF817BD0049"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	309
+					    max_width  	318
 					    justify    	0
 					    label      	"return status()"
 					    pctDist    	0.500846
 					    height     	43
 					    orientation 	1)
 					line_color 	3342489
-					client     	@177
-					supplier   	@157
-					Focus_Src  	@180
-					Focus_Entry 	@163
+					client     	@201
+					supplier   	@172
+					Focus_Src  	@204
+					Focus_Entry 	@178
 					origin     	(2557, 1893)
 					terminus   	(1375, 1893)
 					ordinal    	10)
-				    (object InterMessView "return cost()" @210
+				    (object InterMessView "return cost()" @236
 					location   	(0, 1761)
 					font       	(object Font
 					    size       	10
@@ -4531,8 +4835,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @211
-					    Parent_View 	@210
+					label      	(object SegLabel @237
+					    Parent_View 	@236
 					    location   	(1786, 1717)
 					    font       	(object Font
 						size       	10
@@ -4546,21 +4850,21 @@
 					    quidu      	"5CF817DE026E"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	275
+					    max_width  	286
 					    justify    	0
 					    label      	"return cost()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@173
-					supplier   	@157
-					Focus_Src  	@176
-					Focus_Entry 	@162
+					client     	@197
+					supplier   	@172
+					Focus_Src  	@200
+					Focus_Entry 	@177
 					origin     	(2197, 1761)
 					terminus   	(1375, 1761)
 					ordinal    	9)
-				    (object InterMessView "return bookingNumber()" @212
+				    (object InterMessView "return bookingNumber()" @238
 					location   	(0, 2024)
 					font       	(object Font
 					    size       	10
@@ -4571,8 +4875,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @213
-					    Parent_View 	@212
+					label      	(object SegLabel @239
+					    Parent_View 	@238
 					    location   	(1966, 1980)
 					    font       	(object Font
 						size       	10
@@ -4586,21 +4890,21 @@
 					    quidu      	"5CF817F301DC"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	472
+					    max_width  	484
 					    justify    	0
 					    label      	"return bookingNumber()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@177
-					supplier   	@157
-					Focus_Src  	@181
-					Focus_Entry 	@164
+					client     	@201
+					supplier   	@172
+					Focus_Src  	@205
+					Focus_Entry 	@179
 					origin     	(2557, 2024)
 					terminus   	(1375, 2024)
 					ordinal    	11)
-				    (object InterMessView "return checkin()" @214
+				    (object InterMessView "return checkin()" @240
 					location   	(0, 2186)
 					font       	(object Font
 					    size       	10
@@ -4611,8 +4915,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @215
-					    Parent_View 	@214
+					label      	(object SegLabel @241
+					    Parent_View 	@240
 					    location   	(2146, 2142)
 					    font       	(object Font
 						size       	10
@@ -4626,21 +4930,21 @@
 					    quidu      	"5CF8181D01CD"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	334
+					    max_width  	346
 					    justify    	0
 					    label      	"return checkin()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@182
-					supplier   	@157
-					Focus_Src  	@184
-					Focus_Entry 	@165
+					client     	@208
+					supplier   	@172
+					Focus_Src  	@210
+					Focus_Entry 	@180
 					origin     	(2917, 2186)
 					terminus   	(1375, 2186)
 					ordinal    	12)
-				    (object InterMessView "retrun checkout()" @216
+				    (object InterMessView "retrun checkout()" @242
 					location   	(0, 2323)
 					font       	(object Font
 					    size       	10
@@ -4651,8 +4955,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @217
-					    Parent_View 	@216
+					label      	(object SegLabel @243
+					    Parent_View 	@242
 					    location   	(2146, 2279)
 					    font       	(object Font
 						size       	10
@@ -4666,21 +4970,21 @@
 					    quidu      	"5CF8182E0304"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	359
+					    max_width  	370
 					    justify    	0
 					    label      	"retrun checkout()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@182
-					supplier   	@157
-					Focus_Src  	@185
-					Focus_Entry 	@166
+					client     	@208
+					supplier   	@172
+					Focus_Src  	@211
+					Focus_Entry 	@181
 					origin     	(2917, 2323)
 					terminus   	(1375, 2323)
 					ordinal    	13)
-				    (object InterMessView "retrun bookingTime()" @218
+				    (object InterMessView "retrun bookingTime()" @244
 					location   	(0, 2484)
 					font       	(object Font
 					    size       	10
@@ -4691,8 +4995,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @219
-					    Parent_View 	@218
+					label      	(object SegLabel @245
+					    Parent_View 	@244
 					    location   	(2146, 2440)
 					    font       	(object Font
 						size       	10
@@ -4706,21 +5010,21 @@
 					    quidu      	"5CF81839027D"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	432
+					    max_width  	434
 					    justify    	0
 					    label      	"retrun bookingTime()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@182
-					supplier   	@157
-					Focus_Src  	@186
-					Focus_Entry 	@167
+					client     	@208
+					supplier   	@172
+					Focus_Src  	@212
+					Focus_Entry 	@182
 					origin     	(2917, 2484)
 					terminus   	(1375, 2484)
 					ordinal    	14)
-				    (object InterMessView "send username()" @220
+				    (object InterMessView "send username()" @246
 					location   	(0, 2683)
 					font       	(object Font
 					    size       	10
@@ -4731,8 +5035,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @221
-					    Parent_View 	@220
+					label      	(object SegLabel @247
+					    Parent_View 	@246
 					    location   	(2034, 2639)
 					    font       	(object Font
 						size       	10
@@ -4746,21 +5050,21 @@
 					    quidu      	"5CF818700252"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	359
+					    max_width  	370
 					    justify    	0
 					    label      	"send username()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@148
-					supplier   	@187
-					Focus_Src  	@153
-					Focus_Entry 	@188
+					client     	@150
+					supplier   	@213
+					Focus_Src  	@155
+					Focus_Entry 	@214
 					origin     	(770, 2683)
 					terminus   	(3298, 2683)
 					ordinal    	15)
-				    (object InterMessView "retrun name()" @222
+				    (object InterMessView "retrun name()" @248
 					location   	(0, 2857)
 					font       	(object Font
 					    size       	10
@@ -4771,8 +5075,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @223
-					    Parent_View 	@222
+					label      	(object SegLabel @249
+					    Parent_View 	@248
 					    location   	(2035, 2813)
 					    font       	(object Font
 						size       	10
@@ -4786,21 +5090,21 @@
 					    quidu      	"5CF8188903DD"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	297
+					    max_width  	308
 					    justify    	0
 					    label      	"retrun name()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@187
-					supplier   	@148
-					Focus_Src  	@189
-					Focus_Entry 	@154
+					client     	@213
+					supplier   	@150
+					Focus_Src  	@215
+					Focus_Entry 	@156
 					origin     	(3298, 2857)
 					terminus   	(771, 2857)
 					ordinal    	16)
-				    (object SelfMessView "deslay manager order screen ()" @224
+				    (object SelfMessView "deslay manager order screen ()" @250
 					location   	(0, 3043)
 					font       	(object Font
 					    size       	10
@@ -4811,8 +5115,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @225
-					    Parent_View 	@224
+					label      	(object SegLabel @251
+					    Parent_View 	@250
 					    location   	(846, 2999)
 					    font       	(object Font
 						size       	10
@@ -4826,25 +5130,545 @@
 					    quidu      	"5CF818A4000D"
 					    anchor_loc 	1
 					    nlines     	1
-					    max_width  	606
+					    max_width  	618
 					    justify    	0
 					    label      	"deslay manager order screen ()"
 					    pctDist    	0.500000
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@148
-					supplier   	@148
-					Focus_Src  	@155
-					Focus_Entry 	@156
+					client     	@150
+					supplier   	@150
+					Focus_Src  	@157
+					Focus_Entry 	@158
 					origin     	(771, 3043)
 					terminus   	(921, 3043)
-					ordinal    	17)))))
+					ordinal    	17)
+				    (object InterMessView "click id hotel" @252
+					location   	(0, 3202)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @253
+					    Parent_View 	@252
+					    location   	(489, 3158)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92AD803C5"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	296
+					    justify    	0
+					    label      	"click id hotel"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@146
+					supplier   	@150
+					Focus_Src  	@148
+					Focus_Entry 	@159
+					origin     	(240, 3202)
+					terminus   	(739, 3202)
+					ordinal    	18)
+				    (object InterMessView "get hotel infomation ()" @254
+					location   	(0, 3339)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @255
+					    Parent_View 	@254
+					    location   	(1056, 3295)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92B1F03AC"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	452
+					    justify    	0
+					    label      	"get hotel infomation ()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@150
+					supplier   	@172
+					Focus_Src  	@160
+					Focus_Entry 	@183
+					origin     	(770, 3339)
+					terminus   	(1343, 3339)
+					ordinal    	19)
+				    (object InterMessView "return hotel infomation ()" @256
+					location   	(0, 3507)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @257
+					    Parent_View 	@256
+					    location   	(1058, 3464)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92B6C0333"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	500
+					    justify    	0
+					    label      	"return hotel infomation ()"
+					    pctDist    	0.498252
+					    height     	44
+					    orientation 	1)
+					line_color 	3342489
+					client     	@172
+					supplier   	@150
+					Focus_Src  	@184
+					Focus_Entry 	@161
+					origin     	(1343, 3507)
+					terminus   	(771, 3507)
+					ordinal    	20)
+				    (object SelfMessView "check status()" @258
+					location   	(0, 3909)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @259
+					    Parent_View 	@258
+					    location   	(846, 3865)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92BDD00E7"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	328
+					    justify    	0
+					    label      	"check status()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@150
+					supplier   	@150
+					Focus_Src  	@163
+					Focus_Entry 	@164
+					origin     	(771, 3909)
+					terminus   	(921, 3909)
+					ordinal    	22)
+				    (object SelfMessView "dislay order ditail screen" @260
+					location   	(0, 4054)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @261
+					    Parent_View 	@260
+					    location   	(846, 4010)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92BF6024F"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	500
+					    justify    	0
+					    label      	"dislay order ditail screen"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@150
+					supplier   	@150
+					Focus_Src  	@165
+					Focus_Entry 	@166
+					origin     	(771, 4054)
+					terminus   	(921, 4054)
+					ordinal    	23)
+				    (object InterMessView "retrun detailBookingRoom()" @262
+					location   	(0, 3686)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @263
+					    Parent_View 	@262
+					    location   	(1057, 3642)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92C340319"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	552
+					    justify    	0
+					    label      	"retrun detailBookingRoom()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	1)
+					line_color 	3342489
+					client     	@172
+					supplier   	@150
+					Focus_Src  	@185
+					Focus_Entry 	@162
+					origin     	(1343, 3686)
+					terminus   	(771, 3686)
+					ordinal    	21)
+				    (object InterMessView "click cancel room" @264
+					location   	(0, 4212)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @265
+					    Parent_View 	@264
+					    location   	(489, 4168)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92C7C0070"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	384
+					    justify    	0
+					    label      	"click cancel room"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@146
+					supplier   	@150
+					Focus_Src  	@149
+					Focus_Entry 	@167
+					origin     	(240, 4212)
+					terminus   	(739, 4212)
+					ordinal    	24)
+				    (object InterMessView "send roomID cancel()" @266
+					location   	(0, 4350)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @267
+					    Parent_View 	@266
+					    location   	(1056, 4306)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92D1B0086"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	450
+					    justify    	0
+					    label      	"send roomID cancel()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@150
+					supplier   	@172
+					Focus_Src  	@168
+					Focus_Entry 	@186
+					origin     	(770, 4350)
+					terminus   	(1343, 4350)
+					ordinal    	25)
+				    (object InterMessView "set status()" @268
+					location   	(0, 4497)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @269
+					    Parent_View 	@268
+					    location   	(1965, 4453)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92D41000E"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	274
+					    justify    	0
+					    label      	"set status()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@172
+					supplier   	@201
+					Focus_Src  	@187
+					Focus_Entry 	@206
+					origin     	(1374, 4497)
+					terminus   	(2557, 4497)
+					ordinal    	26)
+				    (object InterMessView "retrun status()" @270
+					location   	(0, 4657)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @271
+					    Parent_View 	@270
+					    location   	(1966, 4613)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92D660005"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	320
+					    justify    	0
+					    label      	"retrun status()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	1)
+					line_color 	3342489
+					client     	@201
+					supplier   	@172
+					Focus_Src  	@207
+					Focus_Entry 	@188
+					origin     	(2557, 4657)
+					terminus   	(1375, 4657)
+					ordinal    	27)
+				    (object InterMessView "return detaiBookingRoom()" @272
+					location   	(0, 5013)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @273
+					    Parent_View 	@272
+					    location   	(1057, 4969)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92DB703CC"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	542
+					    justify    	0
+					    label      	"return detaiBookingRoom()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	1)
+					line_color 	3342489
+					client     	@172
+					supplier   	@150
+					Focus_Src  	@191
+					Focus_Entry 	@169
+					origin     	(1343, 5013)
+					terminus   	(771, 5013)
+					ordinal    	29)
+				    (object SelfMessView "check status()" @274
+					location   	(0, 4845)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @275
+					    Parent_View 	@274
+					    location   	(1450, 4801)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92DD70388"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	316
+					    justify    	0
+					    label      	"check status()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@172
+					supplier   	@172
+					Focus_Src  	@189
+					Focus_Entry 	@190
+					origin     	(1375, 4845)
+					terminus   	(1525, 4845)
+					ordinal    	28)
+				    (object SelfMessView "dislay manager order screen()" @276
+					location   	(0, 5176)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					label      	(object SegLabel @277
+					    Parent_View 	@276
+					    location   	(846, 5132)
+					    font       	(object Font
+						size       	10
+						face       	"Arial"
+						bold       	FALSE
+						italics    	FALSE
+						underline  	FALSE
+						strike     	FALSE
+						color      	0
+						default_color 	TRUE)
+					    quidu      	"5CF92DEC01A5"
+					    anchor_loc 	1
+					    nlines     	1
+					    max_width  	584
+					    justify    	0
+					    label      	"dislay manager order screen()"
+					    pctDist    	0.500000
+					    height     	45
+					    orientation 	0)
+					line_color 	3342489
+					client     	@150
+					supplier   	@150
+					Focus_Src  	@170
+					Focus_Entry 	@171
+					origin     	(771, 5176)
+					terminus   	(921, 5176)
+					ordinal    	30)))))
 		    (object UseCase "ManageOrder - User"
 			quid       	"5CF69A1C01A3"
 			stereotype 	"use-case realization"
 			logical_models 	(list unit_reference_list
-			    (object Mechanism @226
+			    (object Mechanism @278
 				logical_models 	(list unit_reference_list
 				    (object Object "$UNNAMED$99"
 					quid       	"5CF6B12A01B3"
@@ -5314,7 +6138,7 @@
 					multi      	FALSE))))
 			logical_presentations 	(list unit_reference_list
 			    (object InteractionDiagram "Basic Flow"
-				mechanism_ref 	@226
+				mechanism_ref 	@278
 				quid       	"5CF69A35031B"
 				title      	"Basic Flow"
 				zoom       	100
@@ -5323,7 +6147,7 @@
 				origin_x   	0
 				origin_y   	0
 				items      	(list diagram_item_list
-				    (object InterObjView "$UNNAMED$105" @227
+				    (object InterObjView "$UNNAMED$105" @279
 					location   	(180, 225)
 					font       	(object Font
 					    size       	10
@@ -5335,7 +6159,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@227
+					    Parent_View 	@279
 					    location   	(180, 250)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5353,14 +6177,14 @@
 					icon_width 	120
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @228
+					Focus_Of_Control 	(object Focus_Of_Control "" @280
 					    location   	(180, 378)
 					    line_color 	3342489
-					    InterObjView 	@227
+					    InterObjView 	@279
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$99" @229
+				    (object InterObjView "$UNNAMED$99" @281
 					location   	(627, 225)
 					font       	(object Font
 					    size       	10
@@ -5372,7 +6196,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@229
+					    Parent_View 	@281
 					    location   	(627, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5390,56 +6214,56 @@
 					icon_width 	229
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @230
+					Focus_Of_Control 	(object Focus_Of_Control "" @282
 					    location   	(627, 378)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @231
+					Focus_Of_Control 	(object Focus_Of_Control "" @283
 					    location   	(627, 544)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @232
+					Focus_Of_Control 	(object Focus_Of_Control "" @284
 					    location   	(627, 569)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	TRUE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @233
+					Focus_Of_Control 	(object Focus_Of_Control "" @285
 					    location   	(627, 689)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @234
+					Focus_Of_Control 	(object Focus_Of_Control "" @286
 					    location   	(627, 4944)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @235
+					Focus_Of_Control 	(object Focus_Of_Control "" @287
 					    location   	(627, 5148)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @236
+					Focus_Of_Control 	(object Focus_Of_Control "" @288
 					    location   	(627, 5173)
 					    line_color 	3342489
-					    InterObjView 	@229
+					    InterObjView 	@281
 					    height     	90
 					    y_coord    	0
 					    Nested     	TRUE))
-				    (object InterObjView "$UNNAMED$100" @237
+				    (object InterObjView "$UNNAMED$100" @289
 					location   	(1160, 225)
 					font       	(object Font
 					    size       	10
@@ -5451,7 +6275,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@237
+					    Parent_View 	@289
 					    location   	(1160, 250)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5469,147 +6293,147 @@
 					icon_width 	157
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @238
+					Focus_Of_Control 	(object Focus_Of_Control "" @290
 					    location   	(1160, 689)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @239
+					Focus_Of_Control 	(object Focus_Of_Control "" @291
 					    location   	(1160, 809)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @240
+					Focus_Of_Control 	(object Focus_Of_Control "" @292
 					    location   	(1160, 934)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @241
+					Focus_Of_Control 	(object Focus_Of_Control "" @293
 					    location   	(1160, 1039)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @242
+					Focus_Of_Control 	(object Focus_Of_Control "" @294
 					    location   	(1160, 1172)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @243
+					Focus_Of_Control 	(object Focus_Of_Control "" @295
 					    location   	(1160, 2793)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @244
+					Focus_Of_Control 	(object Focus_Of_Control "" @296
 					    location   	(1160, 2949)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @245
+					Focus_Of_Control 	(object Focus_Of_Control "" @297
 					    location   	(1160, 3108)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @246
+					Focus_Of_Control 	(object Focus_Of_Control "" @298
 					    location   	(1160, 3293)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @247
+					Focus_Of_Control 	(object Focus_Of_Control "" @299
 					    location   	(1160, 3446)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @248
+					Focus_Of_Control 	(object Focus_Of_Control "" @300
 					    location   	(1160, 3608)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @249
+					Focus_Of_Control 	(object Focus_Of_Control "" @301
 					    location   	(1160, 3732)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @250
+					Focus_Of_Control 	(object Focus_Of_Control "" @302
 					    location   	(1160, 3874)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @251
+					Focus_Of_Control 	(object Focus_Of_Control "" @303
 					    location   	(1160, 4008)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @252
+					Focus_Of_Control 	(object Focus_Of_Control "" @304
 					    location   	(1160, 4141)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @253
+					Focus_Of_Control 	(object Focus_Of_Control "" @305
 					    location   	(1160, 4254)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @254
+					Focus_Of_Control 	(object Focus_Of_Control "" @306
 					    location   	(1160, 4399)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @255
+					Focus_Of_Control 	(object Focus_Of_Control "" @307
 					    location   	(1160, 4758)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @256
+					Focus_Of_Control 	(object Focus_Of_Control "" @308
 					    location   	(1160, 4783)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	TRUE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @257
+					Focus_Of_Control 	(object Focus_Of_Control "" @309
 					    location   	(1160, 4944)
 					    line_color 	3342489
-					    InterObjView 	@237
+					    InterObjView 	@289
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$101" @258
+				    (object InterObjView "$UNNAMED$101" @310
 					location   	(1683, 225)
 					font       	(object Font
 					    size       	10
@@ -5621,7 +6445,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@258
+					    Parent_View 	@310
 					    location   	(1683, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5639,70 +6463,70 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @259
+					Focus_Of_Control 	(object Focus_Of_Control "" @311
 					    location   	(1683, 809)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @260
+					Focus_Of_Control 	(object Focus_Of_Control "" @312
 					    location   	(1683, 934)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @261
+					Focus_Of_Control 	(object Focus_Of_Control "" @313
 					    location   	(1683, 1039)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @262
+					Focus_Of_Control 	(object Focus_Of_Control "" @314
 					    location   	(1683, 1172)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @263
+					Focus_Of_Control 	(object Focus_Of_Control "" @315
 					    location   	(1683, 1300)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @264
+					Focus_Of_Control 	(object Focus_Of_Control "" @316
 					    location   	(1683, 1447)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @265
+					Focus_Of_Control 	(object Focus_Of_Control "" @317
 					    location   	(1683, 2793)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @266
+					Focus_Of_Control 	(object Focus_Of_Control "" @318
 					    location   	(1683, 2949)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @267
+					Focus_Of_Control 	(object Focus_Of_Control "" @319
 					    location   	(1683, 3108)
 					    line_color 	3342489
-					    InterObjView 	@258
+					    InterObjView 	@310
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$102" @268
+				    (object InterObjView "$UNNAMED$102" @320
 					location   	(2156, 225)
 					font       	(object Font
 					    size       	10
@@ -5714,7 +6538,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@268
+					    Parent_View 	@320
 					    location   	(2156, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5732,42 +6556,42 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @269
+					Focus_Of_Control 	(object Focus_Of_Control "" @321
 					    location   	(2156, 1300)
 					    line_color 	3342489
-					    InterObjView 	@268
+					    InterObjView 	@320
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @270
+					Focus_Of_Control 	(object Focus_Of_Control "" @322
 					    location   	(2156, 1447)
 					    line_color 	3342489
-					    InterObjView 	@268
+					    InterObjView 	@320
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @271
+					Focus_Of_Control 	(object Focus_Of_Control "" @323
 					    location   	(2156, 1604)
 					    line_color 	3342489
-					    InterObjView 	@268
+					    InterObjView 	@320
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @272
+					Focus_Of_Control 	(object Focus_Of_Control "" @324
 					    location   	(2156, 1763)
 					    line_color 	3342489
-					    InterObjView 	@268
+					    InterObjView 	@320
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @273
+					Focus_Of_Control 	(object Focus_Of_Control "" @325
 					    location   	(2156, 3293)
 					    line_color 	3342489
-					    InterObjView 	@268
+					    InterObjView 	@320
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$103" @274
+				    (object InterObjView "$UNNAMED$103" @326
 					location   	(2611, 225)
 					font       	(object Font
 					    size       	10
@@ -5779,7 +6603,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@274
+					    Parent_View 	@326
 					    location   	(2611, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5797,63 +6621,63 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @275
+					Focus_Of_Control 	(object Focus_Of_Control "" @327
 					    location   	(2611, 1604)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @276
+					Focus_Of_Control 	(object Focus_Of_Control "" @328
 					    location   	(2611, 1763)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @277
+					Focus_Of_Control 	(object Focus_Of_Control "" @329
 					    location   	(2611, 1883)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @278
+					Focus_Of_Control 	(object Focus_Of_Control "" @330
 					    location   	(2611, 2003)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @279
+					Focus_Of_Control 	(object Focus_Of_Control "" @331
 					    location   	(2611, 2139)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @280
+					Focus_Of_Control 	(object Focus_Of_Control "" @332
 					    location   	(2611, 2263)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @281
+					Focus_Of_Control 	(object Focus_Of_Control "" @333
 					    location   	(2611, 3446)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @282
+					Focus_Of_Control 	(object Focus_Of_Control "" @334
 					    location   	(2611, 3608)
 					    line_color 	3342489
-					    InterObjView 	@274
+					    InterObjView 	@326
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$104" @283
+				    (object InterObjView "$UNNAMED$104" @335
 					location   	(3000, 225)
 					font       	(object Font
 					    size       	10
@@ -5865,7 +6689,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@283
+					    Parent_View 	@335
 					    location   	(3000, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5883,77 +6707,77 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @284
+					Focus_Of_Control 	(object Focus_Of_Control "" @336
 					    location   	(3000, 1883)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @285
+					Focus_Of_Control 	(object Focus_Of_Control "" @337
 					    location   	(3000, 2003)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @286
+					Focus_Of_Control 	(object Focus_Of_Control "" @338
 					    location   	(3000, 2139)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @287
+					Focus_Of_Control 	(object Focus_Of_Control "" @339
 					    location   	(3000, 2263)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @288
+					Focus_Of_Control 	(object Focus_Of_Control "" @340
 					    location   	(3000, 2398)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @289
+					Focus_Of_Control 	(object Focus_Of_Control "" @341
 					    location   	(3000, 2660)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @290
+					Focus_Of_Control 	(object Focus_Of_Control "" @342
 					    location   	(3000, 3732)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @291
+					Focus_Of_Control 	(object Focus_Of_Control "" @343
 					    location   	(3000, 3874)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @292
+					Focus_Of_Control 	(object Focus_Of_Control "" @344
 					    location   	(3000, 4008)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @293
+					Focus_Of_Control 	(object Focus_Of_Control "" @345
 					    location   	(3000, 4141)
 					    line_color 	3342489
-					    InterObjView 	@283
+					    InterObjView 	@335
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$106" @294
+				    (object InterObjView "$UNNAMED$106" @346
 					location   	(3366, 225)
 					font       	(object Font
 					    size       	10
@@ -5965,7 +6789,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@294
+					    Parent_View 	@346
 					    location   	(3366, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -5983,21 +6807,21 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @295
+					Focus_Of_Control 	(object Focus_Of_Control "" @347
 					    location   	(3366, 2398)
 					    line_color 	3342489
-					    InterObjView 	@294
+					    InterObjView 	@346
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @296
+					Focus_Of_Control 	(object Focus_Of_Control "" @348
 					    location   	(3366, 2528)
 					    line_color 	3342489
-					    InterObjView 	@294
+					    InterObjView 	@346
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$108" @297
+				    (object InterObjView "$UNNAMED$108" @349
 					location   	(3726, 249)
 					font       	(object Font
 					    size       	10
@@ -6009,7 +6833,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@297
+					    Parent_View 	@349
 					    location   	(3726, 275)
 					    anchor_loc 	1
 					    nlines     	2
@@ -6027,21 +6851,21 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @298
+					Focus_Of_Control 	(object Focus_Of_Control "" @350
 					    location   	(3726, 2528)
 					    line_color 	3342489
-					    InterObjView 	@297
+					    InterObjView 	@349
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @299
+					Focus_Of_Control 	(object Focus_Of_Control "" @351
 					    location   	(3726, 4254)
 					    line_color 	3342489
-					    InterObjView 	@297
+					    InterObjView 	@349
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterObjView "$UNNAMED$107" @300
+				    (object InterObjView "$UNNAMED$107" @352
 					location   	(4086, 225)
 					font       	(object Font
 					    size       	10
@@ -6053,7 +6877,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@300
+					    Parent_View 	@352
 					    location   	(4086, 251)
 					    anchor_loc 	1
 					    nlines     	2
@@ -6071,21 +6895,21 @@
 					icon_width 	154
 					icon_y_offset 	0
 					annotation 	1
-					Focus_Of_Control 	(object Focus_Of_Control "" @301
+					Focus_Of_Control 	(object Focus_Of_Control "" @353
 					    location   	(4086, 2660)
 					    line_color 	3342489
-					    InterObjView 	@300
+					    InterObjView 	@352
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE)
-					Focus_Of_Control 	(object Focus_Of_Control "" @302
+					Focus_Of_Control 	(object Focus_Of_Control "" @354
 					    location   	(4086, 4399)
 					    line_color 	3342489
-					    InterObjView 	@300
+					    InterObjView 	@352
 					    height     	90
 					    y_coord    	0
 					    Nested     	FALSE))
-				    (object InterMessView "get all hotel booked()" @303
+				    (object InterMessView "get all hotel booked()" @355
 					location   	(0, 689)
 					font       	(object Font
 					    size       	10
@@ -6096,8 +6920,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @304
-					    Parent_View 	@303
+					label      	(object SegLabel @356
+					    Parent_View 	@355
 					    location   	(893, 645)
 					    font       	(object Font
 						size       	10
@@ -6118,14 +6942,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@229
-					supplier   	@237
-					Focus_Src  	@233
-					Focus_Entry 	@238
+					client     	@281
+					supplier   	@289
+					Focus_Src  	@285
+					Focus_Entry 	@290
 					origin     	(642, 689)
 					terminus   	(1144, 689)
 					ordinal    	2)
-				    (object InterMessView "getIdbooking()" @305
+				    (object InterMessView "getIdbooking()" @357
 					location   	(0, 809)
 					font       	(object Font
 					    size       	10
@@ -6136,8 +6960,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @306
-					    Parent_View 	@305
+					label      	(object SegLabel @358
+					    Parent_View 	@357
 					    location   	(1419, 767)
 					    font       	(object Font
 						size       	10
@@ -6158,14 +6982,14 @@
 					    height     	43
 					    orientation 	0)
 					line_color 	3342489
-					client     	@237
-					supplier   	@258
-					Focus_Src  	@239
-					Focus_Entry 	@259
+					client     	@289
+					supplier   	@310
+					Focus_Src  	@291
+					Focus_Entry 	@311
 					origin     	(1175, 809)
 					terminus   	(1667, 809)
 					ordinal    	3)
-				    (object InterMessView "click manager order" @307
+				    (object InterMessView "click manager order" @359
 					location   	(0, 378)
 					font       	(object Font
 					    size       	10
@@ -6176,8 +7000,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @308
-					    Parent_View 	@307
+					label      	(object SegLabel @360
+					    Parent_View 	@359
 					    location   	(402, 335)
 					    font       	(object Font
 						size       	10
@@ -6198,14 +7022,14 @@
 					    height     	44
 					    orientation 	0)
 					line_color 	3342489
-					client     	@227
-					supplier   	@229
-					Focus_Src  	@228
-					Focus_Entry 	@230
+					client     	@279
+					supplier   	@281
+					Focus_Src  	@280
+					Focus_Entry 	@282
 					origin     	(195, 378)
 					terminus   	(611, 378)
 					ordinal    	0)
-				    (object InterMessView "getCkeckin()" @309
+				    (object InterMessView "getCkeckin()" @361
 					location   	(0, 934)
 					font       	(object Font
 					    size       	10
@@ -6216,8 +7040,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @310
-					    Parent_View 	@309
+					label      	(object SegLabel @362
+					    Parent_View 	@361
 					    location   	(1421, 890)
 					    font       	(object Font
 						size       	10
@@ -6238,14 +7062,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@237
-					supplier   	@258
-					Focus_Src  	@240
-					Focus_Entry 	@260
+					client     	@289
+					supplier   	@310
+					Focus_Src  	@292
+					Focus_Entry 	@312
 					origin     	(1175, 934)
 					terminus   	(1667, 934)
 					ordinal    	4)
-				    (object InterMessView "getCheckout()" @311
+				    (object InterMessView "getCheckout()" @363
 					location   	(0, 1039)
 					font       	(object Font
 					    size       	10
@@ -6256,8 +7080,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @312
-					    Parent_View 	@311
+					label      	(object SegLabel @364
+					    Parent_View 	@363
 					    location   	(1421, 995)
 					    font       	(object Font
 						size       	10
@@ -6278,14 +7102,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@237
-					supplier   	@258
-					Focus_Src  	@241
-					Focus_Entry 	@261
+					client     	@289
+					supplier   	@310
+					Focus_Src  	@293
+					Focus_Entry 	@313
 					origin     	(1175, 1039)
 					terminus   	(1667, 1039)
 					ordinal    	5)
-				    (object SelfMessView "dislay manager order screen()" @313
+				    (object SelfMessView "dislay manager order screen()" @365
 					location   	(0, 544)
 					font       	(object Font
 					    size       	10
@@ -6296,8 +7120,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @314
-					    Parent_View 	@313
+					label      	(object SegLabel @366
+					    Parent_View 	@365
 					    location   	(718, 500)
 					    font       	(object Font
 						size       	10
@@ -6318,14 +7142,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@229
-					supplier   	@229
-					Focus_Src  	@231
-					Focus_Entry 	@232
+					client     	@281
+					supplier   	@281
+					Focus_Src  	@283
+					Focus_Entry 	@284
 					origin     	(643, 544)
 					terminus   	(793, 544)
 					ordinal    	1)
-				    (object InterMessView "getOrdertime()" @315
+				    (object InterMessView "getOrdertime()" @367
 					location   	(0, 1172)
 					font       	(object Font
 					    size       	10
@@ -6336,8 +7160,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @316
-					    Parent_View 	@315
+					label      	(object SegLabel @368
+					    Parent_View 	@367
 					    location   	(1421, 1128)
 					    font       	(object Font
 						size       	10
@@ -6358,14 +7182,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@237
-					supplier   	@258
-					Focus_Src  	@242
-					Focus_Entry 	@262
+					client     	@289
+					supplier   	@310
+					Focus_Src  	@294
+					Focus_Entry 	@314
 					origin     	(1175, 1172)
 					terminus   	(1667, 1172)
 					ordinal    	6)
-				    (object InterMessView "getIdRoom()" @317
+				    (object InterMessView "getIdRoom()" @369
 					location   	(0, 1300)
 					font       	(object Font
 					    size       	10
@@ -6376,8 +7200,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @318
-					    Parent_View 	@317
+					label      	(object SegLabel @370
+					    Parent_View 	@369
 					    location   	(1919, 1256)
 					    font       	(object Font
 						size       	10
@@ -6398,14 +7222,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@258
-					supplier   	@268
-					Focus_Src  	@263
-					Focus_Entry 	@269
+					client     	@310
+					supplier   	@320
+					Focus_Src  	@315
+					Focus_Entry 	@321
 					origin     	(1698, 1300)
 					terminus   	(2140, 1300)
 					ordinal    	7)
-				    (object InterMessView "getStatus()" @319
+				    (object InterMessView "getStatus()" @371
 					location   	(0, 1447)
 					font       	(object Font
 					    size       	10
@@ -6416,8 +7240,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @320
-					    Parent_View 	@319
+					label      	(object SegLabel @372
+					    Parent_View 	@371
 					    location   	(1919, 1403)
 					    font       	(object Font
 						size       	10
@@ -6438,14 +7262,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@258
-					supplier   	@268
-					Focus_Src  	@264
-					Focus_Entry 	@270
+					client     	@310
+					supplier   	@320
+					Focus_Src  	@316
+					Focus_Entry 	@322
 					origin     	(1698, 1447)
 					terminus   	(2140, 1447)
 					ordinal    	8)
-				    (object InterMessView "getHotelID ()" @321
+				    (object InterMessView "getHotelID ()" @373
 					location   	(0, 1604)
 					font       	(object Font
 					    size       	10
@@ -6456,8 +7280,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @322
-					    Parent_View 	@321
+					label      	(object SegLabel @374
+					    Parent_View 	@373
 					    location   	(2386, 1546)
 					    font       	(object Font
 						size       	10
@@ -6478,14 +7302,14 @@
 					    height     	59
 					    orientation 	0)
 					line_color 	3342489
-					client     	@268
-					supplier   	@274
-					Focus_Src  	@271
-					Focus_Entry 	@275
+					client     	@320
+					supplier   	@326
+					Focus_Src  	@323
+					Focus_Entry 	@327
 					origin     	(2171, 1604)
 					terminus   	(2595, 1604)
 					ordinal    	9)
-				    (object InterMessView "getHotelName()" @323
+				    (object InterMessView "getHotelName()" @375
 					location   	(0, 1883)
 					font       	(object Font
 					    size       	10
@@ -6496,8 +7320,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @324
-					    Parent_View 	@323
+					label      	(object SegLabel @376
+					    Parent_View 	@375
 					    location   	(2805, 1839)
 					    font       	(object Font
 						size       	10
@@ -6518,14 +7342,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@274
-					supplier   	@283
-					Focus_Src  	@277
-					Focus_Entry 	@284
+					client     	@326
+					supplier   	@335
+					Focus_Src  	@329
+					Focus_Entry 	@336
 					origin     	(2626, 1883)
 					terminus   	(2984, 1883)
 					ordinal    	11)
-				    (object InterMessView "getStar()" @325
+				    (object InterMessView "getStar()" @377
 					location   	(0, 2003)
 					font       	(object Font
 					    size       	10
@@ -6536,8 +7360,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @326
-					    Parent_View 	@325
+					label      	(object SegLabel @378
+					    Parent_View 	@377
 					    location   	(2805, 1959)
 					    font       	(object Font
 						size       	10
@@ -6558,14 +7382,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@274
-					supplier   	@283
-					Focus_Src  	@278
-					Focus_Entry 	@285
+					client     	@326
+					supplier   	@335
+					Focus_Src  	@330
+					Focus_Entry 	@337
 					origin     	(2626, 2003)
 					terminus   	(2984, 2003)
 					ordinal    	12)
-				    (object InterMessView "getAddress ()" @327
+				    (object InterMessView "getAddress ()" @379
 					location   	(0, 2139)
 					font       	(object Font
 					    size       	10
@@ -6576,8 +7400,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @328
-					    Parent_View 	@327
+					label      	(object SegLabel @380
+					    Parent_View 	@379
 					    location   	(2805, 2102)
 					    font       	(object Font
 						size       	10
@@ -6598,14 +7422,14 @@
 					    height     	38
 					    orientation 	0)
 					line_color 	3342489
-					client     	@274
-					supplier   	@283
-					Focus_Src  	@279
-					Focus_Entry 	@286
+					client     	@326
+					supplier   	@335
+					Focus_Src  	@331
+					Focus_Entry 	@338
 					origin     	(2626, 2139)
 					terminus   	(2984, 2139)
 					ordinal    	13)
-				    (object InterMessView "getCost ()" @329
+				    (object InterMessView "getCost ()" @381
 					location   	(0, 1763)
 					font       	(object Font
 					    size       	10
@@ -6616,8 +7440,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @330
-					    Parent_View 	@329
+					label      	(object SegLabel @382
+					    Parent_View 	@381
 					    location   	(2383, 1719)
 					    font       	(object Font
 						size       	10
@@ -6638,14 +7462,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@268
-					supplier   	@274
-					Focus_Src  	@272
-					Focus_Entry 	@276
+					client     	@320
+					supplier   	@326
+					Focus_Src  	@324
+					Focus_Entry 	@328
 					origin     	(2171, 1763)
 					terminus   	(2595, 1763)
 					ordinal    	10)
-				    (object InterMessView "getRate()" @331
+				    (object InterMessView "getRate()" @383
 					location   	(0, 2263)
 					font       	(object Font
 					    size       	10
@@ -6656,8 +7480,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @332
-					    Parent_View 	@331
+					label      	(object SegLabel @384
+					    Parent_View 	@383
 					    location   	(2805, 2219)
 					    font       	(object Font
 						size       	10
@@ -6678,14 +7502,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@274
-					supplier   	@283
-					Focus_Src  	@280
-					Focus_Entry 	@287
+					client     	@326
+					supplier   	@335
+					Focus_Src  	@332
+					Focus_Entry 	@339
 					origin     	(2626, 2263)
 					terminus   	(2984, 2263)
 					ordinal    	14)
-				    (object InterMessView "getIdultility ()" @333
+				    (object InterMessView "getIdultility ()" @385
 					location   	(0, 2398)
 					font       	(object Font
 					    size       	10
@@ -6696,8 +7520,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @334
-					    Parent_View 	@333
+					label      	(object SegLabel @386
+					    Parent_View 	@385
 					    location   	(3182, 2354)
 					    font       	(object Font
 						size       	10
@@ -6718,14 +7542,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@283
-					supplier   	@294
-					Focus_Src  	@288
-					Focus_Entry 	@295
+					client     	@335
+					supplier   	@346
+					Focus_Src  	@340
+					Focus_Entry 	@347
 					origin     	(3015, 2398)
 					terminus   	(3350, 2398)
 					ordinal    	15)
-				    (object InterMessView "getUltilityName ()" @335
+				    (object InterMessView "getUltilityName ()" @387
 					location   	(0, 2528)
 					font       	(object Font
 					    size       	10
@@ -6736,8 +7560,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @336
-					    Parent_View 	@335
+					label      	(object SegLabel @388
+					    Parent_View 	@387
 					    location   	(3545, 2484)
 					    font       	(object Font
 						size       	10
@@ -6758,14 +7582,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@294
-					supplier   	@297
-					Focus_Src  	@296
-					Focus_Entry 	@298
+					client     	@346
+					supplier   	@349
+					Focus_Src  	@348
+					Focus_Entry 	@350
 					origin     	(3381, 2528)
 					terminus   	(3710, 2528)
 					ordinal    	16)
-				    (object InterMessView "get linkImage()" @337
+				    (object InterMessView "get linkImage()" @389
 					location   	(0, 2660)
 					font       	(object Font
 					    size       	10
@@ -6776,8 +7600,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @338
-					    Parent_View 	@337
+					label      	(object SegLabel @390
+					    Parent_View 	@389
 					    location   	(3542, 2616)
 					    font       	(object Font
 						size       	10
@@ -6798,14 +7622,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@283
-					supplier   	@300
-					Focus_Src  	@289
-					Focus_Entry 	@301
+					client     	@335
+					supplier   	@352
+					Focus_Src  	@341
+					Focus_Entry 	@353
 					origin     	(3015, 2660)
 					terminus   	(4070, 2660)
 					ordinal    	17)
-				    (object InterMessView "return checkin()" @339
+				    (object InterMessView "return checkin()" @391
 					location   	(0, 2793)
 					font       	(object Font
 					    size       	10
@@ -6816,8 +7640,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @340
-					    Parent_View 	@339
+					label      	(object SegLabel @392
+					    Parent_View 	@391
 					    location   	(1422, 2749)
 					    font       	(object Font
 						size       	10
@@ -6838,14 +7662,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@258
-					supplier   	@237
-					Focus_Src  	@265
-					Focus_Entry 	@243
+					client     	@310
+					supplier   	@289
+					Focus_Src  	@317
+					Focus_Entry 	@295
 					origin     	(1667, 2793)
 					terminus   	(1176, 2793)
 					ordinal    	18)
-				    (object InterMessView "return checkout()" @341
+				    (object InterMessView "return checkout()" @393
 					location   	(0, 2949)
 					font       	(object Font
 					    size       	10
@@ -6856,8 +7680,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @342
-					    Parent_View 	@341
+					label      	(object SegLabel @394
+					    Parent_View 	@393
 					    location   	(1422, 2905)
 					    font       	(object Font
 						size       	10
@@ -6878,14 +7702,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@258
-					supplier   	@237
-					Focus_Src  	@266
-					Focus_Entry 	@244
+					client     	@310
+					supplier   	@289
+					Focus_Src  	@318
+					Focus_Entry 	@296
 					origin     	(1667, 2949)
 					terminus   	(1176, 2949)
 					ordinal    	19)
-				    (object InterMessView "return ordertime()" @343
+				    (object InterMessView "return ordertime()" @395
 					location   	(0, 3108)
 					font       	(object Font
 					    size       	10
@@ -6896,8 +7720,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @344
-					    Parent_View 	@343
+					label      	(object SegLabel @396
+					    Parent_View 	@395
 					    location   	(1422, 3064)
 					    font       	(object Font
 						size       	10
@@ -6918,14 +7742,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@258
-					supplier   	@237
-					Focus_Src  	@267
-					Focus_Entry 	@245
+					client     	@310
+					supplier   	@289
+					Focus_Src  	@319
+					Focus_Entry 	@297
 					origin     	(1667, 3108)
 					terminus   	(1176, 3108)
 					ordinal    	20)
-				    (object InterMessView "return status ()" @345
+				    (object InterMessView "return status ()" @397
 					location   	(0, 3293)
 					font       	(object Font
 					    size       	10
@@ -6936,8 +7760,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @346
-					    Parent_View 	@345
+					label      	(object SegLabel @398
+					    Parent_View 	@397
 					    location   	(1658, 3249)
 					    font       	(object Font
 						size       	10
@@ -6958,14 +7782,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@268
-					supplier   	@237
-					Focus_Src  	@273
-					Focus_Entry 	@246
+					client     	@320
+					supplier   	@289
+					Focus_Src  	@325
+					Focus_Entry 	@298
 					origin     	(2140, 3293)
 					terminus   	(1176, 3293)
 					ordinal    	21)
-				    (object InterMessView "return hotelID()" @347
+				    (object InterMessView "return hotelID()" @399
 					location   	(0, 3446)
 					font       	(object Font
 					    size       	10
@@ -6976,8 +7800,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @348
-					    Parent_View 	@347
+					label      	(object SegLabel @400
+					    Parent_View 	@399
 					    location   	(1886, 3402)
 					    font       	(object Font
 						size       	10
@@ -6998,14 +7822,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@274
-					supplier   	@237
-					Focus_Src  	@281
-					Focus_Entry 	@247
+					client     	@326
+					supplier   	@289
+					Focus_Src  	@333
+					Focus_Entry 	@299
 					origin     	(2595, 3446)
 					terminus   	(1176, 3446)
 					ordinal    	22)
-				    (object InterMessView "return cost" @349
+				    (object InterMessView "return cost" @401
 					location   	(0, 3608)
 					font       	(object Font
 					    size       	10
@@ -7016,8 +7840,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @350
-					    Parent_View 	@349
+					label      	(object SegLabel @402
+					    Parent_View 	@401
 					    location   	(1886, 3564)
 					    font       	(object Font
 						size       	10
@@ -7038,14 +7862,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@274
-					supplier   	@237
-					Focus_Src  	@282
-					Focus_Entry 	@248
+					client     	@326
+					supplier   	@289
+					Focus_Src  	@334
+					Focus_Entry 	@300
 					origin     	(2595, 3608)
 					terminus   	(1176, 3608)
 					ordinal    	23)
-				    (object InterMessView "return hotelName()" @351
+				    (object InterMessView "return hotelName()" @403
 					location   	(0, 3732)
 					font       	(object Font
 					    size       	10
@@ -7056,8 +7880,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @352
-					    Parent_View 	@351
+					label      	(object SegLabel @404
+					    Parent_View 	@403
 					    location   	(2080, 3688)
 					    font       	(object Font
 						size       	10
@@ -7078,14 +7902,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@283
-					supplier   	@237
-					Focus_Src  	@290
-					Focus_Entry 	@249
+					client     	@335
+					supplier   	@289
+					Focus_Src  	@342
+					Focus_Entry 	@301
 					origin     	(2984, 3732)
 					terminus   	(1176, 3732)
 					ordinal    	24)
-				    (object InterMessView "return star()" @353
+				    (object InterMessView "return star()" @405
 					location   	(0, 3874)
 					font       	(object Font
 					    size       	10
@@ -7096,8 +7920,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @354
-					    Parent_View 	@353
+					label      	(object SegLabel @406
+					    Parent_View 	@405
 					    location   	(2080, 3830)
 					    font       	(object Font
 						size       	10
@@ -7118,14 +7942,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@283
-					supplier   	@237
-					Focus_Src  	@291
-					Focus_Entry 	@250
+					client     	@335
+					supplier   	@289
+					Focus_Src  	@343
+					Focus_Entry 	@302
 					origin     	(2984, 3874)
 					terminus   	(1176, 3874)
 					ordinal    	25)
-				    (object InterMessView "return address()" @355
+				    (object InterMessView "return address()" @407
 					location   	(0, 4008)
 					font       	(object Font
 					    size       	10
@@ -7136,8 +7960,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @356
-					    Parent_View 	@355
+					label      	(object SegLabel @408
+					    Parent_View 	@407
 					    location   	(2080, 3964)
 					    font       	(object Font
 						size       	10
@@ -7158,14 +7982,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@283
-					supplier   	@237
-					Focus_Src  	@292
-					Focus_Entry 	@251
+					client     	@335
+					supplier   	@289
+					Focus_Src  	@344
+					Focus_Entry 	@303
 					origin     	(2984, 4008)
 					terminus   	(1176, 4008)
 					ordinal    	26)
-				    (object InterMessView "return rate()" @357
+				    (object InterMessView "return rate()" @409
 					location   	(0, 4141)
 					font       	(object Font
 					    size       	10
@@ -7176,8 +8000,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @358
-					    Parent_View 	@357
+					label      	(object SegLabel @410
+					    Parent_View 	@409
 					    location   	(2080, 4097)
 					    font       	(object Font
 						size       	10
@@ -7198,14 +8022,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@283
-					supplier   	@237
-					Focus_Src  	@293
-					Focus_Entry 	@252
+					client     	@335
+					supplier   	@289
+					Focus_Src  	@345
+					Focus_Entry 	@304
 					origin     	(2984, 4141)
 					terminus   	(1176, 4141)
 					ordinal    	27)
-				    (object InterMessView "return ultilityName()" @359
+				    (object InterMessView "return ultilityName()" @411
 					location   	(0, 4254)
 					font       	(object Font
 					    size       	10
@@ -7216,8 +8040,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @360
-					    Parent_View 	@359
+					label      	(object SegLabel @412
+					    Parent_View 	@411
 					    location   	(2443, 4210)
 					    font       	(object Font
 						size       	10
@@ -7238,14 +8062,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@297
-					supplier   	@237
-					Focus_Src  	@299
-					Focus_Entry 	@253
+					client     	@349
+					supplier   	@289
+					Focus_Src  	@351
+					Focus_Entry 	@305
 					origin     	(3710, 4254)
 					terminus   	(1176, 4254)
 					ordinal    	28)
-				    (object InterMessView "return linkImage()" @361
+				    (object InterMessView "return linkImage()" @413
 					location   	(0, 4399)
 					font       	(object Font
 					    size       	10
@@ -7256,8 +8080,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @362
-					    Parent_View 	@361
+					label      	(object SegLabel @414
+					    Parent_View 	@413
 					    location   	(2623, 4355)
 					    font       	(object Font
 						size       	10
@@ -7278,14 +8102,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@300
-					supplier   	@237
-					Focus_Src  	@302
-					Focus_Entry 	@254
+					client     	@352
+					supplier   	@289
+					Focus_Src  	@354
+					Focus_Entry 	@306
 					origin     	(4070, 4399)
 					terminus   	(1176, 4399)
 					ordinal    	29)
-				    (object SelfMessView "check status()" @363
+				    (object SelfMessView "check status()" @415
 					location   	(0, 4758)
 					font       	(object Font
 					    size       	10
@@ -7296,8 +8120,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @364
-					    Parent_View 	@363
+					label      	(object SegLabel @416
+					    Parent_View 	@415
 					    location   	(1251, 4714)
 					    font       	(object Font
 						size       	10
@@ -7318,14 +8142,14 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@237
-					supplier   	@237
-					Focus_Src  	@255
-					Focus_Entry 	@256
+					client     	@289
+					supplier   	@289
+					Focus_Src  	@307
+					Focus_Entry 	@308
 					origin     	(1176, 4758)
 					terminus   	(1326, 4758)
 					ordinal    	30)
-				    (object NoteView @365
+				    (object NoteView @417
 					location   	(1191, 4598)
 					font       	(object Font
 					    size       	10
@@ -7337,7 +8161,7 @@
 					    color      	0
 					    default_color 	TRUE)
 					label      	(object ItemLabel
-					    Parent_View 	@365
+					    Parent_View 	@417
 					    location   	(984, 4532)
 					    fill_color 	13434879
 					    nlines     	2
@@ -7351,7 +8175,7 @@
 					fill_color 	13434879
 					width      	438
 					height     	144)
-				    (object InterMessView "return result()" @366
+				    (object InterMessView "return result()" @418
 					location   	(0, 4944)
 					font       	(object Font
 					    size       	10
@@ -7362,8 +8186,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @367
-					    Parent_View 	@366
+					label      	(object SegLabel @419
+					    Parent_View 	@418
 					    location   	(894, 4900)
 					    font       	(object Font
 						size       	10
@@ -7384,14 +8208,14 @@
 					    height     	45
 					    orientation 	1)
 					line_color 	3342489
-					client     	@237
-					supplier   	@229
-					Focus_Src  	@257
-					Focus_Entry 	@234
+					client     	@289
+					supplier   	@281
+					Focus_Src  	@309
+					Focus_Entry 	@286
 					origin     	(1144, 4944)
 					terminus   	(643, 4944)
 					ordinal    	31)
-				    (object SelfMessView "dislay manager order user screen()" @368
+				    (object SelfMessView "dislay manager order user screen()" @420
 					location   	(0, 5148)
 					font       	(object Font
 					    size       	10
@@ -7402,8 +8226,8 @@
 					    strike     	FALSE
 					    color      	0
 					    default_color 	TRUE)
-					label      	(object SegLabel @369
-					    Parent_View 	@368
+					label      	(object SegLabel @421
+					    Parent_View 	@420
 					    location   	(718, 5104)
 					    font       	(object Font
 						size       	10
@@ -7424,10 +8248,10 @@
 					    height     	45
 					    orientation 	0)
 					line_color 	3342489
-					client     	@229
-					supplier   	@229
-					Focus_Src  	@235
-					Focus_Entry 	@236
+					client     	@281
+					supplier   	@281
+					Focus_Src  	@287
+					Focus_Entry 	@288
 					origin     	(643, 5148)
 					terminus   	(793, 5148)
 					ordinal    	32)))))
@@ -7650,7 +8474,7 @@
 			origin_x   	925
 			origin_y   	0
 			items      	(list diagram_item_list
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Account" @370
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Account" @422
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7665,7 +8489,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@370
+				    Parent_View 	@422
 				    location   	(3091, 461)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7673,7 +8497,7 @@
 				    justify    	0
 				    label      	"Account")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@370
+				    Parent_View 	@422
 				    location   	(3091, 411)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7690,7 +8514,7 @@
 				height     	642
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::User" @371
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::User" @423
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7705,7 +8529,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@371
+				    Parent_View 	@423
 				    location   	(2393, 486)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7713,7 +8537,7 @@
 				    justify    	0
 				    label      	"User")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@371
+				    Parent_View 	@423
 				    location   	(2393, 436)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7730,26 +8554,26 @@
 				height     	842
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$109" @372
+			    (object AssociationViewNew "$UNNAMED$109" @424
 				location   	(2931, 778)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF67B89009D"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$110" @373
-					Parent_View 	@372
+				    (object RoleView "$UNNAMED$110" @425
+					Parent_View 	@424
 					location   	(732, 128)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF67B8B0169"
-					client     	@372
-					supplier   	@370
+					client     	@424
+					supplier   	@422
 					vertices   	(list Points
 					    (2931, 778)
 					    (3081, 749))
 					line_style 	0)
-				    (object RoleView "theUser " @374
-					Parent_View 	@372
+				    (object RoleView "theUser " @426
+					Parent_View 	@424
 					location   	(732, 128)
 					font       	(object Font
 					    size       	10
@@ -7763,13 +8587,13 @@
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF67B8B017B"
-					client     	@372
-					supplier   	@371
+					client     	@424
+					supplier   	@423
 					vertices   	(list Points
 					    (2931, 778)
 					    (2782, 805))
 					line_style 	0)))
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::HotelImage" @375
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::HotelImage" @427
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7784,7 +8608,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@375
+				    Parent_View 	@427
 				    location   	(1998, 97)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7792,7 +8616,7 @@
 				    justify    	0
 				    label      	"HotelImage")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@375
+				    Parent_View 	@427
 				    location   	(1998, 47)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7809,7 +8633,7 @@
 				height     	342
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::HotelUltilities" @376
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::HotelUltilities" @428
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7824,7 +8648,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@376
+				    Parent_View 	@428
 				    location   	(410, 210)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7832,7 +8656,7 @@
 				    justify    	0
 				    label      	"HotelUltilities")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@376
+				    Parent_View 	@428
 				    location   	(410, 160)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7849,7 +8673,7 @@
 				height     	292
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Ultilities" @377
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Ultilities" @429
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7864,7 +8688,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@377
+				    Parent_View 	@429
 				    location   	(186, 810)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7872,7 +8696,7 @@
 				    justify    	0
 				    label      	"Ultilities")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@377
+				    Parent_View 	@429
 				    location   	(186, 760)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7889,37 +8713,37 @@
 				height     	292
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$147" @378
+			    (object AssociationViewNew "$UNNAMED$147" @430
 				location   	(428, 593)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF69327035A"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$148" @379
-					Parent_View 	@378
+				    (object RoleView "$UNNAMED$148" @431
+					Parent_View 	@430
 					location   	(128, 303)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6932801C7"
-					client     	@378
-					supplier   	@377
+					client     	@430
+					supplier   	@429
 					vertices   	(list Points
 					    (428, 593)
 					    (369, 747))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$149" @380
-					Parent_View 	@378
+				    (object RoleView "$UNNAMED$149" @432
+					Parent_View 	@430
 					location   	(128, 303)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6932801CA"
-					client     	@378
-					supplier   	@376
+					client     	@430
+					supplier   	@428
 					vertices   	(list Points
 					    (428, 593)
 					    (486, 440))
 					line_style 	0)))
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::BookingRoom" @381
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::BookingRoom" @433
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7934,7 +8758,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@381
+				    Parent_View 	@433
 				    location   	(3136, 1673)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7942,7 +8766,7 @@
 				    justify    	0
 				    label      	"BookingRoom")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@381
+				    Parent_View 	@433
 				    location   	(3136, 1623)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7959,7 +8783,7 @@
 				height     	492
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Hotel" @382
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Hotel" @434
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -7974,7 +8798,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@382
+				    Parent_View 	@434
 				    location   	(1161, 211)
 				    fill_color 	13434879
 				    nlines     	1
@@ -7982,7 +8806,7 @@
 				    justify    	0
 				    label      	"Hotel")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@382
+				    Parent_View 	@434
 				    location   	(1161, 161)
 				    fill_color 	13434879
 				    anchor     	10
@@ -7995,119 +8819,101 @@
 				line_color 	3342489
 				fill_color 	13434879
 				quidu      	"5CF67144009E"
-				compartment 	(object Compartment
-				    Parent_View 	@382
-				    location   	(1161, 272)
-				    font       	(object Font
-					size       	10
-					face       	"Arial"
-					bold       	FALSE
-					italics    	FALSE
-					underline  	FALSE
-					strike     	FALSE
-					color      	0
-					default_color 	TRUE)
-				    icon_style 	"Icon"
-				    fill_color 	16777215
-				    anchor     	2
-				    nlines     	10
-				    max_width  	0
-				    justify    	1)
 				width      	258
 				height     	592
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$111" @383
+			    (object AssociationViewNew "$UNNAMED$111" @435
 				location   	(1896, 633)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF6928E02D7"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$112" @384
-					Parent_View 	@383
+				    (object RoleView "$UNNAMED$112" @436
+					Parent_View 	@435
 					location   	(1074, 229)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692910069"
-					client     	@383
-					supplier   	@371
+					client     	@435
+					supplier   	@423
 					vertices   	(list Points
 					    (1896, 633)
 					    (2383, 783))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$113" @385
-					Parent_View 	@383
+				    (object RoleView "$UNNAMED$113" @437
+					Parent_View 	@435
 					location   	(1074, 229)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF69291006D"
-					client     	@383
-					supplier   	@382
+					client     	@435
+					supplier   	@434
 					vertices   	(list Points
 					    (1896, 633)
 					    (1410, 484))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$138" @386
+			    (object AssociationViewNew "$UNNAMED$138" @438
 				location   	(1699, 327)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF6930A0026"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$139" @387
-					Parent_View 	@386
+				    (object RoleView "$UNNAMED$139" @439
+					Parent_View 	@438
 					location   	(708, -24)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6930A03A8"
-					client     	@386
-					supplier   	@375
+					client     	@438
+					supplier   	@427
 					vertices   	(list Points
 					    (1699, 327)
 					    (1988, 246))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$140" @388
-					Parent_View 	@386
+				    (object RoleView "$UNNAMED$140" @440
+					Parent_View 	@438
 					location   	(708, -24)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6930A03AA"
-					client     	@386
-					supplier   	@382
+					client     	@438
+					supplier   	@434
 					vertices   	(list Points
 					    (1699, 327)
 					    (1410, 407))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$150" @389
+			    (object AssociationViewNew "$UNNAMED$150" @441
 				location   	(919, 369)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF693290373"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$151" @390
-					Parent_View 	@389
+				    (object RoleView "$UNNAMED$151" @442
+					Parent_View 	@441
 					location   	(619, 79)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6932A01CE"
-					client     	@389
-					supplier   	@382
+					client     	@441
+					supplier   	@434
 					vertices   	(list Points
 					    (919, 369)
 					    (1151, 417))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$152" @391
-					Parent_View 	@389
+				    (object RoleView "$UNNAMED$152" @443
+					Parent_View 	@441
 					location   	(619, 79)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6932A01D7"
-					client     	@389
-					supplier   	@376
+					client     	@441
+					supplier   	@428
 					vertices   	(list Points
 					    (919, 369)
 					    (687, 321))
 					line_style 	0)))
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Bed" @392
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Bed" @444
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8122,7 +8928,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@392
+				    Parent_View 	@444
 				    location   	(1012, 1450)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8130,7 +8936,7 @@
 				    justify    	0
 				    label      	"Bed")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@392
+				    Parent_View 	@444
 				    location   	(1012, 1400)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8147,7 +8953,7 @@
 				height     	292
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomUltilities" @393
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomUltilities" @445
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8162,7 +8968,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@393
+				    Parent_View 	@445
 				    location   	(518, 1297)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8170,7 +8976,7 @@
 				    justify    	0
 				    label      	"RoomUltilities")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@393
+				    Parent_View 	@445
 				    location   	(518, 1247)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8187,37 +8993,37 @@
 				height     	292
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$129" @394
+			    (object AssociationViewNew "$UNNAMED$129" @446
 				location   	(486, 1137)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF692FA007B"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$130" @395
-					Parent_View 	@394
+				    (object RoleView "$UNNAMED$130" @447
+					Parent_View 	@446
 					location   	(161, 325)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692FA0251"
-					client     	@394
-					supplier   	@393
+					client     	@446
+					supplier   	@445
 					vertices   	(list Points
 					    (486, 1137)
 					    (554, 1234))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$131" @396
-					Parent_View 	@394
+				    (object RoleView "$UNNAMED$131" @448
+					Parent_View 	@446
 					location   	(161, 325)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692FA0254"
-					client     	@394
-					supplier   	@377
+					client     	@446
+					supplier   	@429
 					vertices   	(list Points
 					    (486, 1137)
 					    (417, 1040))
 					line_style 	0)))
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomImage" @397
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomImage" @449
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8232,7 +9038,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@397
+				    Parent_View 	@449
 				    location   	(1633, 1816)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8240,7 +9046,7 @@
 				    justify    	0
 				    label      	"RoomImage")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@397
+				    Parent_View 	@449
 				    location   	(1633, 1766)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8257,7 +9063,7 @@
 				height     	342
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::DetailBookingRoom" @398
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::DetailBookingRoom" @450
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8272,7 +9078,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@398
+				    Parent_View 	@450
 				    location   	(2403, 1410)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8280,7 +9086,7 @@
 				    justify    	0
 				    label      	"DetailBookingRoom")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@398
+				    Parent_View 	@450
 				    location   	(2403, 1360)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8297,37 +9103,37 @@
 				height     	442
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$144" @399
+			    (object AssociationViewNew "$UNNAMED$144" @451
 				location   	(2969, 1724)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF69320009D"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$145" @400
-					Parent_View 	@399
+				    (object RoleView "$UNNAMED$145" @452
+					Parent_View 	@451
 					location   	(366, 155)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF693200358"
-					client     	@399
-					supplier   	@381
+					client     	@451
+					supplier   	@433
 					vertices   	(list Points
 					    (2969, 1724)
 					    (3126, 1791))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$146" @401
-					Parent_View 	@399
+				    (object RoleView "$UNNAMED$146" @453
+					Parent_View 	@451
 					location   	(366, 155)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF69320035B"
-					client     	@399
-					supplier   	@398
+					client     	@451
+					supplier   	@450
 					vertices   	(list Points
 					    (2969, 1724)
 					    (2812, 1656))
 					line_style 	0)))
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomType" @402
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::RoomType" @454
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8342,7 +9148,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@402
+				    Parent_View 	@454
 				    location   	(944, 1848)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8350,7 +9156,7 @@
 				    justify    	0
 				    label      	"RoomType")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@402
+				    Parent_View 	@454
 				    location   	(944, 1798)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8367,7 +9173,7 @@
 				height     	292
 				annotation 	8
 				autoResize 	TRUE)
-			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Room" @403
+			    (object ClassView "Class" "Logical View::MoHinhPhanTich::Room" @455
 				ShowCompartmentStereotypes 	TRUE
 				IncludeAttribute 	TRUE
 				IncludeOperation 	TRUE
@@ -8382,7 +9188,7 @@
 				    color      	0
 				    default_color 	TRUE)
 				label      	(object ItemLabel
-				    Parent_View 	@403
+				    Parent_View 	@455
 				    location   	(1748, 928)
 				    fill_color 	13434879
 				    nlines     	1
@@ -8390,7 +9196,7 @@
 				    justify    	0
 				    label      	"Room")
 				stereotype 	(object ItemLabel
-				    Parent_View 	@403
+				    Parent_View 	@455
 				    location   	(1748, 878)
 				    fill_color 	13434879
 				    anchor     	10
@@ -8407,182 +9213,182 @@
 				height     	692
 				annotation 	8
 				autoResize 	TRUE)
-			    (object AssociationViewNew "$UNNAMED$114" @404
+			    (object AssociationViewNew "$UNNAMED$114" @456
 				location   	(1574, 819)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF692980040"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$115" @405
-					Parent_View 	@404
+				    (object RoleView "$UNNAMED$115" @457
+					Parent_View 	@456
 					location   	(583, 468)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6929D0191"
-					client     	@404
-					supplier   	@403
+					client     	@456
+					supplier   	@455
 					vertices   	(list Points
 					    (1574, 819)
 					    (1738, 1029))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$116" @406
-					Parent_View 	@404
+				    (object RoleView "$UNNAMED$116" @458
+					Parent_View 	@456
 					location   	(583, 468)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6929D0193"
-					client     	@404
-					supplier   	@382
+					client     	@456
+					supplier   	@434
 					vertices   	(list Points
 					    (1574, 819)
 					    (1410, 611))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$117" @407
+			    (object AssociationViewNew "$UNNAMED$117" @459
 				location   	(1489, 1377)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF692A8023F"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$118" @408
-					Parent_View 	@407
+				    (object RoleView "$UNNAMED$118" @460
+					Parent_View 	@459
 					location   	(552, 259)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692A901C9"
-					client     	@407
-					supplier   	@403
+					client     	@459
+					supplier   	@455
 					vertices   	(list Points
 					    (1489, 1377)
 					    (1738, 1271))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$119" @409
-					Parent_View 	@407
+				    (object RoleView "$UNNAMED$119" @461
+					Parent_View 	@459
 					location   	(552, 259)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692A901CB"
-					client     	@407
-					supplier   	@392
+					client     	@459
+					supplier   	@444
 					vertices   	(list Points
 					    (1489, 1377)
 					    (1241, 1481))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$132" @410
+			    (object AssociationViewNew "$UNNAMED$132" @462
 				location   	(1273, 1295)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF692FC0063"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$133" @411
-					Parent_View 	@410
+				    (object RoleView "$UNNAMED$133" @463
+					Parent_View 	@462
 					location   	(717, 11)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692FC0328"
-					client     	@410
-					supplier   	@403
+					client     	@462
+					supplier   	@455
 					vertices   	(list Points
 					    (1273, 1295)
 					    (1738, 1230))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$134" @412
-					Parent_View 	@410
+				    (object RoleView "$UNNAMED$134" @464
+					Parent_View 	@462
 					location   	(717, 11)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF692FC032E"
-					client     	@410
-					supplier   	@393
+					client     	@462
+					supplier   	@445
 					vertices   	(list Points
 					    (1273, 1295)
 					    (809, 1359))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$135" @413
+			    (object AssociationViewNew "$UNNAMED$135" @465
 				location   	(1823, 1655)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF6930700F4"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$136" @414
-					Parent_View 	@413
+				    (object RoleView "$UNNAMED$136" @466
+					Parent_View 	@465
 					location   	(306, 602)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF69307031F"
-					client     	@413
-					supplier   	@397
+					client     	@465
+					supplier   	@449
 					vertices   	(list Points
 					    (1823, 1655)
 					    (1810, 1753))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$137" @415
-					Parent_View 	@413
+				    (object RoleView "$UNNAMED$137" @467
+					Parent_View 	@465
 					location   	(306, 602)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF693070321"
-					client     	@413
-					supplier   	@403
+					client     	@465
+					supplier   	@455
 					vertices   	(list Points
 					    (1823, 1655)
 					    (1835, 1558))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$141" @416
+			    (object AssociationViewNew "$UNNAMED$141" @468
 				location   	(2210, 1372)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF6931D0311"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$142" @417
-					Parent_View 	@416
+				    (object RoleView "$UNNAMED$142" @469
+					Parent_View 	@468
 					location   	(334, 331)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6931E00CF"
-					client     	@416
-					supplier   	@398
+					client     	@468
+					supplier   	@450
 					vertices   	(list Points
 					    (2210, 1372)
 					    (2393, 1463))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$143" @418
-					Parent_View 	@416
+				    (object RoleView "$UNNAMED$143" @470
+					Parent_View 	@468
 					location   	(334, 331)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6931E00D1"
-					client     	@416
-					supplier   	@403
+					client     	@468
+					supplier   	@455
 					vertices   	(list Points
 					    (2210, 1372)
 					    (2027, 1283))
 					line_style 	0)))
-			    (object AssociationViewNew "$UNNAMED$153" @419
+			    (object AssociationViewNew "$UNNAMED$153" @471
 				location   	(1500, 1564)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5CF69330020F"
 				roleview_list 	(list RoleViews
-				    (object RoleView "$UNNAMED$154" @420
-					Parent_View 	@419
+				    (object RoleView "$UNNAMED$154" @472
+					Parent_View 	@471
 					location   	(-376, 523)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6933100C1"
-					client     	@419
-					supplier   	@402
+					client     	@471
+					supplier   	@454
 					vertices   	(list Points
 					    (1500, 1564)
 					    (1261, 1785))
 					line_style 	0)
-				    (object RoleView "$UNNAMED$155" @421
-					Parent_View 	@419
+				    (object RoleView "$UNNAMED$155" @473
+					Parent_View 	@471
 					location   	(-376, 523)
 					stereotype 	TRUE
 					line_color 	3342489
 					quidu      	"5CF6933100C3"
-					client     	@419
-					supplier   	@403
+					client     	@471
+					supplier   	@455
 					vertices   	(list Points
 					    (1500, 1564)
 					    (1738, 1344))
