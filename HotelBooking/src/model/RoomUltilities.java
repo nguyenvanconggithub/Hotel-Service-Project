@@ -1,15 +1,15 @@
 package model;
 
-import java.util.List;
+
 
 public class RoomUltilities {
-	private List<Utilities> utility;
+	private Utilities utility;
 	private Room room;
 	
 	public RoomUltilities() {
 
 	}
-	public RoomUltilities(List<Utilities> utility, Room room) {
+	public RoomUltilities(Utilities utility, Room room) {
 		this.utility = utility;
 		this.room = room;
 	}
@@ -19,10 +19,10 @@ public class RoomUltilities {
 	public void setRoom(Room room) {
 		this.room = room;
 	}
-	public List<Utilities> getUtility() {
+	public Utilities getUtility() {
 		return utility;
 	}
-	public void setUtility(List<Utilities> utility) {
+	public void setUtility(Utilities utility) {
 		this.utility = utility;
 	}
 

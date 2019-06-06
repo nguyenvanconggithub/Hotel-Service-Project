@@ -1,21 +1,21 @@
 package model;
 
-import java.util.List;
+
 
 public class HotelUltilities {
-	private List<Utilities> utility;
+	private Utilities utility;
 	private Hotel hotel;
 	public HotelUltilities() {
 
 	}
-	public HotelUltilities(List<Utilities> utility, Hotel hotel) {
+	public HotelUltilities(Utilities utility, Hotel hotel) {
 		this.utility = utility;
 		this.hotel = hotel;
 	}
-	public List<Utilities> getUtility() {
+	public Utilities getUtility() {
 		return utility;
 	}
-	public void setUtility(List<Utilities> utility) {
+	public void setUtility(Utilities utility) {
 		this.utility = utility;
 	}
 	public Hotel getHotel() {
