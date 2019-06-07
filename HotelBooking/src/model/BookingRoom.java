@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BookingRoom {
 	private int idBooking;
-	private int idUser;
+	private User user;
 	private Date orderTime;
 	private Date checkIn;
 	private Date checkOut;
@@ -12,10 +12,10 @@ public class BookingRoom {
 	
 	public BookingRoom() {
 	}
-	public BookingRoom(int idBooking, int idUser, Date orderTime, Date checkIn, Date checkOut, String note) {
+	public BookingRoom(int idBooking, User User, Date orderTime, Date checkIn, Date checkOut, String note) {
 
 		this.idBooking = idBooking;
-		this.idUser = idUser;
+		this.user = User;
 		this.orderTime = orderTime;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
@@ -27,12 +27,10 @@ public class BookingRoom {
 	public void setIdBooking(int idBooking) {
 		this.idBooking = idBooking;
 	}
-	public int getIdUser() {
-		return idUser;
+	public User getUser() {
+		return user;
 	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+        
 	public Date getOrderTime() {
 		return orderTime;
 	}

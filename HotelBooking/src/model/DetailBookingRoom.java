@@ -1,30 +1,25 @@
 package model;
 
 public class DetailBookingRoom {
-	private int idRoom;
+	private Room room;
 	private BookingRoom bookingRoom;
 	private int status;
 	private int bookingNumber;
 	private String ownRoomName;
 	public DetailBookingRoom() {
 	}
-	public DetailBookingRoom(int idRoom, BookingRoom bookingRoom, int status, int bookingNumber, String ownRoomName) {		this.idRoom = idRoom;
+	public DetailBookingRoom(Room Room, BookingRoom bookingRoom, int status, int bookingNumber, String ownRoomName) {		
+                this.room = Room;
 		this.bookingRoom = bookingRoom;
 		this.status = status;
 		this.bookingNumber = bookingNumber;
 		this.ownRoomName = ownRoomName;
 	}
-	public int getIdRoom() {
-		return idRoom;
-	}
-	public void setIdRoom(int idRoom) {
-		this.idRoom = idRoom;
+	public Room getRoom() {
+		return room;
 	}
 	public BookingRoom getBookingRoom() {
 		return bookingRoom;
-	}
-	public void setBookingRoom(BookingRoom bookingRoom) {
-		this.bookingRoom = bookingRoom;
 	}
 	public int getStatus() {
 		return status;
