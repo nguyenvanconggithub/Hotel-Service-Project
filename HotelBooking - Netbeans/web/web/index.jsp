@@ -1,0 +1,201 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="CSS\style.css">
+    </head>
+
+    <body>
+        <!-- Start navigation bar-->
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse font-weight-bold" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tim-phong">Tìm phòng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#co-the-ban-se-thich">Có thể bạn sẽ thích</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#lien-he-gop-y">Liên hệ/Góp ý</a>
+                    </li>
+                </ul>
+                <ul class='navbar-nav'>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End Navigation Bar-->
+
+        <!-- Start Background Image + Search Form-->
+        <div class="masthead">
+            <div class="container">
+                <div class="row justify-items-center sologan">
+                    <div class="col-12 text-center">
+                        <h1 class="font-weight-light text-light" id="web-name"></h1>
+                        <i>
+                            <p class="lead text-light" id="web-sologan"></p>
+                        </i>
+                        <label id='tim-phong'></label>
+                    </div>
+                </div>
+                <div class="row justify-content-center opacity-animated">
+                    <div class="col-md-8">
+                        <form>
+                            <div class="form-group">
+                                <label for="address">Địa Điểm</label>
+                                <input type="text" class="form-control form-control-lg" id="address"
+                                       placeholder="Nhập điểm đến, khách sạn">
+                            </div>
+                            <div class="row form-group">
+                                <div class="form-group col-12 col-sm-6">
+                                    <label>Ngày Checkin</label>
+                                    <input id='checkinday' type="date" name="bday" max="31-12-3000" min="24-05-2019"
+                                           class="form-control form-control-lg">
+                                </div>
+                                <div class="form-group col-12 col-sm-6 ">
+                                    <label>Ngày Checkout</label>
+                                    <input id='checkoutday' type="date" name="bday" min="01-01-2019" max="31-12-3000"
+                                           class="form-control form-control-lg">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="form-group col-12 col-md-6 col-lg-4">
+                                    <label class='d-block'>Số Khách</label>
+                                    <div class='btn-group d-flex'>
+                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100'>-</button>
+                                        <button type='button' class='btn btn-lg btn-light px-5 w-100'>0</button>
+                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100'>+</button>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 col-md-6 col-lg-4">
+                                    <label for='soPhong' class='d-block'>Số Phòng</label>
+                                    <div class='btn-group d-flex'>
+                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100'>-</button>
+                                        <button type='button' class='btn btn-lg btn-light px-5 w-100'>0</button>
+                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100'>+</button>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 col-md-12 col-lg-4">
+                                    <label class='invisible'>.</label>
+                                    <a href="list-hotel.html" class="btn-primary form-control form-control-lg text-center nav-link">Tìm</a>
+                                    <!--USE BUTTON BELOW WHEN CODING !!!-->
+                                    <!--<button type="submit" class="btn-primary form-control form-control-lg" ></button>-->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Background Image + Search Form-->
+        <!--Hotel List-->
+        <label id="co-the-ban-se-thich"></label>
+        <div class="container">
+            <div class="font-weight-bold lead text-shadow-blur">Có thể bạn sẽ thích: </div>
+            <div class="row">
+                <c:forEach var="shortHotelInfo" items="${listShortHotelInfo}">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="card my-2">
+                            <div class="card-header bg-primary text-light font-weight-bold">${shortHotelInfo.getHotel().getHotelName()} <span> - 4/5
+                                </span><span class="text-warning">&bigstar;</span></div>
+                            <div class="card-body p-0">
+                                <img src="${shortHotelInfo.getLinkImage()}" class="img-responsive w-100" style='height:250px'>
+                            </div>
+                            <div class="card-footer h-150px">
+                                <div class="text-secondary">Khách sạn ${shortHotelInfo.getHotel().getStar()} sao</div>
+                                <div class="my-1">${shortHotelInfo.getHotel().getAddress()}</div>
+                                <a href='#' class="btn btn-primary stretched-link float-right">Xem thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+             </div>
+            <ul class="pagination justify-content-center mt-5">
+                <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
+            </ul>
+        </div>
+        <!--END List Hotel-->
+        <footer class="container-fluid" id='lien-he-gop-y'>
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
+                    <h4>Nhóm thực hiện: Nhóm 05 ĐH KTPM3 K11</h4>
+                    <h4>Đề tài: HỆ THỐNG QUẢN LÝ ĐẶT KHÁCH SẠN</h4>
+                    <h4>Với sự hướng dẫn của thầy: <span class="text-info font-weight-bold">ThS. Hoàng Quang Huy</span></h4>
+                    <br />
+                    <hr />
+                    <div class="text-center lead">Các thành viên trong nhóm</div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 pb-3 text-center">
+                            <h5>Nguyễn Văn Công</h5>
+                            <h5>1141360237</h5>
+                            <p>036 488 3022</p>
+                            <p>nvc19021998@gmail.com</p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 pb-3 text-center border-left border-right">
+                            <h5>Phạm Hải Dương</h5>
+                            <h5>1141360254</h5>
+                            <p>033 749 3535</p>
+                            <p>Haiduog@gmail.com</p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 pb-3 text-center">
+                            <h5>Nguyễn Phú Luật</h5>
+                            <h5>1141360177</h5>
+                            <p>034 999 3893</p>
+                            <p>ongluatlangvang@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <h4>Mọi ý kiến, thắc mắc, góp ý xin hãy gửi về cho chúng tôi: </h4>
+                    <form class="form">
+                        <label>Email: </label>
+                        <input type="email" class="form-control" size="50" placeholder="Địa chỉ Email">
+                        <label>Số điện thoại: </label>
+                        <input type="tel" class="form-control" placeholder="Số điện thoại">
+                        <label>Nội dung: </label>
+                        <textarea class="form-control" style="height: 170px" placeholder="Nội dung"></textarea>
+                        <button type="button" class="form-control btn-primary my-3">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script src="JS/action.js"></script>
+
+</html>
