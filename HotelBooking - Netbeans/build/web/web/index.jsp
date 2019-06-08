@@ -30,26 +30,63 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse font-weight-bold" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tim-phong">Tìm phòng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#co-the-ban-se-thich">Có thể bạn sẽ thích</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#lien-he-gop-y">Liên hệ/Góp ý</a>
-                    </li>
-                </ul>
-                <ul class='navbar-nav'>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="#">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
+
+                            <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                            <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
+
             </div>
         </nav>
         <!-- End Navigation Bar-->
@@ -137,7 +174,7 @@
                         </div>
                     </div>
                 </c:forEach>
-             </div>
+            </div>
             <ul class="pagination justify-content-center mt-5">
                 <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>

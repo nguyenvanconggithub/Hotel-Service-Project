@@ -15,7 +15,7 @@ public class AccountDAO {
     String password = "123456";
     private static AccountDAO instance = null;
 
-    public AccountDAO Instance() {
+    public static AccountDAO Instance() {
         if (instance == null) {
             instance = new AccountDAO();
         }
@@ -46,7 +46,7 @@ public class AccountDAO {
             OpenConnect();
             String query = "SELECT * FROM account WHERE userName =?";
             PreparedStatement preStmt = con.prepareStatement(query);
-            
+
             preStmt.setString(1, newUsername);
             ResultSet rs = preStmt.executeQuery();
             if (rs.next()) {
@@ -58,7 +58,6 @@ public class AccountDAO {
             preStmt.close();
             rs.close();
             CloseConnect();
-            return false;
         } catch (Exception e) {
             System.out.println("Already Exists Username - error: ");
             e.printStackTrace();
@@ -66,4 +65,76 @@ public class AccountDAO {
         return false;
     }
 
+    public boolean addNewAccount(String username, String pass, String role, int status) {
+        boolean result = false;
+        try {
+            OpenConnect();
+            String query = "INSERT INTO account VALUES(?,?,?,?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, username);
+            preStmt.setString(2, pass);
+            preStmt.setString(3, role);
+            preStmt.setInt(4, status);
+            result = preStmt.execute();
+
+            preStmt.close();
+            CloseConnect();
+            return result;
+        } catch (Exception e) {
+            System.out.println("Add New Account - err: ");
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public boolean validLogin(String username, String password) {
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM account WHERE userName =? AND passWord=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setString(1, username);
+            preStmt.setString(2, password);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                preStmt.close();
+                rs.close();
+                CloseConnect();
+                return true;
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("checkLogin - error: ");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getRoleOfUser(String username) {
+        String role = "";
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM account WHERE userName =?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setString(1, username);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                role = rs.getString("role");
+                preStmt.close();
+                rs.close();
+                CloseConnect();
+                return role;
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("checkLogin - error: ");
+            e.printStackTrace();
+        }
+        return role;
+    }
 }

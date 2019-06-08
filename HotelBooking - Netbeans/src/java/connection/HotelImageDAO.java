@@ -2,6 +2,7 @@ package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -67,6 +68,40 @@ public class HotelImageDAO {
             return list;
         } catch (Exception e) {
             System.out.println("getShortHotelInfo err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+        //shortHotelInfo includes 1 images, hotel name, rate, star, adress, idhotel
+    public ArrayList<HotelImage> getShortHotelInfoByUsername(String username) {
+        ArrayList<HotelImage> list = new ArrayList<HotelImage>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 AND userName = ? ORDER BY hotelimage.idHotel";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, username);
+            System.out.println(username);
+            ResultSet rs = preStmt.executeQuery();
+            
+            while (rs.next()) {
+                HotelImage oneRecord = new HotelImage();
+                oneRecord.setLinkImage(rs.getString("linkImage"));
+                oneRecord.getHotel().setHotelName(rs.getString("hotelName"));
+                oneRecord.getHotel().setRate(rs.getFloat("rate"));
+                oneRecord.getHotel().setStar(rs.getInt("star"));
+                oneRecord.getHotel().setAddress(rs.getString("address"));
+                oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
+
+                list.add(oneRecord);
+            }
+            System.out.println("DAO - size: " + list.size());
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getShortHotelInfoByUserName err: ");
             e.printStackTrace();
         }
         return list;

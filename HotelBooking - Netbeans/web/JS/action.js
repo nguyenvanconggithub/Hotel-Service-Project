@@ -48,7 +48,6 @@ $(document).ready(function() {
             $(this).removeClass('shadow border border-primary');
         }
     );
-
     var web_name_count = 0;
     var web_sologan_count = 0;
     var web_name = 'KhachSanTotNhat.com';
@@ -97,6 +96,11 @@ $('#registerForm').on("submit",()=>{
 	}
     return true;
 });
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
 function setPreloadIMG(input, img) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
