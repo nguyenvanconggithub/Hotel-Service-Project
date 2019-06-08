@@ -63,10 +63,12 @@ public class UploadFileServlet extends HttpServlet {
            }
   
            // Danh mục các phần đã upload lên (Có thể là nhiều file).
+           String username = "Cong";
            for (Part part : request.getParts()) {
                String fileName = extractFileName(part);
                if (fileName != null && fileName.length() > 0) {
                    String filePath = fullSavePath + File.separator + fileName;
+                   System.out.println(SAVE_DIRECTORY + File.separator + fileName);
                    System.out.println("Write attachment to file: " + filePath);
   
                    // Ghi vào file.
@@ -75,6 +77,7 @@ public class UploadFileServlet extends HttpServlet {
            }
   
            // Upload thành công.
+           
            response.sendRedirect(request.getContextPath() + "/uploadFileResults");
        } catch (Exception e) {
            e.printStackTrace();
@@ -98,7 +101,20 @@ public class UploadFileServlet extends HttpServlet {
                int i = clientFileName.lastIndexOf('/');
                // file1.zip
                // file2.zip
-               return clientFileName.substring(i + 1);
+               
+               
+               //>>>>>>>>>>>>>>>>>>>>>>>> CHU Y  <<<<<<<<<<<<<<
+               /*
+               *Check username có bao nhiêu ảnh Khách Sạn = SELECT COUNT(*)
+               *Sau đó Cộng Chuỗi Username + (Count(*)+1) + clientFileName.substring(i + 1);
+               ví dụ:   username: Cong
+                        imageNumber: 5
+               >>>Mục đích để không bị trùng tên làm ảnh override nhau
+               */
+               String username = "Cong";
+               String imageNumber = String.valueOf(5);
+               
+               return username + imageNumber + clientFileName.substring(i + 1);
            }
        }
        return null;

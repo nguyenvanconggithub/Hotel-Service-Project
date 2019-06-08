@@ -12,7 +12,7 @@
 </head>
 <body>
  
-    <h3>Upload has been done successfully!</h3>
+    <h3>Upload has been done successfully! Link Path show in console netbeans</h3>
     <a href="${pageContext.request.contextPath}/uploadFile">Continue Upload</a>
       
     
