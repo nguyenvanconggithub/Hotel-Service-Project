@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,40 +21,74 @@
 </head>
 
 <body>
-    <!-- Start navigation bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+       <!-- Start navigation bar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
-            <ul class='navbar-nav'>
-                <!-- 
-                    >>>>>Use this comment if system is not signed in<<<
+            <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
 
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
-                </li>
-                -->
-                <li class="nav-item">
-                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Chủ KS
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
-                        <a class="dropdown-item" href="manage-hotel-infomation.html">Quản lý thông tin khách sạn</a>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                            <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                            <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
+
+            </div>
+        </nav>
+        <!-- End Navigation Bar-->
     <div class="jumbotron container my-3 shadow">
         <h1 class="display-4">Xin Chào, Chủ KS</h1>
         <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
@@ -66,7 +101,7 @@
     </div>
     <div class="container">
         <div class="font-weight-bold lead my-5 text-shadow-blur">Nhập thông tin cho khách sạn mới: </div>
-        <form method="GET" class="form">
+        <form method="POST" class="form" action="add-new-hotel" enctype="multipart/form-data">
             <div class="row form-group">
                 <label for="tenKhachSan" class="col-sm-12 col-md-2">Tên khách sạn</label>
                 <input type="text" name="tenKhachSan" id="tenKhachSan" class="form-control col-sm-12 col-md-6" required>
@@ -96,46 +131,14 @@
                 <label class="col-sm-12 col-md-2">Các tiện ích</label>
                 <div class="col-sm-12 col-md-10">
                     <div class="row">
+                        <c:set var="count" value="1"></c:set>
+                        <c:forEach  var="utility" items="${requestScope.listUltilities}">
                         <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch1" value="mayLanh">
-                            <label class="custom-control-label" for="tienIch1"> Máy lạnh</label>
+                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch${count}" value="${utility.getIdUtility()}">
+                            <label class="custom-control-label" for="tienIch${count}">${utility.getUtilityName()}</label>
                         </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch2" value="leTan">
-                            <label class="custom-control-label" for="tienIch2"> Lễ tân 24/24</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch3" value="thangMay">
-                            <label class="custom-control-label" for="tienIch3"> Thang máy</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch4" value="nhaHang">
-                            <label class="custom-control-label" for="tienIch4"> Nhà hàng</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch5" value="wifi">
-                            <label class="custom-control-label" for="tienIch5"> Wifi</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch6" value="hoBoi">
-                            <label class="custom-control-label" for="tienIch6"> Hồ bơi</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch7" value="hoTroDoXe">
-                            <label class="custom-control-label" for="tienIch7"> Hỗ trợ đỗ xe</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch8" value="nhanThuNuoi">
-                                <label class="custom-control-label" for="tienIch8"> Nhận thú nuôi</label>
-                            </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch9" value="phongTheHinh">
-                            <label class="custom-control-label" for="tienIch9"> Phòng thể hình</label>
-                        </div>
-                        <div class="col-6 col-sm-3 custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="tienIch" id="tienIch10" value="phongSpa">
-                            <label class="custom-control-label" for="tienIch10"> Phòng Spa</label>
-                        </div>
+                        <c:set var="count" value="${count+1}"></c:set>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

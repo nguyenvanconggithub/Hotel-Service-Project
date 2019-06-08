@@ -72,18 +72,18 @@ public class HotelImageDAO {
         }
         return list;
     }
-    
-        //shortHotelInfo includes 1 images, hotel name, rate, star, adress, idhotel
+
+    //shortHotelInfo includes 1 images, hotel name, rate, star, adress, idhotel
     public ArrayList<HotelImage> getShortHotelInfoByUsername(String username) {
         ArrayList<HotelImage> list = new ArrayList<HotelImage>();
         try {
             OpenConnect();
-            String query = "SELECT * FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 AND userName = ? ORDER BY hotelimage.idHotel";
+            String query = "SELECT * FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 AND userName = ? GROUP BY hotelimage.idHotel";
             PreparedStatement preStmt = con.prepareStatement(query);
             preStmt.setString(1, username);
             System.out.println(username);
             ResultSet rs = preStmt.executeQuery();
-            
+
             while (rs.next()) {
                 HotelImage oneRecord = new HotelImage();
                 oneRecord.setLinkImage(rs.getString("linkImage"));
@@ -106,4 +106,47 @@ public class HotelImageDAO {
         }
         return list;
     }
+
+    public int numberImageOfHotel(int idHotel) {
+        int imageNumber = 0;
+        try {
+            OpenConnect();
+            String query = "SELECT COUNT(*) AS TOTAL FROM hotelimage WHERE idHotel=" + idHotel + "";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                imageNumber = rs.getInt("TOTAL");
+            }
+            rs.close();
+            stmt.close();;
+            CloseConnect();
+            return imageNumber;
+
+        } catch (Exception e) {
+            System.out.println("Number Image Of Hotel with err: ");
+            e.printStackTrace();
+        }
+        return imageNumber;
+    }
+
+    public boolean addNewHotelImage(String linkImage, int idHotel) {
+        try {
+            OpenConnect();
+            String query = "INSERT INTO hotelimage(linkImage, idHotel) VALUES (?,?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setString(1, linkImage);
+            preStmt.setInt(2, idHotel);
+            preStmt.execute();
+
+            preStmt.close();
+            CloseConnect();
+            return true;
+        } catch (Exception e) {
+            System.out.println("addNewHotelImage - error: ");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/index.jsp</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/register.jsp</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Home.java</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Register.java</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/connection/AccountDAO.java</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/connection/UserDAO.java</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/connection/HotelImageDAO.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Login.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/JS/action.js</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/AddHotel.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/add-new-hotel.jsp</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/login.jsp</file>
         </group>
     </open-files>
 </project-private>
