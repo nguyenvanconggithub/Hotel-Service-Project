@@ -128,7 +128,7 @@ public class AddHotel extends HttpServlet {
                 String fileName = extractFileName(part);
                 String imageNumber = String.valueOf(HotelImageDAO.Instance().numberImageOfHotel(idHotel));
                 if (fileName != null && fileName.length() > 0) {
-                    String filePath = fullSavePath + File.separator + username + imageNumber + fileName;
+                    String filePath = fullSavePath + File.separator + username+ "HOTEL" + imageNumber + fileName;
                     String linkToSaveInSQL = SAVE_DIRECTORY + File.separator + username + "HOTEL" + imageNumber + fileName;
                     //Save LinkImage to SQL
                     addSuccess = HotelImageDAO.Instance().addNewHotelImage(linkToSaveInSQL, idHotel);

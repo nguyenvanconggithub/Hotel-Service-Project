@@ -12,7 +12,7 @@ public class BedDAO {
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "123456";
+    String password = "1234";
     static BedDAO instance = null;
 
     public static BedDAO Instance() {

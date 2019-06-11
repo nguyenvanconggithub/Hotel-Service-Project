@@ -14,7 +14,7 @@ public class HotelImageDAO {
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "123456";
+    String password = "1234";
     static HotelImageDAO instance = null;
 
     public static HotelImageDAO Instance() {
