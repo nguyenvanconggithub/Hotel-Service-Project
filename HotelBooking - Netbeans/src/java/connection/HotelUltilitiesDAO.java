@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import model.HotelUltilities;
 
 public class HotelUltilitiesDAO {
 
@@ -56,6 +58,50 @@ public class HotelUltilitiesDAO {
         } catch (Exception e) {
             System.out.println("addHotelUtilities - error: ");
             e.printStackTrace();
+
+        }
+        return false;
+    }
+
+    public ArrayList<Integer> listIDUtilitiesOfIDHotel(int idHotel) {
+        ArrayList<Integer> lstID = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT idutility FROM hotel.hotelutilities WHERE idhotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setInt(1, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                lstID.add(rs.getInt("idutility"));
+            }
+            preStmt.close();
+            CloseConnect();
+            return lstID;
+        } catch (Exception e) {
+            System.out.println("listIDUtilitiesOfIDHotel - error: ");
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
+    public boolean removeAllOldUltilOfIdHotel(int idHotel) {
+        try {
+            OpenConnect();
+            String query = "DELETE hotelutilities FROM hotelutilities WHERE idhotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setInt(1, idHotel);
+            preStmt.execute();
+
+            preStmt.close();
+            CloseConnect();
+            return true;
+        } catch (Exception e) {
+            System.out.println("removeAllOldUltilOfIdHotel - error: ");
+            e.printStackTrace();
+
         }
         return false;
     }

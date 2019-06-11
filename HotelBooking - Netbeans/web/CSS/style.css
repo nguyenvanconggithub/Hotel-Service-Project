@@ -221,7 +221,7 @@
     .big-scr {
         display:none;
     }
-    @media (max-height: 768px) {
+    @media (max-width: 768px) {
         .sologan {
             display: none;
         }

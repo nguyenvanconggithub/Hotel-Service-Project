@@ -91,7 +91,7 @@
         <!-- End Navigation Bar-->
 
         <div class="jumbotron container my-3 shadow">
-            <h1 class="display-4">Xin Chào, Chủ KS</h1>
+            <h1 class="display-4">Xin Chào, ${sessionScope.username}</h1>
             <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
                 đã giúp website nâng cao dịch vụ và bạn sẽ sớm được sử dụng những dịch vụ tốt nhất !</p>
             <hr class="my-4">
@@ -101,27 +101,39 @@
             </p>
         </div>
         <div class="container">
+            <c:if test="${requestScope.removeResult == true}">
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong class="text-center" id="messageInfomation">${requestScope.message}</strong>
+                </div>
+            </c:if>
+            <c:if test="${requestScope.removeResult == false}">
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong class="text-center" id="messageInfomation">${requestScope.message}</strong>
+                </div>
+            </c:if>
             <div class="font-weight-bold lead my-5 text-shadow-blur">Danh sách các phòng của bạn</div>
             <div class="row">
                 <c:forEach var="hotel" items="${requestScope.list}">
-                <div class="col-md-12 col-lg-4">
-                    <div class="card my-2">
-                        <div class="card-header bg-primary text-light font-weight-bold">${hotel.getHotel().getHotelName()} <span> - ${hotel.getHotel().getRate()}/5
-                            </span><span class="text-warning">&bigstar;</span></div>
-                        <div class="card-body p-0">
-                            <img src="${hotel.getLinkImage()}" class="img-responsive w-100" style='height:250px'>
-                        </div>
-                        <div class="card-footer h-150px">
-                            <div class="text-secondary">Khách sạn ${hotel.getHotel().getStar()} sao</div>
-                            <div class="my-1">${hotel.getHotel().getAddress()}</div>
-                            <a href='edit-hotel?id=${hotel.getHotel().getIdHotel()}' class="btn btn-primary px-4">Sửa</a>
-                            <a href='remove-hotel?id=${hotel.getHotel().getIdHotel()}' class="btn btn-outline-danger px-4">Xóa</a>
-                            <a href="manage-hotel-room?id=${hotel.getHotel().getIdHotel()}" class="btn btn-outline-primary px-4">QL Phòng</a>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="card my-2">
+                            <div class="card-header bg-primary text-light font-weight-bold">${hotel.getHotel().getHotelName()} <span> - ${hotel.getHotel().getRate()}/5
+                                </span><span class="text-warning">&bigstar;</span></div>
+                            <div class="card-body p-0">
+                                <img src="${hotel.getLinkImage()}" class="img-responsive w-100" style='height:250px'>
+                            </div>
+                            <div class="card-footer h-150px">
+                                <div class="text-secondary">Khách sạn ${hotel.getHotel().getStar()} sao</div>
+                                <div class="my-1">${hotel.getHotel().getAddress()}</div>
+                                <a href='edit-hotel?id=${hotel.getHotel().getIdHotel()}' class="btn btn-primary px-4">Sửa</a>
+                                <a href='remove-hotel?id=${hotel.getHotel().getIdHotel()}' onclick="return confirm('Bạn có chắc chắn xóa ${hotel.getHotel().getHotelName()} không?')" class="btn btn-outline-danger px-4">Xóa</a>
+                                <a href="manage-hotel-room?id=${hotel.getHotel().getIdHotel()}" class="btn btn-outline-primary px-4">QL Phòng</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
-                
+
                 <!--Always add this Div to show Add New Hotel-->
                 <div class="col-md-12 col-lg-4">
                     <div class="card my-2  add_hotel_card">

@@ -147,7 +147,51 @@ function deleteImage(elem){
     }
 }
 var star = [1, 1, 1, 1, 1];
-
+if($('#star').val() == 1){
+    star[0] = 1;
+    star[1] = 0;
+    star[2] = 0;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 0, 0, 0, 0);
+    $('#star').val(1);
+}
+if($('#star').val() == 2){
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 0;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 1, 0, 0, 0);
+    $('#star').val(2);
+}
+if($('#star').val() == 3){
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 0;
+    star[4] = 0;
+    setStarValue(1, 1, 1, 0, 0);
+    $('#star').val(3);
+}
+if($('#star').val() == 4){
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 1;
+    star[4] = 0;
+    setStarValue(1, 1, 1, 1, 0);
+    $('#star').val(4);
+}
+if($('#star').val() == 5){
+    star[0] = 1;
+    star[1] = 1;
+    star[2] = 1;
+    star[3] = 1;
+    star[4] = 1;
+    setStarValue(1, 1, 1, 1, 1);
+    $('#star').val(5);
+}
 $('#oneStar').hover(() => {
     setStarValue(1, 0, 0, 0, 0);
 }, () => {

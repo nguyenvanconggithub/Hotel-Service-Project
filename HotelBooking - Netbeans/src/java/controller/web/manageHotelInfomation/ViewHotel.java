@@ -1,5 +1,6 @@
 package controller.web.manageHotelInfomation;
 
+import connection.HotelDAO;
 import connection.HotelImageDAO;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class ViewHotel extends HttpServlet{
             RequestDispatcher rd = req.getRequestDispatcher("/web/manage-hotel-infomation.jsp");
             rd.forward(req, resp);
         }
+
     }
 
 }

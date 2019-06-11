@@ -44,13 +44,16 @@ public class HotelImageDAO {
     }
 
     //shortHotelInfo includes 1 images, hotel name, rate, star, adress, idhotel
-    public ArrayList<HotelImage> getShortHotelInfo() {
+    public ArrayList<HotelImage> getShortHotelInfo(int page, int itemsPerPage) {
         ArrayList<HotelImage> list = new ArrayList<HotelImage>();
         try {
             OpenConnect();
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 ORDER BY hotelimage.idHotel";
-            ResultSet rs = stmt.executeQuery(query);
+            String query = "SELECT * FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 GROUP BY hotelimage.idHotel LIMIT ?,?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, (page - 1) * itemsPerPage);
+            preStmt.setInt(2, itemsPerPage);
+            ResultSet rs = preStmt.executeQuery();
+
             while (rs.next()) {
                 HotelImage oneRecord = new HotelImage();
                 oneRecord.setLinkImage(rs.getString("linkImage"));
@@ -62,7 +65,7 @@ public class HotelImageDAO {
 
                 list.add(oneRecord);
             }
-            stmt.close();
+            preStmt.close();
             rs.close();
             CloseConnect();
             return list;
@@ -127,6 +130,28 @@ public class HotelImageDAO {
             e.printStackTrace();
         }
         return imageNumber;
+    }
+
+    public int numberOfHotel() {
+        int numberOfHotel = 0;
+        try {
+            OpenConnect();
+            String query = "SELECT COUNT(*) AS TOTAL FROM (SELECT idhotelimage FROM hotelimage JOIN hotel ON hotelimage.idHotel = hotel.idHotel WHERE removed=0 GROUP BY hotelimage.idHotel) randomName";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                numberOfHotel = rs.getInt("TOTAL");
+            }
+            rs.close();
+            stmt.close();;
+            CloseConnect();
+            return numberOfHotel;
+
+        } catch (Exception e) {
+            System.out.println("numberOfHotel with err: ");
+            e.printStackTrace();
+        }
+        return numberOfHotel;
     }
 
     public boolean addNewHotelImage(String linkImage, int idHotel) {

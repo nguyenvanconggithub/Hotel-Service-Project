@@ -176,12 +176,12 @@
                 </c:forEach>
             </div>
             <ul class="pagination justify-content-center mt-5">
-                <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
+                <li class="page-item"><a class="page-link" href="home?page=${requestScope.page - 1}">Trang trước</a></li>
+                <li class="page-item active"><a class="page-link" href="home?page=${requestScope.page}">${requestScope.page}</a></li>
+                <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 1}">${requestScope.page + 1}</a></li>
+                <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 2}">${requestScope.page + 2}</a></li>
+                <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 3}">${requestScope.page + 3}</a></li>
+                <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 1}">Trang sau</a></li>
             </ul>
         </div>
         <!--END List Hotel-->

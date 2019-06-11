@@ -3,11 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Login.java</file>
-            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/JS/action.js</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Home.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/edit-hotel-infomation.jsp</file>
             <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/AddHotel.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/CSS/style.css</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/ViewHotel.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/manageRoomInfomation/AddRoom.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/Login.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/manage-hotel-infomation.jsp</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/index.jsp</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/RemoveHotel.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/index.jsp</file>
             <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/add-new-hotel.jsp</file>
             <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/web/web/login.jsp</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/connection/HotelDAO.java</file>
+            <file>file:/D:/javaCode/HotelBooking%20-%20Netbeans/src/java/controller/web/manageHotelInfomation/EditHotel.java</file>
         </group>
     </open-files>
 </project-private>

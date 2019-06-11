@@ -18,8 +18,24 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if (req.getServletPath().equals("/home")) {
             //get List Data Hotel
-            ArrayList<HotelImage> list = HotelImageDAO.Instance().getShortHotelInfo();
+            int totalItem = HotelImageDAO.Instance().numberOfHotel();
+            System.out.println(totalItem + "Totol");
+            int itemsPerPage = 10;
+            int page = 1;
+            String pageRequest = req.getParameter("page");
+            if(pageRequest != null){
+                page = Integer.parseInt(pageRequest);
+                if(page <= 0){page = 1;}
+                System.out.println("Item:" + Math.ceil((float)totalItem/itemsPerPage));
+                if(page > Math.ceil((float)totalItem/itemsPerPage)){
+                    page = (int)Math.ceil((float)totalItem/itemsPerPage);
+                }
+            }
+            
+            ArrayList<HotelImage> list = HotelImageDAO.Instance().getShortHotelInfo(page,itemsPerPage);
             req.setAttribute("listShortHotelInfo", list);
+            req.setAttribute("page", page);
+            
             System.out.println(list.size());
             //re-direct to web/index.jsp
             RequestDispatcher rd = req.getRequestDispatcher("/web/index.jsp");

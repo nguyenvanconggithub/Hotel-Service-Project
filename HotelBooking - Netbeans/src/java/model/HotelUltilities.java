@@ -3,8 +3,8 @@ package model;
 
 
 public class HotelUltilities {
-	private Utilities utility;
-	private Hotel hotel;
+	private Utilities utility = new Utilities();
+	private Hotel hotel = new Hotel();
 	public HotelUltilities() {
 
 	}

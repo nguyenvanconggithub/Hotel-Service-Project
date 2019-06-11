@@ -67,7 +67,7 @@ public class HotelDAO {
     }
 
     public boolean addNewHotel(Hotel hotel) {
-        
+
         try {
             OpenConnect();
             String query = "INSERT INTO hotel (hotelName, star, address, userName, rate, removed, SDT)"
@@ -82,10 +82,54 @@ public class HotelDAO {
             preStmt.setString(7, hotel.getSDT());
 
             preStmt.execute();
+            preStmt.close();
             CloseConnect();
             return true;
         } catch (Exception e) {
             System.out.println("addNewHotel with err: ");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean editHotel(Hotel hotel, int idHotel) {
+
+        try {
+            OpenConnect();
+            String query = "UPDATE hotel"
+                    + " SET hotelName= ?, star = ?, address = ?, SDT = ? WHERE idhotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, hotel.getHotelName());
+            preStmt.setInt(2, hotel.getStar());
+            preStmt.setString(3, hotel.getAddress());
+            preStmt.setString(4, hotel.getSDT());
+            preStmt.setInt(5, idHotel);
+
+            preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+            return true;
+        } catch (Exception e) {
+            System.out.println("editHotel with err: ");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean removeHotelByID(int idHotel) {
+        try {
+            OpenConnect();
+            String query = "UPDATE hotel"
+                    + " SET removed=1 WHERE idhotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idHotel);
+
+            preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+            return true;
+        } catch (Exception e) {
+            System.out.println("removeHotelByID with err: ");
             e.printStackTrace();
         }
         return false;
@@ -114,5 +158,36 @@ public class HotelDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public Hotel getHotelByID(int idHotel) {
+        Hotel hotel = new Hotel();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotel WHERE idHotel=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                hotel.setIdHotel(idHotel);
+                hotel.setHotelName(rs.getString("hotelName"));
+                hotel.setStar(rs.getInt("star"));
+                hotel.setAddress(rs.getString("address"));
+                hotel.getAccount().setUserName(rs.getString("userName"));
+                hotel.setRate(rs.getFloat("rate"));
+                hotel.setSDT(rs.getString("SDT"));
+                preStmt.close();
+                rs.close();
+                CloseConnect();
+                return hotel;
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("Get Hotel By ID - error: ");
+            e.printStackTrace();
+        }
+        return null;
     }
 }
