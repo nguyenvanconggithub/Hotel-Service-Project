@@ -44,11 +44,11 @@
                     <li class="nav-item">
                         <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                            Chủ KS
+                            ${sessionScope.username}
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
-                            <a class="dropdown-item" href="manage-hotel-infomation.html">Quản lý thông tin khách sạn</a>
+                            <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
+                            <a class="dropdown-item" href="manage-hotel-infomation">Quản lý thông tin khách sạn</a>
                             <a class="dropdown-item" href="#">Đăng xuất</a>
                         </div>
                     </li>
@@ -57,43 +57,22 @@
         </nav>
         <!--END Navbar -->
         <div class="container">
-            <h2>Khách Sạn Hà Nội Plaza</h2>
-            <div class="text-secondary">Khách sạn 3 sao</div>
-            <div class="font-weight-bold">9 N7B, Trung Hòa Nhân Chính, Thanh Xuân, Hà Nội 10000, Việt Nam</div>
+            <h2>${hotel.getHotelName()}</h2>
+            <div class="text-secondary">Khách sạn ${hotel.getStar()} sao</div>
+            <div class="font-weight-bold">${hotel.getAddress()}</div>
             <hr />
             <div class="container shadow py-2">
                 <div id="hotelSlideShow" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item hotel-img active">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_demo_KhachSan_001.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_002.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_003.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_004.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_005.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_006.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_007.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_008.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_009.jpg" alt="Hotel Image">
-                        </div>
-                        <div class="carousel-item hotel-img">
-                            <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_010.jpg" alt="Hotel Image">
-                        </div>
+                            <img class="d-block mx-auto img-fluid"  src="${requestScope.listImg.get(0).getLinkImage()}" alt="Hotel Image">
+                            </div>
+                            
+                            <c:forEach var="img" items="${requestScope.listImg}" begin="1">
+                            <div class="carousel-item hotel-img">
+                                <img class="d-block mx-auto img-fluid"  src="${img.getLinkImage()}" alt="Hotel Image">
+                            </div>
+                        </c:forEach>
 
                     </div>
                     <a class="carousel-control-prev" href="#hotelSlideShow" role="button" data-slide="prev">
@@ -107,36 +86,14 @@
                 </div>
 
                 <div class="container-fluid mt-2 album-slide-show">
-                    <span data-target="#hotelSlideShow" data-slide-to="0" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_demo_KhachSan_001.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="1" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_002.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="2" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_003.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="3" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_004.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="4" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_005.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="5" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_006.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="6" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_007.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="7" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_008.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="8" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_009.jpg">
-                    </span>
-                    <span data-target="#hotelSlideShow" data-slide-to="9" class="storeImg d-inline-block">
-                        <img class="d-block img-fluid" src="images/IMG_KhachSan_010.jpg">
-                    </span>
+                    <c:set var="count" value="0"></c:set>
+                    <c:forEach var="img1" items="${requestScope.listImg}">
+                        <span data-target="#hotelSlideShow" data-slide-to="${count}" class="storeImg d-inline-block">
+                            <img class="d-block img-fluid" src="${img1.getLinkImage()}">
+                        </span>
+                         <c:set var="count" value="${count+1}"></c:set>
+                    </c:forEach>   
+                    
                 </div>
             </div>
             <div class="container">

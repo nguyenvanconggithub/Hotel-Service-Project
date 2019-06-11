@@ -86,6 +86,8 @@ public class EditRoom extends HttpServlet {
         ArrayList<Utilities> listUti = UltilitiesDAO.Instance().getListUtilities();
         ArrayList<RoomUltilities> listOldUti = RoomUltilitiesDAO.Instance().getListRoomUtility(idRoom);
         ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInfor(idHotel);
+        ArrayList<RoomImage> listImgRoom = RoomImageDAO.Instance().getListImg(idRoom);
+        Hotel HotelInfor = HotelDAO.Instance().getShortHotelInfoByID(idHotel);
         req.setAttribute("listBed", listBeds);
         req.setAttribute("listRT", listRoomTypes);
         req.setAttribute("listUti", listUti);
@@ -93,5 +95,7 @@ public class EditRoom extends HttpServlet {
         req.setAttribute("listRoomImg", listRoom);
         req.setAttribute("idRoom", idRoom);
         req.setAttribute("idHotel", idHotel);
+        req.setAttribute("hotel", HotelInfor);
+        req.setAttribute("listImg", listImgRoom);
     }
 }

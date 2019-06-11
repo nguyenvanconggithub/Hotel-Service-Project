@@ -86,8 +86,7 @@
                 <div class="container-fluid mt-2 album-slide-show">
                     <c:set var="count" value="0"></c:set>
                     <c:forEach var="img1" items="${requestScope.listImg}">
-                        <c:set var="count" value="0"></c:set>
-                        <span data-target="#hotelSlideShow" data-slide-to="count" class="storeImg d-inline-block">
+                        <span data-target="#hotelSlideShow" data-slide-to="${count}" class="storeImg d-inline-block">
                             <img class="d-block img-fluid" src="${img1.getLinkImage()}">
                         </span>
                          <c:set var="count" value="${count+1}"></c:set>
@@ -126,7 +125,7 @@
                                     <div class="my-1">Tối đa <span class="font-weight-bold">${room.getRoom().getPeople()}</span> người</div>
                                     <div class="my-1">Còn lại <span class="font-weight-bold">${room.getRoom().getRoomLeft()}/${room.getRoom().getQuantity()}</span> phòng</div>
                                     <a href='edit-room?idRoom=${room.getRoom().getIdRoom()}&idHotel=${hotel.getIdHotel()}' class="btn btn-primary px-4">Sửa phòng</a>
-                                    <a class="btn btn-outline-danger px-4" onclick="if(confirm('Bạn có chắc chắn muốn xóa phòng không')){href='delete-room?idDel=${room.getRoom().getIdRoom()}&idHotel=${hotel.getIdHotel()}'} ">Xóa phòng</a>
+                                    <a class="btn btn-outline-danger px-4" onclick="if(confirm('Bạn có chắc chắn muốn xóa phòng không')){ href='delete-room?idDel=${room.getRoom().getIdRoom()}&idHotel=${hotel.getIdHotel()}'} ">Xóa phòng</a>
                                 </div>
                             </div>
 

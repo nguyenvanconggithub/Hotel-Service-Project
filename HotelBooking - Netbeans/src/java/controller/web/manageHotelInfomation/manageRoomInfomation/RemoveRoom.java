@@ -26,6 +26,7 @@ public class RemoveRoom extends HttpServlet{
         
         try{
             RoomDAO.Instance().deleteRoomById(idDel);
+            check=true;
         }catch(Exception e){
             check=false;
         }
