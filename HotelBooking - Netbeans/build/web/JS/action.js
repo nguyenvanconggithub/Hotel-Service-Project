@@ -281,3 +281,46 @@ function setStarValue(one, two, three, four, five) {
     if (five == 1)
         $('#fiveStar').addClass("text-warning");
 }
+//Add - down button Room
+//Quanlity Rooom
+$('#decreaseQuanlityRoom').click(() => {
+    if($('#quanlityRoomInput').val() <= 1){
+        $('#quanlityRoomInput').val(1);
+    }
+    else{
+        $('#quanlityRoomInput').val($('#quanlityRoomInput').val()-1);
+        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
+    }
+
+});
+$('#increaseQuanlityRoom').click(() => {
+    if($('#quanlityRoomInput').val() >=999){
+        $('#quanlityRoomInput').val(999);
+    }
+    else{
+        $('#quanlityRoomInput').val($('#quanlityRoomInput').val()*1 + 1);
+        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
+        
+    }
+});
+
+$('#decreaseMaxPeople').click(() => {
+    if($('#quanlityMaxPeopleInput').val() <= 1){
+        $('#quanlityMaxPeopleInput').val(1);
+    }
+    else{
+        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val()-1);
+        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
+    }
+
+});
+$('#increaseMaxPeople').click(() => {
+    if($('#quanlityMaxPeopleInput').val() >=999){
+        $('#quanlityMaxPeopleInput').val(999);
+    }
+    else{
+        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val()*1 + 1);
+        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
+        
+    }
+});

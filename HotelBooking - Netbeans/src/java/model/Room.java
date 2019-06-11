@@ -3,10 +3,10 @@ package model;
 public class Room {
 	private int idRoom;
 	private String roomName;
-	private Hotel hotel;
-	private Bed bed;
-	private RoomType roomType;
-	private int agcreage;
+	private Hotel hotel= new Hotel();
+	private Bed bed= new Bed();
+	private RoomType roomType = new RoomType();
+	private float agcreage;
 	private int cost;
 	private int people;
 	private int quantity;
@@ -15,7 +15,7 @@ public class Room {
 	private boolean removed;
 	public Room() {
 	}
-	public Room(int idRoom, String roomName, Hotel hotel, Bed bed, RoomType roomType, int agcreage, int cost,
+	public Room(int idRoom, String roomName, Hotel hotel, Bed bed, RoomType roomType, float agcreage, int cost,
 			int people, int quantity, int roomLeft, String note, boolean removed) {
 		this.idRoom = idRoom;
 		this.roomName = roomName;
@@ -60,10 +60,10 @@ public class Room {
 	public void setRoomType(RoomType roomType) {
 		this.roomType = roomType;
 	}
-	public int getAgcreage() {
+	public float getAgcreage() {
 		return agcreage;
 	}
-	public void setAgcreage(int agcreage) {
+	public void setAgcreage(float agcreage) {
 		this.agcreage = agcreage;
 	}
 	public int getCost() {

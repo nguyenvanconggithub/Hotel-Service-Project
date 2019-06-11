@@ -174,4 +174,32 @@ public class HotelImageDAO {
         return false;
     }
 
+    public ArrayList<HotelImage> getShortHotelInfoByID(String id) {
+        ArrayList<HotelImage> list = new ArrayList<HotelImage>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotelimage  WHERE idHotel=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, id);
+            System.out.println();
+            ResultSet rs = preStmt.executeQuery();
+
+            while (rs.next()) {
+                HotelImage oneRecord = new HotelImage();
+                oneRecord.setLinkImage(rs.getString("linkImage"));
+                oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
+
+                list.add(oneRecord);
+            }
+            System.out.println("DAO - size: " + list.size());
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getShortHotelInfoById err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

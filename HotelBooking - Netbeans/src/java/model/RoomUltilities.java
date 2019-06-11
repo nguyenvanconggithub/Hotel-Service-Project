@@ -3,8 +3,8 @@ package model;
 
 
 public class RoomUltilities {
-	private Utilities utility;
-	private Room room;
+	private Utilities utility = new Utilities();
+	private Room room = new Room();
 	
 	public RoomUltilities() {
 

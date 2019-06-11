@@ -1,19 +1,19 @@
 package model;
 
 public class RoomType {
-	private String idRoomType;
+	private int idRoomType;
 	private String roomTypeName;
 	public RoomType() {
 
 	}
-	public RoomType(String idRoomType, String roomTypeName) {
+	public RoomType(int idRoomType, String roomTypeName) {
 		this.idRoomType = idRoomType;
 		this.roomTypeName = roomTypeName;
 	}
-	public String getIdRoomType() {
+	public int getIdRoomType() {
 		return idRoomType;
 	}
-	public void setIdRoomType(String idRoomType) {
+	public void setIdRoomType(int idRoomType) {
 		this.idRoomType = idRoomType;
 	}
 	public String getRoomTypeName() {

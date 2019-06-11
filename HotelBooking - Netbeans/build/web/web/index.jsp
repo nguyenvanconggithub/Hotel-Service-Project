@@ -33,10 +33,10 @@
                 <c:if test="${sessionScope.loginStatus != 'logined'}">
                     <ul class='navbar-nav'>
                         <li class="nav-item">
-                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
                         </li>
                     </ul>
                 </c:if>

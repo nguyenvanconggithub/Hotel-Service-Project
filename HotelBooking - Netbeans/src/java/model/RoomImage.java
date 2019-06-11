@@ -4,7 +4,7 @@ package model;
 public class RoomImage {
 	private int idRoomImage;
 	private String linkImage;
-	private Room room;
+	private Room room= new Room();
 	
 	public RoomImage() {
 

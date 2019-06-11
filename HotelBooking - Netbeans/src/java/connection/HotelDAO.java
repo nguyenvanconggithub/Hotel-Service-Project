@@ -190,4 +190,32 @@ public class HotelDAO {
         }
         return null;
     }
+     public Hotel getShortHotelInfoByID(String id) {
+        Hotel oneRecord = new Hotel();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotel WHERE removed=0 AND idHotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, id);
+            System.out.println(id);
+            ResultSet rs = preStmt.executeQuery();
+            
+            while (rs.next()) {
+                oneRecord.setHotelName(rs.getString("hotelName"));
+                oneRecord.setRate(rs.getFloat("rate"));
+                oneRecord.setStar(rs.getInt("star"));
+                oneRecord.setAddress(rs.getString("address"));
+                oneRecord.setIdHotel(rs.getInt("idHotel"));
+
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return oneRecord;
+        } catch (Exception e) {
+            System.out.println("getShortHotelInfoByID err: ");
+            e.printStackTrace();
+        }
+        return oneRecord;
+    }
 }
