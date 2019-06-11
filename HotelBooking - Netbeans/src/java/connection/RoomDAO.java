@@ -17,7 +17,7 @@ public class RoomDAO {
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "1234";
+    String password = "123456";
     static RoomDAO instance = null;
 
     public static RoomDAO Instance() {
@@ -93,8 +93,8 @@ public class RoomDAO {
         
         try {
             OpenConnect();
-            String query = "INSERT INTO room (roomName, idHotel, idBed, idRoomType, acreage, cost, people,quantity,roomLeft,note,removed)"
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO room (roomName, idHotel, idBed, idRoomType, acreage, cost, people,quantity,roomLeft,removed)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preStmt = con.prepareStatement(query);
             
             preStmt.setString(1, room.getRoomName());
@@ -106,8 +106,7 @@ public class RoomDAO {
             preStmt.setInt(7, room.getPeople());
             preStmt.setInt(8, room.getQuantity());
             preStmt.setInt(9, room.getRoomLeft());
-            preStmt.setString(10, room.getNote());
-            preStmt.setBoolean(11, room.isRemoved());
+            preStmt.setBoolean(10, room.isRemoved());
             
             preStmt.execute();
             CloseConnect();

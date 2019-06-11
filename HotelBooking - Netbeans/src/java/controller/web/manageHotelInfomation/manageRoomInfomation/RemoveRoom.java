@@ -22,7 +22,7 @@ public class RemoveRoom extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idDel = req.getParameter("idDel");
-        boolean check=true;
+        boolean check=false;
         
         try{
             RoomDAO.Instance().deleteRoomById(idDel);
@@ -36,9 +36,9 @@ public class RemoveRoom extends HttpServlet{
         String mes;
         req.setAttribute("addSuccess",check);
         if(check==true){
-            mes="đã xóa phòng thành công";
+            mes="Đã xóa phòng thành công";
         }else{
-            mes="xóa phòng thất bại";
+            mes="Xóa phòng thất bại";
         }
         req.setAttribute("message", mes);
         

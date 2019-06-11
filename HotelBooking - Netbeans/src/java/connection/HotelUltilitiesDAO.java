@@ -13,7 +13,7 @@ public class HotelUltilitiesDAO {
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "1234";
+    String password = "123456";
     private static HotelUltilitiesDAO instance = null;
 
     public static HotelUltilitiesDAO Instance() {
