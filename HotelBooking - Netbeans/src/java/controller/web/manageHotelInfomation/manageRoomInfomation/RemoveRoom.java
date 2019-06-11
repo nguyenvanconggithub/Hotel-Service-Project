@@ -22,11 +22,28 @@ public class RemoveRoom extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idDel = req.getParameter("idDel");
-                RoomDAO.Instance().deleteRoomById(idDel);
-                getData(req, resp);
-                System.out.println("hi");
-                RequestDispatcher rd = req.getRequestDispatcher("/web/manage-hotel-room.jsp");
-                rd.forward(req, resp);
+        boolean check=true;
+        
+        try{
+            RoomDAO.Instance().deleteRoomById(idDel);
+        }catch(Exception e){
+            check=false;
+        }
+        
+        getData(req, resp);
+        System.out.println("hi");
+
+        String mes;
+        req.setAttribute("addSuccess",check);
+        if(check==true){
+            mes="đã xóa phòng thành công";
+        }else{
+            mes="xóa phòng thất bại";
+        }
+        req.setAttribute("message", mes);
+        
+        RequestDispatcher rd = req.getRequestDispatcher("/web/manage-hotel-room.jsp");
+        rd.forward(req, resp);
     }
  public void getData(HttpServletRequest req, HttpServletResponse resp) {
         //show full username's hotel

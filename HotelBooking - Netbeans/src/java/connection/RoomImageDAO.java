@@ -2,6 +2,7 @@ package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ Connection con;
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "123456";
+    String password = "1234";
     static RoomImageDAO instance = null;
 
     public static RoomImageDAO Instance() {
@@ -44,7 +45,7 @@ Connection con;
         try {
             OpenConnect();
             Statement stmt = con.createStatement();
-            String query = "select * from roomimage join room on roomimage.idRoom=room.idRoom join roomtype on room.idRoomType=roomtype.idRoomType where removed=0 AND idHotel='"+id+"'  ";
+            String query = "select * from roomimage join room on roomimage.idRoom=room.idRoom join roomtype on room.idRoomType=roomtype.idRoomType where removed=0 AND idHotel='"+id+"'  GROUP BY roomimage.idRoom";
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 RoomImage oneRecord = new RoomImage();
@@ -72,5 +73,45 @@ Connection con;
        public static void main(String[] args) {
         ArrayList<RoomImage> list=RoomImageDAO.Instance().getShortRoomInfor("1");
            System.out.println(list.get(0).getRoom().getCost());
+    }
+       public int numberImageOfRoom(int idRoom) {
+        int imageNumber = 0;
+        try {
+            OpenConnect();
+            String query = "SELECT COUNT(*) AS TOTAL FROM roomimage WHERE idRoom=" + idRoom;
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                imageNumber = rs.getInt("TOTAL");
+            }
+            rs.close();
+            stmt.close();;
+            CloseConnect();
+            return imageNumber;
+
+        } catch (Exception e) {
+            System.out.println("Number Image Of Hotel with err: ");
+            e.printStackTrace();
+        }
+        return imageNumber;
+    }
+       public boolean addNewRoomImage(String linkImage, int idRoom) {
+        try {
+            OpenConnect();
+            String query = "INSERT INTO roomimage(linkImage, idRoom) VALUES (?,?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setString(1, linkImage);
+            preStmt.setInt(2, idRoom);
+            preStmt.execute();
+
+            preStmt.close();
+            CloseConnect();
+            return true;
+        } catch (Exception e) {
+            System.out.println("addNewHotelImage - error: ");
+            e.printStackTrace();
+        }
+        return false;
     }
 }

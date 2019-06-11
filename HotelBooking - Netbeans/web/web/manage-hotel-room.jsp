@@ -96,7 +96,21 @@
             </div>
             <div class="container">
                 <div class="font-weight-bold lead my-5 text-shadow-blur">Danh sách các phòng</div>
+                
+                <c:if test="${requestScope.addSuccess==true}">
+                    <div class="alert alert-success" role="alter">
+                        <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
+                    </div>
+                </c:if>
 
+                <c:if test="${requestScope.addSuccess==false}">
+                    <div class="alert alert-danger" role="alter">
+                        <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
+                    </div>
+                </c:if>
+                
                 <div class="row">
                     <c:forEach var="room" items="${requestScope.listRoom}">
                         <div class="col-md-12 col-lg-4">
