@@ -21,8 +21,7 @@
     </head>
 
     <body>
-        <!-- Start navigation bar-->
-
+ <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
             <a class="navbar-brand" href="#"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -34,10 +33,10 @@
                 <c:if test="${sessionScope.loginStatus != 'logined'}">
                     <ul class='navbar-nav'>
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
                         </li>
                     </ul>
                 </c:if>
@@ -50,7 +49,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
-                                    <a class="dropdown-item" href="#">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
                                     <a class="dropdown-item" href="logout">Đăng xuất</a>
                                 </div>
                             </li>

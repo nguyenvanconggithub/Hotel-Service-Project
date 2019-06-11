@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
             req.setAttribute("wrongAccount", 0);
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/web/login.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/web/index.jsp");
         rd.forward(req, resp);
     }
 }
