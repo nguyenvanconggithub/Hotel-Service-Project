@@ -90,7 +90,7 @@
     <div class="container">
         <c:set var="hotel" value="${requestScope.hotel}"></c:set>
         <h2>${hotel.getHotelName()}</h2>
-        <div class="text-secondary">${hotel.getStar()} / sao</div>
+        <div class="text-secondary">khách sạn ${hotel.getStar()} sao</div>
         <div class="font-weight-bold">${hotel.getAddress()}</div>
         <hr>
         <div class="container shadow py-2">
@@ -129,20 +129,21 @@
             </div>
         </div>
         <div class="container">
+            <c:if test="${requestScope.addSuccess==true}">
+                <div class="alert alert-success" role="alter">
+                    <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
+                </div>
+            </c:if>
+
+            <c:if test="${requestScope.addSuccess==false}">
+                <div class="alert alert-danger" role="alter">
+                    <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
+                </div>
+            </c:if>
             <div class="font-weight-bold lead my-5 text-shadow-blur">Nhập thông tin cho phòng mới</div>
-        <c:if test="${requestScope.addSuccess==true}">
-            <div class="alert alert-success" role="alter">
-                <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
-            </div>
-        </c:if>
-            
-        <c:if test="${requestScope.addSuccess==false}">
-            <div class="alert alert-danger" role="alter">
-                <button type="button" class="close" data-dismiss="alter" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong class="text-center" id="messageInformation">${requestScope.message}</strong>
-            </div>
-        </c:if>
+       
             <form method="POST" class="form" action="add-new-room" enctype="multipart/form-data">
                 <div class="row form-group">
                     <label for="loaiPhong" class="col-sm-12 col-md-2">Loại phòng</label>
@@ -154,7 +155,7 @@
                 </div>
                 <div class="row form-group">
                     <label for="loaiGiuong" class="col-sm-12 col-md-2">Tên Phòng</label>
-                    <input type="text" name="tenPhongTuyChon" id="tenPhongTuyChon" class="form-control col-sm-12 col-md-4" placeholder="Tùy chọn tên phòng">
+                    <input type="text" name="tenPhongTuyChon" id="tenPhongTuyChon" class="form-control col-sm-12 col-md-4" placeholder="Tùy chọn tên phòng" maxlength="45">
                 </div>
 
                 <div class="row form-group">
@@ -192,13 +193,13 @@
 
                 <div class="row form-group">
                     <label for="dienTich" class="col-sm-12 col-md-2">Diện tích</label>
-                    <input type="number" name="dienTich" id="dienTich" class="form-control col-sm-12 col-md-3" step="0.1" required="">
+                    <input type="number" name="dienTich" id="dienTich" class="form-control col-sm-12 col-md-3" step="0.1" min="0" required="">
                     <span class="font-weight-bold mx-3">Met</span>
                 </div>
 
                 <div class="row form-group">
                     <label for="gia" class="col-sm-12 col-md-2">Giá</label>
-                    <input type="number" name="gia" id="gia" class="form-control col-sm-12 col-md-3" step="1000" required="">
+                    <input type="number" name="gia" id="gia" class="form-control col-sm-12 col-md-3" step="1000" min="0"  required="">
                     <span class="font-weight-bold mx-3">VND</span>
                 </div>
                 <div class="row form-group">

@@ -71,117 +71,120 @@ public class AddRoom extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("post");
         boolean check=true;
+        try{
+            String username = (String) req.getSession().getAttribute("username");
         
-        String username = (String) req.getSession().getAttribute("username");
         
-        
-        //get all parameter[values]
-        req.setCharacterEncoding("UTF-8");
-        String roomType=req.getParameter("loaiPhong");
-        String roomName =req.getParameter("tenPhongChuan");
-        String loaiGiuong=req.getParameter("loaiGiuong");
-        String soPhong=req.getParameter("soPhong");
-        String soNguoiToiDa=req.getParameter("soNguoi");
-        String dienTich=req.getParameter("dienTich");
-        String gia=req.getParameter("gia");
-        String[] arrayTienIch=req.getParameterValues("tienIch");
-        
-        Room room=new Room();
-        
-        RoomType roomType1=new RoomType();
+            //get all parameter[values]
+            req.setCharacterEncoding("UTF-8");
+            String roomType=req.getParameter("loaiPhong");
+            String roomName =req.getParameter("tenPhongTuyChon");
+            String loaiGiuong=req.getParameter("loaiGiuong");
+            String soPhong=req.getParameter("soPhong");
+            String soNguoiToiDa=req.getParameter("soNguoi");
+            String dienTich=req.getParameter("dienTich");
+            String gia=req.getParameter("gia");
+            String[] arrayTienIch=req.getParameterValues("tienIch");
 
-        roomType1.setIdRoomType(Integer.parseInt(roomType));
-        room.setRoomType(roomType1);
-        room.setRoomName(roomName);
-        
-        Hotel hotel=new Hotel();
-        hotel.setIdHotel(Integer.parseInt(hotelID));
-        room.setHotel(hotel);
-        
-        Bed bed=new Bed();
-        bed.setIdBed(Integer.parseInt(loaiGiuong));
-        room.setBed(bed);
-        
-        room.setAgcreage(Float.parseFloat(dienTich));
-        room.setCost(Integer.parseInt(gia));
-        room.setPeople(Integer.parseInt(soNguoiToiDa));
-        room.setQuantity(Integer.parseInt(soPhong));
-        room.setRoomLeft(Integer.parseInt(soPhong));
-        room.setRemoved(false);
-        
-        RoomDAO.Instance().addNewRoom(room);
-        int idRoom=RoomDAO.Instance().newestIDRoomOfIDHotel(hotelID);
-        
-        //then set RoomUtilities by idRoom + list IDUltilities send via <Input> tag
-        for(int i = 0;i<arrayTienIch.length;i++){
-            RoomUltilitiesDAO.Instance().addRoomUtilities(Integer.parseInt(arrayTienIch[i]), idRoom);
-        }
-        
-        //process image and save to HoteilImage by idHotel and LinkImage 
-                /*GET IMAGE FROM REQUEST AND SAVE TO SERVER + SAVE TO DATABASE*/
-        try {
-            String SAVE_DIRECTORY = "images";
-            // Đường dẫn tuyệt đối tới thư mục gốc của web app.
-            String appPath = req.getServletContext().getRealPath("");
-            appPath = appPath.replace('\\', '/');
+            Room room=new Room();
 
-            // Thư mục để save file tải lên.
-            String fullSavePath = null;
-            if (appPath.endsWith("/")) {
-                fullSavePath = appPath + SAVE_DIRECTORY;
-            } else {
-                fullSavePath = appPath + "/" + SAVE_DIRECTORY;
+            RoomType roomType1=new RoomType();
+
+            roomType1.setIdRoomType(Integer.parseInt(roomType));
+            room.setRoomType(roomType1);
+            room.setRoomName(roomName);
+
+            Hotel hotel=new Hotel();
+            hotel.setIdHotel(Integer.parseInt(hotelID));
+            room.setHotel(hotel);
+
+            Bed bed=new Bed();
+            bed.setIdBed(Integer.parseInt(loaiGiuong));
+            room.setBed(bed);
+
+            room.setAgcreage(Float.parseFloat(dienTich));
+            room.setCost(Integer.parseInt(gia));
+            room.setPeople(Integer.parseInt(soNguoiToiDa));
+            room.setQuantity(Integer.parseInt(soPhong));
+            room.setRoomLeft(Integer.parseInt(soPhong));
+            room.setRemoved(false);
+
+            RoomDAO.Instance().addNewRoom(room);
+            int idRoom=RoomDAO.Instance().newestIDRoomOfIDHotel(hotelID);
+
+            //then set RoomUtilities by idRoom + list IDUltilities send via <Input> tag
+            for(int i = 0;i<arrayTienIch.length;i++){
+                RoomUltilitiesDAO.Instance().addRoomUtilities(Integer.parseInt(arrayTienIch[i]), idRoom);
             }
-            // Tạo thư mục nếu nó không tồn tại.
-            File fileSaveDir = new File(fullSavePath);
-            if (!fileSaveDir.exists()) {
-                fileSaveDir.mkdir();
-            }
-            
-            // Danh mục các phần đã upload lên (Có thể là nhiều file).
-            for (Part part : req.getParts()) {
-                String fileName = extractFileName(part);
-                //int idHotel;
-                String imageNumber = String.valueOf(RoomImageDAO.Instance().numberImageOfRoom(idRoom));
-                if (fileName != null && fileName.length() > 0) {
-                    String filePath = fullSavePath + File.separator + username+ "ROOM"  + imageNumber + fileName;
-                    String linkToSaveInSQL = SAVE_DIRECTORY + File.separator + username + "ROOM" + imageNumber + fileName;
-                    //Save LinkImage to SQL
-                    RoomImageDAO.Instance().addNewRoomImage(linkToSaveInSQL, idRoom);
-                    System.out.println("Write attachment to file: " + filePath);
-                    
-                    // Ghi vào file.
-                    part.write(filePath);
+
+            //process image and save to HoteilImage by idHotel and LinkImage 
+                    /*GET IMAGE FROM REQUEST AND SAVE TO SERVER + SAVE TO DATABASE*/
+            try {
+                String SAVE_DIRECTORY = "images";
+                // Đường dẫn tuyệt đối tới thư mục gốc của web app.
+                String appPath = req.getServletContext().getRealPath("");
+                appPath = appPath.replace('\\', '/');
+
+                // Thư mục để save file tải lên.
+                String fullSavePath = null;
+                if (appPath.endsWith("/")) {
+                    fullSavePath = appPath + SAVE_DIRECTORY;
+                } else {
+                    fullSavePath = appPath + "/" + SAVE_DIRECTORY;
                 }
+                // Tạo thư mục nếu nó không tồn tại.
+                File fileSaveDir = new File(fullSavePath);
+                if (!fileSaveDir.exists()) {
+                    fileSaveDir.mkdir();
+                }
+
+                // Danh mục các phần đã upload lên (Có thể là nhiều file).
+                for (Part part : req.getParts()) {
+                    String fileName = extractFileName(part);
+                    //int idHotel;
+                    String imageNumber = String.valueOf(RoomImageDAO.Instance().numberImageOfRoom(idRoom));
+                    if (fileName != null && fileName.length() > 0) {
+                        String filePath = fullSavePath + File.separator + username+ "ROOM"  + imageNumber + fileName;
+                        String linkToSaveInSQL = SAVE_DIRECTORY + File.separator + username + "ROOM" + imageNumber + fileName;
+                        //Save LinkImage to SQL
+                        RoomImageDAO.Instance().addNewRoomImage(linkToSaveInSQL, idRoom);
+                        System.out.println("Write attachment to file: " + filePath);
+
+                        // Ghi vào file.
+                        part.write(filePath);
+                    }
+                }
+
+                // Upload thành công.
+                System.out.println("Ghi File Thành Công !");
+            } catch (Exception e) {
+                check=false;
+                System.out.println("Process File Fail with err: ");
+                e.printStackTrace();
             }
 
-            // Upload thành công.
-            System.out.println("Ghi File Thành Công !");
-        } catch (Exception e) {
-            check=false;
-            System.out.println("Process File Fail with err: ");
-            e.printStackTrace();
-        }
+            /*END GET IMAGE FROM REQUEST AND SAVE TO SERVER + SAVE TO DATABASE*/
+            //return result
 
-        /*END GET IMAGE FROM REQUEST AND SAVE TO SERVER + SAVE TO DATABASE*/
-        //return result
-        
-        ArrayList<HotelImage> hotelImage=HotelImageDAO.Instance().getShortHotelInfoByID(hotelID);
-        req.setAttribute("hotelImage", hotelImage);
-        
-        Hotel hotel2=HotelDAO.Instance().getHotelByID(Integer.parseInt(hotelID));
-        req.setAttribute("hotel", hotel2);
-        
-       //get all Untilities to Display
-        ArrayList<Utilities> lstUltilities = new ArrayList<>();
-        lstUltilities = UltilitiesDAO.Instance().getListUtilities();
-        req.setAttribute("listUltilities", lstUltilities);
-        
-        ArrayList<Bed> beds=BedDAO.Instance().getListBed();
-        req.setAttribute("beds", beds);
-        
-        ArrayList<RoomType>roomTypes=RoomTypeDAO.Instance().getListRoomType();
-        req.setAttribute("roomTypes", roomTypes);
+            ArrayList<HotelImage> hotelImage=HotelImageDAO.Instance().getShortHotelInfoByID(hotelID);
+            req.setAttribute("hotelImage", hotelImage);
+
+            Hotel hotel2=HotelDAO.Instance().getHotelByID(Integer.parseInt(hotelID));
+            req.setAttribute("hotel", hotel2);
+
+           //get all Untilities to Display
+            ArrayList<Utilities> lstUltilities = new ArrayList<>();
+            lstUltilities = UltilitiesDAO.Instance().getListUtilities();
+            req.setAttribute("listUltilities", lstUltilities);
+
+            ArrayList<Bed> beds=BedDAO.Instance().getListBed();
+            req.setAttribute("beds", beds);
+
+            ArrayList<RoomType>roomTypes=RoomTypeDAO.Instance().getListRoomType();
+            req.setAttribute("roomTypes", roomTypes);
+        }catch(Exception e){
+            check=false;
+        }
         
         req.setAttribute("addSuccess", check);
         String mes;
