@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.HotelImage;
@@ -150,4 +151,31 @@ public class RoomImageDAO {
         return list;
     }
 
+    public RoomImage getFullInforRoom(String id) {
+        String sql = " select * from roomimage join room on roomimage.idRoom=room.idRoom join \n"
+                + " roomtype on room.idRoomType=roomtype.idRoomType join\n"
+                + " bed on bed.idBed=room.idBed where removed=0 AND room.idRoom='" + id + "'";
+        OpenConnect();
+        RoomImage oneRecord = oneRecord = new RoomImage();;
+        Statement st;
+        try {
+            st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                oneRecord.setLinkImage(rs.getString("linkImage"));
+                oneRecord.getRoom().setIdRoom(rs.getInt("idRoom"));
+                oneRecord.getRoom().getBed().setBedName(rs.getString("bedName"));
+                oneRecord.getRoom().setCost(rs.getInt("cost"));
+                oneRecord.getRoom().setRoomLeft(rs.getInt("roomLeft"));
+                oneRecord.getRoom().setPeople(rs.getInt("people"));
+                oneRecord.getRoom().setAgcreage(rs.getFloat("acreage"));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("getFullRoom - err");
+            ex.printStackTrace();
+        }
+        return oneRecord;
+    }
 }

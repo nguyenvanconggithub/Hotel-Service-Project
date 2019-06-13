@@ -86,6 +86,32 @@ public class HotelUltilitiesDAO {
         return null;
     }
 
+    public ArrayList<HotelUltilities> getListUtilByID(String idHotel) {
+        ArrayList<HotelUltilities> list = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotelutilities JOIN utilities ON hotelutilities.idUtility=utilities.idUtility WHERE idhotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setString(1, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                HotelUltilities oneRecord = new HotelUltilities();
+                oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
+                oneRecord.getUtility().setUtilityName(rs.getString("utilityName"));
+                list.add(oneRecord);
+            }
+            preStmt.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getListUtility - error: ");
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
     public ArrayList<String> listUtilitiesNameOfIDHotel(int idHotel) {
         ArrayList<String> lstName = new ArrayList<>();
         try {
@@ -109,6 +135,29 @@ public class HotelUltilitiesDAO {
         return null;
     }
 
+     public ArrayList<HotelUltilities> getALLUtilByID() {
+        ArrayList<HotelUltilities> list = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotelutilities JOIN utilities ON hotelutilities.idUtility=utilities.idUtility";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                HotelUltilities oneRecord= new HotelUltilities();
+                oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
+                oneRecord.getUtility().setUtilityName(rs.getString("utilityName"));
+                list.add(oneRecord);
+            }
+            preStmt.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getListUtility - error: ");
+            e.printStackTrace();
+
+        }
+        return null;
+    }
     public boolean removeAllOldUltilOfIdHotel(int idHotel) {
         try {
             OpenConnect();
