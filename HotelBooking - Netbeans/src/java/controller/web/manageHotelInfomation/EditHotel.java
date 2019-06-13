@@ -42,6 +42,7 @@ public class EditHotel extends HttpServlet {
             req.setAttribute("hotelInfo", HotelDAO.Instance().getHotelByID(idHotel));
             req.setAttribute("listIdUtilitiesNow", HotelUltilitiesDAO.Instance().listIDUtilitiesOfIDHotel(idHotel));
             req.setAttribute("listFullUtilities", UltilitiesDAO.Instance().getListUtilities());
+            req.setAttribute("listFullImageHotel", HotelImageDAO.Instance().getShortHotelInfoByID(String.valueOf(idHotel)));
             //redirect edit hotel
             RequestDispatcher rd = req.getRequestDispatcher("/web/edit-hotel-infomation.jsp");
             rd.forward(req, resp);

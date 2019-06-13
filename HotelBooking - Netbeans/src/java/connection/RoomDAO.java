@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Room;
@@ -72,8 +73,9 @@ public class RoomDAO {
         }
 
     }
-    public void deleteRoomById(String id){
-        String query = "UPDATE  room SET removed=1 WHERE idRoom='"+id+"'";
+
+    public void deleteRoomById(String id) {
+        String query = "UPDATE  room SET removed=1 WHERE idRoom='" + id + "'";
         try {
             OpenConnect();
             Statement st = con.createStatement();
@@ -84,19 +86,15 @@ public class RoomDAO {
             ex.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-        System.out.println("Run me");
-        //System.out.println(RoomDAO.Instance().updateRoom(r));
-        RoomDAO.Instance().deleteRoomById("2");
-    }
-     public boolean addNewRoom(Room room) {
-        
+
+    public boolean addNewRoom(Room room) {
+
         try {
             OpenConnect();
             String query = "INSERT INTO room (roomName, idHotel, idBed, idRoomType, acreage, cost, people,quantity,roomLeft,removed)"
                     + "VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement preStmt = con.prepareStatement(query);
-            
+
             preStmt.setString(1, room.getRoomName());
             preStmt.setInt(2, room.getHotel().getIdHotel());
             preStmt.setInt(3, room.getBed().getIdBed());
@@ -107,7 +105,7 @@ public class RoomDAO {
             preStmt.setInt(8, room.getQuantity());
             preStmt.setInt(9, room.getRoomLeft());
             preStmt.setBoolean(10, room.isRemoved());
-            
+
             preStmt.execute();
             CloseConnect();
             return true;
@@ -117,7 +115,8 @@ public class RoomDAO {
         }
         return false;
     }
-     public int newestIDRoomOfIDHotel(String idHotel) {
+
+    public int newestIDRoomOfIDHotel(String idHotel) {
         int newID;
         try {
             OpenConnect();
@@ -141,4 +140,40 @@ public class RoomDAO {
         }
         return 0;
     }
+
+    public ArrayList<Room> getRoomsByIdHotel(String idHotel) {
+        ArrayList<Room> listRoom = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM room WHERE idHotel=? AND removed=0";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                Room room = new Room();
+                room.setIdRoom(rs.getInt("idRoom"));
+                room.setRoomName(rs.getString("roomName"));
+                room.getHotel().setIdHotel(rs.getInt("idHotel"));
+                room.getBed().setIdBed(rs.getInt("idBed"));
+                room.getRoomType().setIdRoomType(rs.getInt("idRoomType"));
+                room.setAgcreage(rs.getFloat("acreage"));
+                room.setCost(rs.getInt("cost"));
+                room.setPeople(rs.getInt("people"));
+                room.setQuantity(rs.getInt("quantity"));
+                room.setRoomLeft(rs.getInt("roomLeft"));
+
+                listRoom.add(room);
+            }
+
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return listRoom;
+        } catch (Exception e) {
+            System.out.println("NewestIDHotelOfUsername - error: ");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

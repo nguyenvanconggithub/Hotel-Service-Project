@@ -86,6 +86,29 @@ public class HotelUltilitiesDAO {
         return null;
     }
 
+    public ArrayList<String> listUtilitiesNameOfIDHotel(int idHotel) {
+        ArrayList<String> lstName = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT utilityName FROM hotel.hotelutilities JOIN hotel.utilities ON hotelutilities.idutility = utilities.idUtility WHERE idhotel=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setInt(1, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                lstName.add(rs.getString("utilityName"));
+            }
+            preStmt.close();
+            CloseConnect();
+            return lstName;
+        } catch (Exception e) {
+            System.out.println("listUtilitiesNameOfIDHotel - error: ");
+            e.printStackTrace();
+
+        }
+        return null;
+    }
+
     public boolean removeAllOldUltilOfIdHotel(int idHotel) {
         try {
             OpenConnect();

@@ -71,6 +71,28 @@ public class RoomUltilitiesDAO {
         return list;
     }
 
+    public ArrayList<String> getListUtilityNameByIDRoom(int idRoom) {
+        ArrayList<String> list = new ArrayList<String>();
+        try {
+            OpenConnect();
+             String query = "SELECT utilityName FROM hotel.roomutilities JOIN utilities ON roomutilities.idUtility = utilities.idUtility WHERE idRoom=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString("utilityName"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getListUtilityNameByIDRoom err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public boolean addRoomUtilities(int idUtilities, int idRoom) {
         try {
             OpenConnect();
@@ -97,14 +119,9 @@ public class RoomUltilitiesDAO {
             statement = con.createStatement();
             statement.executeUpdate(sql);
         } catch (SQLException e) {
-           System.out.println("DeleteRoomUtilities - error: ");
+            System.out.println("DeleteRoomUtilities - error: ");
             e.printStackTrace();
         }
 
-    }
-
-    public static void main(String[] args) {
-        ArrayList<RoomUltilities> list = RoomUltilitiesDAO.Instance().getListRoomUtility("2");
-        System.out.println(list.get(0).getUtility().getIdUtility());
     }
 }

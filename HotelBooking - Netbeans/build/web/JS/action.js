@@ -23,13 +23,14 @@ function load() {
     var checkInDay = inday.join('-');
     var checkOutDay = outday.join('-');
     $('#checkinday').attr('min', checkInDay);
-    $('#checkinday').val(checkInDay);
+    //$('#checkinday').val(checkInDay);
     $('#checkoutday').attr('min', checkOutDay);
-    $('#checkoutday').val(checkOutDay);
+    //$('#checkoutday').val(checkOutDay);
 }
 load();
 $('#checkinday').change(() => {
-    offsetCheckOut();
+	if(new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime())
+		offsetCheckOut();
 });
 
 function offsetCheckOut() {
@@ -39,15 +40,16 @@ function offsetCheckOut() {
     $('#checkoutday').val(date.join('-'));
 }
 /*Add class to Card when hover (shadow)*/
-$(document).ready(function() {
+$(document).ready(function () {
     $(".card").hover(
-        function() {
+        function () {
             $(this).addClass('shadow border border-primary');
         },
-        function() {
+        function () {
             $(this).removeClass('shadow border border-primary');
         }
     );
+
     var web_name_count = 0;
     var web_sologan_count = 0;
     var web_name = 'KhachSanTotNhat.com';
@@ -122,12 +124,13 @@ function addMoreImage(elem) {
         '<img src="images/add_button.PNG" class="square-150x150 position-absolute" id="preload-img-add">' +
         '<input type="file" name="imageList" class="square-150x150 position-absolute opacity-0" id="preload-inp-add"' +
         'onchange="addMoreImage(this)">' +
-        '<span class="position-absolute text-danger invisible cursor-pointer font-weight-bold" style="top:0;right:5%" onclick="deleteImage(this)">X</span>'+
+        '<span class="position-absolute text-danger invisible cursor-pointer font-weight-bold" style="top:0;right:5%" onclick="deleteImage(this)">X</span>' +
         '</span>';
     var spanElement;
     if (elem != undefined) {
         spanElement = $(elem).parent();
         if ($(spanElement).hasClass("previewer")) {
+            //get ID Image And remove from database
             setPreloadIMG(elem, $(spanElement).children("img"));
         }
         else {
@@ -140,14 +143,159 @@ function addMoreImage(elem) {
         }
     }
 }
+//Add - down button Room
+//Quanlity Rooom
+$('#decreaseQuanlityRoom').click(() => {
+    if ($('#quanlityRoomInput').val() <= 1) {
+        $('#quanlityRoomInput').val(1);
+    }
+    else {
+        $('#quanlityRoomInput').val($('#quanlityRoomInput').val() - 1);
+        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
+    }
 
-function deleteImage(elem){
-    if(elem != undefined){
+});
+$('#increaseQuanlityRoom').click(() => {
+    if ($('#quanlityRoomInput').val() >= 999) {
+        $('#quanlityRoomInput').val(999);
+    }
+    else {
+        $('#quanlityRoomInput').val($('#quanlityRoomInput').val() * 1 + 1);
+        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
+
+    }
+});
+
+$('#decreaseMaxPeople').click(() => {
+    if ($('#quanlityMaxPeopleInput').val() <= 1) {
+        $('#quanlityMaxPeopleInput').val(1);
+    }
+    else {
+        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val() - 1);
+        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
+    }
+
+});
+$('#increaseMaxPeople').click(() => {
+    if ($('#quanlityMaxPeopleInput').val() >= 999) {
+        $('#quanlityMaxPeopleInput').val(999);
+    }
+    else {
+        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val() * 1 + 1);
+        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
+
+    }
+});
+
+$('#search-guest-increase').click(() => {
+    $('#search-guest-value').html($('#search-guest-value').html() * 1 + 1);
+    $('#search-guest-input').html($('#search-guest-input').html() * 1 + 1);
+})
+$('#search-guest-decrease').click(() => {
+    if ($('#search-guest-value').html() > 1) {
+        $('#search-guest-value').html($('#search-guest-value').html() * 1 - 1);
+        $('#search-guest-input').html($('#search-guest-input').html() * 1 - 1);
+    }
+})
+$('#search-room-increase').click(() => {
+    $('#search-room-value').html($('#search-room-value').html() * 1 + 1);
+    $('#search-room-input').html($('#search-room-input').html() * 1 + 1);
+})
+$('#search-room-decrease').click(() => {
+    if ($('#search-room-value').html() > 1) {
+        $('#search-room-value').html($('#search-room-value').html() * 1 - 1);
+        $('#search-room-input').html($('#search-room-input').html() * 1 - 1);
+    }
+
+})
+
+$("button[id*='decrease-room-']").each((index, elem) => {
+    $(elem).click(() => {
+        if ($(elem).next("span").html() > 0) {
+            $(elem).next("span").html($(elem).next("span").html() - 1);
+        }
+    })
+})
+
+$("button[id*='increase-room-']").each((index, elem) => {
+    $(elem).click(() => {
+        if ($(elem).prev().prev().html() * 1 < $(elem).prev().html() * 1) {
+            $(elem).prev().prev().html($(elem).prev().prev().html() * 1 + 1);
+        }
+    })
+})
+function addOrder(elem) {
+    var idRoom = $(elem).next().html();
+    var numberRoom = $("#numberRoom-" + idRoom).html();
+	if(numberRoom == 0){
+		alert("Bạn phải chọn số lượng phòng muốn đặt trước khi chọn phòng !");
+		return;
+	}
+    var roomNameAndType = $("#roomNameAndType-" + idRoom).html();
+    var cost = $("#cost-" + idRoom).html();
+    cost = cost * numberRoom;
+    var totalCostOrder = $('#totalCostOrder').html();
+    totalCostOrder = cost + totalCostOrder * 1;
+    $('#totalCostOrder').html(totalCostOrder);
+
+    $('#orderListChose').append(
+        '<div class="row" id="idRoom-' + idRoom + '">' +
+        '<input type="hidden" name="idRoom" value="' + idRoom + '">' +
+        '<input type="hidden" name="roomOrder" value="' + numberRoom + '">' +
+        '<div class="col-sm-12 col-md-7">' +
+        '' + roomNameAndType + '' +
+        '</div>' +
+        '<div class="col-sm-12 col-md-2">' +
+        'Số lượng: ' + numberRoom + '' +
+        '</div>' +
+        '<div class="col-sm-12 col-md-3">' +
+        'Giá: <span id="sumCostRoom-' + idRoom + '">' + cost + '</span> VND' +
+        '</div>' +
+        '</div>' +
+        '<hr />'
+    );
+
+    var removeOrderBtn = $(elem).next().next();
+    $(elem).removeClass("d-block");
+    $(elem).addClass("d-none");
+    $(removeOrderBtn).removeClass("d-none");
+    $(removeOrderBtn).addClass("d-block");
+
+}
+
+function removeOrder(elem) {
+    var idRoom = $(elem).prev().html();
+    var totalCostOrder = $('#totalCostOrder').html();
+    totalCostOrder = totalCostOrder * 1 - $('#sumCostRoom-' + idRoom).html() * 1;
+    $('#totalCostOrder').html(totalCostOrder);
+    var queryRoom = '#idRoom-' + idRoom;
+    console.log(queryRoom);
+    $(queryRoom).next().remove(); //<hr/> tag
+    $(queryRoom).remove();
+
+    var addOrderBtn = $(elem).prev().prev();
+    $(elem).removeClass("d-block");
+    $(elem).addClass("d-none");
+    $(addOrderBtn).removeClass("d-none");
+    $(addOrderBtn).addClass("d-block");
+}
+$('#actionSubmitOrder').on("click", ()=>{
+	var orderLength = $('#orderListChose').children().length;
+	if(orderLength == 0){
+		alert("Bạn phải chọn ít nhất một phòng mới có thể Đặt Phòng !");
+		return false;
+	}
+
+})
+
+function deleteImage(elem) {
+    if (elem != undefined) {
+        //get id image and send ajax to remove
         $(elem).parent().remove();
     }
 }
 var star = [1, 1, 1, 1, 1];
-if($('#star').val() == 1){
+if ($('#star').val() == 1) {
     star[0] = 1;
     star[1] = 0;
     star[2] = 0;
@@ -156,7 +304,7 @@ if($('#star').val() == 1){
     setStarValue(1, 0, 0, 0, 0);
     $('#star').val(1);
 }
-if($('#star').val() == 2){
+if ($('#star').val() == 2) {
     star[0] = 1;
     star[1] = 1;
     star[2] = 0;
@@ -165,7 +313,7 @@ if($('#star').val() == 2){
     setStarValue(1, 1, 0, 0, 0);
     $('#star').val(2);
 }
-if($('#star').val() == 3){
+if ($('#star').val() == 3) {
     star[0] = 1;
     star[1] = 1;
     star[2] = 1;
@@ -174,7 +322,7 @@ if($('#star').val() == 3){
     setStarValue(1, 1, 1, 0, 0);
     $('#star').val(3);
 }
-if($('#star').val() == 4){
+if ($('#star').val() == 4) {
     star[0] = 1;
     star[1] = 1;
     star[2] = 1;
@@ -183,7 +331,7 @@ if($('#star').val() == 4){
     setStarValue(1, 1, 1, 1, 0);
     $('#star').val(4);
 }
-if($('#star').val() == 5){
+if ($('#star').val() == 5) {
     star[0] = 1;
     star[1] = 1;
     star[2] = 1;
@@ -281,46 +429,3 @@ function setStarValue(one, two, three, four, five) {
     if (five == 1)
         $('#fiveStar').addClass("text-warning");
 }
-//Add - down button Room
-//Quanlity Rooom
-$('#decreaseQuanlityRoom').click(() => {
-    if($('#quanlityRoomInput').val() <= 1){
-        $('#quanlityRoomInput').val(1);
-    }
-    else{
-        $('#quanlityRoomInput').val($('#quanlityRoomInput').val()-1);
-        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
-    }
-
-});
-$('#increaseQuanlityRoom').click(() => {
-    if($('#quanlityRoomInput').val() >=999){
-        $('#quanlityRoomInput').val(999);
-    }
-    else{
-        $('#quanlityRoomInput').val($('#quanlityRoomInput').val()*1 + 1);
-        $('#quanlityRoomSpan').html($('#quanlityRoomInput').val());
-        
-    }
-});
-
-$('#decreaseMaxPeople').click(() => {
-    if($('#quanlityMaxPeopleInput').val() <= 1){
-        $('#quanlityMaxPeopleInput').val(1);
-    }
-    else{
-        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val()-1);
-        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
-    }
-
-});
-$('#increaseMaxPeople').click(() => {
-    if($('#quanlityMaxPeopleInput').val() >=999){
-        $('#quanlityMaxPeopleInput').val(999);
-    }
-    else{
-        $('#quanlityMaxPeopleInput').val($('#quanlityMaxPeopleInput').val()*1 + 1);
-        $('#quanlityMaxPeopleSpan').html($('#quanlityMaxPeopleInput').val());
-        
-    }
-});

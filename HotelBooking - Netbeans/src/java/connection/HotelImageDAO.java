@@ -188,7 +188,6 @@ public class HotelImageDAO {
                 HotelImage oneRecord = new HotelImage();
                 oneRecord.setLinkImage(rs.getString("linkImage"));
                 oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
-
                 list.add(oneRecord);
             }
             System.out.println("DAO - size: " + list.size());

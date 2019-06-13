@@ -115,7 +115,7 @@
             </c:if>
             <form method="POST" class="form" action="edit-hotel" enctype="multipart/form-data">
                 <input type="hidden" name="idHotel" value="${requestScope.idHotel}">
-                
+
                 <div class="row form-group">
                     <label for="tenKhachSan" class="col-sm-12 col-md-2">Tên khách sạn</label>
                     <input type="text" name="tenKhachSan" maxlength="30" id="tenKhachSan" class="form-control col-sm-12 col-md-6" value="${requestScope.hotelInfo.getHotelName()}" required>
@@ -159,89 +159,18 @@
                 </div>
                 <div class="lead text-shadow-blur font-weight-bold">Bạn có thể thêm mới, chỉnh sửa hoặc xóa các bức ảnh bên dưới</div>
                 <div class="row justify-content-center form-group">
-                    <!--1 Ảnh Preview Load từ Database để ra nhiều ảnh-->
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_002.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <!-- END 1 Ảnh Preview-->
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_003.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_004.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_demo_KhachSan_001.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_006.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_007.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_008.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_009.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
-                    <span
-                        class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
-                        id="image-element-loaded">
-                        <img src="images/IMG_KhachSan_010.jpg" class="square-150x150 position-absolute" id="preload-img-add">
-                        <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
-                        <span class="position-absolute text-danger cursor-pointer font-weight-bold"
-                              style="top:0;right:5%" onclick="deleteImage(this)">X</span>
-                    </span>
+                    <c:forEach var="oneImage" items="${requestScope.listFullImageHotel}">
+                        <span
+                            class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
+                            id="image-element-loaded">
+                            <img src="${pageScope.oneImage.getLinkImage()}" class="square-150x150 position-absolute" id="preload-img-add">
+                            <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
+                                   id="preload-inp-add" onchange="addMoreImage(this)">
+                            <span class="position-absolute text-danger cursor-pointer font-weight-bold"
+                                  style="top:0;right:5%" onclick="deleteImage(this)">X</span>
+                        </span>
+
+                    </c:forEach>
                     <span
                         class="bg-dark d-flex align-items-center justify-content-center opacity-50-100 position-relative square-150x150 m-2"
                         id="image-element-add">
