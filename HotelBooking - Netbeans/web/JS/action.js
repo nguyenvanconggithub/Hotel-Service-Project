@@ -29,7 +29,8 @@ function load() {
 }
 load();
 $('#checkinday').change(() => {
-    offsetCheckOut();
+	if(new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime())
+		offsetCheckOut();
 });
 
 function offsetCheckOut() {
@@ -77,22 +78,31 @@ $(document).ready(function () {
     typeWebName();
 
 });
-$('#registerForm').on("submit", () => {
+$('#registerForm').on("submit",()=>{
     var pass = $('#matKhau');
     var re_pass = $('#nhapLaiMatKhau');
     var email = $('#email');
     var re_email = $('#nhapLaiEmail');
-
-    if (pass.val() != re_pass.val()) {
+	var sdt = $('#SDT');
+    if(pass.val() != re_pass.val()){
         alert("Mật Khẩu không khớp nhau !")
         return false;
     }
-    if (email.val() != re_email.val()) {
+    if(email.val() != re_email.val()){
         alert("Email không khớp nhau !")
         return false;
     }
+	if(isNaN(sdt.val())){
+		alert("Vui lòng kiểm tra lại Số Điện Thoại");
+		return false;
+	}
     return true;
 });
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
 function setPreloadIMG(input, img) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -177,6 +187,28 @@ $('#increaseMaxPeople').click(() => {
     }
 });
 
+$('#search-guest-increase').click(() => {
+    $('#search-guest-value').html($('#search-guest-value').html() * 1 + 1);
+    $('#search-guest-input').html($('#search-guest-input').html() * 1 + 1);
+})
+$('#search-guest-decrease').click(() => {
+    if ($('#search-guest-value').html() > 1) {
+        $('#search-guest-value').html($('#search-guest-value').html() * 1 - 1);
+        $('#search-guest-input').html($('#search-guest-input').html() * 1 - 1);
+    }
+})
+$('#search-room-increase').click(() => {
+    $('#search-room-value').html($('#search-room-value').html() * 1 + 1);
+    $('#search-room-input').html($('#search-room-input').html() * 1 + 1);
+})
+$('#search-room-decrease').click(() => {
+    if ($('#search-room-value').html() > 1) {
+        $('#search-room-value').html($('#search-room-value').html() * 1 - 1);
+        $('#search-room-input').html($('#search-room-input').html() * 1 - 1);
+    }
+
+})
+
 $("button[id*='decrease-room-']").each((index, elem) => {
     $(elem).click(() => {
         if ($(elem).next("span").html() > 0) {
@@ -193,11 +225,14 @@ $("button[id*='increase-room-']").each((index, elem) => {
     })
 })
 function addOrder(elem) {
-    var idHotel = $(elem).next().html();
-    var idRoom = $(elem).next().next().html();
-    var numberRoom = $("#numberRoom-" + idHotel).html();
-    var roomNameAndType = $("#roomNameAndType-" + idHotel).html();
-    var cost = $("#cost-" + idHotel).html();
+    var idRoom = $(elem).next().html();
+    var numberRoom = $("#numberRoom-" + idRoom).html();
+	if(numberRoom == 0){
+		alert("Bạn phải chọn số lượng phòng muốn đặt trước khi chọn phòng !");
+		return;
+	}
+    var roomNameAndType = $("#roomNameAndType-" + idRoom).html();
+    var cost = $("#cost-" + idRoom).html();
     cost = cost * numberRoom;
     var totalCostOrder = $('#totalCostOrder').html();
     totalCostOrder = cost + totalCostOrder * 1;
@@ -220,13 +255,14 @@ function addOrder(elem) {
         '<hr />'
     );
 
-    var removeOrderBtn = $(elem).next().next().next();
+    var removeOrderBtn = $(elem).next().next();
     $(elem).removeClass("d-block");
     $(elem).addClass("d-none");
     $(removeOrderBtn).removeClass("d-none");
     $(removeOrderBtn).addClass("d-block");
 
 }
+
 function removeOrder(elem) {
     var idRoom = $(elem).prev().html();
     var totalCostOrder = $('#totalCostOrder').html();
@@ -237,12 +273,21 @@ function removeOrder(elem) {
     $(queryRoom).next().remove(); //<hr/> tag
     $(queryRoom).remove();
 
-    var addOrderBtn = $(elem).prev().prev().prev();
+    var addOrderBtn = $(elem).prev().prev();
     $(elem).removeClass("d-block");
     $(elem).addClass("d-none");
     $(addOrderBtn).removeClass("d-none");
     $(addOrderBtn).addClass("d-block");
 }
+$('#actionSubmitOrder').on("click", ()=>{
+	var orderLength = $('#orderListChose').children().length;
+	if(orderLength == 0){
+		alert("Bạn phải chọn ít nhất một phòng mới có thể Đặt Phòng !");
+		return false;
+	}
+
+})
+
 function deleteImage(elem) {
     if (elem != undefined) {
         //get id image and send ajax to remove

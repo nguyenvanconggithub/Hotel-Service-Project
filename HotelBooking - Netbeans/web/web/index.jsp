@@ -104,21 +104,21 @@
                 </div>
                 <div class="row justify-content-center opacity-animated">
                     <div class="col-md-8">
-                        <form>
+                        <form action="search" method="GET">
                             <div class="form-group">
                                 <label for="address">Địa Điểm</label>
                                 <input type="text" class="form-control form-control-lg" id="address"
-                                       placeholder="Nhập điểm đến, khách sạn">
+                                       placeholder="Nhập điểm đến, khách sạn" name="address">
                             </div>
                             <div class="row form-group">
                                 <div class="form-group col-12 col-sm-6">
                                     <label>Ngày Checkin</label>
-                                    <input id='checkinday' type="date" name="bday" max="31-12-3000" min="24-05-2019"
+                                    <input id='checkinday' type="date" name="bdayCheckin" max="31-12-3000" min="24-05-2019"
                                            class="form-control form-control-lg">
                                 </div>
                                 <div class="form-group col-12 col-sm-6 ">
                                     <label>Ngày Checkout</label>
-                                    <input id='checkoutday' type="date" name="bday" min="01-01-2019" max="31-12-3000"
+                                    <input id='checkoutday' type="date" name="bdayCheckout" min="01-01-2019" max="31-12-3000"
                                            class="form-control form-control-lg">
                                 </div>
                             </div>
@@ -126,24 +126,26 @@
                                 <div class="form-group col-12 col-md-6 col-lg-4">
                                     <label class='d-block'>Số Khách</label>
                                     <div class='btn-group d-flex'>
-                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100'>-</button>
-                                        <button type='button' class='btn btn-lg btn-light px-5 w-100'>0</button>
-                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100'>+</button>
+                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseMaxPeople">-</button>
+                                        <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityMaxPeopleSpan">1</button>
+                                        <input type="hidden" name="soNguoi" value="1" id="quanlityMaxPeopleInput">
+                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseMaxPeople">+</button>
                                     </div>
                                 </div>
                                 <div class="form-group col-12 col-md-6 col-lg-4">
                                     <label for='soPhong' class='d-block'>Số Phòng</label>
                                     <div class='btn-group d-flex'>
-                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100'>-</button>
-                                        <button type='button' class='btn btn-lg btn-light px-5 w-100'>0</button>
-                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100'>+</button>
+                                        <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseQuanlityRoom">-</button>
+                                        <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityRoomSpan">1</button>
+                                        <input type="hidden" name="soPhong" value="1" id="quanlityRoomInput">
+                                        <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseQuanlityRoom">+</button>
                                     </div>
                                 </div>
                                 <div class="form-group col-12 col-md-12 col-lg-4">
                                     <label class='invisible'>.</label>
-                                    <a href="list-hotel.html" class="btn-primary form-control form-control-lg text-center nav-link">Tìm</a>
+                                    <!--<a href="list-hotel.html" class="btn-primary form-control form-control-lg text-center nav-link">Tìm</a>-->
                                     <!--USE BUTTON BELOW WHEN CODING !!!-->
-                                    <!--<button type="submit" class="btn-primary form-control form-control-lg" ></button>-->
+                                    <button type="submit" class="btn-primary form-control form-control-lg" >Tìm</button>
                                 </div>
                             </div>
                         </form>

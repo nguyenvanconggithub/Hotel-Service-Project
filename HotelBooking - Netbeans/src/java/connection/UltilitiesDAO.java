@@ -67,4 +67,29 @@ public class UltilitiesDAO {
         return list;
     }
     
+        //get unltiliti theo hotelId
+    public ArrayList<Utilities> getListUtilitiesByIdHotel(int idHotel) {
+        ArrayList<Utilities> list = new ArrayList<>();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "SELECT * FROM utilities join hotelutilities on utilities.idUtility=hotelutilities.idUtility where idHotel="+idHotel;
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Utilities oneRecord = new Utilities();
+                oneRecord.setIdUtility(rs.getInt("idUtility"));
+                oneRecord.setUtilityName(rs.getString("utilityName"));
+
+                list.add(oneRecord);
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("get List Ultilies - Connect Fail with err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
