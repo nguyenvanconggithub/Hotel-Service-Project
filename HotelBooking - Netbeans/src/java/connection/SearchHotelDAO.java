@@ -52,11 +52,19 @@ public class SearchHotelDAO {
         }
     }
 
-    public ArrayList<SearchHotel> searchHotelByAddressRoomLeftPeople(String address, int roomleft, int people, String checkin, String checkout) {
+    public ArrayList<SearchHotel> searchHotelByAddressRoomLeftPeople(String address,String hotelName, int roomleft, int people, String checkin, String checkout) {
         ArrayList<SearchHotel> list = new ArrayList<SearchHotel>();
         try {
             OpenConnect();
-            String query = "SELECT * FROM hotel.hotel JOIN room ON hotel.idHotel = room.idHotel JOIN detailbooking ON room.idRoom = detailbooking.idRoom JOIN booking ON booking.idBooking = detailbooking.idBooking WHERE address LIKE '%" + address + "%' AND roomLeft>=" + roomleft + " AND people>=" + people + " AND status=1 AND checkIn > '" + checkout + "' OR checkOut < '" + checkin + "' GROUP BY hotel.idHotel";
+            System.out.println("in "+checkin+ " out "+checkout);
+            String query = "SELECT * FROM hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel \n" +
+                            "JOIN detailbooking ON room.idRoom = detailbooking.idRoom JOIN booking ON booking.idBooking = detailbooking.idBooking \n" +
+                            "WHERE match (hotelName) against('"+hotelName+"') OR match (address) against ('"+address+"')\n" +
+                            "AND roomLeft>="+roomleft+" AND people>="+people+" AND status=1 \n" +
+                            "AND checkIn NOT between '"+checkin+"' AND '"+checkout+"'\n" +
+                            "AND checkout NOT between '"+checkin+"' AND '"+checkout+"'\n" +
+                            "GROUP BY hotel.idHotel";
+            
             PreparedStatement preStmt = con.prepareStatement(query);
             ResultSet rs = preStmt.executeQuery();
 
@@ -91,12 +99,17 @@ public class SearchHotelDAO {
     }
 
     //seach khách sạn có phòng chưa ai đặt
-    public ArrayList<SearchHotel> searchHotelByAddressRoomLeftPeople2(String address, int roomleft, int people) {
+    public ArrayList<SearchHotel> searchHotelByAddressRoomLeftPeople2(String address,String hotelName, int roomleft, int people) {
         ArrayList<SearchHotel> list = new ArrayList<SearchHotel>();
         try {
             OpenConnect();
-            String query = "SELECT * FROM hotel.hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel WHERE address LIKE '%"+address+"%' AND roomLeft>="+roomleft+" AND people>="+people+" AND not EXISTS (SELECT * from detailbooking where idRoom=room.idRoom) GROUP BY hotel.idHotel";
-
+            
+            String query = "SELECT * FROM hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel \n" +
+                            "WHERE match (hotelName) against('"+hotelName+"') OR match (address) against ('"+address+"')\n" +
+                            "AND roomLeft>="+roomleft+" AND people>="+people+" AND status=1 \n" +
+                            "AND not EXISTS (SELECT * from detailbooking where idRoom=room.idRoom)\n" +
+                            "GROUP BY hotel.idHotel";
+            
             PreparedStatement preStmt = con.prepareStatement(query);
             ResultSet rs = preStmt.executeQuery();
             while (rs.next()) {

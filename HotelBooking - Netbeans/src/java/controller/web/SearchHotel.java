@@ -62,9 +62,9 @@ public class SearchHotel extends HttpServlet {
         req.setAttribute("soPhong", soPhong);
         
         //get SearchHotel đã có người đặt nhưng đi rồi
-        ArrayList<model.SearchHotel> searchHotels=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople(address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi), bdayCheckin, bdayCheckout);
+        ArrayList<model.SearchHotel> searchHotels=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople(address,address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi), bdayCheckin, bdayCheckout);
         //get searchHotel các phòng chưa ai đặt
-        ArrayList<model.SearchHotel> searchHotels1=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople2(address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi));
+        ArrayList<model.SearchHotel> searchHotels1=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople2(address,address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi));
         
         for(int i=0;i<searchHotels1.size();i++){
             searchHotels.add(searchHotels1.get(i));

@@ -99,12 +99,12 @@
                     <div class="row form-group">
                         <div class="form-group col-12 col-sm-6">
                             <label>Ngày Checkin</label>
-                            <input id='checkinday' type="date" name="bdayCheckinNew" max="31-12-3000" min="24-05-2019"
+                            <input id='checkinday' type="date" name="bdayCheckin" max="31-12-3000" min="24-05-2019"
                                    class="form-control form-control-lg" value="${requestScope.bdayCheckin}" required>
                         </div>
                         <div class="form-group col-12 col-sm-6 ">
                             <label>Ngày Checkout</label>
-                            <input id='checkoutday' type="date" name="bdayCheckoutNew" min="01-01-2019" max="31-12-3000"
+                            <input id='checkoutday' type="date" name="bdayCheckout" min="01-01-2019" max="31-12-3000"
                                    class="form-control form-control-lg" value="${requestScope.bdayCheckout}" required>
                         </div>
                     </div>
