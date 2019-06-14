@@ -106,7 +106,7 @@ public class SearchHotelDAO {
             
             String query = "SELECT * FROM hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel \n" +
                             "WHERE match (hotelName) against('"+hotelName+"') OR match (address) against ('"+address+"')\n" +
-                            "AND roomLeft>="+roomleft+" AND people>="+people+" AND status=1 \n" +
+                            "AND roomLeft>="+roomleft+" AND people>="+people+" \n" +
                             "AND not EXISTS (SELECT * from detailbooking where idRoom=room.idRoom)\n" +
                             "GROUP BY hotel.idHotel";
             
