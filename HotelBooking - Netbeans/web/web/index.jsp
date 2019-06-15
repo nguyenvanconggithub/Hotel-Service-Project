@@ -114,12 +114,12 @@
                                 <div class="form-group col-12 col-sm-6">
                                     <label>Ngày Checkin</label>
                                     <input id='checkinday' type="date" name="bdayCheckin" max="31-12-3000" min="24-05-2019"
-                                           class="form-control form-scontrol-lg" required>
+                                           class="form-control form-control-lg">
                                 </div>
                                 <div class="form-group col-12 col-sm-6 ">
                                     <label>Ngày Checkout</label>
                                     <input id='checkoutday' type="date" name="bdayCheckout" min="01-01-2019" max="31-12-3000"
-                                           class="form-control form-control-lg" required>
+                                           class="form-control form-control-lg">
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -176,6 +176,7 @@
                     </div>
                 </c:forEach>
             </div>
+            <%--
             <ul class="pagination justify-content-center mt-5">
                 <li class="page-item"><a class="page-link" href="home?page=${requestScope.page - 1}">Trang trước</a></li>
                 <li class="page-item active"><a class="page-link" href="home?page=${requestScope.page}">${requestScope.page}</a></li>
@@ -183,6 +184,34 @@
                 <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 2}">${requestScope.page + 2}</a></li>
                 <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 3}">${requestScope.page + 3}</a></li>
                 <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 1}">Trang sau</a></li>
+            </ul>--%>
+            <ul class="pagination justify-content-center mt-5">
+                <c:choose>
+                    <c:when test="${requestScope.page == 1}">
+                        <li class="page-item disabled "><a class="page-link">Trang trước</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="home?page=${requestScope.page - 1}">Trang trước</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
+                    <c:choose>
+                        <c:when test="${requestScope.page == pageScope.page}">
+                            <li class="page-item active"><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="page-item "><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${requestScope.page == requestScope.lastPage}">
+                        <li class="page-item disabled "><a class="page-link">Trang sau</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 1}">Trang sau</a></li>
+                    </c:otherwise>
+                </c:choose>           
             </ul>
         </div>
         <!--END List Hotel-->
