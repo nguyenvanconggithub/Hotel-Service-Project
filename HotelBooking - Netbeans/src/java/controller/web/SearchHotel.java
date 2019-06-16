@@ -28,8 +28,8 @@ public class SearchHotel extends HttpServlet {
         String address = req.getParameter("address");
         String bdayCheckin = req.getParameter("bdayCheckin");
         String bdayCheckout = req.getParameter("bdayCheckout");
-        String soNguoi = req.getParameter("guests");
-        String soPhong = req.getParameter("rooms");
+        String guests = req.getParameter("guests");
+        String rooms = req.getParameter("rooms");
         
         //add data search vào cookies
         Cookie cookieAddress = new Cookie("address", URLEncoder.encode(address,"UTF-8"));
@@ -41,30 +41,30 @@ public class SearchHotel extends HttpServlet {
         Cookie cookieBdayCheckout = new Cookie("bdayCheckout", bdayCheckout);
         resp.addCookie(cookieBdayCheckout);
 
-        Cookie cookieSoNguoi = new Cookie("guests", soNguoi);
-        resp.addCookie(cookieSoNguoi);
+        Cookie cookieguests = new Cookie("guests", guests);
+        resp.addCookie(cookieguests);
 
-        Cookie cookieSoPhong = new Cookie("rooms", soPhong);
-        resp.addCookie(cookieSoPhong);
+        Cookie cookierooms = new Cookie("rooms", rooms);
+        resp.addCookie(cookierooms);
 
         //truyền cookies đến mọi trang sau projectname/
         cookieAddress.setPath("/");
         cookieBdayCheckin.setPath("/");
         cookieBdayCheckout.setPath("/");
-        cookieSoNguoi.setPath("/");
-        cookieSoPhong.setPath("/");
+        cookieguests.setPath("/");
+        cookierooms.setPath("/");
 
         //gửi sang bên kia data search mới
         req.setAttribute("address", address);
         req.setAttribute("bdayCheckin", bdayCheckin);
         req.setAttribute("bdayCheckout", bdayCheckout);
-        req.setAttribute("guests", soNguoi);
-        req.setAttribute("rooms", soPhong);
+        req.setAttribute("guests", guests);
+        req.setAttribute("rooms", rooms);
         
         //get SearchHotel đã có người đặt nhưng đi rồi
-        ArrayList<model.SearchHotel> searchHotels=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople(address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi), bdayCheckin, bdayCheckout);
+        ArrayList<model.SearchHotel> searchHotels=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople(address, Integer.parseInt(rooms),  Integer.parseInt(guests), bdayCheckin, bdayCheckout);
         //get searchHotel các phòng chưa ai đặt
-        ArrayList<model.SearchHotel> searchHotels1=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople2(address, Integer.parseInt(soPhong),  Integer.parseInt(soNguoi));
+        ArrayList<model.SearchHotel> searchHotels1=SearchHotelDAO.Instance().searchHotelByAddressRoomLeftPeople2(address, Integer.parseInt(rooms),  Integer.parseInt(guests));
         
         for(int i=0;i<searchHotels1.size();i++){
             searchHotels.add(searchHotels1.get(i));

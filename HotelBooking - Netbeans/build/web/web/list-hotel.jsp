@@ -113,8 +113,8 @@
                                 <label class='d-block'>Số Khách</label>
                                 <div class='btn-group d-flex'>
                                     <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseMaxPeople">-</button>
-                                    <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityMaxPeopleSpan">${requestScope.soNguoi}</button>
-                                    <input type="hidden" name="soNguoi" value="${requestScope.soNguoi}" id="quanlityMaxPeopleInput">
+                                    <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityMaxPeopleSpan">${requestScope.guests}</button>
+                                    <input type="hidden" name="guests" value="${requestScope.guests}" id="quanlityMaxPeopleInput">
                                     <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseMaxPeople">+</button>
                                 </div>
                             </div>
@@ -122,8 +122,8 @@
                                 <label for='soPhong' class='d-block'>Số Phòng</label>
                                 <div class='btn-group d-flex'>
                                     <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseQuanlityRoom">-</button>
-                                    <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityRoomSpan">${requestScope.soPhong}</button>
-                                    <input type="hidden" name="soPhong" value="${requestScope.soPhong}" id="quanlityRoomInput">
+                                    <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityRoomSpan">${requestScope.rooms}</button>
+                                    <input type="hidden" name="rooms" value="${requestScope.rooms}" id="quanlityRoomInput">
                                     <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseQuanlityRoom">+</button>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
 
         <hr>
         <div class="container">
-            <div class="font-weight-bold lead pb-3 text-shadow-blur">Dưới đây là các khách sạn phù hợp yêu cầu của bạn (có ${requestScope.soKhachSan} Khách sạn)
+            <div class="font-weight-bold lead pb-3 text-shadow-blur">Dưới đây là các khách sạn phù hợp yêu cầu của bạn (có ${requestScope.hotelnumber} Khách sạn)
             </div>
             <div class="card my-3">
 
@@ -172,12 +172,12 @@
             </div>
 
             <!--        <ul class="pagination justify-content-center mt-5">
-                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page - 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">Trang trước</a></li>
-                            <li class="page-item active"><a class="page-link" href="search?page=${requestScope.page}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">${requestScope.page}</a></li>
-                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">${requestScope.page + 1}</a></li>
-                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 2}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">${requestScope.page + 2}</a></li>
-                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 3}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">${requestScope.page + 3}</a></li>
-                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&soNguoi=${requestScope.soNguoi}&soPhong=${requestScope.soPhong}">Trang sau</a></li>
+                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page - 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">Trang trước</a></li>
+                            <li class="page-item active"><a class="page-link" href="search?page=${requestScope.page}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">${requestScope.page}</a></li>
+                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">${requestScope.page + 1}</a></li>
+                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 2}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">${requestScope.page + 2}</a></li>
+                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 3}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">${requestScope.page + 3}</a></li>
+                            <li class="page-item"><a class="page-link" href="search?page=${requestScope.page + 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">Trang sau</a></li>
                         </ul>-->
 
             <ul class="pagination justify-content-center mt-5">
