@@ -141,11 +141,11 @@
         <div class="container shadow">
             <div class="row justify-content-center opacity-animated">
                 <div class="col-md-8">
-                    <form>
+                    <form action="search" method="GET">
                         <div class="form-group">
                             <label for="address">Địa Điểm</label>
                             <input type="text" class="form-control form-control-lg" id="address" name="address"
-                                   placeholder="Nhập điểm đến, khách sạn" value="${requestScope.address}">
+                                   placeholder="Nhập điểm đến, khách sạn" value="${requestScope.address}" required="">
                         </div>
                         <div class="row form-group">
                             <div class="form-group col-12 col-sm-6">
@@ -165,7 +165,7 @@
                                 <div class='btn-group d-flex'>
                                     <button type='button' id="decreaseMaxPeople" class='btn btn-lg btn-primary px-3 w-100'>-</button>
                                     <button type='button' id="quanlityMaxPeopleSpan" class='btn btn-lg btn-light px-5 w-100'>${requestScope.guests}</button>
-                                    <input type="hidden" id="quanlityMaxPeopleInput" name="guests" value="${requestScope.guests}">
+                                    <input type="hidden" id="quanlityMaxPeopleInput" name="guests" value="${requestScope.guests}" required="">
                                     <button type="button" id="increaseMaxPeople" class='btn btn-lg btn-primary px-3 w-100'>+</button>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                                 <div class='btn-group d-flex'>
                                     <button type='button' id="decreaseQuanlityRoom" class='btn btn-lg btn-primary px-3 w-100'>-</button>
                                     <button type='button' id="quanlityRoomSpan" class='btn btn-lg btn-light px-5 w-100'>${requestScope.rooms}</button>
-                                    <input type="hidden" id="quanlityRoomInput" name="rooms" value="${requestScope.rooms}">
+                                    <input type="hidden" id="quanlityRoomInput" name="rooms" value="${requestScope.rooms}" required="">
                                     <button type="button" id="increaseQuanlityRoom" class='btn btn-lg btn-primary px-3 w-100'>+</button>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                     </div>
             </form>
         </div>
-        <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng:</div>
+        <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng: <span>${requestScope.noRoomMessage}<span></div>
         <c:set var="count" value="0"></c:set>
         <c:forEach var="oneRoom" items="${requestScope.listRoom}">
             <div class="card my-3">
@@ -306,7 +306,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary float-right d-block" onclick="addOrder(this)">Chọn</button>
+                    <button class="btn btn-primary float-right d-block" <c:choose> <c:when test="${searched}">onclick="addOrder(this)"</c:when> <c:otherwise>onclick="alert('Bạn phải tìm kiếm trước khi Chọn Phòng')"</c:otherwise></c:choose>>Chọn</button>
                     <span class="d-none idRoom">${pageScope.oneRoom.getIdRoom()}</span>
                     <button class="btn btn-outline-danger float-right d-none" onclick="removeOrder(this)">Hủy Chọn</button>
                 </div>

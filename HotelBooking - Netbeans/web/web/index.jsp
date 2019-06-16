@@ -21,7 +21,7 @@
     </head>
 
     <body>
- <!-- Start navigation bar-->
+        <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
             <a class="navbar-brand" href="#"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
@@ -55,7 +55,7 @@
                             </li>
                         </c:if>
 
-                            <c:if test="${sessionScope.role == '2'}">
+                        <c:if test="${sessionScope.role == '2'}">
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
                             </li>
                         </c:if>
 
-                            <c:if test="${sessionScope.role == '0'}">
+                        <c:if test="${sessionScope.role == '0'}">
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -114,12 +114,12 @@
                                 <div class="form-group col-12 col-sm-6">
                                     <label>Ngày Checkin</label>
                                     <input id='checkinday' type="date" name="bdayCheckin" max="31-12-3000" min="24-05-2019"
-                                           class="form-control form-control-lg">
+                                           class="form-control form-scontrol-lg" required>
                                 </div>
                                 <div class="form-group col-12 col-sm-6 ">
                                     <label>Ngày Checkout</label>
                                     <input id='checkoutday' type="date" name="bdayCheckout" min="01-01-2019" max="31-12-3000"
-                                           class="form-control form-control-lg">
+                                           class="form-control form-control-lg" required>
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -128,7 +128,7 @@
                                     <div class='btn-group d-flex'>
                                         <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseMaxPeople">-</button>
                                         <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityMaxPeopleSpan">1</button>
-                                        <input type="hidden" name="soNguoi" value="1" id="quanlityMaxPeopleInput">
+                                        <input type="hidden" name="guests" value="1" id="quanlityMaxPeopleInput">
                                         <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseMaxPeople">+</button>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                                     <div class='btn-group d-flex'>
                                         <button type='button' class='btn btn-lg btn-primary px-3 w-100' id="decreaseQuanlityRoom">-</button>
                                         <button type='button' class='btn btn-lg btn-light px-5 w-100' id="quanlityRoomSpan">1</button>
-                                        <input type="hidden" name="soPhong" value="1" id="quanlityRoomInput">
+                                        <input type="hidden" name="rooms" value="1" id="quanlityRoomInput">
                                         <button type="button" class='btn btn-lg btn-primary px-3 w-100' id="increaseQuanlityRoom">+</button>
                                     </div>
                                 </div>
@@ -189,29 +189,29 @@
                 <c:choose>
                     <c:when test="${requestScope.page == 1}">
                         <li class="page-item disabled "><a class="page-link">Trang trước</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="home?page=${requestScope.page - 1}">Trang trước</a></li>
-                    </c:otherwise>
-                </c:choose>
-                <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
-                    <c:choose>
-                        <c:when test="${requestScope.page == pageScope.page}">
-                            <li class="page-item active"><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li class="page-item "><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
+                        <li class="page-item"><a class="page-link" href="home?page=${requestScope.page - 1}">Trang trước</a></li>
                         </c:otherwise>
                     </c:choose>
-                </c:forEach>
-                <c:choose>
-                    <c:when test="${requestScope.page == requestScope.lastPage}">
+                    <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
+                        <c:choose>
+                            <c:when test="${requestScope.page == pageScope.page}">
+                            <li class="page-item active"><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            <li class="page-item "><a class="page-link" href="home?page=${pageScope.page}">${pageScope.page}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${requestScope.page == requestScope.lastPage}">
                         <li class="page-item disabled "><a class="page-link">Trang sau</a></li>
-                    </c:when>
-                    <c:otherwise>
+                        </c:when>
+                        <c:otherwise>
                         <li class="page-item"><a class="page-link" href="home?page=${requestScope.page + 1}">Trang sau</a></li>
-                    </c:otherwise>
-                </c:choose>           
+                        </c:otherwise>
+                    </c:choose>           
             </ul>
         </div>
         <!--END List Hotel-->

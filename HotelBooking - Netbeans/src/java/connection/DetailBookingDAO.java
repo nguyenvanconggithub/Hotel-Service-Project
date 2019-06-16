@@ -73,7 +73,7 @@ public class DetailBookingDAO {
             String query = "SELECT SUM(bookingNumber) AS numberOfAvailabeRoom FROM detailbooking JOIN booking"
                     + " ON booking.idbooking = detailbooking.idbooking"
                     + " WHERE (? > checkOut OR ? < checkIn)"
-                    + " AND idRoom = ? GROUP BY idRoom";
+                    + " AND idRoom = ? AND detailbooking.status = 1 GROUP BY idRoom";
             PreparedStatement preStmt = con.prepareStatement(query);
             preStmt.setString(1, checkin);
             preStmt.setString(2, checkout);

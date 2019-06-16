@@ -184,6 +184,23 @@ public class AddRoom extends HttpServlet{
             req.setAttribute("roomTypes", roomTypes);
         }catch(Exception e){
             check=false;
+            
+            ArrayList<HotelImage> hotelImage=HotelImageDAO.Instance().getShortHotelInfoByID(hotelID);
+            req.setAttribute("hotelImage", hotelImage);
+
+            Hotel hotel2=HotelDAO.Instance().getHotelByID(Integer.parseInt(hotelID));
+            req.setAttribute("hotel", hotel2);
+
+           //get all Untilities to Display
+            ArrayList<Utilities> lstUltilities = new ArrayList<>();
+            lstUltilities = UltilitiesDAO.Instance().getListUtilities();
+            req.setAttribute("listUltilities", lstUltilities);
+
+            ArrayList<Bed> beds=BedDAO.Instance().getListBed();
+            req.setAttribute("beds", beds);
+
+            ArrayList<RoomType>roomTypes=RoomTypeDAO.Instance().getListRoomType();
+            req.setAttribute("roomTypes", roomTypes);
         }
         
         req.setAttribute("addSuccess", check);

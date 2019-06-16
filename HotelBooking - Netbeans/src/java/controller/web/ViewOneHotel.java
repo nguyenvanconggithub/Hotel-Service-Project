@@ -86,6 +86,9 @@ public class ViewOneHotel extends HttpServlet {
                 for (Room room : listRoom) {
                     room.setRoomLeft(room.getRoomLeft()
                             + DetailBookingDAO.Instance().getMoreAvailableRoomLeft(bdayCheckin, bdayCheckout, room.getIdRoom()));
+                    if(room.getRoomLeft() > room.getQuantity()) {
+                        room.setRoomLeft(room.getQuantity());
+                    }
                 }
 
                 //Check roomLeft > 0 then ADD TO DisplayRoomList
