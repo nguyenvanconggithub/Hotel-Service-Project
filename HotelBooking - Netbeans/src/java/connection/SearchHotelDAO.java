@@ -23,7 +23,7 @@ public class SearchHotelDAO {
     String url = "jdbc:mysql://localhost:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
-    String password = "1234";
+    String password = "123456";
     static SearchHotelDAO instance = null;
 
     public static SearchHotelDAO Instance() {
@@ -66,11 +66,14 @@ public class SearchHotelDAO {
         xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
         xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
         
+        xuLyLikeAddress=xuLyLikeAddress.replace("'","");
+        xuLyLikeHotelName=xuLyLikeHotelName.replace("'","");
+        
         try {
             OpenConnect();
             System.out.println("in " + checkin + " out " + checkout);
             String query = "SELECT * FROM hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel \n" +
-            "WHERE match (hotelName) against('"+address+"') OR match (address) against('"+address+"')\n" +
+            "WHERE match (hotelName) against(?) OR match (address) against(?)\n" +
             "GROUP BY hotel.idHotel\n" +
             "HAVING\n" +
             "\n" +
@@ -109,6 +112,10 @@ public class SearchHotelDAO {
             "AND hotel.removed=0";
 
             PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, address);
+            preStmt.setString(2, address);
+            
+            
             ResultSet rs = preStmt.executeQuery();
 
             while (rs.next()) {

@@ -73,7 +73,7 @@ public class SearchHotel extends HttpServlet {
         req.setAttribute("hotelnumber", searchHotels.size());
         
         //get List Data Hotel
-            int totalItem = HotelImageDAO.Instance().numberOfHotel();
+            int totalItem = searchHotels.size();
             System.out.println(totalItem + "Totol");
             int itemsPerPage = 10;
             int page = 1;

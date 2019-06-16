@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="address">Địa Điểm</label>
                                 <input type="text" class="form-control form-control-lg" id="address"
-                                       placeholder="Nhập điểm đến, khách sạn" name="address">
+                                       placeholder="Nhập điểm đến, khách sạn" name="address" required>
                             </div>
                             <div class="row form-group">
                                 <div class="form-group col-12 col-sm-6">

@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label for="address">Địa Điểm</label>
                             <input type="text" class="form-control form-control-lg" id="address"
-                                   placeholder="${requestScope.address}" name="address" value="${requestScope.address}">
+                                   placeholder="${requestScope.address}" name="address" value="${requestScope.address}" required>
                         </div>
                         <div class="row form-group">
                             <div class="form-group col-12 col-sm-6">
