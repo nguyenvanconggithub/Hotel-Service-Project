@@ -1,6 +1,7 @@
 package controller.web;
 
 import connection.BedDAO;
+import connection.DetailBookingDAO;
 import connection.HotelDAO;
 import connection.HotelImageDAO;
 import connection.HotelUltilitiesDAO;
@@ -41,10 +42,12 @@ public class ViewOneHotel extends HttpServlet {
             String bdayCheckout = "";
             String guests = "1";
             String rooms = "1";
-            
+            boolean searched = false;
+
             for (Cookie cookie : req.getCookies()) {
                 if (cookie.getName().equals("address")) {
                     address = URLDecoder.decode(cookie.getValue(), "UTF-8");
+                    searched = true;
                 }
                 if (cookie.getName().equals("bdayCheckin")) {
                     bdayCheckin = URLDecoder.decode(cookie.getValue(), "UTF-8");
@@ -59,13 +62,7 @@ public class ViewOneHotel extends HttpServlet {
                     rooms = URLDecoder.decode(cookie.getValue(), "UTF-8");
                 }
             }
-            //setAttribute user's searching 
-            req.setAttribute("address", address);
-            req.setAttribute("bdayCheckin", bdayCheckin);
-            req.setAttribute("bdayCheckout", bdayCheckout);
-            req.setAttribute("guests", guests);
-            req.setAttribute("rooms", rooms);
-            
+
             //get Hotel Info (HotelImageDAO) (full image, name, rate, star, utilities)
             Hotel hotelInfo = HotelDAO.Instance().getHotelByID(Integer.parseInt(idHotel));
             ArrayList<HotelImage> hotelImages = HotelImageDAO.Instance().getShortHotelInfoByID(idHotel);
@@ -74,36 +71,110 @@ public class ViewOneHotel extends HttpServlet {
             req.setAttribute("listHotelImages", hotelImages);
             req.setAttribute("hotelUtilities", hotelUtilities);
             req.setAttribute("hotelInfo", hotelInfo);
-            //get list room full info by idHotel
-            ArrayList<Room> listRoom = RoomDAO.Instance().getRoomsByIdHotel(idHotel);
-            ArrayList<ArrayList<RoomImage>> listFullRoomImages = new ArrayList<ArrayList<RoomImage>>();
-            ArrayList<ArrayList<String>> listFullRoomUltilities = new ArrayList<ArrayList<String>>();
-            ArrayList<String> listRoomBed = new ArrayList<String>();
-            ArrayList<String> listRoomTypeName = new ArrayList<String>();
-            //FOREACH room in list
-            for (Room room : listRoom) {
-                //getIdRoom
-                int idRoom = room.getIdRoom();
-                //getFullRoomImagebyIdRoom
-                ArrayList<RoomImage> listRoomImages = RoomImageDAO.Instance().getListImg(String.valueOf(idRoom));
-                listFullRoomImages.add(listRoomImages);
-                //getListRoomUtilities
-                ArrayList<String> listRoomUltilities = RoomUltilitiesDAO.Instance().getListUtilityNameByIDRoom(idRoom);
-                listFullRoomUltilities.add(listRoomUltilities);
-                //getRoomTypeName
-                String roomType = RoomTypeDAO.Instance().getRoomTypeNameByID(room.getRoomType().getIdRoomType());
-                listRoomTypeName.add(roomType);
-                //getBedNamebyIDBed
-                String bedName = BedDAO.Instance().getBedNameByID(room.getBed().getIdBed());
-                listRoomBed.add(bedName);
+
+            if (searched) {
+                //setAttribute user's searching 
+                req.setAttribute("address", address);
+                req.setAttribute("bdayCheckin", bdayCheckin);
+                req.setAttribute("bdayCheckout", bdayCheckout);
+                req.setAttribute("guests", guests);
+                req.setAttribute("rooms", rooms);
+
+                //get all idRoom by idHotel
+                ArrayList<Room> listRoom = RoomDAO.Instance().getRoomsByIdHotel(idHotel);
+                //FOREACH IDROOM to plus more RoomLeft by Criteria(checkin,checkout)
+                for (Room room : listRoom) {
+                    room.setRoomLeft(room.getRoomLeft()
+                            + DetailBookingDAO.Instance().getMoreAvailableRoomLeft(bdayCheckin, bdayCheckout, room.getIdRoom()));
+                }
+
+                //Check roomLeft > 0 then ADD TO DisplayRoomList
+                ArrayList<Room> displayRoom = new ArrayList<>();
+                for (Room room : listRoom) {
+                    if (room.getRoomLeft() > 0) {
+                        displayRoom.add(room);
+                    }
+                }
+                //FOREACH calc SUM ROOMS and PEOPLES
+                int sumRoomsLeft = 0;
+                int sumPeoples = 0;
+                for (Room room : displayRoom) {
+                    sumRoomsLeft += room.getRoomLeft();
+                    sumPeoples += room.getPeople() * room.getRoomLeft();
+                }
+
+                if (sumRoomsLeft >= Integer.parseInt(rooms) && sumPeoples >= Integer.parseInt(guests)) {
+
+                    //Get Info displayRoom
+                    ArrayList<ArrayList<RoomImage>> listFullRoomImages = new ArrayList<ArrayList<RoomImage>>();
+                    ArrayList<ArrayList<String>> listFullRoomUltilities = new ArrayList<ArrayList<String>>();
+                    ArrayList<String> listRoomBed = new ArrayList<String>();
+                    ArrayList<String> listRoomTypeName = new ArrayList<String>();
+                    //FOREACH room in list
+                    for (Room room : displayRoom) {
+                        //getIdRoom
+                        int idRoom = room.getIdRoom();
+                        //getFullRoomImagebyIdRoom
+                        ArrayList<RoomImage> listRoomImages = RoomImageDAO.Instance().getListImg(String.valueOf(idRoom));
+                        listFullRoomImages.add(listRoomImages);
+                        //getListRoomUtilities
+                        ArrayList<String> listRoomUltilities = RoomUltilitiesDAO.Instance().getListUtilityNameByIDRoom(idRoom);
+                        listFullRoomUltilities.add(listRoomUltilities);
+                        //getRoomTypeName
+                        String roomType = RoomTypeDAO.Instance().getRoomTypeNameByID(room.getRoomType().getIdRoomType());
+                        listRoomTypeName.add(roomType);
+                        //getBedNamebyIDBed
+                        String bedName = BedDAO.Instance().getBedNameByID(room.getBed().getIdBed());
+                        listRoomBed.add(bedName);
+                    }
+                    //END FOREACH
+                    //req.setAttribute() RoomInfo
+                    req.setAttribute("listRoom", displayRoom);
+                    req.setAttribute("listFullRoomImages", listFullRoomImages);
+                    req.setAttribute("listFullRoomUltilities", listFullRoomUltilities);
+                    req.setAttribute("listRoomBed", listRoomBed);
+                    req.setAttribute("listRoomTypeName", listRoomTypeName);
+                    //set search status to jsp
+                    req.setAttribute("searched", searched);
+                } else {
+                    req.setAttribute("noRoomMessage", "(Không có phòng nào phù hợp lệnh tìm kiếm !)");
+                }
+            } else { //Not Yet Search
+                //set Address/Hotel search Bar with hotelName
+                req.setAttribute("address", hotelInfo.getHotelName());
+                req.setAttribute("guests", 1);
+                req.setAttribute("rooms", 1);
+                //get Full Room && info
+                ArrayList<Room> listRoom = RoomDAO.Instance().getRoomsByIdHotel(idHotel);
+                ArrayList<ArrayList<RoomImage>> listFullRoomImages = new ArrayList<ArrayList<RoomImage>>();
+                ArrayList<ArrayList<String>> listFullRoomUltilities = new ArrayList<ArrayList<String>>();
+                ArrayList<String> listRoomBed = new ArrayList<String>();
+                ArrayList<String> listRoomTypeName = new ArrayList<String>();
+                for (Room room : listRoom) {
+                    //getIdRoom
+                    int idRoom = room.getIdRoom();
+                    //getFullRoomImagebyIdRoom
+                    ArrayList<RoomImage> listRoomImages = RoomImageDAO.Instance().getListImg(String.valueOf(idRoom));
+                    listFullRoomImages.add(listRoomImages);
+                    //getListRoomUtilities
+                    ArrayList<String> listRoomUltilities = RoomUltilitiesDAO.Instance().getListUtilityNameByIDRoom(idRoom);
+                    listFullRoomUltilities.add(listRoomUltilities);
+                    //getRoomTypeName
+                    String roomType = RoomTypeDAO.Instance().getRoomTypeNameByID(room.getRoomType().getIdRoomType());
+                    listRoomTypeName.add(roomType);
+                    //getBedNamebyIDBed
+                    String bedName = BedDAO.Instance().getBedNameByID(room.getBed().getIdBed());
+                    listRoomBed.add(bedName);
+                }
+                //set req.Attb room && info
+                req.setAttribute("listRoom", listRoom);
+                req.setAttribute("listFullRoomImages", listFullRoomImages);
+                req.setAttribute("listFullRoomUltilities", listFullRoomUltilities);
+                req.setAttribute("listRoomBed", listRoomBed);
+                req.setAttribute("listRoomTypeName", listRoomTypeName);
+                //set search status to jsp
+                req.setAttribute("searched", searched);
             }
-            //END FOREACH
-            //req.setAttribute() RoomInfo
-            req.setAttribute("listRoom", listRoom);
-            req.setAttribute("listFullRoomImages", listFullRoomImages);
-            req.setAttribute("listFullRoomUltilities", listFullRoomUltilities);
-            req.setAttribute("listRoomBed", listRoomBed);
-            req.setAttribute("listRoomTypeName", listRoomTypeName);
             //dispatcher forward one-hotel.jsp
             RequestDispatcher rd = req.getRequestDispatcher("/web/one-hotel.jsp");
             rd.forward(req, resp);
