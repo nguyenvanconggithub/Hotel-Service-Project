@@ -44,16 +44,17 @@ public class DetailBookingDAO {
         }
     }
 
-    public ArrayList<DetailBooking> getAllListBooking(int page, int itemsPerPage) {
+     public ArrayList<DetailBooking> getAllListBooking(String userName,int page, int itemsPerPage) {
         ArrayList<DetailBooking> list = new ArrayList<>();
         try {
             OpenConnect();
             String query = "SELECT * FROM detailbooking JOIN booking ON detailbooking.idBooking=booking.idBooking\n"
-                    + " JOIN hotel ON hotel.idHotel=booking.idHotel\n"
-                    + " group by booking.idBooking order by booking.idBooking DESC  LIMIT ?,?";
+                    + " JOIN hotel ON hotel.idHotel=booking.idHotel WHERE userName=?\n"
+                    + " group by booking.idBooking order by  booking.idBooking DESC  LIMIT ?,?";
             PreparedStatement preStmt = con.prepareStatement(query);
-            preStmt.setInt(1, (page - 1) * itemsPerPage);
-            preStmt.setInt(2, itemsPerPage);
+            preStmt.setString(1, userName);
+            preStmt.setInt(2, (page - 1) * itemsPerPage);
+            preStmt.setInt(3, itemsPerPage);
             ResultSet rs = preStmt.executeQuery();
             while (rs.next()) {
                 DetailBooking oneRecord = new DetailBooking();

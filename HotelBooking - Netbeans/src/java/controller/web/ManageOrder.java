@@ -132,6 +132,7 @@ public class ManageOrder extends HttpServlet {
     }
 
     public void getDataManager(HttpServletRequest req, HttpServletResponse resp) {
+        String username = (String) req.getSession().getAttribute("username");
         //phân trang
         int itemsPerPage = 10;
         int page = 1;
@@ -187,7 +188,7 @@ public class ManageOrder extends HttpServlet {
         System.out.println("min: " + min + "| max: " + max);
         //end phân trang
         ArrayList<Room> listCost = new ArrayList<>();
-        ArrayList<DetailBooking> listManager = DetailBookingDAO.Instance().getAllListBooking(page, itemsPerPage);
+        ArrayList<DetailBooking> listManager = DetailBookingDAO.Instance().getAllListBooking(username,page, itemsPerPage);
         for (DetailBooking booking : listManager) {
             Room oneRecord = new Room();
             ArrayList<Room> listRooms = DetailBookingDAO.Instance().getListRoomBooking(booking.getBooking().getIdBooking());
