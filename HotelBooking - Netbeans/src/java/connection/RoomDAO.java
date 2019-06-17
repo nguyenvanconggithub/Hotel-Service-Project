@@ -176,4 +176,25 @@ public class RoomDAO {
         return null;
     }
 
+    public int getCostById(int idRoom) {
+        int cost = 0;
+        try {
+            OpenConnect();
+            String query = "SELECT cost FROM room WHERE idRoom=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                cost = rs.getInt("cost");
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return cost;
+        } catch (Exception e) {
+            System.out.println("getCostById - error: ");
+            e.printStackTrace();
+        }
+        return cost;
+    }
 }

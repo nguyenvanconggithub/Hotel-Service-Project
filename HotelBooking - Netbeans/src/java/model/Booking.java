@@ -12,6 +12,15 @@ public class Booking {
     private Date checkOut;
     private String note;
     private Hotel hotel = new Hotel();
+    private int statusBooking;
+
+    public int getStatusBooking() {
+        return statusBooking;
+    }
+
+    public void setStatusBooking(int statusBooking) {
+        this.statusBooking = statusBooking;
+    }
 
     public Booking() {
     }

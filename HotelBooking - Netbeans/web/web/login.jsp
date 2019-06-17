@@ -48,7 +48,7 @@
                                     ${sessionScope.username} 
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
                                     <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
                                     <a class="dropdown-item" href="logout">Đăng xuất</a>
                                 </div>
@@ -62,7 +62,7 @@
                                         ${sessionScope.username} 
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="logout">Quản Trị</a>
-                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>
                                 </div>

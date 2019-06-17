@@ -24,39 +24,72 @@
     <body>
         <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="#"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
-                <ul class='navbar-nav'>
-                    <!-- 
-                        >>>>>Use this comment if system is not signed in<<<
-    
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
-                    </li>
-                    -->
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                Người dùng
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
-                                <a class="dropdown-item" href="#">Đăng xuất</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="/manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
+
             </div>
         </nav>
+        <!-- End Navigation Bar-->
         <div class="jumbotron container my-3 shadow">
             <h1 class="display-4">Xin Chào, Người dùng</h1>
             <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
@@ -80,7 +113,13 @@
                                 </span><span class="text-warning">&bigstar;</span><span> | ${hotel.getOrderTime()} - CANCELED</span></div>
                             <div class="card-body row p-0">
                                 <div class="col-sm-12 col-md-4">
-                                    <img src="images/IMG_demo_KhachSan_001.jpg" class="img-responsive w-100 h-100 grayscale">
+                                    <c:set var="chkIMG" value="true"></c:set>
+                                    <c:forEach var="img" items="${requestScope.listImg}">
+                                        <c:if test="${img.getHotel().getIdHotel()==hotel.getHotel().getIdHotel() && chkIMG eq true }">
+                                            <img src="${img.getLinkImage()}" class="img-responsive w-100 h-100 grayscale">
+                                            <c:set var="chkIMG" value="false"></c:set>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                                 <div class="col-sm-12 col-md-8">
                                     <div>Khách sạn ${hotel.getHotel().getStar()} sao</div>
@@ -90,7 +129,11 @@
                                         <div class="col-sm-12 col-md-4 font-weight-bold">Checkin: ${hotel.getCheckIn()}</div>
                                         <div class="col-sm-12 col-md-4 font-weight-bold">Checkout: ${hotel.getCheckOut()}</div>
                                     </div>
-                                    <div class="font-weight-bold lead text-danger">Giá: 2 240 000 VND</div>
+                                    <c:forEach var="cost" items="${requestScope.listCost}">
+                                        <c:if test="${cost.getIdRoom()==hotel.getIdBooking()}">
+                                            <div class="font-weight-bold lead text-danger">Giá: ${cost.getCost()}</div>
+                                        </c:if>
+                                    </c:forEach>
                                     <hr />
                                     <div class="container-fluid">
                                         <div class="row">
@@ -104,7 +147,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href='#' class="btn btn-danger float-right">Xóa khỏi danh sách</a>
+                                <a href='#' class="btn btn-outline-danger float-right">Xem chi tiết</a>
                             </div>
                         </div>
                         <c:set var="chk" value="false"></c:set>
@@ -121,7 +164,13 @@
                                 </span><span class="text-warning">&bigstar;</span><span> | ${hotel.getOrderTime()}</span></div>
                             <div class="card-body row p-0">
                                 <div class="col-sm-12 col-md-4">
-                                    <img src="images/IMG_demo_KhachSan_001.jpg" class="img-responsive w-100 h-100">
+                                    <c:set var="chkIMG" value="true"></c:set>
+                                    <c:forEach var="img" items="${requestScope.listImg}">
+                                        <c:if test="${img.getHotel().getIdHotel()==hotel.getHotel().getIdHotel() && chkIMG eq true }">
+                                            <img src="${img.getLinkImage()}" class="img-responsive w-100 h-100 grayscale">
+                                            <c:set var="chkIMG" value="false"></c:set>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                                 <div class="col-sm-12 col-md-8">
                                     <div class="text-secondary">Khách sạn ${hotel.getHotel().getStar()} sao</div>
@@ -131,7 +180,11 @@
                                         <div class="col-sm-12 col-md-4 font-weight-bold">Checkin: ${hotel.getCheckIn()}</div>
                                         <div class="col-sm-12 col-md-4 font-weight-bold">Checkout: ${hotel.getCheckOut()}</div>
                                     </div>
-                                    <div class="font-weight-bold lead text-success">Giá: VND</div>
+                                    <c:forEach var="cost" items="${requestScope.listCost}">
+                                        <c:if test="${cost.getIdRoom()==hotel.getIdBooking()}">
+                                            <div class="font-weight-bold lead text-danger">Giá: ${cost.getCost()}</div>
+                                        </c:if>
+                                    </c:forEach>
                                     <hr />
                                     <div class="container-fluid">
                                         <div class="row">
@@ -152,62 +205,82 @@
                     </c:if>
                 </c:forEach>
             </c:forEach> 
-                    <ul class="pagination justify-content-center mt-5">
-                        <li class="page-item"><a class="page-link" href="#">Trang trước</a></li>
-                        <li class="page-item active"><a class="page-link" href="manage-order-user?page=1">1</a></li>
-                        <li class="page-item "> <a class="page-link" href="manage-order-user?page=2">2</a></li>
-                        <li class="page-item"><a class="page-link" href="manage-order-user?page=3">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
-                </ul>
-            </div>
-            <footer class="container-fluid" id='lien-he-gop-y'>
-                <div class="row">
-                    <div class="col-sm-12 col-md-8">
-                        <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
-                        <h4>Nhóm thực hiện: Nhóm 05 ĐH KTPM3 K11</h4>
-                        <h4>Đề tài: HỆ THỐNG QUẢN LÝ ĐẶT KHÁCH SẠN</h4>
-                        <h4>Với sự hướng dẫn của thầy: <span class="text-info font-weight-bold">ThS. Hoàng Quang Huy</span>
-                        </h4>
-                        <br />
-                        <hr />
-                        <div class="text-center lead">Các thành viên trong nhóm</div>
-                        <br />
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4 pb-3 text-center">
-                                <h5>Nguyễn Văn Công</h5>
-                                <h5>1141360237</h5>
-                                <p>036 488 3022</p>
-                                <p>nvc19021998@gmail.com</p>
-                            </div>
-                            <div class="col-sm-6 col-md-4 pb-3 text-center border-left border-right">
-                                <h5>Phạm Hải Dương</h5>
-                                <h5>1141360254</h5>
-                                <p>033 749 3535</p>
-                                <p>Haiduog@gmail.com</p>
-                            </div>
-                            <div class="col-sm-6 col-md-4 pb-3 text-center">
-                                <h5>Nguyễn Phú Luật</h5>
-                                <h5>1141360177</h5>
-                                <p>034 999 3893</p>
-                                <p>ongluatlangvang@gmail.com</p>
-                            </div>
+            <ul class="pagination justify-content-center mt-5">
+                <c:choose>
+                    <c:when test="${requestScope.page == 1}">
+                        <li class="page-item disabled "><a class="page-link">Trang trước</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="manage-order-user?page=${requestScope.page - 1}">Trang trước</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                    <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
+                        <c:choose>
+                            <c:when test="${requestScope.page == pageScope.page}">
+                            <li class="page-item active"><a class="page-link" href="manage-order-user?page=${pageScope.page}">${pageScope.page}</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            <li class="page-item "><a class="page-link" href="manage-order-user?page=${pageScope.page}">${pageScope.page}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    <c:choose>
+                        <c:when test="${requestScope.page == requestScope.lastPage}">
+                        <li class="page-item disabled "><a class="page-link">Trang sau</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="manage-order-user?page=${requestScope.page + 1}">Trang sau</a></li>
+                        </c:otherwise>
+                    </c:choose>         
+            </ul>
+        </div>
+        <footer class="container-fluid" id='lien-he-gop-y'>
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
+                    <h4>Nhóm thực hiện: Nhóm 05 ĐH KTPM3 K11</h4>
+                    <h4>Đề tài: HỆ THỐNG QUẢN LÝ ĐẶT KHÁCH SẠN</h4>
+                    <h4>Với sự hướng dẫn của thầy: <span class="text-info font-weight-bold">ThS. Hoàng Quang Huy</span>
+                    </h4>
+                    <br />
+                    <hr />
+                    <div class="text-center lead">Các thành viên trong nhóm</div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 pb-3 text-center">
+                            <h5>Nguyễn Văn Công</h5>
+                            <h5>1141360237</h5>
+                            <p>036 488 3022</p>
+                            <p>nvc19021998@gmail.com</p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 pb-3 text-center border-left border-right">
+                            <h5>Phạm Hải Dương</h5>
+                            <h5>1141360254</h5>
+                            <p>033 749 3535</p>
+                            <p>Haiduog@gmail.com</p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 pb-3 text-center">
+                            <h5>Nguyễn Phú Luật</h5>
+                            <h5>1141360177</h5>
+                            <p>034 999 3893</p>
+                            <p>ongluatlangvang@gmail.com</p>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-4">
-                        <h4>Mọi ý kiến, thắc mắc, góp ý xin hãy gửi về cho chúng tôi: </h4>
-                        <form class="form">
-                            <label>Email: </label>
-                            <input type="email" class="form-control" size="50" placeholder="Địa chỉ Email">
-                            <label>Số điện thoại: </label>
-                            <input type="tel" class="form-control" placeholder="Số điện thoại">
-                            <label>Nội dung: </label>
-                            <textarea class="form-control" style="height: 170px" placeholder="Nội dung"></textarea>
-                            <button type="button" id="hustestr" class="form-control btn-primary my-3">Gửi</button>
-                        </form>
-                    </div>
                 </div>
-            </footer>
+                <div class="col-sm-12 col-md-4">
+                    <h4>Mọi ý kiến, thắc mắc, góp ý xin hãy gửi về cho chúng tôi: </h4>
+                    <form class="form">
+                        <label>Email: </label>
+                        <input type="email" class="form-control" size="50" placeholder="Địa chỉ Email">
+                        <label>Số điện thoại: </label>
+                        <input type="tel" class="form-control" placeholder="Số điện thoại">
+                        <label>Nội dung: </label>
+                        <textarea class="form-control" style="height: 170px" placeholder="Nội dung"></textarea>
+                        <button type="button" id="hustestr" class="form-control btn-primary my-3">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
     </body>
     <script src="JS\action.js"></script>
 </html>

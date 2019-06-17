@@ -201,4 +201,30 @@ public class HotelImageDAO {
         }
         return list;
     }
+     public HotelImage getHotelImageByID(int id) {
+        HotelImage oneRecord = new HotelImage();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM hotelimage  WHERE idHotel=? GROUP BY idHotel";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, id);
+            System.out.println();
+            ResultSet rs = preStmt.executeQuery();
+
+            while (rs.next()) {
+                oneRecord = new HotelImage();
+                oneRecord.setLinkImage(rs.getString("linkImage"));
+                oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return oneRecord;
+        } catch (Exception e) {
+            System.out.println("getHotelImageById err: ");
+            e.printStackTrace();
+        }
+        return oneRecord;
+
+    }
 }

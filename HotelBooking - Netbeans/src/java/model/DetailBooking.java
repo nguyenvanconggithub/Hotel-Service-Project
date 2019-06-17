@@ -1,14 +1,14 @@
 package model;
 
-public class DetailBookingRoom {
-	private Room room;
-	private Booking bookingRoom;
+public class DetailBooking {
+	private Room room= new Room();
+	private Booking bookingRoom = new  Booking();
 	private int status;
 	private int bookingNumber;
 	private String ownRoomName;
-	public DetailBookingRoom() {
+	public DetailBooking() {
 	}
-	public DetailBookingRoom(Room Room, Booking bookingRoom, int status, int bookingNumber, String ownRoomName) {		
+	public DetailBooking(Room Room, Booking bookingRoom, int status, int bookingNumber, String ownRoomName) {		
                 this.room = Room;
 		this.bookingRoom = bookingRoom;
 		this.status = status;
@@ -18,7 +18,7 @@ public class DetailBookingRoom {
 	public Room getRoom() {
 		return room;
 	}
-	public Booking getBookingRoom() {
+	public Booking getBooking() {
 		return bookingRoom;
 	}
 	public int getStatus() {

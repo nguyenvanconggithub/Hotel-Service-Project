@@ -3,6 +3,7 @@ package connection;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
@@ -45,14 +46,17 @@ public class BookingDAO {
         }
     }
 
-    public ArrayList<Booking> getListHotelByIdUser(String idUser, int page, int itemsPerPage) {
+    public ArrayList<Booking> getListHotelByIdUser(int idUser, int page, int itemsPerPage) {
         ArrayList<Booking> list = new ArrayList<>();
         try {
             OpenConnect();
-            Statement stmt = con.createStatement();
-            String query = "SELECT * FROM booking JOIN hotel ON booking.idHotel=hotel.idHotel WHERE idUser='" + idUser + "'"
-                    + "ORDER BY idBooking  LIMIT "+ ((page - 1) * itemsPerPage)+","+itemsPerPage+" ";
-            ResultSet rs = stmt.executeQuery(query);
+            String query = "SELECT * FROM booking JOIN hotel ON booking.idHotel=hotel.idHotel \n"
+                    + " WHERE idUser=? order by idBooking DESC limit ?,?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idUser);
+            preStmt.setInt(2, (page - 1) * itemsPerPage);
+            preStmt.setInt(3, itemsPerPage);
+            ResultSet rs = preStmt.executeQuery();
             while (rs.next()) {
                 Booking oneRecord = new Booking();
                 oneRecord.getUser().setIdUser(rs.getInt("idUser"));
@@ -69,7 +73,7 @@ public class BookingDAO {
                 oneRecord.getHotel().setRate(rs.getFloat("rate"));
                 list.add(oneRecord);
             }
-            stmt.close();
+            preStmt.close();
             rs.close();
             CloseConnect();
             return list;
@@ -79,18 +83,18 @@ public class BookingDAO {
         }
         return list;
     }
-    public int countListHotelByIdUser(String idUser) {
-        int count=0;
+
+    public int countBooking() {
+        int count = 0;
         try {
             OpenConnect();
-            Statement stmt = con.createStatement();
-            String query = "SELECT count(idBooking) FROM booking JOIN hotel ON booking.idHotel=hotel.idHotel WHERE idUser='" + idUser + "'"
-                    + "ORDER BY idBooking ";
-            ResultSet rs = stmt.executeQuery(query);
+            String query = "SELECT count(idBooking) FROM booking ";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
             while (rs.next()) {
-                count=rs.getInt(1);
+                count = rs.getInt(1);
             }
-            stmt.close();
+            preStmt.close();
             rs.close();
             CloseConnect();
             return count;
@@ -101,9 +105,54 @@ public class BookingDAO {
         return count;
     }
 
+    public int countListHotelByIdUser(int idUser) {
+        int count = 0;
+        try {
+            OpenConnect();
+            String query = "SELECT count(idBooking) FROM booking JOIN hotel ON booking.idHotel=hotel.idHotel WHERE idUser=?"
+                    + " ORDER BY idBooking ";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idUser);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return count;
+        } catch (Exception e) {
+            System.out.println("getListHotelByIdUser err: ");
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int getDateById(int idBooking) {
+        int number = 0;
+        try {
+            OpenConnect();
+            String query = "select datediff(checkOut,checkIn) from booking where idBooking=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idBooking);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                number = rs.getInt(1);
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return number;
+        } catch (Exception e) {
+            System.out.println("getDateById - error: ");
+            e.printStackTrace();
+        }
+        return number;
+    }
+
     public static void main(String[] args) {
         //ArrayList<Booking> list = BookingDAO.Instance().getListHotelByIdUser("2",0,4);
         //System.out.println(list.size());
-        System.out.println(BookingDAO.Instance().countListHotelByIdUser("2"));
+        System.out.println(BookingDAO.Instance().countListHotelByIdUser(2));
     }
 }

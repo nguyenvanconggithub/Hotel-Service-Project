@@ -3,6 +3,7 @@ package connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UserDAO {
 
@@ -59,5 +60,27 @@ public class UserDAO {
             e.printStackTrace();
         }
         return result;
+    }
+
+    public int getIdUserByUserName(String userName) {
+        try {
+            int idUser = 1;
+            OpenConnect();
+            String query = "SELECT idUser FROM account join user on account.userName=user.userName where user.userName=? ";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, userName);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                idUser = rs.getInt("idUser");
+            }
+            preStmt.close();
+            CloseConnect();
+            return idUser;
+        } catch (Exception e) {
+            System.out.println("getIdUserByUserName - err: ");
+            e.printStackTrace();
+            return 0;
+        }
+
     }
 }
