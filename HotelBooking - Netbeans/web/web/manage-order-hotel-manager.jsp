@@ -101,7 +101,8 @@
                 <!--1 Đơn (màn hình rộng full size table)-->
                 <c:forEach var="item" items="${requestScope.listBooking}">
                     <tr class="row text-center">
-                        <td class="col-1"><a href="order-detail.html">#${item.getBooking().getIdBooking()}</a></td>
+                        <td class="col-1"><input type="hidden" value="$${item.getBooking().getIdBooking()}" name="idBooking">
+                            <a href="order-detail">#${item.getBooking().getIdBooking()}</a></td>
                         <td class="col-2">${item.getOwnRoomName()}</td>
                         <td class="col-3">${item.getBooking().getHotel().getHotelName()}</td>
                         <td class="col-1">${item.getBooking().getOrderTime()}</td>
@@ -134,7 +135,8 @@
                 <c:forEach var="item" items="${requestScope.listBooking}">
                     <tr class="row">
                         <th class="col-6">ID Đơn</th>
-                        <td class="col-6"><a href="/order-detail">#${item.getBooking().getIdBooking()}</a></td>
+                        <td class="col-6"><input type="hidden" value="${item.getBooking().getIdBooking()}" name="idBooking">
+                            <a href="order-detail">#${item.getBooking().getIdBooking()}</a></td>
                     </tr>
 
                     <tr class="row">

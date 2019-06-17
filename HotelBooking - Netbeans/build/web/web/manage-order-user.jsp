@@ -147,7 +147,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href='#' class="btn btn-outline-danger float-right">Xem chi tiết</a>
+                                <input type="hidden" value="${hotel.getIdBooking()}" name="idBooking">
+                                <a href='order-detail' class="btn btn-outline-danger float-right">Xem chi tiết</a>
                             </div>
                         </div>
                         <c:set var="chk" value="false"></c:set>
@@ -198,7 +199,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href='#' class="btn btn-primary stretched-link float-right">Xem chi tiết</a>
+                                <input type="hidden" value="${hotel.getIdBooking()}" name="idBooking">
+                                <a href='order-detail' class="btn btn-primary stretched-link float-right">Xem chi tiết</a>
                             </div>
                         </div>
                         <c:set var="ch" value="false"></c:set>
