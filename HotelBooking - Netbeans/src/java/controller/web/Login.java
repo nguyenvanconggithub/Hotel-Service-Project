@@ -35,11 +35,13 @@ public class Login extends HttpServlet {
             req.getSession().setAttribute("role", AccountDAO.Instance().getRoleOfUser(username));
             req.getSession().setAttribute("loginStatus", "logined");
             req.getSession().setMaxInactiveInterval(-1);
-            
-            req.setAttribute("wrongAccount", 0);
+
+            resp.sendRedirect("home");
+        } else {
+            req.setAttribute("wrongAccount", 1);
+            RequestDispatcher rd = req.getRequestDispatcher("/web/login.jsp");
+            rd.forward(req, resp);
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/web/index.jsp");
-        rd.forward(req, resp);
     }
 }

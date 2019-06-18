@@ -44,7 +44,7 @@ public class DetailBookingDAO {
         }
     }
 
-     public ArrayList<DetailBooking> getAllListBooking(String userName,int page, int itemsPerPage) {
+    public ArrayList<DetailBooking> getAllListBooking(String userName, int page, int itemsPerPage) {
         ArrayList<DetailBooking> list = new ArrayList<>();
         try {
             OpenConnect();
@@ -127,7 +127,8 @@ public class DetailBookingDAO {
         }
         return roomAvailable;
     }
-public int getBookingNumberById(String idRoom, String idBooking) {
+
+    public int getBookingNumberById(String idRoom, String idBooking) {
         int number = 0;
         try {
             OpenConnect();
@@ -173,11 +174,36 @@ public int getBookingNumberById(String idRoom, String idBooking) {
         }
         return list;
     }
+
+    public boolean addNewDetailBooking(DetailBooking newDetailBooking) {
+        boolean result = false;
+        try {
+            OpenConnect();
+            String query = "INSERT INTO detailbooking (idRoom, idBooking, status, bookingNumber, ownRoomName)"
+                    + " VALUES (?,?,?,?,?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, newDetailBooking.getRoom().getIdRoom());
+            preStmt.setInt(2, newDetailBooking.getBooking().getIdBooking());
+            preStmt.setInt(3, newDetailBooking.getStatus());
+            preStmt.setInt(4, newDetailBooking.getBookingNumber());
+            preStmt.setString(5, newDetailBooking.getOwnRoomName());
+            result = preStmt.execute();
+
+            preStmt.close();
+            CloseConnect();
+            return result;
+        } catch (Exception e) {
+            System.out.println("addNewDetailBooking err: ");
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         //System.out.println(DetailBookingDAO.Instance().getMoreAvailableRoomLeft("2019-06-21", "2019-06-30", 7));
-        ArrayList<Room> list=DetailBookingDAO.Instance().getListRoomBooking(1);
+        ArrayList<Room> list = DetailBookingDAO.Instance().getListRoomBooking(1);
         for (Room room : list) {
-            System.out.println(room.getIdRoom()+" | "+room.getQuantity());
+            System.out.println(room.getIdRoom() + " | " + room.getQuantity());
         }
     }
 }

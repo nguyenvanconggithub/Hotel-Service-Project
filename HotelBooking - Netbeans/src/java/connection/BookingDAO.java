@@ -151,6 +151,54 @@ public class BookingDAO {
         return number;
     }
 
+    public boolean addNewBooking(String idUser, String checkin, String checkout, String orderTime, String note, String idHotel) {
+        boolean result = false;
+        try {
+            OpenConnect();
+            String query = "INSERT INTO Booking (idUser, bookingTime, checkIn, checkOut, note, idHotel, statusBooking)"
+                    + " VALUES (?,?,?,?,?,?,?)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, idUser);
+            preStmt.setString(2, orderTime);
+            preStmt.setString(3, checkin);
+            preStmt.setString(4, checkout);
+            preStmt.setString(5, note);
+            preStmt.setString(6, idHotel);
+            preStmt.setString(7, "1");
+
+            result = preStmt.execute();
+
+            CloseConnect();
+            return result;
+        } catch (Exception e) {
+            System.out.println("addNewBooking err: ");
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public int newestIDBookingBy(String idUser) {
+        int idBooking = -1;
+        try {
+            OpenConnect();
+            String query = "SELECT MAX(idBooking) AS newBooking FROM Booking WHERE idUser = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, idUser);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                idBooking = rs.getInt("newBooking");
+            }
+            rs.close();
+            preStmt.close();
+            CloseConnect();
+            return idBooking;
+        } catch (Exception e) {
+            System.out.println("addNewBooking err: ");
+            e.printStackTrace();
+        }
+        return idBooking;
+    }
+
     public static void main(String[] args) {
         //ArrayList<Booking> list = BookingDAO.Instance().getListHotelByIdUser("2",0,4);
         //System.out.println(list.size());

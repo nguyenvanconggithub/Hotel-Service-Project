@@ -114,7 +114,7 @@
                                 <div class="form-group col-12 col-sm-6">
                                     <label>Ngày Checkin</label>
                                     <input id='checkinday' type="date" name="bdayCheckin" max="31-12-3000" min="24-05-2019"
-                                           class="form-control form-scontrol-lg" required>
+                                           class="form-control form-control-lg" required>
                                 </div>
                                 <div class="form-group col-12 col-sm-6 ">
                                     <label>Ngày Checkout</label>
@@ -170,7 +170,7 @@
                             <div class="card-footer h-150px">
                                 <div class="text-secondary">Khách sạn ${shortHotelInfo.getHotel().getStar()} sao</div>
                                 <div class="my-1">${shortHotelInfo.getHotel().getAddress()}</div>
-                                <a href='#' class="btn btn-primary stretched-link float-right">Xem thêm</a>
+                                <a href='ViewOneHotel?id=${shortHotelInfo.getHotel().getIdHotel()}' class="btn btn-primary stretched-link float-right">Xem thêm</a>
                             </div>
                         </div>
                     </div>

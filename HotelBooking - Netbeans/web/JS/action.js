@@ -1,12 +1,12 @@
 $('#khachChinh').change(
     () => {
         if ($('#khachChinh').is(':checked')) {
-            $('[name="tenKhach"]').each((index, element) => {
+            $('[name="guestName"]').each((index, element) => {
                 $(element).attr('disabled', true);
                 $(element).attr('type', "hidden");
             })
         } else {
-            $('[name="tenKhach"]').each((index, element) => {
+            $('[name="guestName"]').each((index, element) => {
                 $(element).attr('disabled', false);
                 $(element).attr('type', "text");
             })
@@ -29,8 +29,8 @@ function load() {
 }
 load();
 $('#checkinday').change(() => {
-	if(new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime())
-		offsetCheckOut();
+    if (new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime())
+        offsetCheckOut();
 });
 
 function offsetCheckOut() {
@@ -78,29 +78,29 @@ $(document).ready(function () {
     typeWebName();
 
 });
-$('#registerForm').on("submit",()=>{
+$('#registerForm').on("submit", () => {
     var pass = $('#matKhau');
     var re_pass = $('#nhapLaiMatKhau');
     var email = $('#email');
     var re_email = $('#nhapLaiEmail');
-	var sdt = $('#SDT');
-    if(pass.val() != re_pass.val()){
+    var sdt = $('#SDT');
+    if (pass.val() != re_pass.val()) {
         alert("Mật Khẩu không khớp nhau !")
         return false;
     }
-    if(email.val() != re_email.val()){
+    if (email.val() != re_email.val()) {
         alert("Email không khớp nhau !")
         return false;
     }
-	if(isNaN(sdt.val())){
-		alert("Vui lòng kiểm tra lại Số Điện Thoại");
-		return false;
-	}
+    if (isNaN(sdt.val())) {
+        alert("Vui lòng kiểm tra lại Số Điện Thoại");
+        return false;
+    }
     return true;
 });
-window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
+window.setTimeout(function () {
+    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
     });
 }, 4000);
 function setPreloadIMG(input, img) {
@@ -227,10 +227,10 @@ $("button[id*='increase-room-']").each((index, elem) => {
 function addOrder(elem) {
     var idRoom = $(elem).next().html();
     var numberRoom = $("#numberRoom-" + idRoom).html();
-	if(numberRoom == 0){
-		alert("Bạn phải chọn số lượng phòng muốn đặt trước khi chọn phòng !");
-		return;
-	}
+    if (numberRoom == 0) {
+        alert("Bạn phải chọn số lượng phòng muốn đặt trước khi chọn phòng !");
+        return;
+    }
     var roomNameAndType = $("#roomNameAndType-" + idRoom).html();
     var cost = $("#cost-" + idRoom).html();
     cost = cost * numberRoom;
@@ -279,15 +279,66 @@ function removeOrder(elem) {
     $(addOrderBtn).removeClass("d-none");
     $(addOrderBtn).addClass("d-block");
 }
-$('#actionSubmitOrder').on("click", ()=>{
-	var orderLength = $('#orderListChose').children().length;
-	if(orderLength == 0){
-		alert("Bạn phải chọn ít nhất một phòng mới có thể Đặt Phòng !");
-		return false;
-	}
+$('#actionSubmitOrder').on("click", () => {
+    var orderLength = $('#orderListChose').children().length;
+    if (orderLength == 0) {
+        alert("Bạn phải chọn ít nhất một phòng mới có thể Đặt Phòng !");
+        return false;
+    }
 
 })
 
+function removeRoom(elem) {
+    var numberOfRoomToRemove = prompt("Bạn muốn xóa bao nhiêu phòng này?");
+    while (isNaN(numberOfRoomToRemove)) {
+        numberOfRoomToRemove = prompt("Bạn muốn xóa bao nhiêu phòng này?\n<Phải nhập số>");
+    }
+    var idRoom = $(elem).prev().html();
+    var roomCard = $('#roomCardID-' + idRoom);
+    var roomOrder = $('#roomOrderID-' + idRoom);
+    var roomOrderNumber = $('#roomOrderNumber-' + idRoom).html();
+    var roomOrderCost = $('#roomOrderCost-' + idRoom).html()
+    var costPerRoom = $('#costPerRoom-' + idRoom).html();
+    var periodDay = $('#periodDay').html();
+
+    var totalCost = $('#totalCost').html();
+    if (numberOfRoomToRemove >= roomOrderNumber) {
+        var confirmed = false;
+        if (numberOfRoomToRemove > roomOrderNumber) {
+            confirmed = confirm("Bạn chỉ có " + roomOrderNumber + " phòng đã chọn\nBạn có chắc chắn xóa " + roomOrderNumber + " phòng?");
+        }
+        if (numberOfRoomToRemove == roomOrderNumber) {
+            confirmed = confirm("Bạn có chắc chắn xóa " + roomOrderNumber + " phòng?");
+        }
+        if (confirmed) {
+            if ($('#orderFormData').children('.card').length == 1) {
+                alert("Bạn không thể xóa hết phòng trong đơn đặt\nBạn phải đặt ít nhất một phòng");
+            } else {
+                $(roomCard).remove();
+                $(roomOrder).next().remove();//<hr/> tag
+                $(roomOrder).remove();
+                var newTotalCost = totalCost - roomOrderNumber * costPerRoom * periodDay;
+                $('#totalCost').html(newTotalCost);
+            }
+
+        }
+    } else {
+        var confirmed = false;
+        confirmed = confirm("Bạn có chắc chắn xóa " + numberOfRoomToRemove + " phòng?");
+        if (confirmed) {
+            var newNumberOfRoom = roomOrderNumber - numberOfRoomToRemove;
+            $('#roomOrderNumber-' + idRoom).html(newNumberOfRoom);
+            $('#roomCardNumber-' + idRoom).html(newNumberOfRoom);
+            $('#orderNumberInput-' + idRoom).val(newNumberOfRoom);
+            var newRoomCost = roomOrderCost - costPerRoom * periodDay * numberOfRoomToRemove;
+            $('#roomOrderCost-' + idRoom).html(newRoomCost);
+            $('#cost-' + idRoom).html(newRoomCost);
+            var newTotalCost = totalCost - numberOfRoomToRemove * costPerRoom * periodDay;
+            $('#totalCost').html(newTotalCost);
+        }
+    }
+
+}
 function deleteImage(elem) {
     if (elem != undefined) {
         //get id image and send ajax to remove

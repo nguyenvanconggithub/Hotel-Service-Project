@@ -197,4 +197,79 @@ public class RoomDAO {
         }
         return cost;
     }
+    
+    public Room getRoomInfoByIDRoom(int idRoom) {
+        Room room = new Room();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM room WHERE idRoom = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                room.setIdRoom(rs.getInt("idRoom"));
+                room.setRoomName(rs.getString("roomName"));
+                room.getHotel().setIdHotel(rs.getInt("idHotel"));
+                room.getBed().setIdBed(rs.getInt("idBed"));
+                room.getRoomType().setIdRoomType(rs.getInt("idRoomType"));
+                room.setAgcreage(rs.getFloat("acreage"));
+                room.setCost(rs.getInt("cost"));
+                room.setPeople(rs.getInt("people"));
+                room.setQuantity(rs.getInt("quantity"));
+                room.setRoomLeft(rs.getInt("roomLeft"));
+            }
+
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return room;
+        } catch (Exception e) {
+            System.out.println("NewestIDHotelOfUsername - error: ");
+            e.printStackTrace();
+        }
+        return room;
+    }
+
+    public boolean isRoomBelongHotel(String idRoom, String idHotel) {
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM room WHERE idRoom = ? AND idHotel = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, idRoom);
+            preStmt.setString(2, idHotel);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                preStmt.close();
+                rs.close();
+                CloseConnect();
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("NewestIDHotelOfUsername - error: ");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getIDHotelbyIdRoom(String idRoom) {
+        String idHotel = "";
+        try {
+            OpenConnect();
+            String query = "SELECT idHotel FROM room WHERE idRoom = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                idHotel = rs.getString("idHotel");
+                preStmt.close();
+                rs.close();
+                CloseConnect();
+                return idHotel;
+            }
+        } catch (Exception e) {
+            System.out.println("NewestIDHotelOfUsername - error: ");
+            e.printStackTrace();
+        }
+        return idHotel;
+    }
 }

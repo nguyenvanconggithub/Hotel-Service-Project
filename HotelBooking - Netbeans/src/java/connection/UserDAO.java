@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import model.User;
 
 public class UserDAO {
 
@@ -82,5 +83,53 @@ public class UserDAO {
             return 0;
         }
 
+    }
+        public User getUserInfoByUsername(String username) {
+        User userInfo = new User();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM user WHERE username=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, username);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                userInfo.setIdUser(rs.getInt("idUser"));
+                userInfo.setName(rs.getString("Name"));
+                userInfo.setEmail(rs.getString("Email"));
+                userInfo.setPhone(rs.getString("phone"));
+            }
+            rs.close();
+            preStmt.close();
+            CloseConnect();
+            return userInfo;
+        } catch (Exception e) {
+            System.out.println("getUserInfoByUsername - err: ");
+            e.printStackTrace();
+        }
+        return userInfo;
+    }
+
+    public int getNewestIDUserBy(String name, String phone, String email) {
+        int idUser = -1;
+        try {
+            OpenConnect();
+            String query = "SELECT MAX(idUser) AS idUser FROM user WHERE Name = ? AND phone = ? AND Email = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, name);
+            preStmt.setString(2, phone);
+            preStmt.setString(3, email);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                idUser = rs.getInt("idUser");
+            }
+            rs.close();
+            preStmt.close();
+            CloseConnect();
+            return idUser;
+        } catch (Exception e) {
+            System.out.println("getNewestIDUserBy - err: ");
+            e.printStackTrace();
+        }
+        return idUser;
     }
 }

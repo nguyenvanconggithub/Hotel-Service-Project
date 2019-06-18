@@ -12,6 +12,9 @@ import connection.RoomUltilitiesDAO;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 //import javax.security.auth.message.callback.PrivateKeyCallback;
 import javax.servlet.RequestDispatcher;
@@ -73,6 +76,10 @@ public class ViewOneHotel extends HttpServlet {
             req.setAttribute("hotelInfo", hotelInfo);
 
             if (searched) {
+                LocalDate checkIn = LocalDate.parse(bdayCheckin, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                LocalDate checkOut = LocalDate.parse(bdayCheckout, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                Period period = Period.between(checkIn, checkOut);
+                req.setAttribute("periodDay", period.getDays());
                 //setAttribute user's searching 
                 req.setAttribute("address", address);
                 req.setAttribute("bdayCheckin", bdayCheckin);
@@ -86,7 +93,7 @@ public class ViewOneHotel extends HttpServlet {
                 for (Room room : listRoom) {
                     room.setRoomLeft(room.getRoomLeft()
                             + DetailBookingDAO.Instance().getMoreAvailableRoomLeft(bdayCheckin, bdayCheckout, room.getIdRoom()));
-                    if(room.getRoomLeft() > room.getQuantity()) {
+                    if (room.getRoomLeft() > room.getQuantity()) {
                         room.setRoomLeft(room.getQuantity());
                     }
                 }

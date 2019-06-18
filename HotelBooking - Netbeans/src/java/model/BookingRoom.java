@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BookingRoom {
 	private int idBooking;
-	private User user;
+	private User user = new User();
 	private Date orderTime;
 	private Date checkIn;
 	private Date checkOut;

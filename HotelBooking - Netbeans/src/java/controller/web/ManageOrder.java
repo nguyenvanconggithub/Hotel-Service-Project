@@ -137,6 +137,7 @@ public class ManageOrder extends HttpServlet {
         int itemsPerPage = 10;
         int page = 1;
         int totalItem = BookingDAO.Instance().countBooking(username);
+        System.out.println(totalItem);
         int lastPage = 1;
         int range = 5;
         int middle = (int) Math.ceil((float) range / 2);

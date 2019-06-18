@@ -189,7 +189,7 @@
         </div>
         <hr />
         <div class="container">
-            <form class="form" method="POST">
+            <form action="book-hotel" class="form" method="GET">
                 <div class="card my-3">
                     <input type="hidden" name="idHotel" value="${requestScope.hotelInfo.getIdHotel()}">
                     <div class="card-header bg-primary text-light font-weight-bold text-center">Phòng của bạn</div>
@@ -225,143 +225,150 @@
             </form>
         </div>
         <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng: <span>${requestScope.noRoomMessage}<span></div>
-        <c:set var="count" value="0"></c:set>
-        <c:forEach var="oneRoom" items="${requestScope.listRoom}">
-            <div class="card my-3">
-                <div class="card-header bg-primary text-light font-weight-bold" id="roomNameAndType-${pageScope.oneRoom.getIdRoom()}">${pageScope.oneRoom.getRoomName()}
-                    <span> - ${requestScope.listRoomTypeName.get(pageScope.count)}</span>
-                </div>
-                <div class="card-body row p-0">
-                    <div class="col-sm-12 col-md-4">
-                        <img src="${requestScope.listFullRoomImages.get(pageScope.count).get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer" data-toggle="modal"
-                             data-target="#modalRoomImage_${pageScope.count}">
-                        <!-- Modal Images -->
-                        <div class="modal fade" id="modalRoomImage_${pageScope.count}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">${pageScope.oneRoom.getRoomName()} - ${requestScope.listRoomTypeName.get(pageScope.count)}</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body bg-dark">
-                                        <div id="room-show_${pageScope.count}" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active room-img">
-                                                    <img class="d-block mx-auto img-fluid" src="${requestScope.listFullRoomImages.get(pageScope.count).get(0).getLinkImage()}">
+                    <c:set var="count" value="0"></c:set>
+                    <c:forEach var="oneRoom" items="${requestScope.listRoom}">
+                        <div class="card my-3">
+                            <div class="card-header bg-primary text-light font-weight-bold" id="roomNameAndType-${pageScope.oneRoom.getIdRoom()}">${pageScope.oneRoom.getRoomName()}
+                                <span> - ${requestScope.listRoomTypeName.get(pageScope.count)}</span>
+                            </div>
+                            <div class="card-body row p-0">
+                                <div class="col-sm-12 col-md-4">
+                                    <img src="${requestScope.listFullRoomImages.get(pageScope.count).get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer" data-toggle="modal"
+                                         data-target="#modalRoomImage_${pageScope.count}">
+                                    <!-- Modal Images -->
+                                    <div class="modal fade" id="modalRoomImage_${pageScope.count}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">${pageScope.oneRoom.getRoomName()} - ${requestScope.listRoomTypeName.get(pageScope.count)}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
                                                 </div>
-                                                <c:forEach var="oneImage" begin="1" items="${requestScope.listFullRoomImages.get(pageScope.count)}">
-                                                <div class="carousel-item room-img">
-                                                    <img class="d-block mx-auto img-fluid" src="${pageScope.oneImage.getLinkImage()}">
+                                                <div class="modal-body bg-dark">
+                                                    <div id="room-show_${pageScope.count}" class="carousel slide" data-ride="carousel">
+                                                        <div class="carousel-inner">
+                                                            <div class="carousel-item active room-img">
+                                                                <img class="d-block mx-auto img-fluid" src="${requestScope.listFullRoomImages.get(pageScope.count).get(0).getLinkImage()}">
+                                                            </div>
+                                                            <c:forEach var="oneImage" begin="1" items="${requestScope.listFullRoomImages.get(pageScope.count)}">
+                                                                <div class="carousel-item room-img">
+                                                                    <img class="d-block mx-auto img-fluid" src="${pageScope.oneImage.getLinkImage()}">
+                                                                </div>
+                                                            </c:forEach>
+                                                        </div>
+                                                        <a class="carousel-control-prev" href="#room-show_${pageScope.count}" role="button" data-slide="prev">
+                                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                            <span class="sr-only">Previous</span>
+                                                        </a>
+                                                        <a class="carousel-control-next" href="#room-show_${pageScope.count}" role="button" data-slide="next">
+                                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                            <span class="sr-only">Next</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                                </c:forEach>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                </div>
                                             </div>
-                                            <a class="carousel-control-prev" href="#room-show_${pageScope.count}" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#room-show_${pageScope.count}" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <!-- END Modal Images -->
+                                </div>
+                                <div class="col-sm-12 col-md-8">
+                                    <div class="row">
+                                        <div class="text-secondary col-12">${pageScope.oneRoom.getAgcreage()} m2</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6 col-lg-3">${pageScope.oneRoom.getPeople()} Người</div>
+                                        <div class="col-sm-12 col-md-6 col-lg-3">${requestScope.listRoomBed.get(pageScope.count)}</div>
+                                        <div class="col-sm-12 col-md-12 col-lg-6">
+                                            Tôi muốn thuê
+                                            <div class='btn-group d-inline-block'>
+                                                <button type='button' class='btn btn-sm btn-primary px-3' id="decrease-room-${pageScope.count}">-</button>
+                                                <span class='px-3 mx-0' id="numberRoom-${pageScope.oneRoom.getIdRoom()}">0</span>
+                                                <span class="d-none roomLeft">${pageScope.oneRoom.getRoomLeft()}</span>
+                                                <button type="button" class='btn btn-sm btn-primary px-3' id="increase-room-${pageScope.count}">+</button>
+                                            </div>
+                                            Phòng này
+                                        </div>
+                                    </div>
+                                    <c:choose>
+                                        <c:when test="${requestScope.searched}">
+                                            <div class="text-danger font-weight-bold">Giá: <span id="cost-${pageScope.oneRoom.getIdRoom()}">${pageScope.oneRoom.getCost() * requestScope.periodDay}</span> VNĐ</div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <div class="text-danger font-weight-bold">Giá: <span id="cost-${pageScope.oneRoom.getIdRoom()}">${pageScope.oneRoom.getCost()}</span> VNĐ</div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <hr />
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <c:forEach var="utility" items="${requestScope.listFullRoomUltilities.get(pageScope.count)}">
+                                                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${pageScope.utility}</span>
+                                            </c:forEach>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary float-right d-block" <c:choose> <c:when test="${searched}">onclick="addOrder(this)"</c:when> <c:otherwise>onclick="alert('Bạn phải tìm kiếm trước khi Chọn Phòng')"</c:otherwise></c:choose>>Chọn</button>
+                                <span class="d-none idRoom">${pageScope.oneRoom.getIdRoom()}</span>
+                                <button class="btn btn-outline-danger float-right d-none" onclick="removeOrder(this)">Hủy Chọn</button>
+                            </div>
                         </div>
-                        <!-- END Modal Images -->
+                        <c:set var="count" value="${count + 1}"></c:set>
+                    </c:forEach> 
                     </div>
-                    <div class="col-sm-12 col-md-8">
+                    <hr />
+                    <footer class="container-fluid" id='lien-he-gop-y'>
                         <div class="row">
-                            <div class="text-secondary col-12">${pageScope.oneRoom.getAgcreage()} m2</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-3">${pageScope.oneRoom.getPeople()} Người</div>
-                            <div class="col-sm-12 col-md-6 col-lg-3">${requestScope.listRoomBed.get(pageScope.count)}</div>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                Tôi muốn thuê
-                                <div class='btn-group d-inline-block'>
-                                    <button type='button' class='btn btn-sm btn-primary px-3' id="decrease-room-${pageScope.count}">-</button>
-                                    <span class='px-3 mx-0' id="numberRoom-${pageScope.oneRoom.getIdRoom()}">0</span>
-                                    <span class="d-none roomLeft">${pageScope.oneRoom.getRoomLeft()}</span>
-                                    <button type="button" class='btn btn-sm btn-primary px-3' id="increase-room-${pageScope.count}">+</button>
+                            <div class="col-sm-12 col-md-8">
+                                <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
+                                <h4>Nhóm thực hiện: Nhóm 05 ĐH KTPM3 K11</h4>
+                                <h4>Đề tài: HỆ THỐNG QUẢN LÝ ĐẶT KHÁCH SẠN</h4>
+                                <h4>Với sự hướng dẫn của thầy: <span class="text-info font-weight-bold">ThS. Hoàng Quang Huy</span></h4>
+                                <br />
+                                <hr />
+                                <div class="text-center lead">Các thành viên trong nhóm</div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-4 pb-3 text-center">
+                                        <h5>Nguyễn Văn Công</h5>
+                                        <h5>1141360237</h5>
+                                        <p>036 488 3022</p>
+                                        <p>nvc19021998@gmail.com</p>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 pb-3 text-center border-left border-right">
+                                        <h5>Phạm Hải Dương</h5>
+                                        <h5>1141360254</h5>
+                                        <p>033 749 3535</p>
+                                        <p>Haiduog@gmail.com</p>
+                                    </div>
+                                    <div class="col-sm-6 col-md-4 pb-3 text-center">
+                                        <h5>Nguyễn Phú Luật</h5>
+                                        <h5>1141360177</h5>
+                                        <p>034 999 3893</p>
+                                        <p>ongluatlangvang@gmail.com</p>
+                                    </div>
                                 </div>
-                                Phòng này
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <h4>Mọi ý kiến, thắc mắc, góp ý xin hãy gửi về cho chúng tôi: </h4>
+                                <form class="form">
+                                    <label>Email: </label>
+                                    <input type="email" class="form-control" size="50" placeholder="Địa chỉ Email">
+                                    <label>Số điện thoại: </label>
+                                    <input type="tel" class="form-control" placeholder="Số điện thoại">
+                                    <label>Nội dung: </label>
+                                    <textarea class="form-control" style="height: 170px" placeholder="Nội dung"></textarea>
+                                    <button type="button" id="hustestr" class="form-control btn-primary my-3">Gửi</button>
+                                </form>
                             </div>
                         </div>
-                        <div class="text-danger font-weight-bold">Giá: <span id="cost-${pageScope.oneRoom.getIdRoom()}">${pageScope.oneRoom.getCost()}</span> VNĐ</div>
-                        <hr />
-                        <div class="container-fluid">
-                            <div class="row">
-                                <c:forEach var="utility" items="${requestScope.listFullRoomUltilities.get(pageScope.count)}">
-                                    <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${pageScope.utility}</span>
-                                </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-primary float-right d-block" <c:choose> <c:when test="${searched}">onclick="addOrder(this)"</c:when> <c:otherwise>onclick="alert('Bạn phải tìm kiếm trước khi Chọn Phòng')"</c:otherwise></c:choose>>Chọn</button>
-                    <span class="d-none idRoom">${pageScope.oneRoom.getIdRoom()}</span>
-                    <button class="btn btn-outline-danger float-right d-none" onclick="removeOrder(this)">Hủy Chọn</button>
-                </div>
-            </div>
-            <c:set var="count" value="${count + 1}"></c:set>
-        </c:forEach> 
-    </div>
-    <hr />
-    <footer class="container-fluid" id='lien-he-gop-y'>
-        <div class="row">
-            <div class="col-sm-12 col-md-8">
-                <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
-                <h4>Nhóm thực hiện: Nhóm 05 ĐH KTPM3 K11</h4>
-                <h4>Đề tài: HỆ THỐNG QUẢN LÝ ĐẶT KHÁCH SẠN</h4>
-                <h4>Với sự hướng dẫn của thầy: <span class="text-info font-weight-bold">ThS. Hoàng Quang Huy</span></h4>
-                <br />
-                <hr />
-                <div class="text-center lead">Các thành viên trong nhóm</div>
-                <br />
-                <div class="row">
-                    <div class="col-sm-6 col-md-4 pb-3 text-center">
-                        <h5>Nguyễn Văn Công</h5>
-                        <h5>1141360237</h5>
-                        <p>036 488 3022</p>
-                        <p>nvc19021998@gmail.com</p>
-                    </div>
-                    <div class="col-sm-6 col-md-4 pb-3 text-center border-left border-right">
-                        <h5>Phạm Hải Dương</h5>
-                        <h5>1141360254</h5>
-                        <p>033 749 3535</p>
-                        <p>Haiduog@gmail.com</p>
-                    </div>
-                    <div class="col-sm-6 col-md-4 pb-3 text-center">
-                        <h5>Nguyễn Phú Luật</h5>
-                        <h5>1141360177</h5>
-                        <p>034 999 3893</p>
-                        <p>ongluatlangvang@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4">
-                <h4>Mọi ý kiến, thắc mắc, góp ý xin hãy gửi về cho chúng tôi: </h4>
-                <form class="form">
-                    <label>Email: </label>
-                    <input type="email" class="form-control" size="50" placeholder="Địa chỉ Email">
-                    <label>Số điện thoại: </label>
-                    <input type="tel" class="form-control" placeholder="Số điện thoại">
-                    <label>Nội dung: </label>
-                    <textarea class="form-control" style="height: 170px" placeholder="Nội dung"></textarea>
-                    <button type="button" id="hustestr" class="form-control btn-primary my-3">Gửi</button>
-                </form>
-            </div>
-        </div>
-    </footer>
-</body>
-<script src="JS\action.js"></script>
+                    </footer>
+                    </body>
+                    <script src="JS\action.js"></script>
 
-</html>
+                    </html>
