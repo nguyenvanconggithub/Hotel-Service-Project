@@ -160,6 +160,7 @@ public int getBookingNumberById(String idRoom, String idBooking) {
             while (rs.next()) {
                 Room oneRecord = new Room();
                 oneRecord.setIdRoom(rs.getInt("idRoom"));
+                oneRecord.setQuantity(rs.getInt("bookingNumber"));
                 list.add(oneRecord);
             }
             preStmt.close();
@@ -173,6 +174,10 @@ public int getBookingNumberById(String idRoom, String idBooking) {
         return list;
     }
     public static void main(String[] args) {
-        System.out.println(DetailBookingDAO.Instance().getMoreAvailableRoomLeft("2019-06-21", "2019-06-30", 7));
+        //System.out.println(DetailBookingDAO.Instance().getMoreAvailableRoomLeft("2019-06-21", "2019-06-30", 7));
+        ArrayList<Room> list=DetailBookingDAO.Instance().getListRoomBooking(1);
+        for (Room room : list) {
+            System.out.println(room.getIdRoom()+" | "+room.getQuantity());
+        }
     }
 }

@@ -110,7 +110,7 @@ public class ManageOrder extends HttpServlet {
             int countDate = BookingDAO.Instance().getDateById(booking.getIdBooking());
             int totalCostRoom = 0;
             for (Room room : listRooms) {
-                totalCostRoom += RoomDAO.Instance().getCostById(room.getIdRoom());
+                totalCostRoom += (RoomDAO.Instance().getCostById(room.getIdRoom())*room.getQuantity());
 
             }
 
@@ -136,7 +136,7 @@ public class ManageOrder extends HttpServlet {
         //phân trang
         int itemsPerPage = 10;
         int page = 1;
-        int totalItem = BookingDAO.Instance().countBooking();
+        int totalItem = BookingDAO.Instance().countBooking(username);
         int lastPage = 1;
         int range = 5;
         int middle = (int) Math.ceil((float) range / 2);
@@ -195,8 +195,7 @@ public class ManageOrder extends HttpServlet {
             int countDate = BookingDAO.Instance().getDateById(booking.getBooking().getIdBooking());
             int totalCostRoom = 0;
             for (Room room : listRooms) {
-                totalCostRoom += RoomDAO.Instance().getCostById(room.getIdRoom());
-
+                totalCostRoom += (RoomDAO.Instance().getCostById(room.getIdRoom())*room.getQuantity());
             }
 
             totalCostRoom = totalCostRoom * countDate;
@@ -220,7 +219,7 @@ public class ManageOrder extends HttpServlet {
             int countDate = BookingDAO.Instance().getDateById(booking.getIdBooking());
             int totalCostRoom = 0;
             for (Room room : listRooms) {
-                totalCostRoom += RoomDAO.Instance().getCostById(room.getIdRoom());
+                totalCostRoom += (RoomDAO.Instance().getCostById(room.getIdRoom())*room.getQuantity());
 
             }
 
@@ -228,7 +227,7 @@ public class ManageOrder extends HttpServlet {
             oneRecord.setIdRoom(booking.getIdBooking());
             oneRecord.setCost(totalCostRoom);
             listCost.add(oneRecord);
-            System.out.println(hotelImage.getIdHotelImage() + " | " + hotelImage.getHotel().getIdHotel());
+            System.out.println(totalCostRoom+ " | " +countDate+" | "+booking.getIdBooking());
 
         }
 

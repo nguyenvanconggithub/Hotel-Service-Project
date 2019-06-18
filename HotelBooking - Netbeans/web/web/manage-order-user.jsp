@@ -91,7 +91,7 @@
         </nav>
         <!-- End Navigation Bar-->
         <div class="jumbotron container my-3 shadow">
-            <h1 class="display-4">Xin Chào, Người dùng</h1>
+            <h1 class="display-4">Xin Chào, ${sessionScope.username}</h1>
             <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
                 đã giúp website nâng cao dịch vụ và bạn sẽ sớm được sử dụng những dịch vụ tốt nhất !</p>
             <hr class="my-4">
@@ -168,7 +168,7 @@
                                     <c:set var="chkIMG" value="true"></c:set>
                                     <c:forEach var="img" items="${requestScope.listImg}">
                                         <c:if test="${img.getHotel().getIdHotel()==hotel.getHotel().getIdHotel() && chkIMG eq true }">
-                                            <img src="${img.getLinkImage()}" class="img-responsive w-100 h-100 grayscale">
+                                            <img src="${img.getLinkImage()}" class="img-responsive w-100 h-100 ">
                                             <c:set var="chkIMG" value="false"></c:set>
                                         </c:if>
                                     </c:forEach>
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href='order-detail>idBooking=${hotel.getIdBooking()}' class="btn btn-primary stretched-link float-right">Xem chi tiết</a>
+                                <a href='order-detail?idBooking=${hotel.getIdBooking()}' class="btn btn-primary stretched-link float-right">Xem chi tiết</a>
                             </div>
                         </div>
                         <c:set var="ch" value="false"></c:set>
