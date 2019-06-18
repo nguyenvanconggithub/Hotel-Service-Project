@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ư<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -174,7 +174,11 @@
                     </tr>
                     <tr class="row">
                         <th class="col-6">Tổng tiền</th>
-                        <td class="col-6">2 240 000 VND</td>
+                         <c:forEach var="cost" items="${requestScope.listCost}">
+                            <c:if test="${cost.getIdRoom()==item.getBooking().getIdBooking()}">
+                                <td class="col-6">${cost.getCost()} VND</td>
+                            </c:if>
+                        </c:forEach>
                     </tr>
                     <tr class="row">
                         <td class="col-12 p-0 m-0">
