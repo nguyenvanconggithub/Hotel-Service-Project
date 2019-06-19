@@ -124,4 +124,28 @@ public class RoomUltilitiesDAO {
         }
 
     }
+    
+        public ArrayList<Utilities> getListUtilityRoomByIDRoom(int idRoom) {
+        ArrayList<Utilities> list = new ArrayList<Utilities>();
+        try {
+            OpenConnect();
+             String query = "SELECT * FROM roomutilities JOIN utilities ON roomutilities.idUtility = utilities.idUtility WHERE idRoom=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                Utilities utilities=new Utilities();
+                utilities.setIdUtility(rs.getInt("idUtility"));
+                utilities.setUtilityName(rs.getString("utilityName"));
+                list.add(utilities);
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getListUtilityNameByIDRoom err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

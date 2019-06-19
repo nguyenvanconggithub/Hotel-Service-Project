@@ -33,6 +33,11 @@ public class Booking {
         this.hotel = hotel;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
     public Booking(int idBooking, User User, Timestamp orderTime, Date checkIn, Date checkOut, String note) {
 
         this.idBooking = idBooking;

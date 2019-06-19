@@ -1,546 +1,297 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="CSS\style.css">
-</head>
+        <link rel="stylesheet" type="text/css" href="CSS\style.css">
+    </head>
 
-<body>
-    <!-- Start navigation bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
-            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <body>
+        <!-- Start navigation bar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
-            <ul class='navbar-nav'>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <h2>Khách Sạn Hà Nội Plaza<span> - 4/5</span><span class="text-warning">&bigstar;</span></h2>
-        <div class="text-secondary">Khách sạn 3 sao</div>
-        <div class="font-italic">068 686 6868</div>
-        <div class="font-weight-bold">9 N7B, Trung Hòa Nhân Chính, Thanh Xuân, Hà Nội 10000, Việt Nam</div>
-        <hr />
-    </div>
-    <div class="container shadow py-2">
-        <div id="hotelSlideShow" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item hotel-img active">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_demo_KhachSan_001.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_002.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_003.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_004.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_005.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_006.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_007.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_008.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_009.jpg" alt="Hotel Image">
-                </div>
-                <div class="carousel-item hotel-img">
-                    <img class="d-block mx-auto img-fluid" src="images/IMG_KhachSan_010.jpg" alt="Hotel Image">
-                </div>
+            <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
 
+                        <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
             </div>
-            <a class="carousel-control-prev" href="#hotelSlideShow" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#hotelSlideShow" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        </nav>
+        <!-- End Navigation Bar-->
+        <div class="container">
+            <c:set var="hotel" value="${requestScope.hotel}"></c:set>
+            <h2>${hotel.getHotelName()}<span> - ${hotel.getRate()}/5</span><span class="text-warning">&bigstar;</span></h2>
+            <div class="text-secondary">khách sạn ${hotel.getStar()} sao</div>
+            <div class="font-italic">${hotel.getSDT()}</div>
+            <div class="font-weight-bold">${hotel.getAddress()}</div>
+            <hr />
         </div>
+        <div class="container shadow py-2">
+            <div id="hotelSlideShow" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item hotel-img active">
+                        <img class="d-block mx-auto img-fluid" src="${requestScope.hotelimage.get(0).getLinkImage()}" alt="Hotel Image">
+                    </div>
+                    <c:forEach begin="1" var="hotelimage" items="${requestScope.hotelimage}">
+                        <div class="carousel-item hotel-img">
+                            <img class="d-block mx-auto img-fluid" src="${hotelimage.getLinkImage()}" alt="Hotel Image">
+                        </div>
+                    </c:forEach>
+                </div>
+                <a class="carousel-control-prev" href="#hotelSlideShow" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#hotelSlideShow" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
 
-        <div class="container-fluid mt-2 album-slide-show">
-            <span data-target="#hotelSlideShow" data-slide-to="0" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_demo_KhachSan_001.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="1" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_002.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="2" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_003.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="3" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_004.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="4" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_005.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="5" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_006.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="6" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_007.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="7" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_008.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="8" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_009.jpg">
-            </span>
-            <span data-target="#hotelSlideShow" data-slide-to="9" class="storeImg d-inline-block">
-                <img class="d-block img-fluid" src="images/IMG_KhachSan_010.jpg">
-            </span>
+            <div class="container-fluid mt-2 album-slide-show">
+                <c:set var="slide" value="0"></c:set>
+                <c:forEach  var="hotelImage2" items="${requestScope.hotelimage}">
+                    <span data-target="#hotelSlideShow" data-slide-to="${slide}" class="storeImg d-inline-block">
+                        <img class="d-block img-fluid" src="${hotelImage2.getLinkImage()}">
+                    </span>
+                    <c:set var="slide" value="${slide+1}"></c:set>
+                </c:forEach>
+            </div>
+            <div class="container">
+                <hr />
+                <h5 class="font-weight-bold">Tiện ích: </h5>
+                <div class="row">
+                    <c:forEach var="ultiHotel" items="${requestScope.ultiHotel}">
+                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${ultiHotel.getUtilityName()}</span>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="jumbotron container shadow">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <c:set var="booking" value="${requestScope.booking}"></c:set>
+                    <div>Mã Đơn: <span class="text-primary">#${booking.getIdBooking()}</span> vào lúc ${booking.getOrderTime()}</div>
+                    <div>Số phòng thuê: ${requestScope.roomNumber} Phòng</div>
+                    <div>Có thể chứa tối đa: ${requestScope.maxPeople} Người</div>
+                    <div class="font-weight-bold lead">Checkin: ${booking.getCheckIn()}</div>
+                    <div class="font-weight-bold lead">Checkout: ${booking.getCheckOut()}</div>
+                    <div class="font-weight-bold lead text-success">Giá: ${requestScope.cost} VND</div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="font-weight-bold lead">Họ tên liên hệ: ${booking.getUser().getName()}</span></div>
+                    <div class="font-weight-bold lead">Email: ${booking.getUser().getEmail()}</div>
+                    <div class="font-weight-bold lead">SĐT: ${booking.getUser().getPhone()}</div>
+                </div>
+            </div>
         </div>
         <div class="container">
-            <hr />
-            <h5 class="font-weight-bold">Tiện ích: </h5>
-            <div class="row">
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Máy lạnh</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Lễ tân 24/24</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Thang máy</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhà hàng</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Wifi</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hồ bơi</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hỗ trợ đỗ xe</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhận thú nuôi</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng thể hình</span>
-                <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng Spa</span>
+            <hr/>
+            <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng đã đặt trong đơn này: </div>
+            <!-- Modal -->
+            <c:forEach var="showRooms" items="${requestScope.showRooms}">
+                <c:set var="indexmodalRoomImage" value="1"></c:set>
+                <div class="modal fade" id="modalRoomImage_${indexmodalRoomImage}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">${showRooms.getRoomImages().get(0).getRoom().getRoomName()} - ${showRooms.getRoomImages().get(0).getRoom().getRoomType().getRoomTypeName()}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-dark">
+                                <div id="room-show_${indexmodalRoomImage}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active room-img">
+                                            <img class="d-block mx-auto img-fluid" src="${showRooms.getRoomImages().get(0).getLinkImage()}">
+                                        </div>
+                                        <c:forEach var="image" items="${showRooms.getRoomImages()}" begin="1">
+                                            <div class="carousel-item room-img">
+                                                <img class="d-block mx-auto img-fluid" src="${image.getLinkImage()}">
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#room-show_${indexmodalRoomImage}" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#room-show_${indexmodalRoomImage}" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <c:set var="indexmodalRoomImage" value="${indexmodalRoomImage+1}"></c:set>
+            </c:forEach>
+
+            <!--các phòng trong đơn-->
+            <c:forEach var="showroom" items="${requestScope.showRooms}">
+                <c:if test="${showroom.getDetailBookingRoom().getStatus() !=0 }">
+                    <div class="card my-3">
+                        <div class="card-header bg-primary text-light font-weight-bold">${showroom.getRoomImages().get(0).getRoom().getRoomName()}<span> - ${showroom.getRoomType().getRoomTypeName()} </span>
+                            <c:if test="${showroom.getDetailBookingRoom().getBookingNumber()  > 1}"> X ${showroom.getDetailBookingRoom().getBookingNumber()}</c:if>
+                            </div>
+                            <div class="card-body row p-0">
+                                <div class="col-sm-12 col-md-4">
+                                    <img src="${showroom.getRoomImages().get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer"
+                                     data-toggle="modal" data-target="#modalRoomImage_1">
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <div class="row">
+                                    <div class="text-secondary col-12">${showroom.getRoomImages().get(0).getRoom().getAgcreage()} m2</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-3">${showroom.getRoomImages().get(0).getRoom().getPeople()} Người</div>
+                                    <div class="col-sm-12 col-md-6 col-lg-3">${showroom.getRoomImages().get(0).getRoom().getBed().getBedName()}</div>
+                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                        Tên khách: <span class="font-weight-bold">${showroom.getDetailBookingRoom().getOwnRoomName()}</span>
+                                    </div>
+                                </div>
+                                <div class="text-success font-weight-bold">Giá: ${showroom.getRoomImages().get(0).getRoom().getCost()} VNĐ</div>
+                                <hr />
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <c:forEach var="ultility" items="${showroom.getRoomUltilities()}">
+                                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${ultility.getUtilityName()}</span>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=huy ' class="btn btn-outline-danger float-right">Hủy đặt phòng này</a>
+                        </div>
+                    </div>
+                </c:if>
+
+                <c:if test="${showroom.getDetailBookingRoom().getStatus()==0}">
+                    <!--CANCEL ROOM-->
+                    <div class="card my-3 bg-secondary">
+                        <div class="card-header bg-secondary text-dark font-weight-bold">${showroom.getRoomImages().get(0).getRoom().getRoomName()} <span> - ${showroom.getRoomType().getRoomTypeName()} - CANCELED</span>
+                            <c:if test="${showroom.getDetailBookingRoom().getBookingNumber() > 1} "> X ${showroom.getDetailBookingRoom().getBookingNumber()}</c:if>
+                            </div>
+                            <div class="card-body row p-0">
+                                <div class="col-sm-12 col-md-4">
+                                    <img src="${showroom.getRoomImages().get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer grayscale"
+                                     data-toggle="modal" data-target="#modalRoomImage_2">
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <div class="row">
+                                    <div class="text-secondary col-12">${showroom.getRoomImages().get(0).getRoom().getAgcreage()} m2</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-3">${showroom.getRoomImages().get(0).getRoom().getPeople()} Người</div>
+                                    <div class="col-sm-12 col-md-6 col-lg-3">${showroom.getRoomImages().get(0).getRoom().getBed().getBedName()}</div>
+                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                        Tên khách: <span class="font-weight-bold">${showroom.getDetailBookingRoom().getOwnRoomName()}</span>
+                                    </div>
+                                </div>
+                                <div class="text-secondary font-weight-bold">Giá: ${showroom.getRoomImages().get(0).getRoom().getCost()} VNĐ</div>
+                                <hr />
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <c:forEach var="ultility2" items="${showroom.getRoomUltilities()}">
+                                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${ultility.getUtilityName()}</span>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=cal ' class="btn btn-outline-danger float-right">CALCELED</a>
+                        </div>
+                        <!--END CANCELED ROOM-->
+                    </div>
+                </c:if>
+            </c:forEach>
+
+            <div class="lead text-shadow-blur">Ghi chú: </div>
+            <div class="border p-3 text-center min-h-300px">
+                ${requestScope.booking.getNote()}
             </div>
+            <a type="button" class="btn btn-outline-danger w-100 my-3"  href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=0&is=all'>Hủy Đơn</a>
         </div>
-    </div>
-    <hr />
-    <div class="jumbotron container shadow">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <div>Mã Đơn: <span class="text-primary">#68686868</span> vào lúc 25/05/2019 11:20 AM</div>
-                <div>Số phòng thuê: 4 Phòng</div>
-                <div>Có thể chứa tối đa: 8 Người</div>
-                <div class="font-weight-bold lead">Checkin: 31/05/2019</div>
-                <div class="font-weight-bold lead">Checkout: 06/06/2019</div>
-                <div class="font-weight-bold lead text-success">Giá: 2 240 000 VND</div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <div class="font-weight-bold lead">Họ tên liên hệ: Nguyễn Văn A</span></div>
-                <div class="font-weight-bold lead">Email: example@email.com</div>
-                <div class="font-weight-bold lead">SĐT: 068 666 8888</div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <hr/>
-        <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng đã đặt trong đơn này: </div>
-        <!-- Modal -->
-        <div class="modal fade" id="modalRoomImage_1" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Phòng Tiêu Chuẩn - Phòng Đơn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bg-dark">
-                    <div id="room-show_1" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_001.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_002.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_003.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_004.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_005.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_006.jpg">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#room-show_1" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#room-show_1" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalRoomImage_2" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Phòng Tiêu Chuẩn - Phòng Đơn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bg-dark">
-                    <div id="room-show_2" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_001.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_002.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_003.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_004.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_005.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_006.jpg">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#room-show_2" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#room-show_2" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalRoomImage_3" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Phòng Tiêu Chuẩn - Phòng Đơn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bg-dark">
-                    <div id="room-show_3" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_001.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_002.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_003.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_004.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_005.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_006.jpg">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#room-show_3" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#room-show_3" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalRoomImage_4" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Phòng Tiêu Chuẩn - Phòng Đơn</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bg-dark">
-                    <div id="room-show_4" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_001.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_002.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_003.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_004.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_005.jpg">
-                            </div>
-                            <div class="carousel-item room-img">
-                                <img class="d-block mx-auto img-fluid" src="images/IMG_room_006.jpg">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#room-show_4" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#room-show_4" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card my-3">
-        <div class="card-header bg-primary text-light font-weight-bold">Phòng Tiêu Chuẩn <span> - Phòng
-                Đơn</span>
-        </div>
-        <div class="card-body row p-0">
-            <div class="col-sm-12 col-md-4">
-                <img src="images/IMG_room_001.jpg" class="img-responsive w-100 h-100 cursor-pointer"
-                    data-toggle="modal" data-target="#modalRoomImage_1">
-            </div>
-            <div class="col-sm-12 col-md-8">
-                <div class="row">
-                    <div class="text-secondary col-12">20 m2</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">2 Người</div>
-                    <div class="col-sm-12 col-md-6 col-lg-3">Giường đôi</div>
-                    <div class="col-sm-12 col-md-12 col-lg-6">
-                            Tên khách: <span class="font-weight-bold">Nguyễn Văn B</span>
-                    </div>
-                </div>
-                <div class="text-success font-weight-bold">Giá: 560 000 VNĐ</div>
-                <hr />
-                <div class="container-fluid">
-                    <div class="row">
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Máy lạnh</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Lễ tân 24/24</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Thang máy</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhà hàng</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Wifi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hồ bơi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hỗ trợ đỗ xe</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhận thú nuôi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng thể
-                            hình</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng Spa</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <a href='#' class="btn btn-outline-danger float-right">Hủy đặt phòng này</a>
-        </div>
-    </div>
-    <!--CANCEL ROOM-->
-    <div class="card my-3 bg-secondary">
-        <div class="card-header bg-secondary text-dark font-weight-bold">Phòng Tiêu Chuẩn <span> - Phòng
-                Đơn - CANCELED</span>
-        </div>
-        <div class="card-body row p-0">
-            <div class="col-sm-12 col-md-4">
-                <img src="images/IMG_room_001.jpg" class="img-responsive w-100 h-100 cursor-pointer grayscale"
-                    data-toggle="modal" data-target="#modalRoomImage_2">
-            </div>
-            <div class="col-sm-12 col-md-8">
-                <div class="row">
-                    <div class="text-secondary col-12">20 m2</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">2 Người</div>
-                    <div class="col-sm-12 col-md-6 col-lg-3">Giường đôi</div>
-                    <div class="col-sm-12 col-md-12 col-lg-6">
-                            Tên khách: <span class="font-weight-bold">Nguyễn Văn B</span>
-                    </div>
-                </div>
-                <div class="text-secondary font-weight-bold">Giá: 560 000 VNĐ</div>
-                <hr />
-                <div class="container-fluid">
-                    <div class="row">
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Máy lạnh</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Lễ tân 24/24</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Thang máy</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Nhà hàng</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Wifi</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Hồ bơi</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Hỗ trợ đỗ xe</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Nhận thú nuôi</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Phòng thể
-                            hình</span>
-                        <span class="btn-outline-muted btn col-sm-6 col-md-3">&check; Phòng Spa</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <div class="btn btn-outline-danger float-right ">CANCELED</div>
-        </div>
-        <!--END CANCELED ROOM-->
-    </div>
-    <div class="card my-3">
-        <div class="card-header bg-primary text-light font-weight-bold">Phòng Tiêu Chuẩn <span> - Phòng
-                Đơn</span>
-        </div>
-        <div class="card-body row p-0">
-            <div class="col-sm-12 col-md-4">
-                <img src="images/IMG_room_001.jpg" class="img-responsive w-100 h-100 cursor-pointer"
-                    data-toggle="modal" data-target="#modalRoomImage_3">
-            </div>
-            <div class="col-sm-12 col-md-8">
-                <div class="row">
-                    <div class="text-secondary col-12">20 m2</div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-3">2 Người</div>
-                    <div class="col-sm-12 col-md-6 col-lg-3">Giường đôi</div>
-                    <div class="col-sm-12 col-md-12 col-lg-6">
-                            Tên khách: <span class="font-weight-bold">Nguyễn Văn B</span>
-                    </div>
-                </div>
-                <div class="text-success font-weight-bold">Giá: 560 000 VNĐ</div>
-                <hr />
-                <div class="container-fluid">
-                    <div class="row">
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Máy lạnh</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Lễ tân 24/24</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Thang máy</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhà hàng</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Wifi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hồ bơi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hỗ trợ đỗ xe</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhận thú nuôi</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng thể
-                            hình</span>
-                        <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng Spa</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card-footer">
-            <a href='#' class="btn btn-outline-danger float-right">Hủy đặt phòng này</a>
-        </div>
-    </div>
-    <div class="card my-3">
-            <div class="card-header bg-primary text-light font-weight-bold">Phòng Tiêu Chuẩn <span> - Phòng
-                    Đơn</span>
-            </div>
-            <div class="card-body row p-0">
-                <div class="col-sm-12 col-md-4">
-                    <img src="images/IMG_room_001.jpg" class="img-responsive w-100 h-100 cursor-pointer"
-                        data-toggle="modal" data-target="#modalRoomImage_4">
-                </div>
-                <div class="col-sm-12 col-md-8">
-                    <div class="row">
-                        <div class="text-secondary col-12">20 m2</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-3">2 Người</div>
-                        <div class="col-sm-12 col-md-6 col-lg-3">Giường đôi</div>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            Tên khách: <span class="font-weight-bold">Nguyễn Văn B</span>
-                        </div>
-                    </div>
-                    <div class="text-success font-weight-bold">Giá: 560 000 VNĐ</div>
-                    <hr />
-                    <div class="container-fluid">
-                        <div class="row">
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Máy lạnh</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Lễ tân 24/24</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Thang máy</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhà hàng</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Wifi</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hồ bơi</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Hỗ trợ đỗ xe</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Nhận thú nuôi</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng thể
-                                hình</span>
-                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; Phòng Spa</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer">
-                <a href='#' class="btn btn-outline-danger float-right">Hủy đặt phòng này</a>
-            </div>
-        </div>
-    <div class="lead text-shadow-blur">Ghi chú: </div>
-    <div class="border p-3 text-center min-h-300px">
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note 
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note
-            Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note Example Note
-    </div>
-    <button type="button" class="btn btn-outline-danger w-100 my-3">Hủy Đơn</button>
-    </div>
-    <hr/>
-    <footer class="container-fluid" id='lien-he-gop-y'>
+        <footer class="container-fluid" id='lien-he-gop-y'>
             <div class="row">
                 <div class="col-sm-12 col-md-8">
                     <h6>Trường Đại Học Công Nghiệp Hà Nội</h6>
@@ -587,6 +338,6 @@
                 </div>
             </div>
         </footer>
-</body>
-<script src="JS\action.js"></script>
+    </body>
+    <script src="JS\action.js"></script>
 </html>

@@ -10,6 +10,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import model.Bed;
 import model.Booking;
+import model.Hotel;
+import model.User;
 
 public class BookingDAO {
 
@@ -203,5 +205,32 @@ public class BookingDAO {
         //ArrayList<Booking> list = BookingDAO.Instance().getListHotelByIdUser("2",0,4);
         //System.out.println(list.size());
         System.out.println(BookingDAO.Instance().getDateById(1));
+    }
+    public Booking getBookingByIdBooking(int idBooking){
+        Booking booking=new Booking();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select * from booking where idBooking="+idBooking;
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                booking.setIdBooking(rs.getInt("idBooking"));
+                User user=UserDAO.Instance().getUserByIdUser(rs.getInt("idUser"));
+                booking.setUser(user);
+                booking.setOrderTime(rs.getTimestamp("bookingTime"));
+                booking.setCheckIn(rs.getDate("checkIn"));
+                booking.setCheckOut(rs.getDate("checkOut"));
+                booking.setNote(rs.getString("note"));
+                Hotel hotel=HotelDAO.Instance().getHotelByID(rs.getInt("idHotel"));
+                booking.setHotel(hotel);
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getListHotelByIdUser err: ");
+            e.printStackTrace();
+        }
+        return booking;
     }
 }

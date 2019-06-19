@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import model.User;
 
 public class UserDAO {
@@ -131,5 +132,29 @@ public class UserDAO {
             e.printStackTrace();
         }
         return idUser;
+    }
+    
+        
+    public User getUserByIdUser(int idUser){
+        User user=new User();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select * from user where idUser="+idUser;
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.next()) {
+                user.setIdUser(rs.getInt("idUser"));
+                user.setName(rs.getString("Name"));
+                user.setEmail(rs.getString("Email"));
+                user.setPhone(rs.getString("phone"));
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getUserByIdUser err: ");
+            e.printStackTrace();
+        }
+        return user;
     }
 }

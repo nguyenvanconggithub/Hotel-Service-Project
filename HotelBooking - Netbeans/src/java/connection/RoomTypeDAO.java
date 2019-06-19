@@ -92,4 +92,24 @@ public class RoomTypeDAO {
         return "";
     }
 
+    public RoomType getOneRoomTypeByIdRoomType(int idRoomtype){
+        RoomType roomType=new RoomType();
+        try {
+            OpenConnect();
+            String query = "select * from roomtype where idRoomType="+idRoomtype;
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                roomType.setIdRoomType(rs.getInt("idRoomType"));
+                roomType.setRoomTypeName(rs.getString("roomTypeName"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getOneRoomTypeByIdRoomType - error: ");
+            e.printStackTrace();
+        }
+        return roomType;
+    }
 }

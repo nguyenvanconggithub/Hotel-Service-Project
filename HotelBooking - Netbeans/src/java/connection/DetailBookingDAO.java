@@ -7,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import model.*;
+import model.Booking;
+import model.DetailBooking;
+import model.Room;
+
 
 public class DetailBookingDAO {
 
@@ -205,5 +208,61 @@ public class DetailBookingDAO {
         for (Room room : list) {
             System.out.println(room.getIdRoom() + " | " + room.getQuantity());
         }
+    }
+    
+    //update khi hủy phòng hoặc đặt lại hoặc hủy tất cả
+    public void updateStatus(int idBooking, int idRoom, String isCalcel) {
+        int status;
+        if (isCalcel.endsWith("cal")) {
+            status=1;
+        }else{
+            status=0;
+        }
+        try {
+            OpenConnect();
+            String query;
+            if(isCalcel.equals("all")){
+                query= "update detailbooking set status =" + status + "  where idBooking=" + idBooking;
+            }else{
+                query = "update detailbooking set status =" + status + "  where idBooking=" + idBooking + " AND idRoom=" + idRoom + "";
+            }
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("editHotel with err: ");
+            e.printStackTrace();
+        }
+    }
+    
+     public ArrayList<DetailBooking> getListDetailBookingByIdBooking(int idBooking) {
+        ArrayList<DetailBooking> list = new ArrayList<DetailBooking>();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select * from detailbooking where idBooking=" + idBooking;
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                DetailBooking oneRecord = new DetailBooking();
+                Room room = RoomDAO.Instance().getRoomByIdRoom(rs.getInt("idRoom"));
+                oneRecord.setRoom(room);
+                Booking booking = BookingDAO.Instance().getBookingByIdBooking(rs.getInt("idBooking"));
+                oneRecord.setBookingRoom(booking);
+                oneRecord.setStatus(rs.getInt("status"));
+                oneRecord.setBookingNumber(rs.getInt("bookingNumber"));
+                oneRecord.setOwnRoomName(rs.getString("ownRoomName"));
+                list.add(oneRecord);
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getListDetailBookingByIdBooking err: ");
+            e.printStackTrace();
+        }
+        return list;
     }
 }

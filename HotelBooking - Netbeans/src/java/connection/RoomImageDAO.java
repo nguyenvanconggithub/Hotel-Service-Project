@@ -134,7 +134,7 @@ public class RoomImageDAO {
             while (rs.next()) {
                 RoomImage oneRecord = new RoomImage();
                 oneRecord.setLinkImage(rs.getString("linkImage"));
-                oneRecord.getRoom().setIdRoom(rs.getInt("idRoom"));
+                oneRecord.setRoom(RoomDAO.Instance().getRoomByIdRoom(rs.getInt("idRoom")));
                 list.add(oneRecord);
             }
             System.out.println("DAO - size: " + list.size());

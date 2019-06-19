@@ -91,4 +91,24 @@ public class BedDAO {
         return "";
     }
 
+        public Bed getOneBedByIdBed(int idBed){
+        Bed bed=new Bed();
+        try {
+            OpenConnect();
+            String query = "select * from bed where idBed="+idBed;
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                bed.setIdBed(rs.getInt("idBed"));
+                bed.setBedName(rs.getString("bedName"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getOneBedByIdBed - error: ");
+            e.printStackTrace();
+        }
+        return bed;
+    }
 }

@@ -10,7 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Bed;
+import model.Hotel;
 import model.Room;
+import model.RoomType;
 
 public class RoomDAO {
 
@@ -271,5 +274,36 @@ public class RoomDAO {
             e.printStackTrace();
         }
         return idHotel;
+    }
+     public Room getRoomByIdRoom(int idRoom){
+        Room room=new Room();
+        try {
+            OpenConnect();
+            String query = "select * from room where idRoom="+idRoom;
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                room.setIdRoom(rs.getInt("idRoom"));
+                room.setRoomName(rs.getString("roomName"));
+                Hotel hotel=HotelDAO.Instance().getHotelByID(rs.getInt("idHotel"));
+                room.setHotel(hotel);
+                Bed bed=BedDAO.Instance().getOneBedByIdBed(rs.getInt("idBed"));
+                RoomType roomType=RoomTypeDAO.Instance().getOneRoomTypeByIdRoomType(rs.getInt("idRoomType"));
+                room.setRoomType(roomType);
+                room.setAgcreage(rs.getFloat("acreage"));
+                room.setCost(rs.getInt("cost"));
+                room.setPeople(rs.getInt("people"));
+                room.setQuantity(rs.getInt("quantity"));
+                room.setRoomLeft(rs.getInt("roomLeft"));
+                room.setRemoved(rs.getBoolean("removed"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getRoomByIdRoom - error: ");
+            e.printStackTrace();
+        }
+        return room;
     }
 }
