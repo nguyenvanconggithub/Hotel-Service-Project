@@ -29,7 +29,7 @@ function load() {
 }
 load();
 $('#checkinday').change(() => {
-    if (new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime())
+    if (new Date($('#checkinday').val()).getTime() > new Date($('#checkoutday').val()).getTime() || $('#checkoutday').val() == "")
         offsetCheckOut();
 });
 
@@ -122,7 +122,7 @@ function addMoreImage(elem) {
         '<span class="bg-dark d-flex align-items-center justify-content-center opacity-50-100 position-relative square-150x150 m-2"' +
         'id="image-element-add">' +
         '<img src="images/add_button.PNG" class="square-150x150 position-absolute" id="preload-img-add">' +
-        '<input type="file" name="imageList" class="square-150x150 position-absolute opacity-0" id="preload-inp-add"' +
+        '<input type="file" name="imageList" class="square-150x150 position-absolute opacity-0" id=""' +
         'onchange="addMoreImage(this)">' +
         '<span class="position-absolute text-danger invisible cursor-pointer font-weight-bold" style="top:0;right:5%" onclick="deleteImage(this)">X</span>' +
         '</span>';
@@ -132,6 +132,14 @@ function addMoreImage(elem) {
         if ($(spanElement).hasClass("previewer")) {
             //get ID Image And remove from database
             setPreloadIMG(elem, $(spanElement).children("img"));
+            if (!$('#listRemoveImage').val().includes($(elem).attr("id"))) {
+                if ($('#listRemoveImage').val() == "") {
+                    $('#listRemoveImage').val($('#listRemoveImage').val() + $(elem).attr("id"));
+                } else {
+                    $('#listRemoveImage').val($('#listRemoveImage').val() + "-" + $(elem).attr("id"));
+                }
+
+            }
         }
         else {
             setPreloadIMG(elem, $(spanElement).children("img"));
@@ -141,6 +149,20 @@ function addMoreImage(elem) {
             $(spanElement).addClass("previewer");
             $(spanElement).children("span").removeClass("invisible");
         }
+    }
+}
+function deleteImage(elem) {
+    if (elem != undefined) {
+
+        if (!$('#listRemoveImage').val().includes($(elem).prev().attr("id"))) {
+            if ($('#listRemoveImage').val() == "") {
+                $('#listRemoveImage').val($('#listRemoveImage').val() + $(elem).prev().attr("id"));
+            } else {
+                $('#listRemoveImage').val($('#listRemoveImage').val() + "-" + $(elem).prev().attr("id"));
+            }
+
+        }
+        $(elem).parent().remove();
     }
 }
 //Add - down button Room
@@ -338,12 +360,6 @@ function removeRoom(elem) {
         }
     }
 
-}
-function deleteImage(elem) {
-    if (elem != undefined) {
-        //get id image and send ajax to remove
-        $(elem).parent().remove();
-    }
 }
 var star = [1, 1, 1, 1, 1];
 if ($('#star').val() == 1) {

@@ -110,11 +110,11 @@ public class HotelImageDAO {
         return list;
     }
 
-    public int numberImageOfHotel(int idHotel) {
+    public int numberImageOfHotel() {
         int imageNumber = 0;
         try {
             OpenConnect();
-            String query = "SELECT COUNT(*) AS TOTAL FROM hotelimage WHERE idHotel=" + idHotel + "";
+            String query = "SELECT MAX(idHotelImage) AS TOTAL FROM hotelimage";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
@@ -186,6 +186,7 @@ public class HotelImageDAO {
 
             while (rs.next()) {
                 HotelImage oneRecord = new HotelImage();
+                oneRecord.setIdHotelImage(rs.getInt("idHotelImage"));
                 oneRecord.setLinkImage(rs.getString("linkImage"));
                 oneRecord.getHotel().setIdHotel(rs.getInt("idHotel"));
                 list.add(oneRecord);
@@ -201,7 +202,8 @@ public class HotelImageDAO {
         }
         return list;
     }
-     public HotelImage getHotelImageByID(int id) {
+
+    public HotelImage getHotelImageByID(int id) {
         HotelImage oneRecord = new HotelImage();
         try {
             OpenConnect();
@@ -226,5 +228,45 @@ public class HotelImageDAO {
         }
         return oneRecord;
 
+    }
+    public String getLinkHotelImageBy(String ID){
+        String link = "";
+        try {
+            OpenConnect();
+            String query = "SELECT linkImage FROM hotelimage  WHERE idHotelImage = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, ID);
+            ResultSet rs = preStmt.executeQuery();
+
+            if(rs.next()) {
+                link = rs.getString("linkImage");
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return link;
+        } catch (Exception e) {
+            System.out.println("getLinkHotelImageBy err: ");
+            e.printStackTrace();
+        }
+        return link;
+    }
+    public boolean removeHotelImageID(String removeID){
+        boolean result = false;
+        try {
+            OpenConnect();
+            String query = "DELETE FROM hotelimage WHERE idHotelImage = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, removeID);
+            
+            result = preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+            return result;
+        } catch (Exception e) {
+            System.out.println("removeHotelImageID err: ");
+            e.printStackTrace();
+        }
+        return result;
     }
 }

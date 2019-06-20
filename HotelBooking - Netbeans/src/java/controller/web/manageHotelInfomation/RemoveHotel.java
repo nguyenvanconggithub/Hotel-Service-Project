@@ -2,6 +2,7 @@ package controller.web.manageHotelInfomation;
 
 import connection.HotelDAO;
 import connection.HotelImageDAO;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -24,7 +25,10 @@ public class RemoveHotel extends HttpServlet {
             String role = (String) req.getSession().getAttribute("role");
 
             if (role.equals(HOTEL_MANAGER) && HotelDAO.Instance().hotelIsOwnByUsername(idHotel, username)) {
-                boolean removeSuccess = HotelDAO.Instance().removeHotelByID(idHotel);
+
+                boolean removeSuccess = false;
+                removeSuccess = HotelDAO.Instance().removeHotelByID(idHotel);
+
                 req.setAttribute("removeResult", removeSuccess);
                 if (removeSuccess == true) {
                     req.setAttribute("message", "Xóa Thành Công !");

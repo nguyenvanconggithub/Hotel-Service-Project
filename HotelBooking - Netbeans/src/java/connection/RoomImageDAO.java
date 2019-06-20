@@ -77,15 +77,14 @@ public class RoomImageDAO {
     }
 
     public static void main(String[] args) {
-        ArrayList<RoomImage> list = RoomImageDAO.Instance().getListImg("1");
-        System.out.println(list.size());
+        System.out.println(RoomImageDAO.Instance().getListImg("8").get(0).getIdRoomImage());
     }
 
-    public int numberImageOfRoom(int idRoom) {
+    public int numberImageOfRoom() {
         int imageNumber = 0;
         try {
             OpenConnect();
-            String query = "SELECT COUNT(*) AS TOTAL FROM roomimage WHERE idRoom=" + idRoom;
+            String query = "SELECT MAX(idRoomImage) AS TOTAL FROM roomimage";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
@@ -133,6 +132,7 @@ public class RoomImageDAO {
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 RoomImage oneRecord = new RoomImage();
+                oneRecord.setIdRoomImage(rs.getInt("idRoomImage"));
                 oneRecord.setLinkImage(rs.getString("linkImage"));
                 oneRecord.setRoom(RoomDAO.Instance().getRoomByIdRoom(rs.getInt("idRoom")));
                 list.add(oneRecord);
@@ -177,5 +177,47 @@ public class RoomImageDAO {
             ex.printStackTrace();
         }
         return oneRecord;
+    }
+
+    public String getLinkRoomImageBy(String ID) {
+        String link = "";
+        try {
+            OpenConnect();
+            String query = "SELECT linkImage FROM roomimage  WHERE idRoomImage = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, ID);
+            ResultSet rs = preStmt.executeQuery();
+
+            if (rs.next()) {
+                link = rs.getString("linkImage");
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+            return link;
+        } catch (Exception e) {
+            System.out.println("getLinkRoomImageBy err: ");
+            e.printStackTrace();
+        }
+        return link;
+    }
+
+    public boolean removeRoomImageID(String removeID) {
+        boolean result = false;
+        try {
+            OpenConnect();
+            String query = "DELETE FROM roomimage WHERE idRoomImage = ?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, removeID);
+
+            result = preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+            return result;
+        } catch (Exception e) {
+            System.out.println("removeRoomImageID err: ");
+            e.printStackTrace();
+        }
+        return result;
     }
 }

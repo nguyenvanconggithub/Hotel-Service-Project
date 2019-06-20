@@ -145,6 +145,7 @@
             <div class="font-weight-bold lead my-5 text-shadow-blur">Nhập thông tin cho phòng mới</div>
        
             <form method="POST" class="form" action="add-new-room" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="${requestScope.id}">
                 <div class="row form-group">
                     <label for="loaiPhong" class="col-sm-12 col-md-2">Loại phòng</label>
                     <select name="loaiPhong" class="form-control col-sm-12 col-md-6" id="loaiPhong" required="">

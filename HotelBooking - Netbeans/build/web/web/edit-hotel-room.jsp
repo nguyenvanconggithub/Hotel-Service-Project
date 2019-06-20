@@ -21,41 +21,74 @@
     </head>
 
     <body>
-        <!-- Start navigation bar-->
+<!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="#"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
-                <ul class='navbar-nav'>
-                    <!-- 
-                        >>>>>Use this comment if system is not signed in<<<
-    
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
-                    </li>
-                    -->
-                    <li class="nav-item">
-                        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                            ${sessionScope.username}
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
-                            <a class="dropdown-item" href="manage-hotel-infomation">Quản lý thông tin khách sạn</a>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
-                        </div>
-                    </li>
-                </ul>
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="manage-order-hotel-manager.html">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user.html">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
+
             </div>
         </nav>
-        <!--END Navbar -->
+        <!-- End Navigation Bar-->
         <div class="container">
             <h2>${hotel.getHotelName()}</h2>
             <div class="text-secondary">Khách sạn ${hotel.getStar()} sao</div>
@@ -65,10 +98,10 @@
                 <div id="hotelSlideShow" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item hotel-img active">
-                            <img class="d-block mx-auto img-fluid"  src="${requestScope.listImg.get(0).getLinkImage()}" alt="Hotel Image">
+                            <img class="d-block mx-auto img-fluid"  src="${requestScope.listHotelImg.get(0).getLinkImage()}" alt="Hotel Image">
                             </div>
                             
-                            <c:forEach var="img" items="${requestScope.listImg}" begin="1">
+                            <c:forEach var="img" items="${requestScope.listHotelImg}" begin="1">
                             <div class="carousel-item hotel-img">
                                 <img class="d-block mx-auto img-fluid"  src="${img.getLinkImage()}" alt="Hotel Image">
                             </div>
@@ -87,7 +120,7 @@
 
                 <div class="container-fluid mt-2 album-slide-show">
                     <c:set var="count" value="0"></c:set>
-                    <c:forEach var="img1" items="${requestScope.listImg}">
+                    <c:forEach var="img1" items="${requestScope.listHotelImg}">
                         <span data-target="#hotelSlideShow" data-slide-to="${count}" class="storeImg d-inline-block">
                             <img class="d-block img-fluid" src="${img1.getLinkImage()}">
                         </span>
@@ -112,9 +145,10 @@
                 </c:if>
                <!-- END MES-->
                 <div class="font-weight-bold lead my-5 text-shadow-blur">Nhập thông tin để cập nhật phòng</div>
-                <form method="Post" class="form" action="edit-room">
+                <form method="Post" class="form" action="edit-room" enctype="multipart/form-data">
                     <input type="hidden" value="${requestScope.idRoom}" name="idRoom" >
                     <input type="hidden" value="${requestScope.idHotel}" name="idHotel" >
+                    <input type="hidden" name="listRemoveImage" id="listRemoveImage" value="">
                     <div class="row form-group">
                         <label for="loaiPhong" class="col-sm-12 col-md-2">Loại phòng</label>
                         <select name="loaiPhong" class="form-control col-sm-12 col-md-6" id="loaiPhong" required>
@@ -198,14 +232,14 @@
                     </div>
                     <div class="lead text-shadow-blur font-weight-bold">Bạn có thể thêm mới, chỉnh sửa hoặc xóa các bức ảnh bên dưới</div>
                     <div class="row justify-content-center form-group">
-                        <c:forEach var="roomImg" items="${requestScope.listRoomImg}">
+                        <c:forEach var="roomImg" items="${requestScope.listImg}">
                             <span
                                 class="bg-dark d-flex align-items-center justify-content-center position-relative square-150x150 m-2 previewer"
                                 id="image-element-loaded">
                                 <img src="${roomImg.getLinkImage()}" class="square-150x150 position-absolute"
                                      id="preload-img-add">
                                 <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                                       id="preload-inp-add" onchange="addMoreImage(this)">
+                                       id="${pageScope.roomImg.getIdRoomImage()}" onchange="addMoreImage(this)">
                                 <span class="position-absolute text-danger cursor-pointer font-weight-bold"
                                       style="top:0;right:5%" onclick="deleteImage(this)">X</span>
                             </span>

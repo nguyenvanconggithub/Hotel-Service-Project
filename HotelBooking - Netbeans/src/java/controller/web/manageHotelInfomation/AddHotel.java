@@ -126,7 +126,7 @@ public class AddHotel extends HttpServlet {
             // Danh mục các phần đã upload lên (Có thể là nhiều file).
             for (Part part : req.getParts()) {
                 String fileName = extractFileName(part);
-                String imageNumber = String.valueOf(HotelImageDAO.Instance().numberImageOfHotel(idHotel));
+                String imageNumber = String.valueOf(HotelImageDAO.Instance().numberImageOfHotel() + 1);
                 if (fileName != null && fileName.length() > 0) {
                     String filePath = fullSavePath + File.separator + username+ "HOTEL" + imageNumber + fileName;
                     String linkToSaveInSQL = SAVE_DIRECTORY + File.separator + username + "HOTEL" + imageNumber + fileName;

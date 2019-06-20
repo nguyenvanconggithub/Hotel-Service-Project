@@ -17,36 +17,43 @@ import model.HotelImage;
 import model.RoomImage;
 
 @WebServlet(urlPatterns = {"/delete-room"})
-public class RemoveRoom extends HttpServlet{
+public class RemoveRoom extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idDel = req.getParameter("idDel");
-        boolean check=false;
-        
-        try{
-            RoomDAO.Instance().deleteRoomById(idDel);
-            check=true;
-        }catch(Exception e){
-            check=false;
-        }
-        
-        getData(req, resp);
-        System.out.println("hi");
+        String idHotel = RoomDAO.Instance().getIDHotelbyIdRoom(idDel);
+        String username = (String) req.getSession().getAttribute("username");
+        boolean isOwnHotel = HotelDAO.Instance().hotelIsOwnByUsername(Integer.parseInt(idHotel), username);
+        if (isOwnHotel) {
+            boolean check = false;
 
-        String mes;
-        req.setAttribute("addSuccess",check);
-        if(check==true){
-            mes="Đã xóa phòng thành công";
-        }else{
-            mes="Xóa phòng thất bại";
+            try {
+                RoomDAO.Instance().deleteRoomById(idDel);
+                check = true;
+            } catch (Exception e) {
+                check = false;
+            }
+
+            getData(req, resp);
+            System.out.println("hi");
+
+            String mes;
+            req.setAttribute("addSuccess", check);
+            if (check == true) {
+                mes = "Đã xóa phòng thành công";
+            } else {
+                mes = "Xóa phòng thất bại";
+            }
+            req.setAttribute("message", mes);
+
+            RequestDispatcher rd = req.getRequestDispatcher("/web/manage-hotel-room.jsp");
+            rd.forward(req, resp);
         }
-        req.setAttribute("message", mes);
-        
-        RequestDispatcher rd = req.getRequestDispatcher("/web/manage-hotel-room.jsp");
-        rd.forward(req, resp);
+
     }
- public void getData(HttpServletRequest req, HttpServletResponse resp) {
+
+    public void getData(HttpServletRequest req, HttpServletResponse resp) {
         //show full username's hotel
         String username = (String) req.getSession().getAttribute("username");
         String idHotel = req.getParameter("idHotel");
@@ -59,5 +66,5 @@ public class RemoveRoom extends HttpServlet{
         System.out.println(listImages.size());
         // redirect to view username's hotel
     }
-    
+
 }

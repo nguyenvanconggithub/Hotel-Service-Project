@@ -115,7 +115,7 @@
             </c:if>
             <form method="POST" class="form" action="edit-hotel" enctype="multipart/form-data">
                 <input type="hidden" name="idHotel" value="${requestScope.idHotel}">
-
+                <input type="hidden" name="listRemoveImage" id="listRemoveImage" value="">
                 <div class="row form-group">
                     <label for="tenKhachSan" class="col-sm-12 col-md-2">Tên khách sạn</label>
                     <input type="text" name="tenKhachSan" maxlength="30" id="tenKhachSan" class="form-control col-sm-12 col-md-6" value="${requestScope.hotelInfo.getHotelName()}" required>
@@ -165,7 +165,7 @@
                             id="image-element-loaded">
                             <img src="${pageScope.oneImage.getLinkImage()}" class="square-150x150 position-absolute" id="preload-img-add">
                             <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                                   id="preload-inp-add" onchange="addMoreImage(this)">
+                                   id="${pageScope.oneImage.getIdHotelImage()}" onchange="addMoreImage(this)">
                             <span class="position-absolute text-danger cursor-pointer font-weight-bold"
                                   style="top:0;right:5%" onclick="deleteImage(this)">X</span>
                         </span>
@@ -176,7 +176,7 @@
                         id="image-element-add">
                         <img src="images/add_button.PNG" class="square-150x150 position-absolute" id="preload-img-add">
                         <input type="file" name="imageList" class="square-150x150 position-absolute opacity-0"
-                               id="preload-inp-add" onchange="addMoreImage(this)">
+                               id="" onchange="addMoreImage(this)">
                         <span class="position-absolute text-danger invisible cursor-pointer font-weight-bold"
                               style="top:0;right:5%" onclick="deleteImage(this)">X</span>
                     </span>
