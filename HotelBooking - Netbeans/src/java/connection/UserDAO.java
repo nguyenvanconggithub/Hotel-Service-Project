@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.User;
 
 public class UserDAO {
@@ -156,5 +158,58 @@ public class UserDAO {
             e.printStackTrace();
         }
         return user;
+    }
+        public ArrayList<User> getAllUser(int page, int itemsPerPage) {
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT * FROM account JOIN user ON account.userName=user.userName WHERE role!=0 LIMIT ?,?";
+            PreparedStatement prestmt = con.prepareStatement(query);
+            prestmt.setInt(1, (page - 1) * itemsPerPage);
+            prestmt.setInt(2, itemsPerPage);
+            ResultSet rs = prestmt.executeQuery();
+            while (rs.next()) {
+                User oneRecord = new User();
+                oneRecord.setName(rs.getString("name"));
+                oneRecord.setEmail(rs.getString("email"));
+                oneRecord.setPhone(rs.getString("phone"));
+                oneRecord.getAccount().setUserName(rs.getString("userName"));
+                oneRecord.getAccount().setStatus(rs.getInt("status"));
+                oneRecord.getAccount().setRole(rs.getString("role"));
+                list.add(oneRecord);
+            }
+
+            prestmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getAllUser err: ");
+            e.printStackTrace();
+            return list;
+        }
+    }
+    public int countAccount(){
+        int count=0;
+        OpenConnect();
+        try {
+            String query="SELECT count(userName) FROM account WHERE role!=0";
+            PreparedStatement preStmt=con.prepareStatement(query);
+            ResultSet rs=preStmt.executeQuery();
+            while(rs.next()){
+                count=rs.getInt(1);
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (SQLException e) {
+            System.out.println("countAccount -err");
+            e.printStackTrace();
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        ArrayList<User> list = UserDAO.Instance().getAllUser(1,4);
+        System.out.println(UserDAO.Instance().countAccount());
     }
 }

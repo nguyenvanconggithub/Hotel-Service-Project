@@ -76,7 +76,7 @@
                                         ${sessionScope.username} 
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="logout">Quản Trị</a>
+                                        <a class="dropdown-item" href="admin">Quản Trị</a>
                                         <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AccountDAO {
@@ -136,5 +137,17 @@ public class AccountDAO {
             e.printStackTrace();
         }
         return role;
+    }
+        public void updateAccount(String userName,int status){
+        String query="UPDATE account SET status=? WHERE userName=?";
+        try {
+            PreparedStatement preStmt= con.prepareStatement(query);
+            preStmt.setInt(1, status);
+            preStmt.setString(2, userName);
+            preStmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("updateAccount -err");
+            e.printStackTrace();
+        }
     }
 }
