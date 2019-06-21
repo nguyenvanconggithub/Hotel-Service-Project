@@ -53,7 +53,7 @@
             <div class="col-12 col-lg-3 col-xl-2 sm-scr bg-dark text-light fullViewHeight"
                 style="position:sticky;top:0;">
                 <div class="lead mt-5">Xin chào, Administrator !</div>
-                <div class="font-italic d-flex justify-content-end my-3"><a href="#" class="text-light">Đăng xuất</a>
+                <div class="font-italic d-flex justify-content-end my-3"><a href="logout" class="text-light">Đăng xuất</a>
                 </div>
                 <hr class="bg-light" />
                 <ul class="nav flex-column mt-5">

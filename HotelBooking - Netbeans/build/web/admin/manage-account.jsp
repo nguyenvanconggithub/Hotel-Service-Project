@@ -101,498 +101,137 @@
                                         <td>${acc.getEmail()}</td>
                                         <td>${acc.getPhone()}</td>
                                         <c:if test="${acc.getAccount().getStatus()==1}">
+                                            <td>
+                                                <form method="Post" action="manage-account">
+                                                    <input type="hidden" value="${acc.getAccount().getUserName()}" name="userN">
+                                                    <input type="hidden" value="0" name="status">
+                                                    <button class="btn btn-outline-danger" type="submit" >Khóa</button>
+                                                </form>
+                                            <td
+                                            </c:if>
+                                            <c:if test="${acc.getAccount().getStatus()==0}">
+                                        <td>
+                                            <form method="Post" action="manage-account">
+                                                <input type="hidden" value="${acc.getAccount().getUserName()}" name="userN">
+                                                <input type="hidden" value="1" name="status">
+                                                <button class="btn btn-outline-primary" type="submit" >Mở</button>
+                                            </form>
+                                        <td
+                                        </c:if>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+                <table class="table tablet mobile table-striped table-hover">
+                    <!-- 1 Thông tin Tài Khoản-->
+                    <c:forEach  var="acc" items="${requestScope.listAcc}">
+                        <tr class="row">
+                            <th class="col-6">Tên Đăng Nhập</th>
+                            <td class="col-6">${acc.getAccount().getUserName()}</td>
+                        </tr>
+                        <tr class="row">
+                            <th class="col-6">Quyền</th>
+                                <c:if test="${acc.getAccount().getRole()==1}">
+                                <td class="col-6">Manage-Hotel</td>
+                            </c:if>
+                            <c:if test="${acc.getAccount().getRole()==2}">
+                                <td class="col-6">User</td>
+                            </c:if>
+                        </tr>
+
+                        <tr class="row">
+                            <th class="col-6">Trạng Thái</th>
+                                <c:if test="${acc.getAccount().getStatus()==0}">
+                                <td class="col-6">Bị Khóa</td>
+                            </c:if>
+                            <c:if test="${acc.getAccount().getStatus()==1}">
+                                <td class="col-6">Hoạt Động</td>
+                            </c:if>
+                        </tr>
+
+                        <tr class="row">
+                            <th class="col-6">Họ Tên</th>
+                            <td class="col-6">${acc.getName()}</td>
+                        </tr>
+
+                        <tr class="row">
+                            <th class="col-6">Email</th>
+                            <td class="col-6">${acc.getEmail()}</td>
+                        </tr>
+
+                        <tr class="row">
+                            <th class="col-6">Số Điện Thoại</th>
+                            <td class="col-6">${acc.getPhone()}</td>
+                        </tr>
+
+                        <tr class="row">
+                            <c:if test="${acc.getAccount().getStatus()==1}">
+                                <td class="col-12">
                                     <form method="Post" action="manage-account">
-                                        <input type="submit"  value="userName=${acc.getAccount().getUserName()}&status=0"/>
+                                        <input type="hidden" value="${acc.getAccount().getUserName()}" name="userN">
+                                        <input type="hidden" value="0" name="status">
+                                        <button class="btn btn-outline-danger" type="submit" >Khóa</button>
                                     </form>
-                                            <td><a href="manage-account" class="btn btn-outline-danger">Khóa</a></td>
-                                        </c:if>
-                                        <c:if test="${acc.getAccount().getStatus()==0}">
-                                           <td><a href="manage-account?userName=${acc.getAccount().getUserName()}&status=1" class="btn btn-outline-primary">Mở</a></td>
-                                        </c:if>
-                                    </tr>
-                                </c:forEach>
-                                <tr>
-                                    <td>Tên Đăng Nhập 3</td>
-                                    <td>Quyền 3</td>
-                                    <td>Trạng Thái 3</td>
-                                    <td>Họ Tên 3</td>
-                                    <td>Email 3</td>
-                                    <td>Số Điện Thoại 3</td>
-                                    <td><a href="#" class="btn btn-outline-primary">Mở</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table tablet mobile table-striped table-hover">
-                            <!-- 1 Thông tin Tài Khoản-->
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Tên Đăng Nhập</th>
-                                <td class="col-6">Tên Đăng Nhập 1</td>
-                            </tr>
-                            <tr class="row">
-                                <th class="col-6">Quyền</th>
-                                <td class="col-6">Quyền 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Trạng Thái</th>
-                                <td class="col-6">Trạng Thái 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Họ Tên</th>
-                                <td class="col-6">Họ Tên 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Email</th>
-                                <td class="col-6">Email 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <th class="col-6">Số Điện Thoại</th>
-                                <td class="col-6">Số Điện Thoại 1</td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12"><a href="#" class="btn btn-outline-danger col-12">Khóa</a></td>
-                            </tr>
-
-                            <tr class="row">
-                                <td class="col-12 p-0 m-0">
-                                    <hr class="bg-primary" />
-                                </td>
-                            </tr>
-                            <!-- END 1 thông tin Tài Khoản-->
-                        </table>
-                    </div>
-                    <div class="row dark-mode  justify-content-center mt-5">
-                        <ul class="pagination">
-                            <c:choose>
-                                <c:when test="${requestScope.page == 1}">
-                                    <li class="page-item disabled "><a class="page-link">Trang trước</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                    <li class="page-item"><a class="page-link" href="manage-account?page=${requestScope.page - 1}">Trang trước</a></li>
-                                    </c:otherwise>
-                                </c:choose>
-                                <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
-                                    <c:choose>
-                                        <c:when test="${requestScope.page == pageScope.page}">
-                                        <li class="page-item active"><a class="page-link" href="manage-account?page=${pageScope.page}">${pageScope.page}</a></li>
-                                        </c:when>
-                                        <c:otherwise>
-                                        <li class="page-item "><a class="page-link" href="manage-account?page=${pageScope.page}">${pageScope.page}</a></li>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:forEach>
-                                <c:choose>
-                                    <c:when test="${requestScope.page == requestScope.lastPage}">
-                                    <li class="page-item disabled "><a class="page-link">Trang sau</a></li>
-                                    </c:when>
-                                    <c:otherwise>
-                                    <li class="page-item"><a class="page-link" href="manage-account?page=${requestScope.page + 1}">Trang sau</a></li>
-                                    </c:otherwise>
-                                </c:choose>         
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </body>
-    <script src="../JS\action.js"></script>
+                                <td
+                                </c:if>
+                                <c:if test="${acc.getAccount().getStatus()==0}">
+                            <td class="col-12">
+                                <form method="Post" action="manage-account">
+                                    <input type="hidden" value="${acc.getAccount().getUserName()}" name="userN">
+                                    <input type="hidden" value="1" name="status">
+                                    <button class="btn btn-outline-primary" type="submit" >Mở</button>
+                                </form>
+                            <td
+                            </c:if>
+                </tr>
+
+                <tr class="row">
+                    <td class="col-12 p-0 m-0">
+                        <hr class="bg-primary" />
+                    </td>
+                </tr>
+            </c:forEach>
+            <!-- END 1 thông tin Tài Khoản-->
+        </table>
+    </div>
+    <div class="row dark-mode  justify-content-center mt-5">
+        <ul class="pagination">
+            <c:choose>
+                <c:when test="${requestScope.page == 1}">
+                    <li class="page-item disabled "><a class="page-link">Trang trước</a></li>
+                    </c:when>
+                    <c:otherwise>
+                    <li class="page-item"><a class="page-link" href="manage-account?page=${requestScope.page - 1}">Trang trước</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:forEach var="page" begin="${requestScope.min}" end="${requestScope.max}" step="1">
+                    <c:choose>
+                        <c:when test="${requestScope.page == pageScope.page}">
+                        <li class="page-item active"><a class="page-link" href="manage-account?page=${pageScope.page}">${pageScope.page}</a></li>
+                        </c:when>
+                        <c:otherwise>
+                        <li class="page-item "><a class="page-link" href="manage-account?page=${pageScope.page}">${pageScope.page}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <c:choose>
+                    <c:when test="${requestScope.page == requestScope.lastPage}">
+                    <li class="page-item disabled "><a class="page-link">Trang sau</a></li>
+                    </c:when>
+                    <c:otherwise>
+                    <li class="page-item"><a class="page-link" href="manage-account?page=${requestScope.page + 1}">Trang sau</a></li>
+                    </c:otherwise>
+                </c:choose>         
+        </ul>
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+<script src="JS\action.js"></script>
 
 </html>

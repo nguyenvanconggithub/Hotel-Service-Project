@@ -139,10 +139,12 @@ public class AccountDAO {
         }
         return role;
     }
-        public void updateAccount(String userName,int status){
-        String query="UPDATE account SET status=? WHERE userName=?";
+
+    public void updateAccount(String userName, int status) {
+        String query = "UPDATE account SET status=? WHERE userName=?";
         try {
-            PreparedStatement preStmt= con.prepareStatement(query);
+            OpenConnect();
+            PreparedStatement preStmt = con.prepareStatement(query);
             preStmt.setInt(1, status);
             preStmt.setString(2, userName);
             preStmt.executeUpdate();
@@ -151,10 +153,9 @@ public class AccountDAO {
             e.printStackTrace();
         }
     }
-        
-            
-    public Account getAccountByIdBooking(int idBooking){
-        Account account=new Account();
+
+    public Account getAccountByIdBooking(int idBooking) {
+        Account account = new Account();
         try {
             OpenConnect();
             String query = "select * from account join user on account.username=user.username join booking on booking.idUser=user.idUser where idbooking=?";

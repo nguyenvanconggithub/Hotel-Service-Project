@@ -16,20 +16,30 @@ public class ManageAccount extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getData(req, resp);
-         if (req.getParameter("status") != null && req.getParameter("userName") != null) {
-            int stt = Integer.valueOf((req.getParameter("status")));
-            String useName = req.getParameter("userName");
-            AccountDAO.Instance().updateAccount(useName, stt);
-
+        String username = (String) req.getSession().getAttribute("username");
+        System.out.println(username);
+        if (AccountDAO.Instance().getRoleOfUser(username).equals("0")) {
+            getData(req, resp);
+            RequestDispatcher rd = req.getRequestDispatcher("/admin/manage-account.jsp");
+            rd.forward(req, resp);
+        } else {
+            resp.sendRedirect("home");
         }
-        RequestDispatcher rd = req.getRequestDispatcher("/admin/manage-account.jsp");
-        rd.forward(req, resp);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        if (req.getParameter("status") != null && req.getParameter("userN") != null) {
+            int stt = Integer.valueOf((req.getParameter("status")));
+            System.out.println(stt);
+            String useName = req.getParameter("userN");
+            System.out.println(useName);
+            AccountDAO.Instance().updateAccount(useName, stt);
+            getData(req, resp);
+            RequestDispatcher rd = req.getRequestDispatcher("/admin/manage-account.jsp");
+            rd.forward(req, resp);
+        }
     }
 
     public void getData(HttpServletRequest req, HttpServletResponse resp) {
@@ -85,10 +95,14 @@ public class ManageAccount extends HttpServlet {
         req.setAttribute("lastPage", lastPage);
         req.setAttribute("min", min);
         req.setAttribute("max", max);
-        System.out.println("min: " + min + "| max: " + max);
         //end phân trang
         ArrayList<User> listAcc = UserDAO.Instance().getAllUser(page, itemsPerPage);
         req.setAttribute("listAcc", listAcc);
-       
+
+    }
+
+    public static void main(String[] args) {
+
+        AccountDAO.Instance().updateAccount("PHD", 1);
     }
 }
