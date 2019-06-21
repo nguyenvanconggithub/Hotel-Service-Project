@@ -233,4 +233,72 @@ public class BookingDAO {
         }
         return booking;
     }
+    public ArrayList<Booking> getFullBookingInfo(int page, int itemsPerPage) {
+        ArrayList<Booking> fullBookingInfo = new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "SELECT idBooking, Name, phone, bookingTime, hotelName, checkin, checkout FROM booking JOIN user\n"
+                    + "ON booking.idUser = user.idUser\n"
+                    + "JOIN hotel ON booking.idHotel = hotel.idHotel ORDER BY idBooking DESC LIMIT ?,?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, (page - 1) * itemsPerPage);
+            preStmt.setInt(2, itemsPerPage);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                Booking oneRecord = new Booking();
+                oneRecord.setIdBooking(rs.getInt("idBooking"));
+                oneRecord.getUser().setName(rs.getString("Name"));
+                oneRecord.getUser().setPhone(rs.getString("phone"));
+                oneRecord.setOrderTime(rs.getTimestamp("bookingTime"));
+                oneRecord.getHotel().setHotelName(rs.getString("hotelName"));
+                oneRecord.setCheckIn(rs.getDate("checkin"));
+                oneRecord.setCheckOut(rs.getDate("checkout"));
+                fullBookingInfo.add(oneRecord);
+            }
+            rs.close();
+            preStmt.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getFullBookingInfo with err: ");
+            e.printStackTrace();
+        }
+        return fullBookingInfo;
+    }
+    public int totalBooking(){
+        int total = -1;
+        try {
+            OpenConnect();
+            String query = "SELECT COUNT(*) AS TOTAL FROM booking";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            if(rs.next()){
+                total = rs.getInt("TOTAL");
+            }
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("totalBooking err: ");
+            e.printStackTrace();
+        }
+        return total;
+    }
+    public int totalCostByIdBooking(int idBooking){
+        int totalCost = -1;
+        try {
+            OpenConnect();
+            String query =  "SELECT SUM(cost * bookingNumber) * datediff(checkout,checkin) AS TOTALCOST from detailbooking JOIN room\n" +
+                            "ON detailbooking.idRoom = room.idRoom JOIN booking\n" +
+                            "ON detailbooking.idBooking = booking.idBooking WHERE booking.idBooking = ? AND detailbooking.status = 1";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setInt(1, idBooking);
+            ResultSet rs = preStmt.executeQuery();
+            if(rs.next()){
+                totalCost = rs.getInt("TOTALCOST");
+            }
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("totalCostByIdBooking err: ");
+            e.printStackTrace();
+        }
+        return totalCost;
+    }
 }
