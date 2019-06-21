@@ -265,4 +265,90 @@ public class DetailBookingDAO {
         }
         return list;
     }
+     
+     public DetailBooking getOneDeaitlBooking(int idBooking, int idRoom) {
+        DetailBooking oneRecord = new DetailBooking();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select * from detailbooking where idBooking=" + idBooking + " AND idroom=" + idRoom;
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Room room = RoomDAO.Instance().getRoomByIdRoom(rs.getInt("idRoom"));
+                oneRecord.setRoom(room);
+                Booking booking = BookingDAO.Instance().getBookingByIdBooking(rs.getInt("idBooking"));
+                oneRecord.setBookingRoom(booking);
+                oneRecord.setStatus(rs.getInt("status"));
+                oneRecord.setBookingNumber(rs.getInt("bookingNumber"));
+                oneRecord.setOwnRoomName(rs.getString("ownRoomName"));
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getOneDeaitlBooking err: ");
+            e.printStackTrace();
+        }
+        return oneRecord;
+    }
+     
+      //update khi hủy phòng hoặc đặt lại hoặc hủy tất cả
+    public void updateStatus(int idBooking, int idRoom,int roomNumber,ArrayList<DetailBooking> detailBookings, String word) {
+        try {
+            OpenConnect();
+            String query;
+            if (word.equals("all")) {
+                query = "update detailbooking set status =0 where idBooking="+idBooking+" AND status =1";
+                for(int i=0;i<detailBookings.size();i++){
+                    RoomDAO.Instance().updateRoomLeft(detailBookings.get(i).getRoom().getIdRoom(), detailBookings.get(i).getBookingNumber() , 1);
+                }
+            } else {
+                query = "update detailbooking set status =0  where idBooking=" + idBooking + " AND idRoom=" + idRoom + " AND status <>2";
+                RoomDAO.Instance().updateRoomLeft(idRoom, roomNumber , 1);
+            }
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("updateStatus with err: ");
+            e.printStackTrace();
+        }
+
+        if (calcelAllDetaiBooking(idBooking)) {
+            try {
+                OpenConnect();
+                String query = "update booking set statusbooking=0 where idbooking=" + idBooking;
+                PreparedStatement preStmt = con.prepareStatement(query);
+                preStmt.execute();
+                preStmt.close();
+                CloseConnect();
+            } catch (Exception e) {
+                System.out.println("callAllDetaibooking with err: ");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean calcelAllDetaiBooking(int idBooking) {
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select status from detailbooking where idbooking =" + idBooking;
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                if (rs.getInt("status") != 0) {
+                    return false;
+                }
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("calcelAllDetaiBooking err: ");
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

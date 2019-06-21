@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.Account;
 
 public class AccountDAO {
 
@@ -149,5 +150,28 @@ public class AccountDAO {
             System.out.println("updateAccount -err");
             e.printStackTrace();
         }
+    }
+        
+            
+    public Account getAccountByIdBooking(int idBooking){
+        Account account=new Account();
+        try {
+            OpenConnect();
+            String query = "select * from account join user on account.username=user.username join booking on booking.idUser=user.idUser where idbooking=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setInt(1, idBooking);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                account.setUserName(rs.getString("userName"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("checkLogin - error: ");
+            e.printStackTrace();
+        }
+        return account;
     }
 }

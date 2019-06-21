@@ -306,4 +306,46 @@ public class RoomDAO {
         }
         return room;
     }
+     
+        //ende =0 là giảm khác 0 là tăng
+    public void updateRoomLeft(int idRoom,int numberRoom,int ende) {
+        try {
+            OpenConnect();
+            String query;
+            if(ende==0){
+                query= "update room set roomleft=roomleft - "+numberRoom+" where idroom="+idRoom;
+            }else{
+                query= "update room set roomleft=roomleft + "+numberRoom+" where idroom="+idRoom;
+            }
+             
+            PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.execute();
+            preStmt.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("updateRoomLeft with err: ");
+            e.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Room> getRoomByIdBooking(int idBooking){
+        ArrayList<Room> rooms=new ArrayList<>();
+        try {
+            OpenConnect();
+            String query = "select * from detailbooking where idbooking= "+idBooking+ "AND status =1";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            while (rs.next()) {
+                Room room=RoomDAO.Instance().getRoomByIdRoom(rs.getInt("idRoom"));
+                rooms.add(room);
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getRoomByIdBooking - error: ");
+            e.printStackTrace();
+        }
+        return rooms;
+    }
 }

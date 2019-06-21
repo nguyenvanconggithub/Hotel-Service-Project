@@ -205,6 +205,7 @@
 
             <!--các phòng trong đơn-->
             <c:forEach var="showroom" items="${requestScope.showRooms}">
+                <c:set var="imageindex" value="1"></c:set>
                 <c:if test="${showroom.getDetailBookingRoom().getStatus() !=0 }">
                     <div class="card my-3">
                         <div class="card-header bg-primary text-light font-weight-bold">${showroom.getRoomImages().get(0).getRoom().getRoomName()}<span> - ${showroom.getRoomType().getRoomTypeName()} </span>
@@ -213,7 +214,7 @@
                             <div class="card-body row p-0">
                                 <div class="col-sm-12 col-md-4">
                                     <img src="${showroom.getRoomImages().get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer"
-                                     data-toggle="modal" data-target="#modalRoomImage_1">
+                                     data-toggle="modal" data-target="#modalRoomImage_${imageindex}">
                             </div>
                             <div class="col-sm-12 col-md-8">
                                 <div class="row">
@@ -226,7 +227,7 @@
                                         Tên khách: <span class="font-weight-bold">${showroom.getDetailBookingRoom().getOwnRoomName()}</span>
                                     </div>
                                 </div>
-                                <div class="text-success font-weight-bold">Giá: ${showroom.getRoomImages().get(0).getRoom().getCost()} VNĐ</div>
+                                <div class="text-success font-weight-bold">Giá: ${showroom.getGia()} VNĐ</div>
                                 <hr />
                                 <div class="container-fluid">
                                     <div class="row">
@@ -238,7 +239,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=huy ' class="btn btn-outline-danger float-right">Hủy đặt phòng này</a>
+                            <c:if test="${requestScope.account.getUserName() == sessionScope.username}">
+                                <a class="btn btn-outline-danger float-right" href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=huy'  onclick="return confirm('xác nhận xóa phòng khỏi đơn')">Hủy đặt phòng này</a>
+                            </c:if>
                         </div>
                     </div>
                 </c:if>
@@ -252,7 +255,7 @@
                             <div class="card-body row p-0">
                                 <div class="col-sm-12 col-md-4">
                                     <img src="${showroom.getRoomImages().get(0).getLinkImage()}" class="img-responsive w-100 h-100 cursor-pointer grayscale"
-                                     data-toggle="modal" data-target="#modalRoomImage_2">
+                                     data-toggle="modal" data-target="#modalRoomImage_${imageindex}">
                             </div>
                             <div class="col-sm-12 col-md-8">
                                 <div class="row">
@@ -265,30 +268,33 @@
                                         Tên khách: <span class="font-weight-bold">${showroom.getDetailBookingRoom().getOwnRoomName()}</span>
                                     </div>
                                 </div>
-                                <div class="text-secondary font-weight-bold">Giá: ${showroom.getRoomImages().get(0).getRoom().getCost()} VNĐ</div>
+                                <div class="text-secondary font-weight-bold">Giá: ${showroom.getGia()} VNĐ</div>
                                 <hr />
                                 <div class="container-fluid">
                                     <div class="row">
                                         <c:forEach var="ultility2" items="${showroom.getRoomUltilities()}">
-                                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${ultility.getUtilityName()}</span>
+                                            <span class="btn-outline-primary btn col-sm-6 col-md-3">&check; ${ultility2.getUtilityName()}</span>
                                         </c:forEach>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=cal ' class="btn btn-outline-danger float-right">CALCELED</a>
+                            <div class="btn btn-outline-danger float-right ">CANCELED</div>
                         </div>
                         <!--END CANCELED ROOM-->
                     </div>
                 </c:if>
+                <c:set var="imageindex" value="${imageindex +1}"></c:set>
             </c:forEach>
 
             <div class="lead text-shadow-blur">Ghi chú: </div>
             <div class="border p-3 text-center min-h-300px">
                 ${requestScope.booking.getNote()}
             </div>
-            <a type="button" class="btn btn-outline-danger w-100 my-3"  href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=0&is=all'>Hủy Đơn</a>
+            <c:if test="${requestScope.account.getUserName() == sessionScope.username}">
+                <a class="btn btn-outline-danger w-100 my-3"  href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=0&is=all' onclick="return confirm('xác nhận hủy đơn')">Hủy Đơn</a>
+            </c:if>
         </div>
         <hr/>
         <footer class="container-fluid" id='lien-he-gop-y'>

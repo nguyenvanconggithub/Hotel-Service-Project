@@ -16,16 +16,27 @@ public class ShowRoom {
     private RoomType roomType=new RoomType();
     private ArrayList<Utilities> roomUltilities=new ArrayList<>();
     private DetailBooking detailBookingRoom=new DetailBooking();
+    private int gia;
 
     public ShowRoom() {
     }
 
-    public ShowRoom(RoomType roomType, ArrayList<Utilities> roomUltilities, DetailBooking detailBookingRoom) {
+    public ShowRoom(RoomType roomType, ArrayList<Utilities> roomUltilities, DetailBooking detailBookingRoom,int gia) {
         this.roomType = roomType;
         this.roomUltilities = roomUltilities;
         this.detailBookingRoom = detailBookingRoom;
+        this.gia=gia;
     }
 
+    public int getGia() {
+        return gia;
+    }
+
+    public void setGia(int gia) {
+        this.gia = gia;
+    }
+
+    
     public ArrayList<RoomImage> getRoomImages() {
         return roomImages;
     }

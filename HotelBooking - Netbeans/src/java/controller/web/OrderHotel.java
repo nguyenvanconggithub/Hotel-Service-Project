@@ -188,6 +188,7 @@ public class OrderHotel extends HttpServlet {
                 }
 
                 DetailBookingDAO.Instance().addNewDetailBooking(detailBooking);
+                RoomDAO.Instance().updateRoomLeft(Integer.parseInt(idRoom), detailBooking.getBookingNumber(), 0);
             } else {
                 return;
             }

@@ -1,5 +1,6 @@
 package controller.web;
 
+import connection.AccountDAO;
 import connection.BookingDAO;
 import connection.DetailBookingDAO;
 import connection.HotelImageDAO;
@@ -7,13 +8,17 @@ import connection.RoomImageDAO;
 import connection.RoomUltilitiesDAO;
 import connection.UltilitiesDAO;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Account;
 import model.Booking;
 import model.DetailBooking;
 import model.Hotel;
@@ -38,41 +43,65 @@ public class ViewDetailBooking extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idBooking = req.getParameter("idBooking");
 //        idBooking = "1";
-        System.out.println("ok "+idBooking);
-        String idroom=req.getParameter("idroom");
-        if(idroom!=null){
-            String isCalcel=req.getParameter("is");
-            DetailBookingDAO.Instance().updateStatus(Integer.parseInt(idBooking), Integer.parseInt(idroom),isCalcel);
-        }
 
         Booking booking = BookingDAO.Instance().getBookingByIdBooking(Integer.parseInt(idBooking));
         ArrayList<DetailBooking> detailBookingRooms = DetailBookingDAO.Instance().getListDetailBookingByIdBooking(booking.getIdBooking());
 
+        String work = req.getParameter("is");
+        String idRoom = req.getParameter("idroom");
+        if (idRoom != null) {
+            int roomnuber = 0;
+            ArrayList<DetailBooking> detailBookings=new ArrayList<>();
+            if (!work.equals("all")) {
+                roomnuber = DetailBookingDAO.Instance().getOneDeaitlBooking(Integer.parseInt(idBooking), Integer.parseInt(idRoom)).getBookingNumber();
+            } else {
+                 for(int i=0;i<detailBookingRooms.size();i++){
+                     if(detailBookingRooms.get(i).getStatus()==1){
+                         detailBookings.add(detailBookingRooms.get(i));
+                     }
+                 }
+            }
+            DetailBookingDAO.Instance().updateStatus(Integer.parseInt(idBooking), Integer.parseInt(idRoom), roomnuber,detailBookings, work);
+        }
+
+        //load lại khi hủy
+        detailBookingRooms = DetailBookingDAO.Instance().getListDetailBookingByIdBooking(booking.getIdBooking());
+        
         int roomNumber = 0;
         int maxPeople = 0;
         int cost = 0;
         for (int i = 0; i < detailBookingRooms.size(); i++) {
             roomNumber += detailBookingRooms.get(i).getBookingNumber();
             maxPeople += detailBookingRooms.get(i).getRoom().getPeople();
-            cost += detailBookingRooms.get(i).getRoom().getCost();
         }
 
+        
+        
         //get hotelImage
         ArrayList<HotelImage> hotelImages = HotelImageDAO.Instance().getShortHotelInfoByID(String.valueOf(booking.getHotel().getIdHotel()));
 
         //get tiện ich khách sạn
         ArrayList<Utilities> utilitieses = UltilitiesDAO.Instance().getListUtilitiesByIdHotel(booking.getHotel().getIdHotel());
 
+        long time = booking.getCheckOut().getTime() - booking.getCheckIn().getTime();
+        int ngay = (int) TimeUnit.MILLISECONDS.toDays(time);
+
         ArrayList<ShowRoom> showRooms = new ArrayList<>();
         for (int i = 0; i < detailBookingRooms.size(); i++) {
-            ShowRoom showRoom=new ShowRoom();
+            ShowRoom showRoom = new ShowRoom();
             showRoom.setRoomImages(RoomImageDAO.Instance().getListImg(String.valueOf(detailBookingRooms.get(i).getRoom().getIdRoom())));
             showRoom.setRoomUltilities(RoomUltilitiesDAO.Instance().getListUtilityRoomByIDRoom(detailBookingRooms.get(i).getRoom().getIdRoom()));
             showRoom.setRoomType(detailBookingRooms.get(i).getRoom().getRoomType());
             showRoom.setDetailBookingRoom(detailBookingRooms.get(i));
+            showRoom.setGia(ngay * showRoom.getDetailBookingRoom().getBookingNumber() * showRoom.getRoomImages().get(0).getRoom().getCost());
             showRooms.add(showRoom);
+            if (showRoom.getDetailBookingRoom().getStatus() != 0) {
+                cost += showRoom.getGia();
+            }
         }
-        
+
+        Account account = AccountDAO.Instance().getAccountByIdBooking(Integer.parseInt(idBooking));
+
         req.setAttribute("booking", booking);
         req.setAttribute("roomNumber", roomNumber);
         req.setAttribute("maxPeople", maxPeople);
@@ -81,6 +110,7 @@ public class ViewDetailBooking extends HttpServlet {
         req.setAttribute("hotelimage", hotelImages);
         req.setAttribute("ultiHotel", utilitieses);
         req.setAttribute("showRooms", showRooms);
+        req.setAttribute("account", account);
 
         RequestDispatcher rd = req.getRequestDispatcher("/web/order-detail.jsp");
         rd.forward(req, resp);

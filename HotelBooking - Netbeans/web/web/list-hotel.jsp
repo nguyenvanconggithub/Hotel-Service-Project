@@ -143,9 +143,8 @@
         <div class="container">
             <div class="font-weight-bold lead pb-3 text-shadow-blur">Dưới đây là các khách sạn phù hợp yêu cầu của bạn (có ${requestScope.hotelnumber} Khách sạn)
             </div>
-            <div class="card my-3">
-
-                <c:forEach var="searchhotel" items="${requestScope.hotel}">
+            <c:forEach var="searchhotel" items="${requestScope.hotel}">
+                <div class="card my-3">
                     <div class="card-header bg-primary text-light font-weight-bold">${searchhotel.getHotelImage().getHotel().getHotelName()}<span> - ${searchhotel.getHotelImage().getHotel().getRate()}/5
                         </span><span class="text-warning">★</span></div>
                     <div class="card-body row p-0">
@@ -166,10 +165,10 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary stretched-link float-right">Xem các phòng</a>
+                        <a href="ViewOneHotel?id=${searchhotel.getHotelImage().getHotel().getIdHotel()}" class="btn btn-primary stretched-link float-right">Xem các phòng</a>
                     </div>
-                </c:forEach>
-            </div>
+                </div>
+            </c:forEach>
 
             <!--        <ul class="pagination justify-content-center mt-5">
                             <li class="page-item"><a class="page-link" href="search?page=${requestScope.page - 1}&address=${requestScope.address}&bdayCheckin=${requestScope.bdayCheckin}&bdayCheckout=${requestScope.bdayCheckout}&guests=${requestScope.guests}&rooms=${requestScope.rooms}">Trang trước</a></li>
