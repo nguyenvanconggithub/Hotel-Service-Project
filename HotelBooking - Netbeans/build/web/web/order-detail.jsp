@@ -239,7 +239,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <c:if test="${requestScope.account.getUserName() == sessionScope.username}">
+                            <c:if test="${requestScope.account.getUserName() == sessionScope.username || showroom.getHotelMangerAccount().getUserName()==sessionScope.username}">
                                 <a class="btn btn-outline-danger float-right" href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=${showroom.getRoomImages().get(0).getRoom().getIdRoom()}&is=huy'  onclick="return confirm('xác nhận xóa phòng khỏi đơn')">Hủy đặt phòng này</a>
                             </c:if>
                         </div>

@@ -175,4 +175,26 @@ public class AccountDAO {
         }
         return account;
     }
+        //get Account theo idRoom để lấy Account chủ khách sạn chứa phòng đấy 
+        public Account getAccountByIdRoom(int idRoom) {
+        Account account = new Account();
+        try {
+            OpenConnect();
+            String query = "select * from room join hotel on room.idHotel=hotel.idHotel join account on hotel.userName=account.userName where idroom=?";
+            PreparedStatement preStmt = con.prepareStatement(query);
+
+            preStmt.setInt(1, idRoom);
+            ResultSet rs = preStmt.executeQuery();
+            if (rs.next()) {
+                account.setUserName(rs.getString("userName"));
+            }
+            preStmt.close();
+            rs.close();
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getAccountByIdRoom - error: ");
+            e.printStackTrace();
+        }
+        return account;
+    }
 }

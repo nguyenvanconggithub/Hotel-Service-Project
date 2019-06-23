@@ -17,15 +17,25 @@ public class ShowRoom {
     private ArrayList<Utilities> roomUltilities=new ArrayList<>();
     private DetailBooking detailBookingRoom=new DetailBooking();
     private int gia;
+    private Account hotelMangerAccount;
 
     public ShowRoom() {
     }
 
-    public ShowRoom(RoomType roomType, ArrayList<Utilities> roomUltilities, DetailBooking detailBookingRoom,int gia) {
+    public ShowRoom(RoomType roomType, ArrayList<Utilities> roomUltilities, DetailBooking detailBookingRoom,int gia,Account hotelMangerAccount) {
         this.roomType = roomType;
         this.roomUltilities = roomUltilities;
         this.detailBookingRoom = detailBookingRoom;
         this.gia=gia;
+        this.hotelMangerAccount=hotelMangerAccount;
+    }
+
+    public Account getHotelMangerAccount() {
+        return hotelMangerAccount;
+    }
+
+    public void setHotelMangerAccount(Account hotelMangerAccount) {
+        this.hotelMangerAccount = hotelMangerAccount;
     }
 
     public int getGia() {

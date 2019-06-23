@@ -75,8 +75,6 @@ public class ViewDetailBooking extends HttpServlet {
             maxPeople += detailBookingRooms.get(i).getRoom().getPeople();
         }
 
-        
-        
         //get hotelImage
         ArrayList<HotelImage> hotelImages = HotelImageDAO.Instance().getShortHotelInfoByID(String.valueOf(booking.getHotel().getIdHotel()));
 
@@ -94,6 +92,7 @@ public class ViewDetailBooking extends HttpServlet {
             showRoom.setRoomType(detailBookingRooms.get(i).getRoom().getRoomType());
             showRoom.setDetailBookingRoom(detailBookingRooms.get(i));
             showRoom.setGia(ngay * showRoom.getDetailBookingRoom().getBookingNumber() * showRoom.getRoomImages().get(0).getRoom().getCost());
+            showRoom.setHotelMangerAccount(AccountDAO.Instance().getAccountByIdRoom(detailBookingRooms.get(i).getRoom().getIdRoom()));
             showRooms.add(showRoom);
             if (showRoom.getDetailBookingRoom().getStatus() != 0) {
                 cost += showRoom.getGia();
