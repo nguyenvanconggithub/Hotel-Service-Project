@@ -209,35 +209,8 @@ public class DetailBookingDAO {
             System.out.println(room.getIdRoom() + " | " + room.getQuantity());
         }
     }
-    
-    //update khi hủy phòng hoặc đặt lại hoặc hủy tất cả
-    public void updateStatus(int idBooking, int idRoom, String isCalcel) {
-        int status;
-        if (isCalcel.endsWith("cal")) {
-            status=1;
-        }else{
-            status=0;
-        }
-        try {
-            OpenConnect();
-            String query;
-            if(isCalcel.equals("all")){
-                query= "update detailbooking set status =" + status + "  where idBooking=" + idBooking;
-            }else{
-                query = "update detailbooking set status =" + status + "  where idBooking=" + idBooking + " AND idRoom=" + idRoom + "";
-            }
-            PreparedStatement preStmt = con.prepareStatement(query);
-
-            preStmt.execute();
-            preStmt.close();
-            CloseConnect();
-        } catch (Exception e) {
-            System.out.println("editHotel with err: ");
-            e.printStackTrace();
-        }
-    }
-    
-     public ArrayList<DetailBooking> getListDetailBookingByIdBooking(int idBooking) {
+   
+    public ArrayList<DetailBooking> getListDetailBookingByIdBooking(int idBooking) {
         ArrayList<DetailBooking> list = new ArrayList<DetailBooking>();
         try {
             OpenConnect();

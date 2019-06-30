@@ -294,7 +294,7 @@
             <div class="border p-3 text-center min-h-300px">
                 ${requestScope.booking.getNote()}
             </div>
-            <c:if test="${requestScope.account.getUserName() == sessionScope.username || showroom.getHotelMangerAccount().getUserName()==sessionScope.username}">
+            <c:if test="${requestScope.account.getUserName() == sessionScope.username || requestScope.showRooms.get(0).getHotelMangerAccount().getUserName()==sessionScope.username}">
                 <a class="btn btn-outline-danger w-100 my-3"  href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=0&is=all' onclick="return confirm('xác nhận hủy đơn')">Hủy Đơn</a>
             </c:if>
         </div>
