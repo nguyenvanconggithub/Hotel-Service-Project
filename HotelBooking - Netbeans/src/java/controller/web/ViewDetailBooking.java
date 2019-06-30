@@ -70,6 +70,7 @@ public class ViewDetailBooking extends HttpServlet {
         int roomNumber = 0;
         int maxPeople = 0;
         int cost = 0;
+        int totalCost=0;
         for (int i = 0; i < detailBookingRooms.size(); i++) {
             roomNumber += detailBookingRooms.get(i).getBookingNumber();
             maxPeople += detailBookingRooms.get(i).getRoom().getPeople();
@@ -94,12 +95,22 @@ public class ViewDetailBooking extends HttpServlet {
             showRoom.setGia(ngay * showRoom.getDetailBookingRoom().getBookingNumber() * showRoom.getRoomImages().get(0).getRoom().getCost());
             showRoom.setHotelMangerAccount(AccountDAO.Instance().getAccountByIdRoom(detailBookingRooms.get(i).getRoom().getIdRoom()));
             showRooms.add(showRoom);
+            
+            totalCost+= showRoom.getGia();
             if (showRoom.getDetailBookingRoom().getStatus() != 0) {
                 cost += showRoom.getGia();
             }
         }
 
         Account account = AccountDAO.Instance().getAccountByIdBooking(Integer.parseInt(idBooking));
+        int emtyRoom;
+        if(cost==0){
+            emtyRoom=1;
+            cost=totalCost;
+        }else{
+            emtyRoom=0;
+        }
+        
 
         req.setAttribute("booking", booking);
         req.setAttribute("roomNumber", roomNumber);
@@ -110,6 +121,7 @@ public class ViewDetailBooking extends HttpServlet {
         req.setAttribute("ultiHotel", utilitieses);
         req.setAttribute("showRooms", showRooms);
         req.setAttribute("account", account);
+        req.setAttribute("emtyRoom", emtyRoom);
 
         RequestDispatcher rd = req.getRequestDispatcher("/web/order-detail.jsp");
         rd.forward(req, resp);

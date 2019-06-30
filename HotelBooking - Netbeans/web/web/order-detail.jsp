@@ -147,7 +147,12 @@
                     <div>Có thể chứa tối đa: ${requestScope.maxPeople} Người</div>
                     <div class="font-weight-bold lead">Checkin: ${booking.getCheckIn()}</div>
                     <div class="font-weight-bold lead">Checkout: ${booking.getCheckOut()}</div>
-                    <div class="font-weight-bold lead text-success">Giá: ${requestScope.cost} VND</div>
+                    <c:if test="${requestScope.emtyRoom == 0}">
+                        <div class="font-weight-bold lead text-success">Giá: ${requestScope.cost} VND</div>
+                    </c:if>
+                    <c:if test="${requestScope.emtyRoom == 1}">
+                        <div class="font-weight-bold lead text-danger">Giá: ${requestScope.cost} VND</div>
+                    </c:if>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="font-weight-bold lead">Họ tên liên hệ: ${booking.getUser().getName()}</span></div>
