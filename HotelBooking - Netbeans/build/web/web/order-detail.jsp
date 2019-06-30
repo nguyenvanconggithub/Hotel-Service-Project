@@ -160,8 +160,9 @@
             <hr/>
             <div class="font-weight-bold lead pb-3 text-shadow-blur">Danh sách các phòng đã đặt trong đơn này: </div>
             <!-- Modal -->
+
+            <c:set var="indexmodalRoomImage" value="1"></c:set>
             <c:forEach var="showRooms" items="${requestScope.showRooms}">
-                <c:set var="indexmodalRoomImage" value="1"></c:set>
                 <div class="modal fade" id="modalRoomImage_${indexmodalRoomImage}" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -200,12 +201,13 @@
                         </div>
                     </div>
                 </div>
-                <c:set var="indexmodalRoomImage" value="${indexmodalRoomImage+1}"></c:set>
+                <c:set var="indexmodalRoomImage" value="${indexmodalRoomImage +1}"></c:set>
             </c:forEach>
 
             <!--các phòng trong đơn-->
+            <c:set var="imageindex" value="1"></c:set>
             <c:forEach var="showroom" items="${requestScope.showRooms}">
-                <c:set var="imageindex" value="1"></c:set>
+                
                 <c:if test="${showroom.getDetailBookingRoom().getStatus() !=0 }">
                     <div class="card my-3">
                         <div class="card-header bg-primary text-light font-weight-bold">${showroom.getRoomImages().get(0).getRoom().getRoomName()}<span> - ${showroom.getRoomType().getRoomTypeName()} </span>
@@ -292,7 +294,7 @@
             <div class="border p-3 text-center min-h-300px">
                 ${requestScope.booking.getNote()}
             </div>
-            <c:if test="${requestScope.account.getUserName() == sessionScope.username}">
+            <c:if test="${requestScope.account.getUserName() == sessionScope.username || showroom.getHotelMangerAccount().getUserName()==sessionScope.username}">
                 <a class="btn btn-outline-danger w-100 my-3"  href='order-detail?idBooking=${requestScope.booking.getIdBooking()}&idroom=0&is=all' onclick="return confirm('xác nhận hủy đơn')">Hủy Đơn</a>
             </c:if>
         </div>

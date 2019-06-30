@@ -59,6 +59,7 @@ public class SearchHotelDAO {
         String a[] = address.split(" ");
 
         for (int i = 0; i < a.length; i++) {
+            a[i]=a[i].replace("'","");
             xuLyLikeHotelName += " hotelname like '%" + a[i] + "%' OR";
             xuLyLikeAddress += " address like '%" + a[i] + "%' OR";
         }
@@ -66,8 +67,8 @@ public class SearchHotelDAO {
         xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
         xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
         
-        xuLyLikeAddress=xuLyLikeAddress.replace("'","");
-        xuLyLikeHotelName=xuLyLikeHotelName.replace("'","");
+//        xuLyLikeAddress=xuLyLikeAddress.replace("'","");
+//        xuLyLikeHotelName=xuLyLikeHotelName.replace("'","");
         
         try {
             OpenConnect();
@@ -156,6 +157,7 @@ public class SearchHotelDAO {
         String a[] = address.split(" ");
 
         for (int i = 0; i < a.length; i++) {
+            a[i]=a[i].replace("'","");
             xuLyLikeHotelName += " hotelname like '%" + a[i] + "%' OR";
             xuLyLikeAddress += " address like '%" + a[i] + "%' OR";
         }
@@ -167,7 +169,7 @@ public class SearchHotelDAO {
             OpenConnect();
 
             String query = "SELECT * FROM hotel JOIN room ON hotel.idHotel = room.idHotel JOIN hotelimage ON hotel.idHotel=hotelimage.idHotel \n"
-                    + "WHERE match (hotelname) against('" + address + "') OR match (address) against('" + address + "') \n"
+                    + "WHERE match (hotelname) against(?) OR match (address) against(?) \n"
                     + "GROUP BY hotel.idHotel\n"
                     + "Having NOT EXISTS (SELECT * from detailbooking where detailbooking.idRoom=room.idRoom AND status=1)\n"
                     + "AND (SELECT SUM(roomLeft) From room where room.idHotel=hotel.idHotel)>=" + roomleft + "\n"
@@ -184,6 +186,9 @@ public class SearchHotelDAO {
                     + "AND hotel.removed=0";
 
             PreparedStatement preStmt = con.prepareStatement(query);
+            preStmt.setString(1, address);
+            preStmt.setString(2, address);
+            
             ResultSet rs = preStmt.executeQuery();
             while (rs.next()) {
                 SearchHotel oneRecord = new SearchHotel();
