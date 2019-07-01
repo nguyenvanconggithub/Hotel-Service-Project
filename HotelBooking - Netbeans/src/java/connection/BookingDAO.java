@@ -201,11 +201,6 @@ public class BookingDAO {
         return idBooking;
     }
 
-    public static void main(String[] args) {
-        //ArrayList<Booking> list = BookingDAO.Instance().getListHotelByIdUser("2",0,4);
-        //System.out.println(list.size());
-        System.out.println(BookingDAO.Instance().getDateById(1));
-    }
     public Booking getBookingByIdBooking(int idBooking){
         Booking booking=new Booking();
         try {
@@ -300,5 +295,31 @@ public class BookingDAO {
             e.printStackTrace();
         }
         return totalCost;
+    }
+    public ArrayList<Booking> getInforBooking(){
+        ArrayList<Booking> list= new ArrayList<>();
+         try {
+            OpenConnect();
+            String query=" SELECT month(bookingTime) AS 'time',count(idbooking) AS'quantity'"
+                    + " FROM booking group by month(bookingTime)";
+            PreparedStatement preStmt = con.prepareStatement(query);
+            ResultSet rs = preStmt.executeQuery();
+            while(rs.next()){
+                Booking oneRecord = new Booking();
+                oneRecord.setIdBooking(rs.getInt(2));
+                String t="Tháng "+rs.getString(1);
+                oneRecord.setNote(t);
+                list.add(oneRecord);
+            }
+            CloseConnect();
+        } catch (Exception e) {
+            System.out.println("getInforBookingerr: ");
+            e.printStackTrace();
+        }
+         return list;
+    }
+    public static void main(String[] args) {
+        ArrayList<Booking> list= BookingDAO.Instance().getInforBooking();
+        System.out.println(list.get(1).getIdBooking() +" | "+list.get(1).getNote());
     }
 }

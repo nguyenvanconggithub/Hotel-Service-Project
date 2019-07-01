@@ -100,7 +100,12 @@
                 </tr>
                 <!--1 Đơn (màn hình rộng full size table)-->
                 <c:forEach var="item" items="${requestScope.listBooking}">
-                    <tr class="row text-center">
+                    <c:if test="${item.getBooking().getStatusBooking() == 0}">
+                        <tr class="row text-center bg-secondary">
+                        </c:if>
+                        <c:if test="${item.getBooking().getStatusBooking() != 0}">
+                        <tr class="row text-center">
+                        </c:if>
                         <td class="col-1"><input type="hidden" value="$${item.getBooking().getIdBooking()}" name="idBooking">
                             <a href="order-detail?idBooking=${item.getBooking().getIdBooking()}">#${item.getBooking().getIdBooking()}</a></td>
                         <td class="col-2">${item.getOwnRoomName()}</td>
@@ -174,8 +179,8 @@
                     </tr>
                     <tr class="row">
                         <th class="col-6">Tổng tiền</th>
-                         <c:forEach var="cost" items="${requestScope.listCost}">
-                            <c:if test="${cost.getIdRoom()==item.getBooking().getIdBooking()}">
+                            <c:forEach var="cost" items="${requestScope.listCost}">
+                                <c:if test="${cost.getIdRoom()==item.getBooking().getIdBooking()}">
                                 <td class="col-6">${cost.getCost()} VND</td>
                             </c:if>
                         </c:forEach>
