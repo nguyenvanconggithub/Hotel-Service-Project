@@ -45,12 +45,45 @@ public class RoomImageDAO {
         }
     }
 
-    public ArrayList<RoomImage> getShortRoomInfor(String id) {
+    public ArrayList<RoomImage> getShortRoomInfor(String idH, String idR) {
         ArrayList<RoomImage> list = new ArrayList<RoomImage>();
         try {
             OpenConnect();
             Statement stmt = con.createStatement();
-            String query = "select * from roomimage join room on roomimage.idRoom=room.idRoom join roomtype on room.idRoomType=roomtype.idRoomType where removed=0 AND idHotel='" + id + "'  GROUP BY roomimage.idRoom";
+            String query = "select * from roomimage join room on roomimage.idRoom=room.idRoom join roomtype on room.idRoomType=roomtype.idRoomType where removed=0 \n"
+                    + "AND idHotel='" + idH + "' AND room.idRoom='" + idR + "'";
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                RoomImage oneRecord = new RoomImage();
+                oneRecord.setLinkImage(rs.getString("linkImage"));
+                oneRecord.getRoom().setRoomName(rs.getString("roomName"));
+                oneRecord.getRoom().setRoomLeft(rs.getInt("roomLeft"));
+                oneRecord.getRoom().setPeople(rs.getInt("people"));
+                oneRecord.getRoom().setQuantity(rs.getInt("quantity"));
+                oneRecord.getRoom().setIdRoom(rs.getInt("idRoom"));
+                oneRecord.getRoom().getRoomType().setRoomTypeName(rs.getString("roomTypeName"));
+                oneRecord.getRoom().setCost(rs.getInt("cost"));
+                oneRecord.getRoom().setAgcreage(rs.getFloat("acreage"));
+                list.add(oneRecord);
+            }
+            stmt.close();
+            rs.close();
+            CloseConnect();
+            return list;
+        } catch (Exception e) {
+            System.out.println("getShortRoomInfor err: ");
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public ArrayList<RoomImage> getShortRoomInforv2(String id) {
+        ArrayList<RoomImage> list = new ArrayList<RoomImage>();
+        try {
+            OpenConnect();
+            Statement stmt = con.createStatement();
+            String query = "select * from roomimage join room on roomimage.idRoom=room.idRoom join roomtype on room.idRoomType=roomtype.idRoomType where removed=0 \n"
+                    + "AND idHotel='" + id + "' GROUP BY room.idRoom";
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 RoomImage oneRecord = new RoomImage();

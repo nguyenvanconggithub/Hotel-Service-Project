@@ -59,7 +59,7 @@ public class RemoveRoom extends HttpServlet {
         String idHotel = req.getParameter("idHotel");
         Hotel HotelInfor = HotelDAO.Instance().getShortHotelInfoByID(idHotel);
         ArrayList<HotelImage> listImages = HotelImageDAO.Instance().getShortHotelInfoByID(idHotel);
-        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInfor(idHotel);
+        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInforv2(idHotel);
         req.setAttribute("listRoom", listRoom);
         req.setAttribute("hotel", HotelInfor);
         req.setAttribute("listImg", listImages);

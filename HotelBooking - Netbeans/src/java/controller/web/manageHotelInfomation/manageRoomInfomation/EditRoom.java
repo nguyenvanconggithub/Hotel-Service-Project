@@ -162,7 +162,7 @@ public class EditRoom extends HttpServlet {
         ArrayList<Bed> listBeds = BedDAO.Instance().getListBed();
         ArrayList<Utilities> listUti = UltilitiesDAO.Instance().getListUtilities();
         ArrayList<RoomUltilities> listOldUti = RoomUltilitiesDAO.Instance().getListRoomUtility(idRoom);
-        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInfor(idHotel);
+        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInfor(idHotel,idRoom);
         ArrayList<RoomImage> listImgRoom = RoomImageDAO.Instance().getListImg(idRoom);
         Hotel HotelInfor = HotelDAO.Instance().getShortHotelInfoByID(idHotel);
         ArrayList<HotelImage> listHotelImg = HotelImageDAO.Instance().getShortHotelInfoByID(idHotel);

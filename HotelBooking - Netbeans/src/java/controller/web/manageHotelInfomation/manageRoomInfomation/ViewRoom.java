@@ -31,7 +31,7 @@ public class ViewRoom extends HttpServlet {
         String idHotel = req.getParameter("id");
         Hotel HotelInfor = HotelDAO.Instance().getShortHotelInfoByID(idHotel);
         ArrayList<HotelImage> listImages = HotelImageDAO.Instance().getShortHotelInfoByID(idHotel);
-        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInfor(idHotel);
+        ArrayList<RoomImage> listRoom = RoomImageDAO.Instance().getShortRoomInforv2(idHotel);
         req.setAttribute("listRoom", listRoom);
         req.setAttribute("hotel", HotelInfor);
         req.setAttribute("listImg", listImages);
@@ -47,7 +47,7 @@ public class ViewRoom extends HttpServlet {
     public static void main(String[] args) {
         //ArrayList<RoomImage> listRoom= RoomImageDAO.Instance().getShortRoomInfor();
         // System.out.println(listRoom.get(0).getRoom().getQuantity());
-        ArrayList<RoomImage> listImages = RoomImageDAO.Instance().getShortRoomInfor("1");
+        ArrayList<RoomImage> listImages = RoomImageDAO.Instance().getShortRoomInforv2("1");
         System.out.println(listImages.size());
     }
 
