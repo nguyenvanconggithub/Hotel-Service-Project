@@ -5,7 +5,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Quản lý đơn đặt - Chủ Khách Sạn</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -21,9 +21,9 @@
     </head>
 
     <body>
-        <!-- Start navigation bar-->
+              <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <a class="navbar-brand" href="home"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,12 +48,27 @@
                                     ${sessionScope.username} 
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
-                                    <a class="dropdown-item" href="/manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
                                     <a class="dropdown-item" href="logout">Đăng xuất</a>
                                 </div>
                             </li>
                         </c:if>
+
+                        <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
                         <c:if test="${sessionScope.role == '0'}">
                             <li class="nav-item">
                                 <div class="dropdown">
@@ -61,8 +76,8 @@
                                         ${sessionScope.username} 
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Quản Trị</a>
-                                        <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="admin">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>
                                 </div>
@@ -75,7 +90,7 @@
         </nav>
         <!-- End Navigation Bar-->
         <div class="jumbotron container my-3 shadow">
-            <h1 class="display-4">Xin Chào, Chủ KS</h1>
+            <h1 class="display-4">Xin Chào, ${sessionScope.username}</h1>
             <p class="lead">Nếu bạn có ý kiến, thắc mắc, góp ý đừng ngại chia sẻ với chúng tôi. Bằng cách gửi phản hồi, bạn
                 đã giúp website nâng cao dịch vụ và bạn sẽ sớm được sử dụng những dịch vụ tốt nhất !</p>
             <hr class="my-4">

@@ -5,7 +5,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Đăng ký tài khoản</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -21,23 +21,71 @@
     </head>
 
     <body>
-        <!-- Start navigation bar-->
+            <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <a class="navbar-brand" href="home"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
-                <ul class='navbar-nav'>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
-                    </li>
-                </ul>
+                <c:if test="${sessionScope.loginStatus != 'logined'}">
+                    <ul class='navbar-nav'>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
+                        </li>
+                    </ul>
+                </c:if>
+                <c:if test="${sessionScope.loginStatus == 'logined'}">
+                    <ul class='navbar-nav'>
+                        <c:if test="${sessionScope.role == '1'}">
+                            <li class="nav-item">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    ${sessionScope.username} 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '2'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == '0'}">
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        ${sessionScope.username} 
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="admin">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </c:if>
+                    </ul>
+                </c:if>
+
             </div>
         </nav>
         <!-- End Navigation Bar-->

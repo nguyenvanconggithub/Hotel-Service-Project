@@ -5,7 +5,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Đặt Khách Sạn Online</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -23,7 +23,7 @@
     <body>
         <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <a class="navbar-brand" href="home"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

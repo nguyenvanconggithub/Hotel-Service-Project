@@ -6,7 +6,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Quản lý đơn đặt - Khách hàng</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -22,9 +22,9 @@
     </head>
 
     <body>
-        <!-- Start navigation bar-->
+              <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <a class="navbar-brand" href="home"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -49,8 +49,8 @@
                                     ${sessionScope.username} 
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
-                                    <a class="dropdown-item" href="/manage-hotel-infomation">Quản lý khách sạn</a>
+                                    <a class="dropdown-item" href="manage-order-hotel-manager">Quản lý đơn đặt</a>
+                                    <a class="dropdown-item" href="manage-hotel-infomation">Quản lý khách sạn</a>
                                     <a class="dropdown-item" href="logout">Đăng xuất</a>
                                 </div>
                             </li>
@@ -63,7 +63,7 @@
                                         ${sessionScope.username} 
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>
                                 </div>
@@ -77,8 +77,8 @@
                                         ${sessionScope.username} 
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="logout">Quản Trị</a>
-                                        <a class="dropdown-item" href="#">Quản lý đơn đặt</a>
+                                        <a class="dropdown-item" href="admin">Quản Trị</a>
+                                        <a class="dropdown-item" href="manage-order-user">Quản lý đơn đặt</a>
                                         <a class="dropdown-item" href="logout">Đăng xuất</a>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@ import model.Room;
 public class DetailBookingDAO {
 
     Connection con;
-    String url = "jdbc:mysql://localhost:3306/hotel";
+    String url = "jdbc:mysql://127.0.0.1:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
     String password = "123456";
@@ -88,7 +88,7 @@ public class DetailBookingDAO {
             OpenConnect();
             Statement stmt = con.createStatement();
             String query = "SELECT * FROM detailbooking JOIN booking ON detailbooking.idBooking=booking.idBooking "
-                    + "WHERE idUser='" + idUser + "' AND idHotel='" + idHotel + "' AND status !=0 ";
+                    + "WHERE idUser='" + idUser + "' AND detailbooking.idHotel='" + idHotel + "' AND status !=0 ";
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next() == false) {
                 count = 0;

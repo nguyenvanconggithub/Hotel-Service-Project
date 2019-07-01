@@ -5,7 +5,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Đăng Nhập</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -23,7 +23,7 @@
     <body>
         <!-- Start navigation bar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-            <a class="navbar-brand" href="#"><img>LOGO</a>
+            <a class="navbar-brand" href="home"><img>LOGO</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -33,10 +33,10 @@
                 <c:if test="${sessionScope.loginStatus != 'logined'}">
                     <ul class='navbar-nav'>
                         <li class="nav-item">
-                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng ký</a>
+                            <a class="btn btn-outline-primary mx-1 save-button" href='register'>Đăng ký</a>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-outline-primary mx-1 save-button" href='#'>Đăng nhập</a>
+                            <a class="btn btn-outline-primary mx-1 save-button" href='login'>Đăng nhập</a>
                         </li>
                     </ul>
                 </c:if>
@@ -55,7 +55,7 @@
                             </li>
                         </c:if>
 
-                            <c:if test="${sessionScope.role == '2'}">
+                        <c:if test="${sessionScope.role == '2'}">
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +69,7 @@
                             </li>
                         </c:if>
 
-                            <c:if test="${sessionScope.role == '0'}">
+                        <c:if test="${sessionScope.role == '0'}">
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,10 +108,10 @@
                                 <!--GET to test form, use POST when coding-->
                                 <form method="POST" action="login">
                                     <c:if test="${requestScope.wrongAccount == 1}">
-                                    <div class="alert alert-danger" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <strong class="text-center" id="messageInfomation">Tài khoản hoặc mật khẩu không chính xác.</strong>
-                                    </div>
+                                        <div class="alert alert-danger" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong class="text-center" id="messageInfomation">Tài khoản hoặc mật khẩu không chính xác.</strong>
+                                        </div>
                                     </c:if>
                                     <div class="form-group">
                                         <label for="tenDangNhap" class="lead font-weight-bold">Tên đăng nhập</label>

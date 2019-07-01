@@ -37,7 +37,7 @@ public class AddRoom extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("get");
+        
         //dương gửi id bên viewroom sang
         String hotelID = req.getParameter("id");
         //hotelID="5";
@@ -72,7 +72,7 @@ public class AddRoom extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("post");
+        req.setCharacterEncoding("UTF-8");
         String hotelID = req.getParameter("id");
         boolean check = true;
         try {

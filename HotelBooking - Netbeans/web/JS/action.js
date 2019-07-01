@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     var web_name_count = 0;
     var web_sologan_count = 0;
-    var web_name = 'KhachSanTotNhat.com';
+    var web_name = 'DatKhachSan.Online';
     var web_sologan = "Khách sạn mơ ước trong tầm tay";
     var speed = 100; /* The speed/duration of the effect in milliseconds */
 
@@ -153,15 +153,17 @@ function addMoreImage(elem) {
 }
 function deleteImage(elem) {
     if (elem != undefined) {
+      	if($('#listRemoveImage').val() != undefined){
+            if (!$('#listRemoveImage').val().includes($(elem).prev().attr("id"))) {
+            	if ($('#listRemoveImage').val() == "") {
+                	$('#listRemoveImage').val($('#listRemoveImage').val() + $(elem).prev().attr("id"));
+            	} else {
+                	$('#listRemoveImage').val($('#listRemoveImage').val() + "-" + $(elem).prev().attr("id"));
+            	}
 
-        if (!$('#listRemoveImage').val().includes($(elem).prev().attr("id"))) {
-            if ($('#listRemoveImage').val() == "") {
-                $('#listRemoveImage').val($('#listRemoveImage').val() + $(elem).prev().attr("id"));
-            } else {
-                $('#listRemoveImage').val($('#listRemoveImage').val() + "-" + $(elem).prev().attr("id"));
-            }
-
+        	}
         }
+
         $(elem).parent().remove();
     }
 }

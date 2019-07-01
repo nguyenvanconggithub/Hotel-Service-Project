@@ -6,7 +6,7 @@
 <html lang="en">
 
     <head>
-        <title>Bootstrap Example</title>
+        <title>Quản trị</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse font-weight-bold justify-content-end" id="navbarColor01">
                 <ul class='navbar-nav'>
                     <li class="nav-item">
-                        <label class="mx-1 text-light">Xin Chào, Administrator</label>
+                        <label class="mx-1 text-light">Xin Chào, ${sessionScope.username} !</label>
                         <hr class="bg-light" />
                     </li>
                     <li class="nav-item">
@@ -56,7 +56,7 @@
                 <!-- This Div collumn for Small Screen Navigation-->
                 <div class="col-12 col-lg-3 col-xl-2 sm-scr bg-dark text-light fullViewHeight"
                      style="position:sticky;top:0;">
-                    <div class="lead mt-5">Xin chào, Administrator !</div>
+                    <div class="lead mt-5">Xin chào, ${sessionScope.username} !</div>
                     <div class="font-italic d-flex justify-content-end my-3"><a href="logout" class="text-light">Đăng xuất</a>
                     </div>
                     <hr class="bg-light" />

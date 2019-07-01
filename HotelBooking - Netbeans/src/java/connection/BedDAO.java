@@ -11,7 +11,7 @@ import model.Bed;
 public class BedDAO {
 
     Connection con;
-    String url = "jdbc:mysql://localhost:3306/hotel";
+    String url = "jdbc:mysql://127.0.0.1:3306/hotel";
     String classDriver = "com.mysql.cj.jdbc.Driver";
     String username = "root";
     String password = "123456";

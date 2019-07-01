@@ -195,7 +195,7 @@ public class OrderHotel extends HttpServlet {
             count++;
         }
         //redirect to detail screen
-        String redirectURL = "detail-booking?idBooking=" + idBooking;
+        String redirectURL = "order-detail?idBooking=" + idBooking;
         resp.sendRedirect(redirectURL);
     }
 }
