@@ -74,6 +74,7 @@ public class AddRoom extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String hotelID = req.getParameter("id");
+        req.setAttribute("id", hotelID);
         boolean check = true;
         try {
             String username = (String) req.getSession().getAttribute("username");

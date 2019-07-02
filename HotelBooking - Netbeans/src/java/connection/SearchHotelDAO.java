@@ -64,8 +64,10 @@ public class SearchHotelDAO {
             xuLyLikeAddress += " address like '%" + a[i] + "%' OR";
         }
 
-        xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
-        xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
+        if (xuLyLikeAddress.length() >= 2) {
+            xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
+            xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
+        }
         
 //        xuLyLikeAddress=xuLyLikeAddress.replace("'","");
 //        xuLyLikeHotelName=xuLyLikeHotelName.replace("'","");
@@ -162,8 +164,10 @@ public class SearchHotelDAO {
             xuLyLikeAddress += " address like '%" + a[i] + "%' OR";
         }
 
-        xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
-        xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
+        if (xuLyLikeAddress.length() >= 2) {
+            xuLyLikeAddress = xuLyLikeAddress.substring(0, xuLyLikeAddress.length() - 2);
+            xuLyLikeHotelName = xuLyLikeHotelName.substring(0, xuLyLikeHotelName.length() - 2);
+        }
 
         try {
             OpenConnect();
