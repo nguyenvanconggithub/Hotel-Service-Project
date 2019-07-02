@@ -163,7 +163,7 @@ public class UserDAO {
         ArrayList<User> list = new ArrayList<>();
         try {
             OpenConnect();
-            String query = "SELECT * FROM account JOIN user ON account.userName=user.userName WHERE role!=0 LIMIT ?,?";
+            String query = "SELECT * FROM account JOIN user ON account.userName=user.userName WHERE role = 1 OR role = 2 LIMIT ?,?";
             PreparedStatement prestmt = con.prepareStatement(query);
             prestmt.setInt(1, (page - 1) * itemsPerPage);
             prestmt.setInt(2, itemsPerPage);

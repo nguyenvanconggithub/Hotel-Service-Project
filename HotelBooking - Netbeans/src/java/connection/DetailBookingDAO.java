@@ -88,7 +88,7 @@ public class DetailBookingDAO {
             OpenConnect();
             Statement stmt = con.createStatement();
             String query = "SELECT * FROM detailbooking JOIN booking ON detailbooking.idBooking=booking.idBooking "
-                    + "WHERE idUser='" + idUser + "' AND detailbooking.idHotel='" + idHotel + "' AND status !=0 ";
+                    + "WHERE idUser=" + idUser + " AND booking.idHotel=" + idHotel + " AND status !=0 ";
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next() == false) {
                 count = 0;
