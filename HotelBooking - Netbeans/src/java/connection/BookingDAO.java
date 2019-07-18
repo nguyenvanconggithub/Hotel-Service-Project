@@ -300,8 +300,8 @@ public class BookingDAO {
         ArrayList<Booking> list= new ArrayList<>();
          try {
             OpenConnect();
-            String query=" SELECT month(bookingTime) AS 'time',count(idbooking) AS'quantity'"
-                    + " FROM booking group by month(bookingTime)";
+            String query=" SELECT month(bookingTime) AS 'time',count(idbooking) AS'quantity' "
+                    + "FROM booking where year(bookingTime)=year(now()) group by month(bookingTime);";
             PreparedStatement preStmt = con.prepareStatement(query);
             ResultSet rs = preStmt.executeQuery();
             while(rs.next()){

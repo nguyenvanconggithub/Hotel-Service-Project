@@ -36,6 +36,9 @@
                         <hr class="bg-light" />
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-light mx-1" href="home">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-light mx-1" href='manage-account'>Quản Lý Tài Khoản</a>
                     </li>
                     <li class="nav-item">
@@ -58,6 +61,9 @@
                     </div>
                     <hr class="bg-light" />
                     <ul class="nav flex-column mt-5">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="home">Trang Chủ</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light active" href="manage-account">Quản Lý Tài Khoản</a>
                         </li>
@@ -100,7 +106,7 @@
                             </tbody>
                         </table>
                         <table class="table table-striped table-hover tablet mobile">
-                        <c:set var="count" value="0"></c:set>
+                            <c:set var="count" value="0"></c:set>
                             <c:forEach var="oneBookingInfo" items="${requestScope.fullBookingInfoM}">
                                 <tr class="row">
                                     <th class="col-6">#IDBooking</th>

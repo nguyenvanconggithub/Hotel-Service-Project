@@ -1,247 +1,330 @@
-    /* Remove the navbar's default rounded borders and increase the bottom margin */
-    
-    .navbar {
-        margin-bottom: 0;
-        border-radius: 0;
-        position: sticky;
-        top: 0;
-        z-index: 999999;
-    }
-    /* Remove the jumbotron's default bottom margin */
-    
-    .masthead {
-        min-height: 100vh;
-        /*min-height: 500px;*/
-        background-image: url('../images/hotel-head-img.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        margin-bottom: 50px;
-    }
-    
-    .li-active a {
-        color: rgb(75, 75, 247) !important;
-    }
-    
-    .li-active>a:hover {
-        color: rgb(0, 105, 217) !important;
-    }
-    
-    .save-button {
-        width: 120px;
-    }
-    
-    .h-150px {
-        height: 150px;
-    }
-    
-    .h-300px {
-        height: 300px;
-    }
-    
-    .opacity-animated {
-        -webkit-animation-name: searchRoomAnimated;
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 2s;
-        /* Safari 4.0 - 8.0 */
-        animation-name: searchRoomAnimated;
-        animation-duration: 2s;
-    }
-    /* Safari 4.0 - 8.0 */
-    
-    @-webkit-keyframes searchRoomAnimated {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    /* Standard syntax */
-    
-    @keyframes searchRoomAnimated {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    
-    .opacity-50-100 {
-        opacity: 0.5 !important;
-    }
-    
-    .opacity-50-100:hover {
-        -webkit-animation-name: op50-100;
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 0.5s;
-        /* Safari 4.0 - 8.0 */
-        animation-name: op50-100;
-        opacity: 1 !important;
-        animation-duration: 0.5s;
-    }
-    .separatorContainer:hover .separator{
-        -webkit-animation-name: fullWidth;
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 1s;
-        /* Safari 4.0 - 8.0 */
-        animation-name: fullWidth;
-        width: 100%;
-        animation-duration: 1s;
-    }
-    /* Safari 4.0 - 8.0 */
-    
-    @-webkit-keyframes op50-100 {
-        from {
-            opacity: 0.5;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    /* Standard syntax */
-    
-    @keyframes op50-100 {
-        from {
-            opacity: 0.5;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    @-webkit-keyframes fullWidth {
-        from {
-            width: 0%;
-        }
-        to {
-            width: 100%;
-        }
-    }
-    /* Standard syntax */
-    
-    @keyframes fullWidth{
-        from {
-            width: 0%;
-        }
-        to {
-            width: 100%;
-        }
-    }
-    
-    .sologan {
-        margin-bottom: 10vh;
-    }
-    
-    .modal-dialog {
-        min-width: 100%;
-        margin-top: 60px;
-    }
-    
-    .modal-body {
-        height: 70vh;
-    }
-    
-    .hotel-img img {
-        width: 100%;
-        height: 50vh;
-    }
-    
-    .room-img img {
-        object-fit: contain;
-        width: 100%;
-        height: 65vh;
-    }
-    
-    .grayscale {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-    }
-    
-    .storeImg,
-    .storeImg img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .add_hotel_card:hover .card-header {
-        background-color: #007bff !important;
-    }
-    .fullViewHeight {
-        height: 100vh;
-    }
-    .tablet,
-    .mobile {
-        display: none;
-    }
-    .sticky {
-        position: sticky;
-        top:0;
-    }
-    .separator {
-        background-color: #007bff;
-        height: 2px;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .text-shadow-blur {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
-    }
-    /* Add a gray background color and some padding to the footer */
-    
-    .cursor-pointer {
-        cursor: pointer;
-    }
-    .square-150x150 {
-        width: 150px !important;
-        height: 150px !important;
-        position: absolute;
-    }
+/* Remove the navbar's default rounded borders and increase the bottom margin */
 
-    .opacity-0 {
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    z-index: 999999;
+}
+/* Remove the jumbotron's default bottom margin */
+
+.masthead {
+    min-height: 100vh;
+    /*min-height: 500px;*/
+    background-image: url('../images/hotel-head-img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-bottom: 50px;
+}
+
+.li-active a {
+    color: rgb(75, 75, 247) !important;
+}
+
+.li-active>a:hover {
+    color: rgb(0, 105, 217) !important;
+}
+
+.save-button {
+    width: 120px;
+}
+
+.h-150px {
+    height: 150px;
+}
+
+.h-300px {
+    height: 300px;
+}
+
+.opacity-animated {
+    -webkit-animation-name: searchRoomAnimated;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: searchRoomAnimated;
+    animation-duration: 2s;
+}
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes searchRoomAnimated {
+    from {
         opacity: 0;
     }
-    .dark-mode .pagination>li>a,
+    to {
+        opacity: 1;
+    }
+}
+/* Standard syntax */
+
+@keyframes searchRoomAnimated {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.opacity-50-100 {
+    opacity: 0.5 !important;
+}
+
+.opacity-50-100:hover {
+    -webkit-animation-name: op50-100;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: op50-100;
+    opacity: 1 !important;
+    animation-duration: 0.5s;
+}
+.separatorContainer:hover .separator{
+    -webkit-animation-name: fullWidth;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: fullWidth;
+    width: 100%;
+    animation-duration: 1s;
+}
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes op50-100 {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Standard syntax */
+
+@keyframes op50-100 {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fullWidth {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* Standard syntax */
+
+@keyframes fullWidth{
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.sologan {
+    margin-bottom: 10vh;
+}
+
+.modal-dialog {
+    min-width: 100%;
+    margin-top: 60px;
+}
+
+.modal-body {
+    height: 70vh;
+}
+
+.hotel-img img {
+    width: 100%;
+    height: 50vh;
+}
+
+.room-img img {
+    object-fit: contain;
+    width: 100%;
+    height: 65vh;
+}
+
+.grayscale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.storeImg,
+.storeImg img {
+    width: 40px;
+    height: 40px;
+}
+
+.add_hotel_card:hover .card-header {
+    background-color: #007bff !important;
+}
+.fullViewHeight {
+    height: 100vh;
+}
+.tablet,
+.mobile {
+    display: none;
+}
+.sticky {
+    position: sticky;
+    top:0;
+}
+.separator {
+    background-color: #007bff;
+    height: 2px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.text-shadow-blur {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+}
+/* Add a gray background color and some padding to the footer */
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.square-150x150 {
+    width: 150px !important;
+    height: 150px !important;
+    position: absolute;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+.dark-mode .pagination>li>a,
 .dark-mode .pagination>li>span{
-  border: 1px solid black;
-  color:black;
+    border: 1px solid black;
+    color:black;
 }
 .dark-mode .page-item.active .page-link{
     border: 1px solid black;
 }
 .dark-mode .pagination>li.active>a {
-  background: gray;
-  color: #fff;
+    background: gray;
+    color: #fff;
 }
-    footer {
-        background-color: #f2f2f2;
-        padding: 25px;
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+.big-scr {
+    display:none;
+}
+@media (max-width: 768px) {
+    .sologan {
+        display: none;
+    }
+    .album-slide-show {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .laptop {
+        display: none;
+    }
+    .tablet,
+    .mobile {
+        display: table;
     }
     .big-scr {
+        display: flex;
+    }
+    .sm-scr {
         display:none;
     }
-    @media (max-width: 768px) {
-        .sologan {
-            display: none;
-        }
-        .album-slide-show {
-            display: none;
-        }
-    }
-    
-    @media (max-width: 991px) {
-        .laptop {
-            display: none;
-        }
-        .tablet,
-        .mobile {
-            display: table;
-        }
-        .big-scr {
-            display: flex;
-        }
-        .sm-scr {
-            display:none;
-        }
-    }
+}
+
+
+
+
+.large {
+    font-size: 2em; }
+
+.text-muted {
+    color: #c5c7cc; }
+
+.color-blue {
+    color: #30a5ff; }
+
+.color-teal {
+    color: #1ebfae; }
+
+.color-orange {
+    color: #ffb53e; }
+
+.color-red {
+    color: #f9243f; }
+
+.no-padding {
+    padding: 0;
+    margin: 0; }
+
+.fa-xl {
+    font-size: 2em; }
+.panel {
+    border: 0; }
+
+.panel-container {
+    padding-top: 20px; }
+
+
+.panel-blue {
+    background: #30a5ff;
+    color: #fff; }
+
+.panel-teal {
+    background: #1ebfae;
+    color: #fff; }
+
+.panel-orange {
+    background: #ffb53e;
+    color: #fff; }
+
+.panel-red {
+    background: #f9243f;
+    color: #fff; }
+
+
+.panel-widget {
+    padding: 10px 0;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+    background: none;
+    text-align: center;
+    color: #333; }
+
+
+
+.panel-widget .text-muted {
+    margin-top: -6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em; }
+
+.panel-widget .large {
+    color: #373b45;
+    font-size: 3em; }
+
+.border-right {
+    border-right: 1px solid #dadbda; }
+
+
+.panel .border-top, .panel .border-right, .panel .border-bottom, .panel .border-left {
+    border-color: #e9ecf2; }
+
+#chart{
+    padding-top: 20px;
+}

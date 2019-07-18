@@ -20,7 +20,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <link rel="stylesheet" type="text/css" href="CSS/style.css">
+        <link rel="stylesheet" type="text/css" href="CSS\style.css">
     </head>
 
     <body>
@@ -37,6 +37,9 @@
                     <li class="nav-item">
                         <label class="mx-1 text-light">Xin Chào, ${sessionScope.username} !</label>
                         <hr class="bg-light" />
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light mx-1" href='home'>Trang Chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light mx-1" href='manage-account'>Quản Lý Tài Khoản</a>
@@ -62,6 +65,9 @@
                     <hr class="bg-light" />
                     <ul class="nav flex-column mt-5">
                         <li class="nav-item">
+                            <a class="nav-link text-light active" href="home">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-light active" href="manage-account">Quản Lý Tài Khoản</a>
                         </li>
                         <li class="nav-item">
@@ -77,7 +83,7 @@
                                 <div class="panel panel-teal panel-widget border-right">
                                     <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
                                         <div class="large">120</div>
-                                        <div class="text-muted">New Orders</div>
+                                        <div class="text-muted">Đơn mới</div>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +91,7 @@
                                 <div class="panel panel-blue panel-widget border-right">
                                     <div class="row no-padding"><em class="fa fa-xl fa-comments color-orange"></em>
                                         <div class="large">52</div>
-                                        <div class="text-muted">Comments</div>
+                                        <div class="text-muted">Phản hồi</div>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +99,7 @@
                                 <div class="panel panel-orange panel-widget border-right">
                                     <div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
                                         <div class="large">24</div>
-                                        <div class="text-muted">New Users</div>
+                                        <div class="text-muted">Người dùng mới</div>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +107,7 @@
                                 <div class="panel panel-red panel-widget ">
                                     <div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
                                         <div class="large">25.2k</div>
-                                        <div class="text-muted">Page Views</div>
+                                        <div class="text-muted">Lượt xem</div>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +147,7 @@
             var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
 
             //define options for visualization
-            var options = {width: 700, height: 300, is3D: true, title: 'Thống kê số lượng đặt'};
+            var options = {width: 1200, height: 500, is3D: true, title: 'Thống kê số lượng đặt'};
 
             //draw our chart
             chart.draw(dataTable, options);

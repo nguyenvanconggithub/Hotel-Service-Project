@@ -35,6 +35,9 @@
                         <label class="mx-1 text-light">Xin Chào, ${sessionScope.username} !</label>
                         <hr class="bg-light" />
                     </li>
+                        <li class="nav-item">
+                        <a class="nav-link text-light mx-1" href='home'>Trang chủ</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-light mx-1" href='manage-account'>Quản Lý Tài Khoản</a>
                     </li>
@@ -58,6 +61,9 @@
                     </div>
                     <hr class="bg-light" />
                     <ul class="nav flex-column mt-5">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="home">Trang Chủ</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light active" href="manage-account">Quản Lý Tài Khoản</a>
                         </li>
